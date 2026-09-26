@@ -1,0 +1,55 @@
+version: "v0.4"
+project:
+  name: Continuous group cohomology
+  description: >-
+    Native Lean core for continuous cohomology in degrees zero and one,
+    degree-one transfer, topological quotients, finite-group coinvariants
+    and negative deflation, and compact Hausdorff additive-group limit models.
+  authors:
+    - Formal Frontier Agents
+  license: Apache-2.0
+sources:
+  - title: Native-core continuous group cohomology (original Formal Frontier development)
+    type: original-development
+    relationship: other
+    note: >-
+      This is original project development, not a fictional publication,
+      a claim that every result is new, or a source-coverage decision.
+      Existing mathlib and finite-group Tate results are reused. The
+      native-core assembly was a scoped preparation, as of 2026-09-26,
+      using previously accepted ordinary mathematical components. This
+      preparation note does not report any later exact-commit acceptance
+      or publication; those decisions belong in their external records.
+related_formalizations:
+  - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
+    relationship: builds-on
+  - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796
+    relationship: builds-on
+    note: Pinned official private dependency; not a whole-library review or rights determination.
+automation:
+  methods:
+    - method: agent
+      framework: Hive Tasks and Codex CLI
+      tool_setup: >-
+        AI agents developed Lean proofs and documentation with Lake, Lean,
+        mathlib and independent agent review of scoped contributions.
+  notes: >-
+    Authoring was AI-assisted. At the 2026-09-26 preparation checkpoint,
+    the root/client and scoped packaging did not inherit first-release
+    approval from earlier independently reviewed mathematical components.
+    Any later exact-commit decision is recorded separately.
+review:
+  status: other
+  notes: >-
+    Earlier accepted development contributions received scoped independent
+    reviews, including the subsequent native finite/compact and restricted
+    leaves. At the 2026-09-26 preparation checkpoint, the newly prepared
+    root/client and bounded removal had not received independent exact-candidate
+    review. This dated note neither overrides any later external acceptance
+    record nor asserts whole-source coverage.
+acknowledgements: >-
+  Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
+  original contributor/reviewer roles and the repaired pinned mathlib
+  ModuleCat universe-lift attribution are identified in docs/attribution.md.
+  Whole-artifact rights and history review remained separate at the
+  2026-09-26 preparation checkpoint.

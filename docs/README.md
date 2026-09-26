@@ -1,0 +1,124 @@
+# Native API reference: reproduction and limits
+
+The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
+28 shipped production modules (including the aggregate public root and 27
+leaves) and all eight checked-use clients, with separate inventories. This is
+a declaration and native instance-table index, **not** a full HTML website,
+proof-body report or source-coverage claim. Module prose is in the Lean files;
+private proof bodies and upstream dependency docstrings are not shipped here.
+Undocumented entries carry clearly marked original catalogue prose rather than
+invented Lean docstrings. Lean's native pretty-printer can abbreviate some
+rendered types as `⋯`; follow the linked source for the unabbreviated source
+statement and its exact hypotheses. The original source is not an expanded
+elaborated type. Generated constructor/projection entries may link to their
+parent structure instead of having a separately spelled source declaration.
+
+## Frozen inputs
+
+The **analyzed source** is the comment/notice-only native successor
+`afd0296d5138cc87f365aebe1d6d6d33c5546ba9` (tree
+`cfb84abe6f06142f5c898f22a5a2fe9760fbc6a6`) on Lean
+`leanprover/lean4:v4.34.0-rc2`, mathlib
+`e37d88a26f3791ed5a93daa1f949af1021b8d103` and private official
+finite-group Tate `19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796`.
+The analyzed identity binds the 36 Lean module files and the three pinned
+toolchain/Lake files by SHA-256 in the adapter and manifest. It does **not**
+claim the later documentation commit has the same tree, and a source-only
+archive does not need the historical Git object. The exact documentation
+commit/tree must be bound separately by the maintainer's review and lifecycle
+record. Do not update the pinned Lake manifest during reproduction.
+
+**Native input provenance is mixed and explicit:** 35 records come from the
+previous complete `f73154dfa181cc8fd00a102c58f221940a335ad0` extraction;
+only `examples.NativeCore` was re-extracted against `afd0296`. The 35
+reused signatures, import rows, native instance records and Lean declaration
+docstrings still match the final source byte-for-byte where relevant. A
+source-anchored line audit maps the nine declarations in `NestedInvariants`
+and 18 in `TopModuleCatUlift` from native line `n` to final-source line
+`n + 4`; every other reused declaration retains its line. `NativeCore` has
+two revised source comments (one declaration docstring), so its record must
+not be reused. The JSON manifest records both raw origins and every original
+and final anchor; neither old native line numbers nor old source URLs are
+passed off as newly extracted. The 35 externally retained raw files are
+necessary inputs to replay this exact hybrid output, but their original Git
+commit object is **not**.
+
+The tool is genuine upstream `leanprover/doc-gen4` revision
+`97d4ecdfc8e09e7f511724c25e303d448de6a3db`, tree
+`ebf77f3e174c145c9ca2db0df1c18a78ae87c93b`, in an **independent**
+checkout with its own pinned manifest and toolchain; it is not a new
+dependency of this library. The adapter's revision arguments are mandatory
+identity checks, not a substitute for verifying the actual tool executable.
+`https://example.invalid/commit/...` inside the *external raw native data*
+is only an inert exact-input marker; the shipped Markdown uses local relative
+source links instead. No native raw data, SQLite or doc-gen website assets
+belong in the source tree.
+
+## Reproduce
+
+After obtaining authorized access to the official private Tate dependency,
+use the project-pinned Lean/Lake toolchain and fetch the matching mathlib cache
+**successfully before any project build**. Build the root and clients once as
+needed to obtain `.olean` files for the *renewed NativeCore module*. Keep builds
+sequential and monitor actual memory and process use rather than assuming
+`LEAN_NUM_THREADS` sets a process or memory cap:
+
+```sh
+elan toolchain install "$(cat lean-toolchain)"
+lake exe cache get
+LEAN_NUM_THREADS=2 lake --wfail build examples.NativeCore
+```
+
+In a separate checkout, verify the doc-gen4 commit/tree above, keep its pinned
+Lean/manifest inputs intact, and build `lake build doc-gen4` in its own
+environment. If `cc` is absent, prepend `$(dirname "$(elan which lean)")` to
+`PATH`. Choose a fresh *external* directory (`OUT`) and re-extract only the
+changed client record. Copy the 35 first-run records from the external
+evidence packet to a second **external** `RAW` directory; no first-run
+SQLite or website files are copied into the library:
+
+```sh
+TOOL=/path/to/doc-gen4/.lake/build/bin/doc-gen4
+OUT=/path/to/fresh/external-output
+RAW=/path/to/external-hybrid-raw
+REV=afd0296d5138cc87f365aebe1d6d6d33c5546ba9
+mkdir -p "$OUT/build" "$OUT/render" "$RAW"
+cp /path/to/first-run/raw/declaration-data-*.bmp "$RAW/"
+LEAN_NUM_THREADS=2 lake env "$TOOL" single --build "$OUT/build" examples.NativeCore \
+  "$OUT/build/nativecore.db" "https://example.invalid/commit/$REV/examples/NativeCore.lean"
+"$TOOL" bibPrepass --build "$OUT/render" --none
+"$TOOL" fromDb --build "$OUT/render" --manifest "$OUT/render/manifest.json" \
+  "$OUT/build/nativecore.db" examples.NativeCore
+cp "$OUT/render/doc-data/declaration-data-examples.NativeCore.bmp" "$RAW/"
+python3 -B scripts/test_generate_api.py --native-data "$RAW"
+python3 -B scripts/generate_api.py --native-data "$RAW" \
+  --source-revision "$REV" \
+  --docgen-revision 97d4ecdfc8e09e7f511724c25e303d448de6a3db --check
+```
+
+`lakefile.lean` is a hashed **build input**, not a documented Lean module.
+For pure source-only/no-Git replay of the adapter, provide the 36 **already
+captured external** raw records and the checked 39 source/pin files: no
+historical source commit object, website build or network Git is required.
+One complete original SQLite and the separately renewed NativeCore SQLite
+are retained in the sibling evidence branch. The owner directed **no second
+full extraction** while coordinating the source fix; thus two fresh full
+native-directory/SQLite comparisons are **not performed** for this candidate,
+and that gap is not a reproducibility pass. The adapter refuses altered
+input bytes, revisions, unknown native shapes, declaration names/kinds/rows,
+instances, import rows, links, active HTML, extra records, Python optimization
+and stale generated output before writing. The data-only test suite cannot
+certify that a third party truly ran doc-gen4: its preserved external raw
+records, SQLite, logs and pinned tool build are separate evidence.
+
+## Authorship and status
+
+The Apache-2.0 mixed-kind generator/test design was adapted from the accepted
+profinite-groups `79c4bcf23fa81319f9e3936be3f804421c7b98c3`, itself
+adapted from the accepted finite-group Tate generator and earlier project
+expressions; precise lineage is in the scripts and [attribution](attribution.md).
+As of **2026-09-26**, this documentation work is an unaccepted successor to
+the comment/notice-only final native source: neither its authorship nor native extraction certifies
+proof integrity, full third-party rights, whole-release readiness, or source
+coverage. Later exact-commit external review/acceptance records supersede this
+dated status; this document does not preempt them.
