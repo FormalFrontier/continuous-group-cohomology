@@ -14,7 +14,9 @@ public import ContinuousGroupCohomology.ContinuousCohomologyUlift
 public import ContinuousGroupCohomology.ContinuousGroupExtension
 public import ContinuousGroupCohomology.Corestriction
 public import ContinuousGroupCohomology.DegreeOne
+public import ContinuousGroupCohomology.ExceptionalDeflation
 public import ContinuousGroupCohomology.FiniteCoinvariants
+public import ContinuousGroupCohomology.FiniteDeflationTransitivity
 public import ContinuousGroupCohomology.FiniteNegativeDeflation
 public import ContinuousGroupCohomology.GroupExtensionUlift
 public import ContinuousGroupCohomology.HomogeneousCochainsUlift
@@ -36,8 +38,8 @@ public import ContinuousGroupCohomology.TopologicalQuotientConjugationAction
 # Continuous group cohomology: native core
 
 The public root reexports the low-degree continuous cohomology and transfer
-interface, topological quotients and actions, finite coinvariants and negative
-deflation, and compact or restricted finite-stage constructions. All shipped
+interface, topological quotients and actions, finite coinvariants, exceptional
+deflation and its transitivity, and compact or restricted finite-stage constructions. All shipped
 production modules are native Lean modules and reachable through this root.
 
 Finite-group statements require the indicated finite-group hypotheses; compact

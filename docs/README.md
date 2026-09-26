@@ -1,8 +1,12 @@
 # Native API reference: reproduction and limits
 
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
-28 shipped production modules (including the aggregate public root and 27
-leaves) and all eight checked-use clients, with separate inventories. This is
+**historical analyzed graph** of 28 production modules (including the aggregate
+public root and 27 leaves) and eight checked-use clients, with separate inventories.
+They do **not** cover the current 29-leaf/ten-client graph, its two additional
+production modules, two direct clients or updated aggregate root. Consult the
+[manual finite-deflation guide](FiniteDeflation.md) and actual current sources.
+This historical snapshot is
 a declaration and native instance-table index, **not** a full HTML website,
 proof-body report or source-coverage claim. Module prose is in the Lean files;
 private proof bodies and upstream dependency docstrings are not shipped here.
@@ -54,10 +58,13 @@ is only an inert exact-input marker; the shipped Markdown uses local relative
 source links instead. No native raw data, SQLite or doc-gen website assets
 belong in the source tree.
 
-## Reproduce
+## Reproduce the historical snapshot
 
-After obtaining authorized access to the official private Tate dependency,
-use the project-pinned Lean/Lake toolchain and fetch the matching mathlib cache
+Use the **frozen analyzed source inputs and original manifest** described above,
+not this current checkout's changed Lake pins/root/import graph, to reproduce
+this generated snapshot. After obtaining authorized access to the official
+private historical Tate dependency, use that source's pinned Lean/Lake toolchain
+and fetch the matching mathlib cache
 **successfully before any project build**. Build the root and clients once as
 needed to obtain `.olean` files for the *renewed NativeCore module*. Keep builds
 sequential and monitor actual memory and process use rather than assuming
@@ -117,8 +124,20 @@ The Apache-2.0 mixed-kind generator/test design was adapted from the accepted
 profinite-groups `79c4bcf23fa81319f9e3936be3f804421c7b98c3`, itself
 adapted from the accepted finite-group Tate generator and earlier project
 expressions; precise lineage is in the scripts and [attribution](attribution.md).
-As of **2026-09-26**, this documentation work is an unaccepted successor to
-the comment/notice-only final native source: neither its authorship nor native extraction certifies
-proof integrity, full third-party rights, whole-release readiness, or source
-coverage. Later exact-commit external review/acceptance records supersede this
-dated status; this document does not preempt them.
+The original 2026-09-26 documentation preparation described an unaccepted
+successor to the comment/notice-only native source. The prior native core is
+subsequently accepted at `e7fc83dc3ab35aafde40ac55e3666dac9c2b9015`
+and published in official `be74358d7b1140e76ab6b2ad72f6aa068138e687`
+(same tree). This historical extraction does not certify the **current**
+finite-deflation contribution's proof integrity, third-party rights, whole-release
+readiness or source coverage. The combined finite-deflation contribution received
+its own independent review and ordinary acceptance on 2026-09-26 at
+`c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26`, using an applicable successful
+build and the then-available transitive standard-axiom audit. Subsequent release
+review found that ordinary imports had omitted private declarations from that
+audit. An explicit full-module import audit corrected the omission before
+publication: all 1,962 stored repository declarations, including private and
+generated declarations, use only the three standard axioms. The earlier
+incomplete output remains preserved in the review records. The historical
+extraction limits above remain recorded; fresh documentation extraction is not
+a release prerequisite. Exact release and publication decisions remain separate.

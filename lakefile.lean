@@ -11,17 +11,19 @@ require mathlib from git
 
 require finiteGroupTateCohomology from git
   "https://github.com/FormalFrontier/finite-group-tate-cohomology.git" @
-    "19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796"
+    "fda003db3d06774f28b47232e8248852ffdbfc0d"
 
 @[default_target]
 lean_lib ContinuousGroupCohomology
 
--- Compile all eight native clients in both the named and default targets.
+-- Compile all ten native clients in both the named and default targets.
 @[default_target]
 lean_lib CGCExamples where
   roots := #[
     `examples.CompactFoundationNative,
+    `examples.ExceptionalDeflationNative,
     `examples.FiniteCoinvariantsNative,
+    `examples.FiniteDeflationTransitivityNative,
     `examples.FiniteNegativeNative,
     `examples.LevelCompactNative,
     `examples.LevelCompactNormNative,

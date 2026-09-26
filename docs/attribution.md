@@ -1,4 +1,4 @@
-# Attribution, origin and outstanding rights review
+# Attribution, origin and release-review boundaries
 
 **Authors: Formal Frontier Agents.** This is collective formalization credit,
 not an assertion of copyright ownership. Original authorized Formal Frontier
@@ -49,8 +49,41 @@ remove or replace authentic third-party notices in retained files.
   `examples/NativeCore.lean`, documentation and bounded removal are prepared
   by Worker B Hive Task
   `hive-request-8944bf2a7ffaf993cffb9ddddf08e4c38e297ac6`, UID
-  `93d98c92-2373-40f4-9ad4-9a954bfd9909`. No independent review of this
-  candidate or source-coverage acceptance is represented by this authorship.
+  `93d98c92-2373-40f4-9ad4-9a954bfd9909`. This original authorship did not
+  itself establish a review; the accepted predecessor core is
+  `e7fc83dc3ab35aafde40ac55e3666dac9c2b9015` (tree
+  `4a8ec8e5f448fa12f00385b30d0fc95b8ca79e65`), separately published as
+  official `be74358d7b1140e76ab6b2ad72f6aa068138e687` with the same tree.
+  That release and original authorship do not, by themselves, accept later
+  contributions or establish source coverage.
+- The exceptional finite-deflation and transitivity leaves and two direct
+  clients preserve the original Beacon development from
+  `29aa96b09294de3114b06da049d5e2f6b35fb56d` (tree
+  `a3b7cac6c1bdc255cbd6c5dec18ccc4535de9f96`). Worker-a Hive Task
+  `hive-request-d041f7d11e77baf304eff2577a5b7208816dee14` (UID
+  `b057a504-ff63-42ee-9ff2-7e1032534587`) independently reviewed the
+  **old, unaccepted P2** component at `612e93e532a639876bebcca34e040ad52a1c362e`
+  (issue #95 comment 45223); comment 45222 records historical context.
+  Its conditional component verdict is not a review of this combined candidate.
+  Worker-b Hive Task `hive-request-1b2effb109cbe1c5d58d117c531264a233407f52`
+  (UID `cce9d5e7-93b4-4389-8a9c-4243177704df`) selectively restored
+  those exact four source blobs on accepted core
+  `e7fc83dc3ab35aafde40ac55e3666dac9c2b9015`, wired native targets,
+  updated the published Tate pin and wrote the manual guide. The exact combined
+  contribution `c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26` then received
+  fresh independent Worker-a review by Task
+  `hive-request-f139e336e97ab3fe7242e258c5c79f30b9530847` (UID
+  `76537da1-7962-450b-85e2-5acd85d95ca7`), native PR #110 review 3532,
+  followed by Beacon's acceptance and integration on 2026-09-26. This review
+  inspected the recovered APIs, whole file tree, provenance and notices; it
+  reused the unchanged accepted core, applicable build and then-available axiom
+  audit. Subsequent release review by Worker-a Task
+  `hive-request-2b345f041f211b1b794c01595e841ebac6c2a4e2` (UID
+  `24595926-70a1-46de-ad84-be62a8a36d4f`) found and corrected that audit's
+  omitted private declarations using explicit full-module imports; the corrected
+  1,962-declaration audit uses only the standard axioms. The original incomplete
+  output and its correction remain distinct in the review records. The earlier
+  PR #110 review did not approve an as-yet unconstructed successor release history.
 
 These scoped author/reviewer roles come from the original files, accepted
 Git history and issue #95's exact-candidate review records, not merely from
@@ -63,11 +96,13 @@ Lean/mathlib (continuous cohomology, group homology, topological modules and
 quotient actions) and the official private finite-group Tate library. In
 particular, `FiniteNegativeDeflation.lean` imports the latter's
 `Norm.lean` and uses its quotient norm construction. The declared official
-dependency revision is `19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796`,
-not the previous official revision `65002a587774fa31cd237ab296c79258ceebab3f`
+dependency revision is `fda003db3d06774f28b47232e8248852ffdbfc0d`
+(tree `858b405f7bad72e44285f0816cc6cd0607f24bec`), not the previous
+official revision `19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796`
 or a Forgejo development pin. Referencing these upstream APIs does not make
 their underlying proof expression a new Formal Frontier contribution. Further
-dependency-closure expression, license and notice assessment is still required.
+dependency-closure expression, license and notice assessment is part of each
+applicable exact-release review, not implied by an API import alone.
 At the **2026-09-26** documentation checkpoint, an independent source-quality
 assessment identified adaptation in `TopModuleCatUlift.lean` lines 51–78 of
 pinned mathlib `Mathlib/Algebra/Category/ModuleCat/Ulift.lean`, blob
@@ -76,8 +111,10 @@ pinned mathlib `Mathlib/Algebra/Category/ModuleCat/Ulift.lean`, blob
 `afd0296d5138cc87f365aebe1d6d6d33c5546ba9` preserves Nailin Guan's
 2025 copyright and Apache notice alongside Formal Frontier/Beacon topological
 development credit in the Lean file header. The earlier `f73154d` input did
-not identify that adaptation. This scoped repair needs fresh rights/history
-assessment and is not an all-artifact clearance.
+not identify that adaptation. The repaired source was subsequently included
+in the independently reviewed accepted native core; its scoped correction alone
+was not an all-artifact clearance. New expression and release history still need
+their applicable rights assessment.
 No source PDF, extracted source passage or internal research file is shipped.
 
 The accepted origin-header correction `031b20f4ffae4df8a287144e7df3c690e7ced249`
@@ -108,7 +145,7 @@ clients are likewise excluded; any claims or notices applicable solely to
 them must be assessed if they are shipped in a later scope. Contributors to
 surviving work remain credited above.
 
-## Native API documentation (2026-09-26)
+## Historical native API documentation (2026-09-26)
 
 Worker-b Hive Task
 `hive-request-cca415cd0c40e1f555e1a385d1289c4864a3aee4` (UID
@@ -118,7 +155,10 @@ tests, first against frozen **unaccepted** core
 `f73154dfa181cc8fd00a102c58f221940a335ad0`, then rebinding the result
 to the maintainer's comment/notice-only final source
 `afd0296d5138cc87f365aebe1d6d6d33c5546ba9` with explicitly reused
-native inputs and a renewed affected client record.
+native inputs and a renewed affected client record. That frozen index does not
+analyze the subsequently recovered exceptional deflation/transitivity leaves,
+clients, changed root or renewed Tate pin; the current manual API guide is
+[FiniteDeflation.md](FiniteDeflation.md).
 The Apache-2.0 donor is the accepted profinite-groups mixed-kind generator
 and tests `79c4bcf23fa81319f9e3936be3f804421c7b98c3`, authored by
 worker-b Hive Task `hive-request-49578d0143b3fe26e93ee6e54fa1752f1d60bc26`
@@ -136,7 +176,7 @@ docstrings remain attributable to their Lean authors, and independently
 written catalogue notes are labeled as non-docstrings. Tool-output hashes
 and this attribution do not establish rights in the complete release history.
 
-## Still required
+## Exact release-review boundary
 
 Before any release acceptance, inspect complete proposed source/history and
 the dependency closure for copied or closely adapted Lean/prose expression,
@@ -144,6 +184,8 @@ preserve all applicable third-party notices (including a `NOTICE` if required
 by the actual redistributed material), assess redistribution compatibility,
 and reconcile author/reviewer credit for the exact future history. There is
 no tracked `NOTICE` in this tree; absence alone proves nothing. Complete
-semantic, proof-body/axiom, API documentation, style, performance and
-independent candidate review are separate requirements. Neither accepted
-component code nor this ledger decides whole-artifact rights or source coverage.
+semantic, ordinary-build/transitive-axiom, API documentation, style, performance
+and independent candidate review remain distinct requirements, with unchanged
+applicable evidence reused. Separate stored-proof replay is not required.
+Neither accepted component code nor this ledger alone decides whole-artifact
+rights or source coverage; the exact release acceptance records its disposition.

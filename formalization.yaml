@@ -4,7 +4,8 @@ project:
   description: >-
     Native Lean core for continuous cohomology in degrees zero and one,
     degree-one transfer, topological quotients, finite-group coinvariants
-    and negative deflation, and compact Hausdorff additive-group limit models.
+    and finite-level deflation in Tate degrees -1 and 0 with nested-normal-subgroup
+    transitivity, and compact Hausdorff additive-group limit models.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -16,14 +17,16 @@ sources:
       This is original project development, not a fictional publication,
       a claim that every result is new, or a source-coverage decision.
       Existing mathlib and finite-group Tate results are reused. The
-      native-core assembly was a scoped preparation, as of 2026-09-26,
-      using previously accepted ordinary mathematical components. This
-      preparation note does not report any later exact-commit acceptance
-      or publication; those decisions belong in their external records.
+      native-core assembly was a scoped preparation using previously accepted
+      ordinary mathematical components. The subsequently recovered exceptional
+      deflation and transitivity contribution was independently reviewed and
+      accepted on 2026-09-26 at c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26.
+      Exact release and publication decisions belong in their external records;
+      neither ordinary code acceptance nor this note establishes source coverage.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
-  - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796
+  - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/fda003db3d06774f28b47232e8248852ffdbfc0d
     relationship: builds-on
     note: Pinned official private dependency; not a whole-library review or rights determination.
 automation:
@@ -35,18 +38,20 @@ automation:
         mathlib and independent agent review of scoped contributions.
   notes: >-
     Authoring was AI-assisted. At the 2026-09-26 preparation checkpoint,
-    the root/client and scoped packaging did not inherit first-release
-    approval from earlier independently reviewed mathematical components.
-    Any later exact-commit decision is recorded separately.
+    the earlier native-core packaging did not inherit first-release approval
+    from independently reviewed components. Restored finite deflation received
+    its own fresh exact-combined-candidate review; no old conditional component
+    vote was transferred. Exact-commit decisions are recorded separately.
 review:
   status: other
   notes: >-
     Earlier accepted development contributions received scoped independent
-    reviews, including the subsequent native finite/compact and restricted
-    leaves. At the 2026-09-26 preparation checkpoint, the newly prepared
-    root/client and bounded removal had not received independent exact-candidate
-    review. This dated note neither overrides any later external acceptance
-    record nor asserts whole-source coverage.
+    reviews. The four recovered files originally had a conditional review on an
+    unaccepted predecessor. Fresh Worker-a Task
+    hive-request-f139e336e97ab3fe7242e258c5c79f30b9530847 independently approved
+    the actual combined c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26 contribution
+    in PR110 review3532, with Beacon acceptance and integration on 2026-09-26.
+    This is not whole-source coverage or approval of later release history.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib
