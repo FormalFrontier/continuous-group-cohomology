@@ -3,9 +3,10 @@
 A Lean library of low-degree continuous group cohomology, degree-one transfer
 and compact-group degree-one torsion,
 topological quotients and actions, finite-group coinvariants and finite-level
-deflation in Tate degrees `-1` and `0`, compact finite-bar homology, and compact Hausdorff additive-group
-limit models. Import
-`ContinuousGroupCohomology` for the complete public native core, or import a
+deflation in Tate degrees `-1` and `0`, finite profinite-quotient Tate diagrams
+and their topological limits, compact finite-bar homology, and compact Hausdorff
+additive-group limit models.
+Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The checked
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
 
@@ -15,13 +16,15 @@ notices and outstanding rights checks are recorded in
 [attribution](docs/attribution.md); a license label is not a whole-artifact
 rights determination.
 
-The [finite-deflation guide](docs/FiniteDeflation.md) covers the restored
-deflation API and direct clients. The [degree-one torsion guide](#degree-one-torsion)
+The [finite-deflation guide](docs/FiniteDeflation.md) covers finite-level maps;
+the [finite Tate diagrams guide](docs/FiniteTateDiagrams.md) covers the newly
+restored diagrams, limits and coefficient functoriality.
+The [degree-one torsion guide](#degree-one-torsion)
 covers the compact-group result. For compact finite-bar homology, comparison
 and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the five additional leaves, four
+analyzed snapshot**: they do not index the eight additional leaves, five
 direct clients, or the current root's import graph.
 
 ## What is available
@@ -32,6 +35,7 @@ direct clients, or the current root's import graph.
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
+| Finite Tate diagrams | `FiniteTateDiagrams`, `NonpositiveTateLimits`, `NonpositiveTateFunctoriality` | Covariant deflation along open normal inclusions of a profinite group, `TopModuleCat` limits and coefficient-morphism functoriality for the homological model of degrees below `-1` and exceptional degrees `-1` and `0`. No identification with completed continuous Tate theory. |
 | Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
 | Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
 | Compact groups and limits | `CompactAddCommGroup`, `CompactAddCommGroupLimits`, `CompactFiniteHomology`, `CompactTopModuleLimits` | Compact Hausdorff additive groups, finite products, inverse limits and finite-stage homology constructions; cofiltered limit statements include empty indexing categories where stated. |
@@ -39,7 +43,7 @@ direct clients, or the current root's import graph.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 32 listed production leaves. All 32 and the twelve clients
+publicly imports all 35 listed production leaves. All 35 and the thirteen clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -104,7 +108,7 @@ took **2.499 seconds**. These are sequential workload observations, not three
 independent clean builds. Toolchain installation, dependency checkout and cache
 download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
-32-leaf/twelve-client graph or its renewed Tate dependency.
+35-leaf/thirteen-client graph or its renewed Tate dependency.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -117,8 +121,8 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 32 imports;
-`CGCExamples` compiles precisely these twelve native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 35 imports;
+`CGCExamples` compiles precisely these thirteen native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -131,6 +135,7 @@ the default build:
   [`LevelCompactNative`](examples/LevelCompactNative.lean);
 - [`LevelCompactNormNative`](examples/LevelCompactNormNative.lean),
   [`NestedInvariantsNative`](examples/NestedInvariantsNative.lean),
+  [`NonpositiveTateDiagramsNative`](examples/NonpositiveTateDiagramsNative.lean),
   [`RestrictedLevelNative`](examples/RestrictedLevelNative.lean), and
   [`NativeCore`](examples/NativeCore.lean).
 
@@ -140,7 +145,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other eleven client paths above can likewise be given to `lake env lean`.
+The other twelve client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
@@ -153,7 +158,7 @@ is not a complete axiom or rights check.
 ## Scope and migration
 
 This native core does **not** ship earlier scalar-extension experiments,
-finite Tate comparison diagrams, finite-deflation
+additional finite Tate comparison diagrams, finite-deflation
 continuity, inverse-limit exactness, or the broader completed continuous Tate
 and topology layers. The compact finite-bar construction supplies neither a
 topological-module comparison over an unspecified scalar topology nor a general
@@ -170,8 +175,13 @@ cohomology or general completed continuous homology formalization. The recovered
 four-file contribution was independently reviewed and accepted on 2026-09-26 at
 `c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26`. That ordinary code acceptance
 does not establish source coverage. Exact release and publication decisions are
-recorded separately for each public-lineage commit. At the 2026-09-26
-composition checkpoint, the compact finite-bar contribution was prepared for
-fresh independent review; its historical review on another base did not
-transfer to this assembly. Exact subsequent decisions belong to its review
-and release records.
+recorded separately for each public-lineage commit. At this 2026-09-26 composition
+checkpoint, finite deflation and compact finite bars had completed their reviewed
+private releases; the degree-one torsion assembly and this combined finite Tate
+diagram candidate still awaited their own final acceptance. The earlier diagram
+review applies to its exact predecessor, not automatically to this assembly.
+The original audit's missing private declarations were corrected by a complete
+1,962-declaration base audit and a separate 67-declaration diagram/client audit.
+The incomplete historical outputs remain preserved in the review records.
+Neither those checks nor this preparation claims source coverage or publication
+of this candidate; exact subsequent decisions belong to its review and release records.

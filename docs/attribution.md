@@ -54,8 +54,8 @@ remove or replace authentic third-party notices in retained files.
   `e7fc83dc3ab35aafde40ac55e3666dac9c2b9015` (tree
   `4a8ec8e5f448fa12f00385b30d0fc95b8ca79e65`), separately published as
   official `be74358d7b1140e76ab6b2ad72f6aa068138e687` with the same tree.
-  That release and original authorship do not, by themselves, accept later
-  contributions or establish source coverage.
+  Neither that release nor original authorship alone accepts later candidates or
+  establishes source coverage; F2ab's subsequent scoped acceptance is below.
 - The exceptional finite-deflation and transitivity leaves and two direct
   clients preserve the original Beacon development from
   `29aa96b09294de3114b06da049d5e2f6b35fb56d` (tree
@@ -84,6 +84,33 @@ remove or replace authentic third-party notices in retained files.
   1,962-declaration audit uses only the standard axioms. The original incomplete
   output and its correction remain distinct in the review records. The earlier
   PR #110 review did not approve an as-yet unconstructed successor release history.
+
+- The finite Tate diagram, limit, coefficient-functoriality and native-client
+  source blobs were originally authored by Worker B Hive Task
+  `hive-request-9cd012083a6b7ecb235e9aaa032795453d6e6596` (UID
+  `73d3b40b-10f5-45bc-bd77-040e2ac07b28`) at
+  `d49dbf4abe6a703c0b32995f19812af9c824c916` (tree
+  `f004aff397d99d0632ff0f6054d8fc74491c21e2`) against an unaccepted
+  predecessor. Worker B Hive Task
+  `hive-request-31972ead6e3bb52bd9b77f43179bb43aaf35e45a` (UID
+  `b7a0b43a-518f-4a3b-8b99-5be592215427`) restored only these four
+  unchanged blobs onto frozen F2ab
+  `c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26` and wired the root,
+  default client and manual documentation. The frozen F2ab base was unaccepted
+  at task assignment, then accepted and integrated without changing that commit
+  (issue #30/46981 and #30/47031). Worker A Hive Task
+  `hive-request-9625460a8939bc27b3561de09bc420b5f3a57953` (UID
+  `7fd21b19-bc3a-4552-8dd3-a7d35248d681`) independently reviewed the
+  later exact **F2c** predecessor `bbd25f08b4bee9095880a15c11d3712541a5c347`
+  in PR #114 review 3578. Its explicit full-module audit included all 67
+  declarations from the four restored origins, including private client helpers,
+  and found only standard axioms. The initially unresolved base-audit condition
+  was separately corrected as described above. Beacon's subsequent composition
+  preserves the four mathematical files and the contributor credit, while
+  reconciling root, targets and documentation with compact bars and the frozen
+  degree-one torsion candidate. At this 2026-09-26 checkpoint, that combined
+  candidate still needs its own review and acceptance; no predecessor vote is
+  transferred, and no source-coverage or publication claim follows.
 
 These scoped author/reviewer roles come from the original files, accepted
 Git history and issue #95's exact-candidate review records, not merely from

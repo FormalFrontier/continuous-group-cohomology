@@ -3,9 +3,10 @@
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
 **historical analyzed graph** of 28 production modules (including the aggregate
 public root and 27 leaves) and eight checked-use clients, with separate inventories.
-They do **not** cover the current 32-leaf/twelve-client graph, its five additional
-production modules, four direct clients or updated aggregate root. Consult the
+They do **not** cover the current 35-leaf/thirteen-client graph, its eight additional
+production modules, five direct clients or updated aggregate root. Consult the
 [manual finite-deflation guide](FiniteDeflation.md),
+[finite Tate diagrams guide](FiniteTateDiagrams.md),
 [compact finite-bar guide](CompactBar.md),
 [degree-one torsion guide](../README.md#degree-one-torsion) and current sources.
 The JSON manifest preserves its historical generated `api_sha256`
@@ -146,6 +147,9 @@ review found that ordinary imports had omitted private declarations from that
 audit. An explicit full-module import audit corrected the omission before
 publication: all 1,962 stored repository declarations, including private and
 generated declarations, use only the three standard axioms. The earlier
-incomplete output remains preserved in the review records. The historical
+incomplete output remains preserved in the review records. The diagram/client
+predecessor received a separate private-inclusive 67-declaration standard-only
+audit; its subsequent combined assembly still needs exact review and acceptance.
+The historical
 extraction limits above remain recorded; fresh documentation extraction is not
 a release prerequisite. Exact release and publication decisions remain separate.
