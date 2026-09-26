@@ -3,8 +3,9 @@ project:
   name: Continuous group cohomology
   description: >-
     Native Lean core for continuous cohomology in degrees zero and one,
-    degree-one transfer, topological quotients, finite-group coinvariants
-    and finite-level deflation in Tate degrees -1 and 0 with nested-normal-subgroup
+    degree-one transfer and compact-group torsion, topological quotients,
+    finite-group coinvariants and finite-level deflation in Tate degrees -1 and 0
+    with nested-normal-subgroup
     transitivity, compact finite-bar homology and functoriality, and compact
     Hausdorff additive-group limit models.
   authors:
@@ -22,6 +23,9 @@ sources:
       ordinary mathematical components. The subsequently recovered exceptional
       deflation and transitivity contribution was independently reviewed and
       accepted on 2026-09-26 at c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26.
+      A later continuous degree-one torsion transfer preserves an independently
+      reviewed predecessor. At its 2026-09-26 preparation checkpoint, destination
+      packaging still required fresh review; exact decisions are recorded separately.
       Exact release and publication decisions belong in their external records;
       neither ordinary code acceptance nor this note establishes source coverage.
       Two compact finite-bar leaves and a direct client are restored from
@@ -48,12 +52,15 @@ automation:
     vote was transferred. Exact-commit decisions are recorded separately.
 status:
   scope: >-
-    Low-degree continuous cohomology and transfer, finite coinvariants and
+    Low-degree continuous cohomology, transfer and compact-group degree-one
+    torsion, finite coinvariants and
     finite-level deflation in Tate degrees -1 and 0, compact Hausdorff additive
     finite-bar homology and additive finite Tate comparison in degrees -(n+2).
     The compact-bar assembly was prepared for independent exact-candidate
     review at the 2026-09-26 composition checkpoint.
   main_results:
+    - declaration: ContinuousCohomology.isAddTorsion_degreeOne
+      file: ContinuousGroupCohomology/Torsion.lean
     - declaration: ContinuousGroupCohomology.finiteNegativeOneDeflation_comp
       file: ContinuousGroupCohomology/FiniteDeflationTransitivity.lean
     - declaration: CompHausAddCommGrp.FiniteBar.groupHomologyAddEquivPositive_naturality
@@ -69,6 +76,9 @@ review:
     hive-request-f139e336e97ab3fe7242e258c5c79f30b9530847 independently approved
     the actual combined c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26 contribution
     in PR110 review3532, with Beacon acceptance and integration on 2026-09-26.
+    At the 2026-09-26 preparation checkpoint, the later compact-group degree-one
+    torsion transfer had not yet received independent destination review or
+    release acceptance. Later exact-commit decisions are recorded separately.
     The historical compact-bar review applied to a different base, not this
     combined C2 assembly. At the 2026-09-26 composition checkpoint, its own
     independent exact-candidate review was still required; subsequent exact

@@ -35,15 +35,17 @@ public import ContinuousGroupCohomology.TopModuleCatUlift
 public import ContinuousGroupCohomology.TopRepUlift
 public import ContinuousGroupCohomology.TopologicalModN
 public import ContinuousGroupCohomology.TopologicalQuotientConjugationAction
+public import ContinuousGroupCohomology.Torsion
 
 /-!
 # Continuous group cohomology: native core
 
 The public root reexports the low-degree continuous cohomology and transfer
-interface, topological quotients and actions, finite coinvariants, exceptional
-deflation and its transitivity, compact finite-bar homology, and compact or
-restricted finite-stage constructions. All shipped production modules are
-native Lean modules and reachable through this root.
+interface, compact-group degree-one torsion, topological quotients and actions,
+finite coinvariants, exceptional deflation and its transitivity, compact
+finite-bar homology, and compact or restricted finite-stage constructions.
+All shipped production modules are native Lean modules and reachable through
+this root.
 
 Finite-group statements require the indicated finite-group hypotheses; compact
 limit statements concern compact Hausdorff additive groups and level systems,

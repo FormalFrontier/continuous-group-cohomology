@@ -3,10 +3,17 @@
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
 **historical analyzed graph** of 28 production modules (including the aggregate
 public root and 27 leaves) and eight checked-use clients, with separate inventories.
-They do **not** cover the current 31-leaf/eleven-client graph, its four
-additional production modules, three direct clients or updated aggregate root.
-Consult the [manual finite-deflation guide](FiniteDeflation.md),
-[compact finite-bar guide](CompactBar.md) and actual current sources.
+They do **not** cover the current 32-leaf/twelve-client graph, its five additional
+production modules, four direct clients or updated aggregate root. Consult the
+[manual finite-deflation guide](FiniteDeflation.md),
+[compact finite-bar guide](CompactBar.md),
+[degree-one torsion guide](../README.md#degree-one-torsion) and current sources.
+The JSON manifest preserves its historical generated `api_sha256`
+(`c82dbaf5d9d0cab822c2b8226fbe687adcc0cba67cbb8fa5cbbfe3908e20b0ad`),
+but a later manual historical-scope preface changes the checked-in `API.md`
+file bytes. Only that preface is maintained for the current graph.
+Thus the manifest's hash describes the original generated index, **not** the
+current file bytes; neither it nor historical module counts certify later additions.
 This historical snapshot is
 a declaration and native instance-table index, **not** a full HTML website,
 proof-body report or source-coverage claim. Module prose is in the Lean files;

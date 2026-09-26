@@ -1,6 +1,7 @@
 # Continuous group cohomology: native core
 
-A Lean library of low-degree continuous group cohomology, degree-one transfer,
+A Lean library of low-degree continuous group cohomology, degree-one transfer
+and compact-group degree-one torsion,
 topological quotients and actions, finite-group coinvariants and finite-level
 deflation in Tate degrees `-1` and `0`, compact finite-bar homology, and compact Hausdorff additive-group
 limit models. Import
@@ -14,13 +15,13 @@ notices and outstanding rights checks are recorded in
 [attribution](docs/attribution.md); a license label is not a whole-artifact
 rights determination.
 
-The [finite-deflation guide](docs/FiniteDeflation.md) covers the newly restored
-API and direct clients.
-For the compact finite-bar construction, comparison and functoriality in the
-current root, see the [manual compact-bar API guide](docs/CompactBar.md).
+The [finite-deflation guide](docs/FiniteDeflation.md) covers the restored
+deflation API and direct clients. The [degree-one torsion guide](#degree-one-torsion)
+covers the compact-group result. For compact finite-bar homology, comparison
+and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the four additional leaves, three
+analyzed snapshot**: they do not index the five additional leaves, four
 direct clients, or the current root's import graph.
 
 ## What is available
@@ -29,6 +30,7 @@ direct clients, or the current root's import graph.
 | --- | --- | --- |
 | Continuous low-degree cohomology | `DegreeOne`, `LowDegreeExact`, `NormalizedCohomology`, `NestedInvariants` | Crossed cocycles modulo principal cocycles compute degree one with locally compact groups and jointly continuous actions; the degree-zero/one connecting sequence uses a continuous, not necessarily equivariant, splitting. |
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
+| Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
 | Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
@@ -37,13 +39,38 @@ direct clients, or the current root's import graph.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 31 listed production leaves. All 31 and the eleven clients
+publicly imports all 32 listed production leaves. All 32 and the twelve clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
 topological and compact results require the relevant continuity, compactness and
 separation assumptions, not merely algebraic group structure. Consult theorem
 statements and individual module documentation for precise universes and instances.
+
+### Degree-one torsion
+
+Import `ContinuousGroupCohomology.Torsion` for the five declarations in namespace
+`ContinuousCohomology` (or import the public root). For a `TopRep.{max v w} k G`
+over a ring `k` with a topology and a topological group `G`, the statements
+provide:
+
+- `continuousCrossedHom_apply_one X f`: a crossed cocycle vanishes at `1`;
+- `zeroOpenSubgroup X f`: its zero fibre is an open subgroup, not necessarily normal,
+  when the representation carries the discrete topology;
+- `zeroOpenSubgroup_finiteIndex X f`: compactness of `G` makes that subgroup's
+  index finite;
+- `zeroOpenSubgroup_index_nsmul X f`: for a jointly continuous action, its
+  finite index annihilates the image of `f` in the quotient by principal cocycles;
+- `isAddTorsion_degreeOne X`: `IsAddTorsion (continuousCohomology 1 X)`.
+
+The final theorem assumes `[IsTopologicalGroup G] [DiscreteTopology X]`,
+`[TopRep.JointlyContinuous X]` and `[CompactSpace G]`. It derives local compactness
+inside its proof; it assumes neither `T2Space G` nor coefficient torsion,
+finite generation, a trivial action, or a common group-wide exponent. Transfer
+follows restriction in the classwise index argument; no higher-degree claim is
+made. [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) checks
+both the integral-representation specialization and restriction to an arbitrary
+open subgroup of `G`, without imposing a trivial action there.
 
 ## Dependencies and builds
 
@@ -77,7 +104,7 @@ took **2.499 seconds**. These are sequential workload observations, not three
 independent clean builds. Toolchain installation, dependency checkout and cache
 download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
-31-leaf/eleven-client graph or its renewed Tate dependency.
+32-leaf/twelve-client graph or its renewed Tate dependency.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -90,12 +117,13 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 31 imports;
-`CGCExamples` compiles precisely these eleven native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 32 imports;
+`CGCExamples` compiles precisely these twelve native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
   [`CompactNegativeBarNative`](examples/CompactNegativeBarNative.lean),
+  [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean),
   [`ExceptionalDeflationNative`](examples/ExceptionalDeflationNative.lean),
   [`FiniteCoinvariantsNative`](examples/FiniteCoinvariantsNative.lean),
   [`FiniteDeflationTransitivityNative`](examples/FiniteDeflationTransitivityNative.lean),
@@ -112,7 +140,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other ten client paths above can likewise be given to `lake env lean`.
+The other eleven client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including

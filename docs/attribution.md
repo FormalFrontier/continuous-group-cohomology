@@ -89,6 +89,24 @@ These scoped author/reviewer roles come from the original files, accepted
 Git history and issue #95's exact-candidate review records, not merely from
 the author field of a later mechanical assembly commit.
 
+## Continuous degree-one torsion promotion (2026-09-26)
+
+The degree-one torsion production module and integral/open-subgroup client
+preserve the original Apache-2.0 notices and the mathematical contribution of
+worker-b Hive Task `hive-request-13843158626cd1819b1ca9b3b65a3878cbf689a8`
+(UID `c0730e99-c986-485c-8e93-9d9a56ef163e`). Worker-a Hive Task
+`hive-request-4fdb80141caf151f5e3668384bdb3a627d6c1f4a`
+(UID `73517e2a-531e-4611-9561-96f5bcd6184c`) independently reviewed
+the earlier predecessor contribution. Worker-a Hive Task
+`hive-request-9f1228dccc38062665c65d91772baea0c276ffc3`
+(UID `5541ed3f-d897-4582-a87c-61aa25207879`) independently reviewed
+the final accepted predecessor assembly. Destination transfer, public-root/client
+packaging and standalone documentation are by worker-b Hive Task
+`hive-request-eddcc32b012005b46609527041e31d839034df89`
+(UID `f43a0fe8-1fc1-44d8-a818-1d24ef2a0cdc`). The prior mathematical review
+does not approve this destination candidate; independent destination review,
+rights assessment and release acceptance remain separate.
+
 ## Compact finite-bar recovery (2026-09-26)
 
 Beacon authored the original compact negative Tate stage and continuous finite
