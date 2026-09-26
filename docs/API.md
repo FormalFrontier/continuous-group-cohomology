@@ -1,11 +1,14 @@
-# Native API reference
+# Native API reference (historical analyzed snapshot)
 
-**Historical snapshot only:** this index analyzes the 27-leaf/eight-client
-source graph and Tate dependency specified in [reproduction](README.md#frozen-inputs),
-not the current 29-leaf/ten-client build. In particular it does not list the
-new exceptional deflation or transitivity declarations and its aggregate-root
-import row is historical. See the [manual new-API guide](FiniteDeflation.md)
-and the current Lean sources for exact current statements and hypotheses.
+**Historical snapshot only:** this index analyzes the earlier
+27-leaf/eight-client graph and historical Tate dependency specified in
+[reproduction](README.md#frozen-inputs), **not** the current
+31-leaf/eleven-client build. It excludes `CompactNegativeTate`,
+`CompactBarFunctoriality`, `ExceptionalDeflation`,
+`FiniteDeflationTransitivity` and their three direct clients; its root
+import row is historical. See the [manual compact-bar guide](CompactBar.md),
+[finite-deflation guide](FiniteDeflation.md) and current Lean sources for
+the additional APIs and their exact hypotheses.
 
 Source: pinned Lean `v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`,
 independent doc-gen4 `97d4ecdfc8e09e7f511724c25e303d448de6a3db`. All 28 production modules (public root and 27 leaves)

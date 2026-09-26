@@ -2,7 +2,7 @@
 
 A Lean library of low-degree continuous group cohomology, degree-one transfer,
 topological quotients and actions, finite-group coinvariants and finite-level
-deflation in Tate degrees `-1` and `0`, and compact Hausdorff additive-group
+deflation in Tate degrees `-1` and `0`, compact finite-bar homology, and compact Hausdorff additive-group
 limit models. Import
 `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The checked
@@ -15,11 +15,13 @@ notices and outstanding rights checks are recorded in
 rights determination.
 
 The [finite-deflation guide](docs/FiniteDeflation.md) covers the newly restored
-API and direct clients. The [historical native API reference](docs/API.md) has
-pinned displayed signatures and source anchors for its earlier analyzed graph;
-it does **not** index the new leaves, clients or updated root. Its
-[reproduction guide](docs/README.md) and [machine-readable manifest](docs/api-manifest.json)
-identify those frozen inputs separately from the current build.
+API and direct clients.
+For the compact finite-bar construction, comparison and functoriality in the
+current root, see the [manual compact-bar API guide](docs/CompactBar.md).
+The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
+and [machine-readable manifest](docs/api-manifest.json) describe a **historical
+analyzed snapshot**: they do not index the four additional leaves, three
+direct clients, or the current root's import graph.
 
 ## What is available
 
@@ -28,13 +30,14 @@ identify those frozen inputs separately from the current build.
 | Continuous low-degree cohomology | `DegreeOne`, `LowDegreeExact`, `NormalizedCohomology`, `NestedInvariants` | Crossed cocycles modulo principal cocycles compute degree one with locally compact groups and jointly continuous actions; the degree-zero/one connecting sequence uses a continuous, not necessarily equivariant, splitting. |
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
+| Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
 | Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
 | Compact groups and limits | `CompactAddCommGroup`, `CompactAddCommGroupLimits`, `CompactFiniteHomology`, `CompactTopModuleLimits` | Compact Hausdorff additive groups, finite products, inverse limits and finite-stage homology constructions; cofiltered limit statements include empty indexing categories where stated. |
 | Compact levels | `LevelCompact`, `LevelCompactFunctoriality`, `LevelCompactNorm`, `RestrictedLevelCompact` | Compact level systems, functoriality, relative norms and restricted systems with explicit finite-stage hypotheses. |
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 29 listed production leaves. All 29 and the ten clients
+publicly imports all 31 listed production leaves. All 31 and the eleven clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -74,7 +77,7 @@ took **2.499 seconds**. These are sequential workload observations, not three
 independent clean builds. Toolchain installation, dependency checkout and cache
 download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
-29-leaf/ten-client graph or its renewed Tate dependency.
+31-leaf/eleven-client graph or its renewed Tate dependency.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -87,11 +90,12 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 29 imports;
-`CGCExamples` compiles precisely these ten native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 31 imports;
+`CGCExamples` compiles precisely these eleven native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
+  [`CompactNegativeBarNative`](examples/CompactNegativeBarNative.lean),
   [`ExceptionalDeflationNative`](examples/ExceptionalDeflationNative.lean),
   [`FiniteCoinvariantsNative`](examples/FiniteCoinvariantsNative.lean),
   [`FiniteDeflationTransitivityNative`](examples/FiniteDeflationTransitivityNative.lean),
@@ -108,7 +112,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other nine client paths above can likewise be given to `lake env lean`.
+The other ten client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
@@ -121,8 +125,11 @@ is not a complete axiom or rights check.
 ## Scope and migration
 
 This native core does **not** ship earlier scalar-extension experiments,
-finite Tate comparison diagrams, or the broader
-nonpositive, compact/restricted Tate and topology layers. Earlier `design/`
+finite Tate comparison diagrams, finite-deflation
+continuity, inverse-limit exactness, or the broader completed continuous Tate
+and topology layers. The compact finite-bar construction supplies neither a
+topological-module comparison over an unspecified scalar topology nor a general
+completed continuous homology construction. Earlier `design/`
 notes and eight legacy clients are also excluded. Historical development is
 retained in project history but not imported, installed or required by this
 library. Migrate code importing an excluded module to the named retained API
@@ -135,4 +142,8 @@ cohomology or general completed continuous homology formalization. The recovered
 four-file contribution was independently reviewed and accepted on 2026-09-26 at
 `c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26`. That ordinary code acceptance
 does not establish source coverage. Exact release and publication decisions are
-recorded separately for each public-lineage commit.
+recorded separately for each public-lineage commit. At the 2026-09-26
+composition checkpoint, the compact finite-bar contribution was prepared for
+fresh independent review; its historical review on another base did not
+transfer to this assembly. Exact subsequent decisions belong to its review
+and release records.

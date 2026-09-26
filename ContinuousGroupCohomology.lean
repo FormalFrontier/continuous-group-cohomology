@@ -7,7 +7,9 @@ module
 public import ContinuousGroupCohomology.ClosedTopologicalCoinvariants
 public import ContinuousGroupCohomology.CompactAddCommGroup
 public import ContinuousGroupCohomology.CompactAddCommGroupLimits
+public import ContinuousGroupCohomology.CompactBarFunctoriality
 public import ContinuousGroupCohomology.CompactFiniteHomology
+public import ContinuousGroupCohomology.CompactNegativeTate
 public import ContinuousGroupCohomology.CompactTopModuleLimits
 public import ContinuousGroupCohomology.Composition
 public import ContinuousGroupCohomology.ContinuousCohomologyUlift
@@ -39,10 +41,14 @@ public import ContinuousGroupCohomology.TopologicalQuotientConjugationAction
 
 The public root reexports the low-degree continuous cohomology and transfer
 interface, topological quotients and actions, finite coinvariants, exceptional
-deflation and its transitivity, and compact or restricted finite-stage constructions. All shipped
-production modules are native Lean modules and reachable through this root.
+deflation and its transitivity, compact finite-bar homology, and compact or
+restricted finite-stage constructions. All shipped production modules are
+native Lean modules and reachable through this root.
 
 Finite-group statements require the indicated finite-group hypotheses; compact
 limit statements concern compact Hausdorff additive groups and level systems,
-not a general completed continuous homology construction.
+not a general completed continuous homology construction. The finite-bar
+homology comparison is additive, beginning in positive homology degree one
+and finite Tate degree negative two; functoriality requires equivariance and
+continuity of the coefficient map.
 -/

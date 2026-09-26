@@ -3,9 +3,10 @@
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
 **historical analyzed graph** of 28 production modules (including the aggregate
 public root and 27 leaves) and eight checked-use clients, with separate inventories.
-They do **not** cover the current 29-leaf/ten-client graph, its two additional
-production modules, two direct clients or updated aggregate root. Consult the
-[manual finite-deflation guide](FiniteDeflation.md) and actual current sources.
+They do **not** cover the current 31-leaf/eleven-client graph, its four
+additional production modules, three direct clients or updated aggregate root.
+Consult the [manual finite-deflation guide](FiniteDeflation.md),
+[compact finite-bar guide](CompactBar.md) and actual current sources.
 This historical snapshot is
 a declaration and native instance-table index, **not** a full HTML website,
 proof-body report or source-coverage claim. Module prose is in the Lean files;
@@ -19,7 +20,7 @@ parent structure instead of having a separately spelled source declaration.
 
 ## Frozen inputs
 
-The **analyzed source** is the comment/notice-only native successor
+The **historically analyzed source**, not the current combined assembly, is the comment/notice-only native successor
 `afd0296d5138cc87f365aebe1d6d6d33c5546ba9` (tree
 `cfb84abe6f06142f5c898f22a5a2fe9760fbc6a6`) on Lean
 `leanprover/lean4:v4.34.0-rc2`, mathlib

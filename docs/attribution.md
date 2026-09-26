@@ -89,6 +89,37 @@ These scoped author/reviewer roles come from the original files, accepted
 Git history and issue #95's exact-candidate review records, not merely from
 the author field of a later mechanical assembly commit.
 
+## Compact finite-bar recovery (2026-09-26)
+
+Beacon authored the original compact negative Tate stage and continuous finite
+bar maps (`de99e18`, `40aea84`, `45d7760`); Worker B prepared their native
+modules and direct client (`832d935`) with Beacon's final client-header change
+at historical PR #106 head `b23f9c5237e99c5270fe0e7db0154de918f75daa`.
+Worker A's review (issue #95 comment 45198) concerns that historical candidate
+on base `a170bd0b642fca57385b683f93c161f6696dfbcc`, not the recovered
+assembly. The original recovery is by Worker B Hive Task
+`hive-request-f2436d5a6e552bee15adcb516d3c41125d0ca6d6`, UID
+`579a313c-ed38-42a4-b0c5-3d392a842d09`: it restores the three exact
+historical Lean files onto accepted native core
+`e7fc83dc3ab35aafde40ac55e3666dac9c2b9015` and adds only root,
+client-target and manual documentation wiring. These roles do not imply
+independent review or acceptance of the resulting new commit, nor clearance
+of the entire dependency and release history.
+
+Worker B Hive Task
+`hive-request-968985dbe43458c58ae9308c4e27339d1c75eee5` (UID
+`da505eca-98a3-49f5-a4e2-c9bec4e2d0e4`) composes that original recovery
+onto Beacon's frozen accepted-F2ab plus readiness-docs revision
+`85e1cdf9a521f7cd049cc787c8f0ff8375706423`. Those five docs-only
+readiness changes were unaccepted at composition but subsequently accepted
+by Beacon (issue #30 comment 47126, verified stage comment 47133), without
+switching this successor's frozen inputs. This successor preserves
+all three original C2 Lean blobs and all accepted F2ab mathematical blobs;
+at the 2026-09-26 composition checkpoint, the current-graph C2 contribution
+still required fresh independent review and maintainer acceptance. Neither its
+old review nor a successful build transferred ordinary-code acceptance to this
+combined candidate; exact subsequent decisions are recorded separately.
+
 ## Dependency expression and original headers
 
 The library imports and uses named definitions and theorems from pinned
