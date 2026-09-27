@@ -274,6 +274,54 @@ A separately reviewed incubator replacement may use only an exact official
 published dependency. No source coverage, whole-artifact rights clearance or
 publication follows from transfer alone.
 
+## Compact Tate norm-row naturality source-only transfer (2026-09-27)
+
+One production leaf, its eight-example native client and a standalone guide
+transfer original mathematical expression (not incubator ancestry) from
+incubator PR #121, **then unaccepted at the 2026-09-27 source-only handoff**, revision
+`06f99031c7cf284320dc65fcaf787a569a791be4` (tree
+`403dc2ea0ab2a1a9b35a5d263009cf59cabb48f9`) onto accepted CGC main
+`62798e8559c7665f89e930fd0cd718ce9b5aa825` (tree
+`54568aa46186e1b861db8956129e10fc35f55f30`). The separately verified
+official CGC publication `130d8d776944e94871988a09ab01375d6dce49ca`
+has that same base tree, **not** this new naturality leaf.
+
+- Original norm-row naturality implementation: worker-b Task
+  `hive-request-1d0844eac48c5857a2e1cc8b56121d7b8571e14b` (UID
+  `a02c5d55-67a0-4421-a798-eebf69e9182a`); isolated worker-a reviewer Task
+  `hive-request-4661f56c3281eda913c0a11cdf4eedbb6fda6a3f` (UID
+  `10398f84-5ce6-4c37-b9d5-a8aec6ae7a66`) approved only exact isolated
+  leaf `36b855eb9ae325c9669de7fd3264a1fb83ccef7a` (CGC #30/53337).
+- Source combined registration: worker-b Task
+  `hive-request-43c60eed6b2331151875ef6f0954f3562dbca09e` (UID
+  `0edbdd54-f20b-4f58-8fac-ed5f0ed613aa`). This is distinct from original
+  mathematical authorship and from the source PR #121 fresh affected review.
+- This destination's header/import/namespace, root/client and documentation
+  transfer: worker-b Task
+  `hive-request-89268f99753a32543c537bc946e6f0fdc94c084c` (UID
+  `6fb5a0a9-b048-4a08-ab62-90614094ecd7`). All producer declarations,
+  hypotheses and proofs, and all eight client examples, preserve the original
+  expression apart from sanctioned headers and client import/namespace.
+
+The source's complete private-inclusive scoped audit at incubator
+`dfbe0fa51529c1b7695d6bc2b63c711a530af077` covers 39 producer and
+eight client origins under standard axioms only, but does **not** certify the
+changed source PR #121 graph or this destination's different mathlib pin.
+At the 2026-09-27 source-only handoff, source predecessor integration, affected
+review, native private-inclusive checks and Beacon acceptance remained distinct
+from destination fresh review, native full-root/client/private-inclusive checks
+and acceptance. Subsequently source PR #121 passed fresh affected review and
+native544, and was accepted and integrated at
+`06f99031c7cf284320dc65fcaf787a569a791be4` (CGC #30/53755, #30/53761).
+Destination PR #150 passed independent review and changed-pin native547, then
+was accepted and integrated at `f37e95ea83e8477e84a58e327df7535cb93c12cc`
+(CGC #30/53596, #30/53776, #30/53786). Independent final release review and
+acceptance, verified GitHub publication and any separately agreed incubator
+import conversion remain separate pending decisions. No source-coverage decision
+or whole-artifact rights clearance follows from this copy.
+The finite-row and limit authors and the coefficient/exceptional-limit and
+universal-norm adaptation contributors retain their separate credit above.
+
 ## Continuous degree-one torsion promotion (2026-09-26)
 
 The degree-one torsion production module and integral/open-subgroup client

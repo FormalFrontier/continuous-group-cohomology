@@ -13,6 +13,7 @@ public import ContinuousGroupCohomology.CompactExceptionalTateLimitFunctoriality
 public import ContinuousGroupCohomology.CompactExceptionalTateLimits
 public import ContinuousGroupCohomology.CompactFiniteTateNormSequence
 public import ContinuousGroupCohomology.CompactTateNormLimitSequence
+public import ContinuousGroupCohomology.CompactTateNormNaturality
 public import ContinuousGroupCohomology.CompactBarFunctoriality
 public import ContinuousGroupCohomology.CompactFiniteHomology
 public import ContinuousGroupCohomology.CompactNegativeTate
@@ -64,6 +65,9 @@ stages and limits, and functoriality of selected compact norm systems.
 The compact finite Tate norm row and its full-open-normal inverse-limit sequence
 identify the actual universal-norm kernel and compact quotient in the chosen
 compact Hausdorff additive topologies.
+Level-compact coefficient maps act on the actual finite-coinvariant limit and
+all three full-row arrows; the independently descended universal-norm quotient
+action makes the existing degree-zero-limit identification natural.
 All shipped production modules are native Lean modules and reachable through
 this root.
 

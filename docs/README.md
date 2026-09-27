@@ -3,8 +3,9 @@
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
 **historical analyzed graph** of 28 production modules (including the aggregate
 public root and 27 leaves) and eight checked-use clients, with separate inventories.
-They do **not** cover the current 45-leaf/twenty-two-client graph, its eighteen additional
-production modules, fourteen direct clients or updated aggregate root. Consult the
+They do **not** cover the current 46-leaf/twenty-three-client graph (70 local
+modules including the root), its nineteen additional production leaves,
+fifteen direct clients or updated aggregate root. Consult the
 [manual finite-deflation guide](FiniteDeflation.md),
 [compact exceptional Tate guide](FiniteTateTopology.md),
 [compact coefficient and norm functoriality guide](CompactCoefficientFunctoriality.md),
@@ -12,6 +13,7 @@ production modules, fourteen direct clients or updated aggregate root. Consult t
 [compact finite-bar guide](CompactBar.md),
 [finite norm-row guide](CompactFiniteTateNormSequence.md),
 [full-system norm-limit guide](CompactTateNormLimitSequence.md),
+[compact norm-row naturality guide](CompactTateNormNaturality.md),
 [degree-one torsion guide](../README.md#degree-one-torsion) and current sources.
 The JSON manifest preserves its historical generated `api_sha256`
 (`c82dbaf5d9d0cab822c2b8226fbe687adcc0cba67cbb8fa5cbbfe3908e20b0ad`),

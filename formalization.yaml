@@ -14,7 +14,10 @@ project:
     continuous coefficient maps on the exceptional stages and limits, and
     functoriality of selected restricted relative-norm systems. Compact finite
     Tate norm rows and their full open-normal inverse-limit sequence identify
-    universal norms and a compact Hausdorff additive quotient.
+    universal norms and a compact Hausdorff additive quotient. Continuous
+    coefficient maps on the actual finite-coinvariant limit give naturality of
+    all three full-row arrows and the independently descended quotient action
+    and its degree-zero-limit natural isomorphism.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -69,6 +72,22 @@ sources:
       Later exact decisions are recorded separately; these are historical handoff
       conditions, not current lifecycle claims. No incubator ancestry or
       dependency is imported here.
+      At its 2026-09-27 source-only author handoff, the naturality copy came
+      from then-unaccepted frozen incubator PR121 revision
+      06f99031c7cf284320dc65fcaf787a569a791be4.
+      The original implementation, source registrar and destination transfer
+      have distinct Task/UID credits in docs/attribution.md. The isolated
+      review and private-inclusive source audit covered only their exact
+      inputs, not the changed source registration or destination mathlib pin.
+      Subsequently, source PR121 passed its own review and checks and was
+      accepted and integrated at 06f99031c7cf284320dc65fcaf787a569a791be4
+      (CGC #30/53755, #30/53761). Destination PR150 separately passed
+      independent review and native547 full-root/client, private-inclusive
+      standard-axiom checks, then was accepted and integrated at
+      f37e95ea83e8477e84a58e327df7535cb93c12cc (CGC #30/53596,
+      #30/53776, #30/53786). Independent final release acceptance and verified
+      GitHub publication remain pending. Neither copy nor later release alone
+      establishes source correspondence or coverage.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -111,9 +130,13 @@ status:
     deflation. Its full open-normal compact inverse-limit sequence has both
     exact middle pairs, injective/onto endpoints, actual universal-norm
     kernel and norm range, compact quotient iso and onto degree-zero limit
-    projections. The common-universe R, G, Rep and LevelCompact data have no
-    scalar or ambient coefficient topology. No arbitrary restricted-system
-    identification, onto coinvariant/kernel transitions, coefficient naturality,
+    projections. For common-universe R and profinite G, arbitrary LevelCompactRep
+    morphisms act on the actual finite-coinvariant diagram and limit, commute
+    with the three full-row arrows, preserve the actual closed universal-norm
+    subgroup, descend continuously to its quotient and make the existing
+    quotient-to-degree-zero-limit iso natural. The R, G, Rep and LevelCompact
+    data require no scalar or ambient coefficient topology. No arbitrary
+    restricted-system identification, onto coinvariant/kernel transitions,
     general inverse-limit exactness, completed continuous Tate comparison,
     all-degree or arithmetic result is asserted.
   main_results:
@@ -287,6 +310,52 @@ status:
       file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
     - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientIso_mk
       file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsDiagramFunctor
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsDiagramFunctor_obj
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsDiagramFunctor_map_app
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsLimitFunctor
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsLimitFunctor_obj
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactFiniteCoinvariantsLimitFunctor_map_π
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTotalInvariantsFunctor
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitInclusion_naturality
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitNorm_naturality
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitProjection_naturality
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitInclusionNat
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitNormNat
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateLimitProjectionNat
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.groupMap_mem_compactUniversalNormClosedSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactUniversalNormQuotientMap
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactUniversalNormQuotientMap_mk
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactUniversalNormQuotientMap_id
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactUniversalNormQuotientMap_comp
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactUniversalNormQuotientFunctor
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateUniversalNormQuotientIso_naturality
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateUniversalNormQuotientNatIso
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateUniversalNormQuotientNatIso_hom_app
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactTateUniversalNormQuotientNatIso_hom_app_mk
+      file: ContinuousGroupCohomology/CompactTateNormNaturality.lean
 review:
   status: other
   notes: >-
@@ -342,6 +411,24 @@ review:
     these are historical handoff conditions, not current lifecycle claims.
     Owner acceptance, reviewed release, verified GitHub publication, later
     separate incubator conversion and source correspondence are distinct decisions.
+    The original compact norm-row naturality isolated leaf 36b855eb9ae325c9669de7fd3264a1fb83ccef7a
+    was independently reviewed by worker-a Task hive-request-4661f56c3281eda913c0a11cdf4eedbb6fda6a3f
+    (UID 10398f84-5ce6-4c37-b9d5-a8aec6ae7a66). Separate scoped private-inclusive
+    evidence dfbe0fa51529c1b7695d6bc2b63c711a530af077 covers 39 producer
+    and eight client origins, not the changed source PR121 graph or the destination.
+    At the 2026-09-27 destination source-only handoff, source PR121 remained
+    unaccepted; the new transfer by worker-b Task hive-request-89268f99753a32543c537bc946e6f0fdc94c084c
+    (UID 6fb5a0a9-b048-4a08-ab62-90614094ecd7) still required fresh destination
+    review and changed-pin, private-inclusive native evidence. Subsequently,
+    source PR121 passed fresh affected review and native544 and was accepted and
+    integrated at 06f99031c7cf284320dc65fcaf787a569a791be4 (CGC #30/53761).
+    Destination PR150 passed independent review and native547 full-root/client
+    build and complete private-inclusive transitive standard-axiom audit, then
+    Beacon accepted and integrated it at f37e95ea83e8477e84a58e327df7535cb93c12cc
+    (CGC #30/53596, #30/53776, #30/53786). Independent final release review,
+    acceptance and verified publication remain separate pending gates before
+    any separately agreed incubator import conversion; no source-coverage
+    determination follows from this transfer.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib
