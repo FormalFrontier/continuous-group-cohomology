@@ -11,6 +11,8 @@ public import ContinuousGroupCohomology.CompactExceptionalTateCoefficientMaps
 public import ContinuousGroupCohomology.CompactExceptionalTateDiagrams
 public import ContinuousGroupCohomology.CompactExceptionalTateLimitFunctoriality
 public import ContinuousGroupCohomology.CompactExceptionalTateLimits
+public import ContinuousGroupCohomology.CompactFiniteTateNormSequence
+public import ContinuousGroupCohomology.CompactTateNormLimitSequence
 public import ContinuousGroupCohomology.CompactBarFunctoriality
 public import ContinuousGroupCohomology.CompactFiniteHomology
 public import ContinuousGroupCohomology.CompactNegativeTate
@@ -59,6 +61,9 @@ finite-level deflation and their compact diagrams, additive comparisons and
 compact Hausdorff additive limits, finite Tate deflation diagrams and their
 topological limits, continuous coefficient maps on compact exceptional Tate
 stages and limits, and functoriality of selected compact norm systems.
+The compact finite Tate norm row and its full-open-normal inverse-limit sequence
+identify the actual universal-norm kernel and compact quotient in the chosen
+compact Hausdorff additive topologies.
 All shipped production modules are native Lean modules and reachable through
 this root.
 

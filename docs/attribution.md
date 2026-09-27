@@ -218,6 +218,62 @@ and verified official publication. Exact later decisions are recorded separately
 this provenance record does not assert rights clearance, source coverage or
 incubator conversion.
 
+## Compact finite Tate norm and norm-limit transfer (2026-09-27)
+
+Two production leaves, two native clients and their manual guides transfer
+selected expression, not development ancestry, from frozen incubator revision
+`e2a5c7e6f255535aedb5b8ed597c13f6c418c8c1` (tree
+`d192ab71ba4587f71bb2e1199ad0a98bb0b4f588`) onto separately rooted CGC
+`f8250e3974fcbed260147fbdded131b86c65afb3` (tree
+`3704d1c061b225b82f249ca1443fcb0353ca4db3`, also the official
+`07ef350738b4de8207f991a044a98611c1649eb3` tree). All four Lean files
+retain their original Apache-2.0 SPDX and author/implementation notices.
+
+- Mathematical/API design investigation: worker-b Task
+  `hive-request-c6482d383e26ff324ba537448bc3a3ec237da49a` (UID
+  `f7a1f3b6-03ae-45da-ab9f-ee553a6d140e`); the independent design
+  inspection identified the need for explicit full-open-normal packaging.
+- Original finite-row implementation: worker-b Task
+  `hive-request-e6d76bdf4dadaad23f990aa082128217880d7321` (UID
+  `b9bd4a7e-8ee1-4213-9075-d0ebba7ab03e`), exact leaf
+  `30430ff6ea043d1893e76a42af77c1858384b972`; independent leaf reviewer
+  worker-a Task `hive-request-7ce18df86d0480e043dae50c799a4de360383dc1`
+  (UID `397c92ec-4e93-4487-b38a-f039d8dabb27`). The finite row was later
+  integrated as the separately registered incubator union
+  `17ec6a597d1f3afaa9c170a5b71ca64bf518ef0b`.
+- Original norm-limit implementation: worker-b Task
+  `hive-request-a3c785c9e3c2568cbdb2e8592ff3c30ed2a0feee` (UID
+  `8642a473-88cb-463a-beca-1c6e7fc1b695`), exact isolated leaf
+  `e52f8e1bfca08348b412ded80d7dc290377eeb2e`; independent isolated
+  reviewer worker-a Task `hive-request-364137b4bfd0c105843e0071911e32adc9032888`
+  (UID `e2af02cc-d382-40a2-bdfd-0e9c759a15ad`). Registrar worker-b Task
+  `hive-request-6d75d16dcdb0d347a6fc5df9f4b9181d8df54e0b` (UID
+  `32da2ae0-9127-44fd-b3e0-90ee14471b34`) preserved all three original
+  producer/client/guide blobs in the registered union. Independent affected
+  source reviewer worker-a Task `hive-request-72a6eab0a01c64af8820dadc477187cea3dd5d25`
+  (UID `584eaeb5-2074-4ca9-944d-24973bc71a55`) approved that exact
+  union's mathematical/API and static provenance scope, not its missing
+  whole-graph/private-inclusive check, predecessor or owner integration gates.
+- This destination source-only transfer and adaptation: worker-b Task
+  `hive-request-ba37e00a800bc572211ffad45e96e858655ebf56` (UID
+  `79c9b89e-3363-442b-a61a-66ededf98c30`). The only Lean substitutions
+  are the internal norm-limit producer import and the two direct clients'
+  imports and `CGCExamples.*Native` namespaces. Mathematical declarations,
+  assumptions and proof bodies retain their source expression.
+
+At the **2026-09-27 source-only author-handoff checkpoint**, the frozen registered
+source norm-limit union was still code-unaccepted pending its predecessor,
+native full-root/private-inclusive standard-axiom check and maintainer
+acceptance/integration. Its source builds/audits used a different mathlib pin
+and did not certify destination compatibility. At that checkpoint the destination
+candidate still required independent exact-candidate review, build and complete
+private-inclusive transitive standard-axiom audit, owner acceptance, reviewed
+release and verified GitHub publication. Later exact decisions are recorded
+separately; these are historical handoff conditions, not current lifecycle claims.
+A separately reviewed incubator replacement may use only an exact official
+published dependency. No source coverage, whole-artifact rights clearance or
+publication follows from transfer alone.
+
 ## Continuous degree-one torsion promotion (2026-09-26)
 
 The degree-one torsion production module and integral/open-subgroup client

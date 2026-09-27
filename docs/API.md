@@ -3,20 +3,23 @@
 **Historical snapshot only:** this index analyzes the earlier
 27-leaf/eight-client graph and historical Tate dependency specified in
 [reproduction](README.md#frozen-inputs), **not** the current
-43-leaf/twenty-client build. It excludes `CompactNegativeTate`,
+45-leaf/twenty-two-client build. It excludes `CompactNegativeTate`,
 `CompactBarFunctoriality`, `ExceptionalDeflation`,
 `FiniteDeflationTransitivity`, `Torsion`, `FiniteTateDiagrams`,
 `NonpositiveTateLimits`, `NonpositiveTateFunctoriality`,
 `FiniteTateTopology`, `FiniteCoinvariantDeflation`,
 `ExceptionalTateDeflationTopology`, `CompactExceptionalTateDiagrams`,
 `CompactExceptionalTateLimits`, `CompactExceptionalTateCoefficientMaps`,
-`CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality`
-and their twelve direct clients; its root
+`CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality`,
+`CompactFiniteTateNormSequence`, `CompactTateNormLimitSequence`
+and their fourteen direct clients; its root
 import row is historical. See the [manual compact-bar guide](CompactBar.md),
 [finite-deflation guide](FiniteDeflation.md),
 [compact exceptional Tate guide](FiniteTateTopology.md),
 [compact coefficient and norm functoriality guide](CompactCoefficientFunctoriality.md),
 [finite Tate diagrams guide](FiniteTateDiagrams.md),
+[finite norm-row guide](CompactFiniteTateNormSequence.md),
+[full-system norm-limit guide](CompactTateNormLimitSequence.md),
 [degree-one torsion guide](../README.md#degree-one-torsion) and current Lean
 sources for the additional APIs and their exact hypotheses.
 

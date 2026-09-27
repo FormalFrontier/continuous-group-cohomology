@@ -12,7 +12,9 @@ project:
     presentations with continuous finite-level deflation, compact exceptional
     Tate diagrams, additive natural comparisons and compact additive limits,
     continuous coefficient maps on the exceptional stages and limits, and
-    functoriality of selected restricted relative-norm systems.
+    functoriality of selected restricted relative-norm systems. Compact finite
+    Tate norm rows and their full open-normal inverse-limit sequence identify
+    universal norms and a compact Hausdorff additive quotient.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -39,7 +41,8 @@ sources:
       private release on 2026-09-26. The finite Tate diagram, limit and
       coefficient-functoriality files preserve the separately reviewed
       bbd25f08b4bee9095880a15c11d3712541a5c347 predecessor. This later assembly
-      still requires its own exact review and acceptance. A later native
+      still required its own exact review and acceptance at its 2026-09-26
+      assembly checkpoint. A later native
       exceptional Tate topology/deflation transfer from the incubator is
       prepared against exact source b5c384ab832eedacfded4240e5a9dc6fa1b57aee.
       At its 2026-09-27 author handoff this destination adaptation was unreviewed;
@@ -55,6 +58,17 @@ sources:
       handoff this destination transfer was unreviewed, not an accepted release
       or a source-coverage decision. Exact later review and release decisions
       are recorded separately; its source check uses a different mathlib pin.
+      At the 2026-09-27 source-only author-handoff checkpoint, the two compact
+      Tate norm producers and direct clients were transferred from then
+      code-unaccepted incubator revision e2a5c7e6f255535aedb5b8ed597c13f6c418c8c1.
+      The earlier finite row was separately integrated into incubator main;
+      the registered norm-limit source union still needed its own full
+      native/private-inclusive evidence, predecessor acceptance and maintainer
+      integration. At that checkpoint this destination copy also required its
+      own changed-pin compatibility, review, audit, acceptance and release gates.
+      Later exact decisions are recorded separately; these are historical handoff
+      conditions, not current lifecycle claims. No incubator ancestry or
+      dependency is imported here.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -92,8 +106,16 @@ status:
     stages and limits. Morphisms of chosen restricted systems preserve the
     selected coefficients and their actual compact relative-norm diagrams;
     full and universal-norm systems are functorial without extra preservation.
-    No topology on the coefficient ring or algebraic Tate groups, completed
-    continuous Tate comparison, or inverse-limit exactness is asserted.
+    The actual compact finite coinvariant/kernel/constant-invariant/quotient
+    norm row has both finite-stage exact middle pairs and onto degree-zero
+    deflation. Its full open-normal compact inverse-limit sequence has both
+    exact middle pairs, injective/onto endpoints, actual universal-norm
+    kernel and norm range, compact quotient iso and onto degree-zero limit
+    projections. The common-universe R, G, Rep and LevelCompact data have no
+    scalar or ambient coefficient topology. No arbitrary restricted-system
+    identification, onto coinvariant/kernel transitions, coefficient naturality,
+    general inverse-limit exactness, completed continuous Tate comparison,
+    all-degree or arithmetic result is asserted.
   main_results:
     - declaration: ContinuousCohomology.isAddTorsion_degreeOne
       file: ContinuousGroupCohomology/Torsion.lean
@@ -167,6 +189,104 @@ status:
       file: ContinuousGroupCohomology/RestrictedLevelCompactFunctoriality.lean
     - declaration: ContinuousGroupCohomology.RestrictedLevelCompactRep.restrictedNormDiagramFunctor
       file: ContinuousGroupCohomology/RestrictedLevelCompactFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteCoinvariantsDiagram
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsDiagram
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateNegOneInclusion
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateNorm
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateZeroProjection
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteCoinvariantsDiagram_obj
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsDiagram_obj
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateNegOneInclusion_app
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateNorm_app
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteTateZeroProjection_app
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateNorm_exact_left
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateNorm_exact_right
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateNegOneι_injective
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateZeroπ_surjective
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateZeroDeflation_surjective
+      file: ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.fullOpenNormalSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.fullOpenNormalSubgroup_toOpenSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.le_fullOpenNormalSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.relativeNorm_fullOpenNormalSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteCoinvariantsLimit
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsCone
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsCone_isLimit
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsLimitIso
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTotalInvariantsLimitIso_hom
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitInclusion
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitNorm
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitProjection
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitInclusion_π
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitNorm_π
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitProjection_π
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimit_exact_left
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimit_exact_right
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitInclusion_injective
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitProjection_surjective
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimitπ_surjective
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactUniversalNormSet
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.mem_finiteNorm_range_iff_relativeNorm_range
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.mem_compactUniversalNormSet_iff
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitProjection_eq_zero_iff
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitNorm_range_eq_universalNormSet
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitProjection_eq_zero_iff_universalNorm
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateLimitNorm_range_eq_universalNormSubmodule
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactUniversalNormClosedSubgroup
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactUniversalNormClosedSubgroup_eq_ker
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientEquiv
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientEquiv_mk
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientEquiv_continuous
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientIso
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactTateUniversalNormQuotientIso_mk
+      file: ContinuousGroupCohomology/CompactTateNormLimitSequence.lean
 review:
   status: other
   notes: >-
@@ -208,6 +328,20 @@ review:
     2026-09-27 author-handoff checkpoint. Exact later destination review,
     acceptance and publication decisions are recorded separately. Source
     review and check evidence do not establish destination compatibility.
+    The finite norm row was independently reviewed in isolation and registered
+    in incubator main; the norm-limit isolated implementation was independently
+    reviewed. At the 2026-09-27 source-only author-handoff checkpoint, the frozen
+    registered source union e2a5c7e6f255535aedb5b8ed597c13f6c418c8c1 had fresh
+    affected review, but not full native/private-inclusive source evidence or
+    owner code acceptance/integration. This two-producer destination transfer
+    by worker-b Task hive-request-ba37e00a800bc572211ffad45e96e858655ebf56
+    (UID 79c9b89e-3363-442b-a61a-66ededf98c30) was then a source-only candidate.
+    At that checkpoint it had not received independent destination review,
+    changed-pin build or complete private-inclusive transitive standard-axiom
+    audit. Later exact review, check and owner decisions are recorded separately;
+    these are historical handoff conditions, not current lifecycle claims.
+    Owner acceptance, reviewed release, verified GitHub publication, later
+    separate incubator conversion and source correspondence are distinct decisions.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib
