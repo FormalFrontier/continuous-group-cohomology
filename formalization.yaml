@@ -9,7 +9,8 @@ project:
     functoriality, finite profinite-quotient Tate diagrams, their topological
     limits and coefficient functoriality, and compact Hausdorff additive-group
     limit models, and compact Hausdorff exceptional Tate kernel/quotient
-    presentations with continuous finite-level deflation.
+    presentations with continuous finite-level deflation, compact exceptional
+    Tate diagrams, additive natural comparisons and compact additive limits.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -41,6 +42,11 @@ sources:
       prepared against exact source b5c384ab832eedacfded4240e5a9dc6fa1b57aee.
       At its 2026-09-27 author handoff this destination adaptation was unreviewed;
       the transfer itself is not a source-coverage or publication decision.
+      Two subsequent compact exceptional Tate diagram/limit leaves and one native
+      client transfer from independently reviewed incubator main
+      aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2. At its 2026-09-27 author
+      handoff this destination transfer was unreviewed; the transfer itself
+      is not a source-coverage or release decision.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -71,9 +77,11 @@ status:
     continuous coinvariant deflation induces compact maps with additive
     comparisons to algebraic finite Tate deflation. Finite profinite-quotient
     Tate diagrams, categorical topological limits and coefficient functoriality
-    use covariant finite deflation; no topology on the coefficient ring or
-    algebraic Tate groups, completed continuous Tate comparison, or inverse-limit
-    exactness is asserted.
+    use covariant finite deflation. Compact exceptional Tate diagrams give
+    degree -1 and 0 closed-kernel/quotient stages, additive natural comparisons
+    and limits in compact Hausdorff additive groups with eventual-range projections.
+    No topology on the coefficient ring or algebraic Tate groups, completed
+    continuous Tate comparison, or inverse-limit exactness is asserted.
   main_results:
     - declaration: ContinuousCohomology.isAddTorsion_degreeOne
       file: ContinuousGroupCohomology/Torsion.lean
@@ -103,6 +111,30 @@ status:
       file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
     - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyZeroAddEquivFiniteTate_finiteZeroDeflation
       file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteNegativeOneDeflationDiagram
+      file: ContinuousGroupCohomology/CompactExceptionalTateDiagrams.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactFiniteZeroDeflationDiagram
+      file: ContinuousGroupCohomology/CompactExceptionalTateDiagrams.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteNegativeOneDeflationAdditiveDiagramIso
+      file: ContinuousGroupCohomology/CompactExceptionalTateDiagrams.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteZeroDeflationAdditiveDiagramIso
+      file: ContinuousGroupCohomology/CompactExceptionalTateDiagrams.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactNegativeOneTateLimit
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactNegativeOneTateLimitπ
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactNegativeOneTateLimitπ_naturality
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactNegativeOneTateLimitπ_range_eq_eventualRange
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimit
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimitπ
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimitπ_naturality
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimitπ_range_eq_eventualRange
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
 review:
   status: other
   notes: >-
@@ -130,7 +162,13 @@ review:
     b5c384ab832eedacfded4240e5a9dc6fa1b57aee;
     independent source and destination review, owner acceptance and verified
     release remain separate decisions. Its author transfer alone does not
-    establish approval or whole-source coverage.
+    establish approval or whole-source coverage. The later compact exceptional
+    Tate diagrams/limits transfer is separately reviewed in incubator main
+    aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2. At its 2026-09-27 author
+    handoff it had not been independently reviewed or accepted in this
+    destination. Exact later destination review, acceptance and official
+    publication are separate decisions; no source-coverage determination
+    follows from this transfer.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib

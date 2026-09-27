@@ -94,3 +94,49 @@ nonzero representative generator in a finite coefficient example, and
 three-level compact-map comparisons. They do not prove nonzero Tate groups.
 No topology on the algebraic Tate groups, topological-module identification,
 all-degree or completed continuous Tate cohomology is claimed.
+
+## Compact diagrams and limits
+
+Import `ContinuousGroupCohomology.CompactExceptionalTateDiagrams` and
+`ContinuousGroupCohomology.CompactExceptionalTateLimits` for the two additional
+public leaves. Here `G : ProfiniteGrp.{u}` and `A : Rep.{u} R G` share the
+universe of `R : Type u`, `[CommRing R]`, and `L : LevelCompact A` is chosen.
+For `S : OpenNormalSubgroup G`, the functors
+`compactFiniteNegativeOneDeflationDiagram A L` and
+`compactFiniteZeroDeflationDiagram A L` have objects `finiteTateNegOne A L S`
+and `finiteTateZero A L S` in `CompHausAddCommGrp.{u}`. A morphism `S ⟶ T`
+(`S ≤ T`) maps the `G ⧸ S` stage to the `G ⧸ T` stage by the actual continuous
+finite Tate deflation above; openness supplies its finite residual subgroup
+witness. The functor identities and compositions reuse the proved deflation
+laws. There is no postulated transition map.
+
+`finiteNegativeOneDeflationAdditiveDiagramIso A L` and
+`finiteZeroDeflationAdditiveDiagramIso A L` compare these two compact functors,
+after forgetting topology, to the algebraic `finiteNegativeOneDeflationDiagram`
+and `finiteZeroDeflationDiagram` after forgetting their `R`-module structure.
+These are natural isomorphisms in `AddCommGrpCat`, *not* topological-module
+comparisons or topologies on the algebraic Tate groups.
+
+`compactNegativeOneTateLimit A L` and `compactZeroTateLimit A L` are categorical
+limits in `CompHausAddCommGrp`. Their projections
+`compactNegativeOneTateLimitπ A L S` and `compactZeroTateLimitπ A L S`
+are continuous; the corresponding `*_naturality` lemmas are the cone equations.
+The `*_range_eq_eventualRange` lemmas identify each projection image with the
+eventual range of the underlying compact diagram; no projection is asserted
+surjective onto its full finite stage. For example:
+
+```lean
+example {S T : OpenNormalSubgroup G} (f : S ⟶ T) :
+    compactNegativeOneTateLimitπ A L S ≫
+        (compactFiniteNegativeOneDeflationDiagram A L).map f =
+      compactNegativeOneTateLimitπ A L T :=
+  compactNegativeOneTateLimitπ_naturality A L f
+```
+
+The [direct native client](../examples/CompactExceptionalTateNative.lean)
+also checks the additive naturality equations, both eventual-range results,
+and an actual proper open normal inclusion for the two-element profinite
+group. It does not prove nonzero Tate groups, unconditional surjectivity,
+coefficient functoriality, a connecting map, a long exact sequence, or
+inverse-limit exactness. Compare the separate algebraic/topological-module
+construction in [FiniteTateDiagrams.md](FiniteTateDiagrams.md).

@@ -55,3 +55,16 @@ These constructions do **not** establish discrete or compact stages,
 topological exactness, cup compatibility, or an identification with completed
 continuous Tate theory. They do not establish whole-source coverage. The
 generated [API snapshot](API.md) indexes an older graph, not these leaves.
+
+## Relation to chosen compact exceptional stages
+
+The [compact exceptional Tate guide](FiniteTateTopology.md#compact-diagrams-and-limits)
+covers the distinct `CompactExceptionalTateDiagrams` and
+`CompactExceptionalTateLimits` leaves. Given an explicit `LevelCompact A`,
+they assemble *actual compact kernel/quotient* stages in degrees `-1` and `0`
+and deflate continuously in `CompHausAddCommGrp`. Their comparisons to the
+degree-`-1` and degree-zero **algebraic** functors above are natural
+isomorphisms only after forgetting to `AddCommGrpCat`. Their limits and
+eventual-range projections live in `CompHausAddCommGrp`, not in the
+`TopModuleCat` limits defined here. Neither layer identifies these two kinds
+of limit or supplies inverse-limit exactness.

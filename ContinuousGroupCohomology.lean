@@ -7,6 +7,8 @@ module
 public import ContinuousGroupCohomology.ClosedTopologicalCoinvariants
 public import ContinuousGroupCohomology.CompactAddCommGroup
 public import ContinuousGroupCohomology.CompactAddCommGroupLimits
+public import ContinuousGroupCohomology.CompactExceptionalTateDiagrams
+public import ContinuousGroupCohomology.CompactExceptionalTateLimits
 public import ContinuousGroupCohomology.CompactBarFunctoriality
 public import ContinuousGroupCohomology.CompactFiniteHomology
 public import ContinuousGroupCohomology.CompactNegativeTate
@@ -50,7 +52,9 @@ The public root reexports the low-degree continuous cohomology and transfer
 interface, compact-group degree-one torsion, topological quotients and actions,
 finite coinvariants, exceptional deflation and its transitivity, compact
 finite-bar homology, compact exceptional Tate kernels/quotients and continuous
-finite-level deflation, finite Tate deflation diagrams and their topological limits,
+finite-level deflation and their compact diagrams, additive comparisons and
+compact Hausdorff additive limits, finite Tate deflation diagrams and their
+topological limits,
 and compact or restricted finite-stage constructions.
 All shipped production modules are native Lean modules and reachable through
 this root.

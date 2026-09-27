@@ -157,6 +157,32 @@ independent reviews, owner decisions, release publication and subsequent
 incubator implementation replacement are separate. This provenance does not
 assert rights clearance, source coverage or review approval of this transfer.
 
+## Compact exceptional Tate diagram/limit transfer (2026-09-27)
+
+Beacon's compact exceptional Tate diagram/limit research in the
+continuous-group-cohomology source at `9fbcd52d0fe4ce982ac506976542523d91dd84c4`
+underlies the native mathematical files. Worker-b Hive Task
+`hive-request-64988ad41c768fe5c8bfc3f699d6db6c8fb4b650` (UID
+`c322a0ba-d728-4f4a-9ec6-678e3ca42caf`) adapted the two production
+leaves and one client in the incubator, preserving Beacon's original credit
+and Apache notices. Fresh independent Worker-a Task
+`hive-request-58f178c0028cbae277f31ee6f1d7c37bf87332e9` (UID
+`d3ec3fdf-81a4-4274-add7-460e8b9dd040`) reviewed that exact incubator
+contribution before accepted main `aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2`
+(tree `4cf857b9e3d60f4af6fcd9a2d11664a8f8a0c672`).
+
+Worker-b Hive Task `hive-request-40aefd70db13291778f12e29c46f841e7604561f`
+(UID `e58d9a62-e143-42e7-bba4-f5b6e42ab988`) transfers just these selected
+files to the independent CGC history on accepted destination base
+`08140c32ab1b3b553120032fd6ba3fad2a5689a1` (tree
+`e57c0e7bd1a433a62b7c44f3ddf2160c81619f40`), changing only the
+module imports and client namespace in the three files. The existing file
+notices remain intact. The incubator and destination have different pinned
+mathlib commits; the incubator check does not verify the destination.
+Destination independent review, owner acceptance, official release, whole-artifact
+rights disposition and source correspondence remain separate. No original
+source asset, research excerpt or internal service URL is shipped.
+
 ## Continuous degree-one torsion promotion (2026-09-26)
 
 The degree-one torsion production module and integral/open-subgroup client
