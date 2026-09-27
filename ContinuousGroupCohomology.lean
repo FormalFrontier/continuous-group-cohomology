@@ -7,7 +7,9 @@ module
 public import ContinuousGroupCohomology.ClosedTopologicalCoinvariants
 public import ContinuousGroupCohomology.CompactAddCommGroup
 public import ContinuousGroupCohomology.CompactAddCommGroupLimits
+public import ContinuousGroupCohomology.CompactExceptionalTateCoefficientMaps
 public import ContinuousGroupCohomology.CompactExceptionalTateDiagrams
+public import ContinuousGroupCohomology.CompactExceptionalTateLimitFunctoriality
 public import ContinuousGroupCohomology.CompactExceptionalTateLimits
 public import ContinuousGroupCohomology.CompactBarFunctoriality
 public import ContinuousGroupCohomology.CompactFiniteHomology
@@ -39,6 +41,7 @@ public import ContinuousGroupCohomology.NonpositiveTateFunctoriality
 public import ContinuousGroupCohomology.NonpositiveTateLimits
 public import ContinuousGroupCohomology.QuotientConjugationAction
 public import ContinuousGroupCohomology.RestrictedLevelCompact
+public import ContinuousGroupCohomology.RestrictedLevelCompactFunctoriality
 public import ContinuousGroupCohomology.TopModuleCatUlift
 public import ContinuousGroupCohomology.TopRepUlift
 public import ContinuousGroupCohomology.TopologicalModN
@@ -54,8 +57,8 @@ finite coinvariants, exceptional deflation and its transitivity, compact
 finite-bar homology, compact exceptional Tate kernels/quotients and continuous
 finite-level deflation and their compact diagrams, additive comparisons and
 compact Hausdorff additive limits, finite Tate deflation diagrams and their
-topological limits,
-and compact or restricted finite-stage constructions.
+topological limits, continuous coefficient maps on compact exceptional Tate
+stages and limits, and functoriality of selected compact norm systems.
 All shipped production modules are native Lean modules and reachable through
 this root.
 
@@ -67,4 +70,7 @@ and finite Tate degree negative two; functoriality requires equivariance and
 continuity of the coefficient map. Compact exceptional Tate degrees `-1` and
 `0` compare additively with algebraic Tate cohomology, without giving the
 algebraic Tate groups a topology or assuming a topology on the coefficient ring.
+Restricted norm functoriality uses the actual selected level topologies and
+requires preservation of arbitrary chosen restricted systems; full and universal-
+norm systems admit canonical functors without additional preservation assumptions.
 -/

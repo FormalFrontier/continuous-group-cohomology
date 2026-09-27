@@ -183,6 +183,41 @@ Destination independent review, owner acceptance, official release, whole-artifa
 rights disposition and source correspondence remain separate. No original
 source asset, research excerpt or internal service URL is shipped.
 
+## Compact coefficient and norm-functoriality transfer (2026-09-27)
+
+Three production leaves and their three direct clients transfer selected
+Lean content, not incubator history, from accepted incubator main
+`28d4a7eba8c30747eb006156d8aea30e2f6c46a8` (tree
+`be929d63d31a89a90b864ae2013470bba3e99b33`) onto independently rooted
+CGC main `59c21c071e709b6da4adebe22a8b74bd81c1ac03` (tree
+`181bb849122e1a9741c392d21cda8c5b7b43b24b`). The original
+Apache-2.0 SPDX and agent author notices remain on all six source files.
+Beacon authored the earlier compact Tate coefficient/limit development;
+the exact native roles preserved in the original files are:
+
+- Coefficient stage maps and client: native adaptation by Task
+  `hive-request-d61b09970e5688d0b1e0da08ec7719208350ad23` (UID
+  `b087c1ae-8092-47fc-ba95-7e8a338a0201`).
+- Limit functoriality and client: native adaptation by Task
+  `hive-request-ec9bf361966f9bc5d2a422dd9e00cf39656f7a7c` (UID
+  `cd42fd3f-1546-42a4-b934-06eb5087858a`); named projections by Task
+  `hive-request-c53967c3623f44154013d9f5cd5cd87a248da315` (UID
+  `fae3b9d5-de01-4c04-b9c0-a63cc9cafb6e`).
+- Restricted systems and client: native adaptation by Task
+  `hive-request-15de2e8fb886b8dfbc8a9e6096f6f9069aa1bc0c` (UID
+  `5a9907b2-d133-462a-bc07-ae576b5820b6`); native norm diagrams by
+  `hive-request-c53967c3623f44154013d9f5cd5cd87a248da315` above.
+
+Worker-b Task `hive-request-a076be812437e7bf67255869d5cc6b788fca3c4c`
+(UID `1353ca47-da54-4955-bc5e-d5dc7016b645`) prepared the source-only
+destination transfer, registration and user guide. The incubator input received
+independent source review before acceptance. At the 2026-09-27 author-handoff
+checkpoint, this destination candidate still required its own review,
+changed-input build and complete standard-axiom audit, maintainer acceptance
+and verified official publication. Exact later decisions are recorded separately;
+this provenance record does not assert rights clearance, source coverage or
+incubator conversion.
+
 ## Continuous degree-one torsion promotion (2026-09-26)
 
 The degree-one torsion production module and integral/open-subgroup client

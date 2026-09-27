@@ -10,7 +10,9 @@ project:
     limits and coefficient functoriality, and compact Hausdorff additive-group
     limit models, and compact Hausdorff exceptional Tate kernel/quotient
     presentations with continuous finite-level deflation, compact exceptional
-    Tate diagrams, additive natural comparisons and compact additive limits.
+    Tate diagrams, additive natural comparisons and compact additive limits,
+    continuous coefficient maps on the exceptional stages and limits, and
+    functoriality of selected restricted relative-norm systems.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -47,6 +49,12 @@ sources:
       aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2. At its 2026-09-27 author
       handoff this destination transfer was unreviewed; the transfer itself
       is not a source-coverage or release decision.
+      Three further accepted incubator coefficient/norm-functoriality leaves
+      and their direct clients are transferred from incubator main
+      28d4a7eba8c30747eb006156d8aea30e2f6c46a8. At its 2026-09-27 author
+      handoff this destination transfer was unreviewed, not an accepted release
+      or a source-coverage decision. Exact later review and release decisions
+      are recorded separately; its source check uses a different mathlib pin.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -80,6 +88,10 @@ status:
     use covariant finite deflation. Compact exceptional Tate diagrams give
     degree -1 and 0 closed-kernel/quotient stages, additive natural comparisons
     and limits in compact Hausdorff additive groups with eventual-range projections.
+    Level-compact morphisms act continuously on compact exceptional Tate
+    stages and limits. Morphisms of chosen restricted systems preserve the
+    selected coefficients and their actual compact relative-norm diagrams;
+    full and universal-norm systems are functorial without extra preservation.
     No topology on the coefficient ring or algebraic Tate groups, completed
     continuous Tate comparison, or inverse-limit exactness is asserted.
   main_results:
@@ -135,6 +147,26 @@ status:
       file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
     - declaration: ContinuousGroupCohomology.LevelCompact.compactZeroTateLimitπ_range_eq_eventualRange
       file: ContinuousGroupCohomology/CompactExceptionalTateLimits.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.normFromFiniteCoinvariants_naturality_hom
+      file: ContinuousGroupCohomology/CompactExceptionalTateCoefficientMaps.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.finiteTateNegOneMap_deflation
+      file: ContinuousGroupCohomology/CompactExceptionalTateCoefficientMaps.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.finiteTateZeroMap_deflation
+      file: ContinuousGroupCohomology/CompactExceptionalTateCoefficientMaps.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactNegativeOneTateLimitFunctor
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimitFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactZeroTateLimitFunctor
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimitFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactNegativeOneTateLimitFunctor_map_namedπ
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimitFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.LevelCompactRep.compactZeroTateLimitFunctor_map_namedπ
+      file: ContinuousGroupCohomology/CompactExceptionalTateLimitFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.RestrictedLevelCompactRep.universalNormFunctor
+      file: ContinuousGroupCohomology/RestrictedLevelCompactFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.RestrictedLevelCompactRep.groupMap_relativeNorm
+      file: ContinuousGroupCohomology/RestrictedLevelCompactFunctoriality.lean
+    - declaration: ContinuousGroupCohomology.RestrictedLevelCompactRep.restrictedNormDiagramFunctor
+      file: ContinuousGroupCohomology/RestrictedLevelCompactFunctoriality.lean
 review:
   status: other
   notes: >-
@@ -169,6 +201,13 @@ review:
     destination. Exact later destination review, acceptance and official
     publication are separate decisions; no source-coverage determination
     follows from this transfer.
+    The later three-leaf coefficient/norm-functoriality destination transfer
+    from accepted incubator main 28d4a7eba8c30747eb006156d8aea30e2f6c46a8
+    had not received independent destination review, destination CI build or
+    complete transitive standard-axiom audit on its changed graph at the
+    2026-09-27 author-handoff checkpoint. Exact later destination review,
+    acceptance and publication decisions are recorded separately. Source
+    review and check evidence do not establish destination compatibility.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib
