@@ -48,6 +48,13 @@ def compactNegativeOneTateLimitπ (S : OpenNormalSubgroup G) :
     compactNegativeOneTateLimit A L ⟶ finiteTateNegOne A L S :=
   limit.π (compactFiniteNegativeOneDeflationDiagram A L) S
 
+/-- Public identification of the named degree-`-1` projection with the
+categorical projection, without exposing the definition across modules. -/
+lemma compactNegativeOneTateLimitπ_eq_limit_π (S : OpenNormalSubgroup G) :
+    compactNegativeOneTateLimitπ A L S =
+      limit.π (compactFiniteNegativeOneDeflationDiagram A L) S :=
+  by rfl
+
 /-- The degree-`-1` projections commute with deflation. -/
 lemma compactNegativeOneTateLimitπ_naturality
     {S T : OpenNormalSubgroup G} (f : S ⟶ T) :
@@ -73,6 +80,13 @@ abbrev compactZeroTateLimit : CompHausAddCommGrp.{u} :=
 def compactZeroTateLimitπ (S : OpenNormalSubgroup G) :
     compactZeroTateLimit A L ⟶ finiteTateZero A L S :=
   limit.π (compactFiniteZeroDeflationDiagram A L) S
+
+/-- Public identification of the named degree-zero projection with the
+categorical projection, without exposing the definition across modules. -/
+lemma compactZeroTateLimitπ_eq_limit_π (S : OpenNormalSubgroup G) :
+    compactZeroTateLimitπ A L S =
+      limit.π (compactFiniteZeroDeflationDiagram A L) S :=
+  by rfl
 
 /-- The degree-zero projections commute with deflation. -/
 lemma compactZeroTateLimitπ_naturality

@@ -211,8 +211,10 @@ noncomputable abbrev topologicalAddGroup (S : RestrictedLevelSystem A L)
   exact inferInstance
 
 /-- The compact Hausdorff additive group carried by a restricted coefficient
-module at one open normal level. -/
-noncomputable def group (S : RestrictedLevelSystem A L)
+module at one open normal level. Its carrier and inherited topology are exposed
+so ordinary importing modules can construct continuous maps on the chosen
+coefficient subtype. -/
+@[expose] noncomputable def group (S : RestrictedLevelSystem A L)
     (U : OpenNormalSubgroup G) : CompHausAddCommGrp.{u} := by
   let _ : TopologicalSpace (S.coefficients U) := S.topology U
   let _ : T2Space (S.coefficients U) := S.t2 U
@@ -283,6 +285,13 @@ def relativeNormHom (S : RestrictedLevelSystem A L)
   exact
     { toAddMonoidHom := (S.relativeNorm U V h).toAddMonoidHom
       continuous_toFun := S.continuous_relativeNorm U V h }
+
+/-- The bundled relative norm evaluates as the existing restricted linear map.
+This equation does not require exposing the morphism's implementation. -/
+theorem relativeNormHom_apply (S : RestrictedLevelSystem A L)
+    (U V : OpenNormalSubgroup G) (h : V ≤ U) (x : S.coefficients V) :
+    S.relativeNormHom U V h x = S.relativeNorm U V h x :=
+  by rfl
 
 end RestrictedLevelSystem
 

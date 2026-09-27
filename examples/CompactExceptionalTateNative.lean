@@ -111,6 +111,35 @@ example (S : OpenNormalSubgroup G) :
       LevelCompact.finiteTateZero A L S :=
   LevelCompact.compactZeroTateLimitπ A L S
 
+noncomputable local instance :
+    HasLimitsOfShape (OpenNormalSubgroup G) CompHausAddCommGrp.{u} :=
+  ⟨fun _ => inferInstance⟩
+
+/-- The public bridge lets an ordinary module client state the categorical
+limit-map equation using the named degree-`-1` projections. -/
+theorem negativeOne_limit_map_named_projection
+    (B : Rep.{u} R G) (M : LevelCompact B)
+    (f : LevelCompact.compactFiniteNegativeOneDeflationDiagram A L ⟶
+      LevelCompact.compactFiniteNegativeOneDeflationDiagram B M)
+    (S : OpenNormalSubgroup G) :
+    lim.map f ≫ LevelCompact.compactNegativeOneTateLimitπ B M S =
+      LevelCompact.compactNegativeOneTateLimitπ A L S ≫ f.app S := by
+  rw [LevelCompact.compactNegativeOneTateLimitπ_eq_limit_π,
+    LevelCompact.compactNegativeOneTateLimitπ_eq_limit_π]
+  exact limit.map_π f S
+
+/-- The same ordinary-import client equation for degree-zero projections. -/
+theorem zero_limit_map_named_projection
+    (B : Rep.{u} R G) (M : LevelCompact B)
+    (f : LevelCompact.compactFiniteZeroDeflationDiagram A L ⟶
+      LevelCompact.compactFiniteZeroDeflationDiagram B M)
+    (S : OpenNormalSubgroup G) :
+    lim.map f ≫ LevelCompact.compactZeroTateLimitπ B M S =
+      LevelCompact.compactZeroTateLimitπ A L S ≫ f.app S := by
+  rw [LevelCompact.compactZeroTateLimitπ_eq_limit_π,
+    LevelCompact.compactZeroTateLimitπ_eq_limit_π]
+  exact limit.map_π f S
+
 example {S T : OpenNormalSubgroup G} (f : S ⟶ T) :
     LevelCompact.compactNegativeOneTateLimitπ A L S ≫
         (LevelCompact.compactFiniteNegativeOneDeflationDiagram A L).map f =

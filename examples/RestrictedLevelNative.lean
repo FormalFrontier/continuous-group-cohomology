@@ -29,7 +29,7 @@ set_option warningAsError true
 
 noncomputable section
 
-open ContinuousGroupCohomology
+open CategoryTheory ContinuousGroupCohomology
 
 namespace RestrictedLevelNative
 
@@ -126,6 +126,48 @@ noncomputable def chosen_norm_group_hom (S : LevelCompact.RestrictedLevelSystem 
     (U V : OpenNormalSubgroup G) (h : V ≤ U) :
     S.group V ⟶ S.group U :=
   S.relativeNormHom U V h
+
+/-- An ordinary importing module can bundle an actual continuous linear map
+between the chosen coefficient carriers, without copying the compact objects. -/
+noncomputable def chosen_continuous_linear_hom
+    {B : Rep.{u} R G} {M : LevelCompact B}
+    (S : LevelCompact.RestrictedLevelSystem A L)
+    (T : LevelCompact.RestrictedLevelSystem B M) (U V : OpenNormalSubgroup G)
+    (f : S.coefficients U →ₗ[R] T.coefficients V)
+    (hf : @Continuous (S.coefficients U) (T.coefficients V)
+      (S.topology U) (T.topology V) f) : S.group U ⟶ T.group V := by
+  apply CategoryTheory.ConcreteCategory.ofHom
+  exact { toAddMonoidHom := f.toAddMonoidHom, continuous_toFun := hf }
+
+theorem chosen_continuous_linear_hom_apply
+    {B : Rep.{u} R G} {M : LevelCompact B}
+    (S : LevelCompact.RestrictedLevelSystem A L)
+    (T : LevelCompact.RestrictedLevelSystem B M) (U V : OpenNormalSubgroup G)
+    (f : S.coefficients U →ₗ[R] T.coefficients V)
+    (hf : @Continuous (S.coefficients U) (T.coefficients V)
+      (S.topology U) (T.topology V) f) (x : S.coefficients U) :
+    chosen_continuous_linear_hom A L S T U V f hf x = f x :=
+  by rfl
+
+theorem chosen_norm_group_apply (S : LevelCompact.RestrictedLevelSystem A L)
+    (U V : OpenNormalSubgroup G) (h : V ≤ U) (x : S.coefficients V) :
+    S.relativeNormHom U V h x = S.relativeNorm U V h x :=
+  S.relativeNormHom_apply U V h x
+
+theorem chosen_norm_group_comp (S : LevelCompact.RestrictedLevelSystem A L)
+    (U V W : OpenNormalSubgroup G) (hWV : W ≤ V) (hVU : V ≤ U) :
+    S.relativeNormHom V W hWV ≫ S.relativeNormHom U V hVU =
+      S.relativeNormHom U W (hWV.trans hVU) := by
+  apply CompHausAddCommGrp.hom_ext
+  ext x
+  change S.relativeNormHom U V hVU (S.relativeNormHom V W hWV x) =
+    S.relativeNormHom U W (hWV.trans hVU) x
+  let y : S.coefficients W := x
+  have step1 := S.relativeNormHom_apply U V hVU (S.relativeNormHom V W hWV y)
+  have step2 := congrArg (S.relativeNorm U V hVU) (S.relativeNormHom_apply V W hWV y)
+  have step3 := congrArg (fun f => f y) (S.relativeNorm_comp U V W hWV hVU)
+  have step4 := (S.relativeNormHom_apply U W (hWV.trans hVU) y).symm
+  exact step1.trans (step2.trans (step3.trans step4))
 
 theorem full_choice (U : OpenNormalSubgroup G) :
     (LevelCompact.fullRestrictedLevelSystem A L).subrepresentation U = ⊤ := by
