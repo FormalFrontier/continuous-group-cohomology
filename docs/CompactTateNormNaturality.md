@@ -97,6 +97,17 @@ The destination copy starts from accepted CGC main
 `54568aa46186e1b861db8956129e10fc35f55f30`); separately verified official
 publication `130d8d776944e94871988a09ab01375d6dce49ca` has the same
 tree. This new naturality copy is **not** thereby reviewed, accepted or released.
+Subsequently, source PR #121 and destination PR #150 completed their distinct
+reviews, checks and protected integrations (CGC #30/53761 and #30/53786).
+The destination naturality addition then completed separate release review,
+owner acceptance and verified private GitHub publication at official
+`472fc313990d73049bf9a403ec47282c8851fea3` (tree
+`5f90272fefc84b2a24cd5d0f6eb7923a40c1e650`; CGC #30/54239).
+The later incubator naturality import conversion PR #129 was independently
+accepted and protected-integrated at
+`9c91f0959037f9ec437adc5fd2891ef96b654ddd` (CGC #30/54877,
+incubator #129/54887). These later decisions do not retroactively change the
+dated handoff conditions or establish any source-coverage decision.
 
 The reused finite norm row and full limit/quotient identification originated in
 Hive Tasks `hive-request-e6d76bdf4dadaad23f990aa082128217880d7321`
@@ -145,7 +156,7 @@ integrated at `06f99031c7cf284320dc65fcaf787a569a791be4` (CGC #30/53761).
 Destination PR #150 passed independent review and native547 full-root/client
 build and complete private-inclusive standard-axiom checks, then was accepted
 and integrated at `f37e95ea83e8477e84a58e327df7535cb93c12cc`
-(CGC #30/53596, #30/53776, #30/53786). Independent final release review,
-acceptance and verified GitHub publication remain pending. Any later incubator
-removal/import replacement requires that publication and a separately agreed
-source input. Neither handoff establishes source correspondence or coverage.
+(CGC #30/53596, #30/53776, #30/53786). The later release/publication and
+incubator #129 conversion recorded above are complete for this naturality
+addition, not for a future contribution or a source-coverage decision. Neither
+original handoff establishes source correspondence or coverage.

@@ -315,12 +315,76 @@ native544, and was accepted and integrated at
 `06f99031c7cf284320dc65fcaf787a569a791be4` (CGC #30/53755, #30/53761).
 Destination PR #150 passed independent review and changed-pin native547, then
 was accepted and integrated at `f37e95ea83e8477e84a58e327df7535cb93c12cc`
-(CGC #30/53596, #30/53776, #30/53786). Independent final release review and
-acceptance, verified GitHub publication and any separately agreed incubator
-import conversion remain separate pending decisions. No source-coverage decision
-or whole-artifact rights clearance follows from this copy.
+(CGC #30/53596, #30/53776, #30/53786). Subsequently its separate release
+review, acceptance and verified private GitHub publication completed at official
+`472fc313990d73049bf9a403ec47282c8851fea3` (CGC #30/54239), and the
+reviewed incubator import conversion PR #129 was protected-integrated at
+`9c91f0959037f9ec437adc5fd2891ef96b654ddd` (CGC #30/54877;
+incubator #129/54887). Those subsequent decisions do not change the dated
+handoff conditions or clear a later release's rights/history. No source-coverage
+decision follows from this copy.
 The finite-row and limit authors and the coefficient/exceptional-limit and
 universal-norm adaptation contributors retain their separate credit above.
+
+## Compact universal-norm limits source-only transfer (2026-09-27)
+
+One producer, its seven-use arbitrary-data client and a manual guide transfer
+the mathematical expression, not incubator history, from the **then unregistered
+and unintegrated** incubator branch `worker-b/compact-universal-norm-limits-20260927`
+at `a3a22a2ff480a29bf9c6bc65bdc3258318d0ddb5` (tree
+`3aa7cb0c7bd4339bb1690cdc1e9bfda21f5b1ef6`), sole parent accepted122
+`ed9e33a55cc71125ad3350051096e2949959f9a5`, onto accepted CGC main
+`0534608dbab4845ee3e356f4f79cc1422eff013c` (tree
+`5f90272fefc84b2a24cd5d0f6eb7923a40c1e650`). The independently
+verified official `472fc313990d73049bf9a403ec47282c8851fea3` has only
+the destination *base* tree, not this contribution. Existing compact limit,
+restricted-system, coefficient-functoriality and norm interfaces retain their
+separate original credit above; this transfer does not reauthor them. Subsequently,
+the original source files were registered and protected-integrated as incubator
+PR #131 at `74260f173dacd7fab9156b70ca427a96f83ea2f2` (tree
+`afdce51bb31b86739736c52190693ea927c40cdc`; CGC #30/54932,
+incubator #131/54934). Destination PR #154 received independent worker-a
+review (CGC #30/54424), native603 whole-graph checks (CGC #30/54767), and
+Beacon's acceptance and protected integration at
+`157fbdc282f1697a857a9d552aa394f8a0214bba` (tree
+`1fa60aafcfef4cfcbe31aae8ee07b85a6286522e`; CGC #30/54948).
+
+- Original new mathematics, producer, client and guide: worker-b Task
+  `hive-request-03e922288088a5d1c219136acc3e6c751b1deed4` (UID
+  `c434e120-0a6c-400b-8688-df1930ee09cf`). Independent exact isolated-leaf
+  reviewer: worker-a Task
+  `hive-request-379227b17cfd2bc24a9d90fad508433bb05eff34` (UID
+  `e03485c6-faa5-4c86-8c26-ca675c07ab8f`), CGC #30/54289. Beacon adopted
+  leaf readiness only at CGC #30/54295; this is not source main acceptance.
+- Apache-2.0 header, destination client import/namespace, root/target and manual
+  metadata adaptation: worker-b Task
+  `hive-request-e9e4a4d665612156fc293987266d82d3095b832f` (UID
+  `7b81731e-77c0-4035-b4f8-486145079158`). Producer imports, declarations,
+  statements and proofs are unchanged; seven client bodies are unchanged.
+- Distinct source PR #131 registrar: worker-b Task
+  `hive-request-7a6745cdb480416d30333dab258a27e133ef9fed` (UID
+  `07bed2ba-b0a2-4ba7-861b-aa0364716943`; CGC #30/54521).
+  Independent destination PR #154 reviewer: worker-a Task
+  `hive-request-3c9cfef2b5e3ff3583db27d9833858f1b53e5c84` (UID
+  `5ee84ff8-274d-48d1-a7f1-d4bcdd39f1fe`; CGC #30/54424).
+
+The separately published incubator source evidence
+`af111b8039277f3757173783a88390f88dddfd82` checked both focused leaves
+and all 46 private-inclusive origins under the three standard axioms at source
+mathlib `83abb3e776bdefcbc447a1e44d0debe4010039e5` and official CGC
+`130d8d776944e94871988a09ab01375d6dce49ca`. It is **not** destination
+mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103` compatibility or a
+check of the new root/client graph. Separately, native603 (CGC #30/54767)
+checked the destination's exact 72-module graph, including the new 37 producer
+and nine client declaration origins, with a successful both-root build and
+complete private-inclusive standard-three transitive axiom audit. Source
+registration, fresh destination review, native checks and code acceptance
+have completed at the distinct revisions above; independent whole-artifact/
+public-history/rights release review and owner release acceptance, protected
+public promotion, verified private GitHub publication and later separately
+reviewed incubator import conversion remain pending for this new contribution.
+Neither this record nor code acceptance establishes source correspondence,
+coverage or whole-release rights clearance.
 
 ## Continuous degree-one torsion promotion (2026-09-26)
 

@@ -14,8 +14,13 @@ The actual compact finite Tate norm row and its full-open-normal inverse-limit
 sequence identify the universal-norm kernel, range and compact quotient.
 Level-compact coefficient maps act naturally on this actual row and on its
 independently descended closed-universal-norm quotient.
+Separately, the full invariant relative-norm limit projects onto precisely
+the universal norms; their restricted norms are surjective, and inclusion of
+any closed restricted system containing them induces a natural compact-limit
+isomorphism. This does not assert full-transition surjectivity or identify
+that relative-norm diagram with the finite Tate norm row.
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
-`ContinuousGroupCohomology.*` leaf to limit dependencies. The checked
+`ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
 
 **Authors: Formal Frontier Agents.** Original project contributions are
@@ -37,12 +42,14 @@ The [finite norm-row guide](docs/CompactFiniteTateNormSequence.md) and
 the distinct finite-stage and inverse-limit results.
 The [compact norm-row naturality guide](docs/CompactTateNormNaturality.md)
 describes their actual coefficient-map squares and natural quotient isomorphism.
+The [compact universal-norm limit guide](docs/CompactUniversalNormLimits.md)
+describes the distinct restricted relative-norm comparison and its naturality.
 The [degree-one torsion guide](#degree-one-torsion)
 covers the compact-group result. For compact finite-bar homology, comparison
 and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the nineteen additional leaves, fifteen
+analyzed snapshot**: they do not index the twenty additional leaves, sixteen
 direct clients, or the current root's import graph.
 
 ## What is available
@@ -57,6 +64,7 @@ direct clients, or the current root's import graph.
 | Compact exceptional Tate diagrams and limits | `CompactExceptionalTateDiagrams`, `CompactExceptionalTateLimits` | Continuous compact deflation diagrams in degrees `-1` and `0`, natural isomorphisms of underlying additive diagrams with algebraic Tate diagrams, compact Hausdorff additive limits, projection equations and eventual-range images. Requires chosen `LevelCompact A` in a common universe; these two leaves alone do not supply coefficient maps, surjectivity or inverse-limit exactness. |
 | Compact finite and full-system norm rows | `CompactFiniteTateNormSequence`, `CompactTateNormLimitSequence` | Actual finite coinvariant/kernel/invariant/quotient maps form two exact middle pairs; the full open-normal compact limits yield the corresponding exact row, injective/onto endpoints, universal-norm kernel/range and compact quotient iso. Requires common-universe `R`, `G`, `Rep` and chosen `LevelCompact`; these two modules alone do not supply coefficient naturality. No coefficient-ring topology, onto coinvariant/kernel transitions, arbitrary restricted-system identification, arithmetic or all-degree Tate result. |
 | Full norm-row coefficient naturality | `CompactTateNormNaturality` | For arbitrary level-compact coefficient morphisms, the actual finite-coinvariant diagram/limit and the three full norm-row arrows are natural. The coefficient action descends continuously to the actual closed-universal-norm quotient, and the existing quotient-to-degree-zero-limit iso is natural for that independently descended action. No ring or ambient-representation topology, extra preservation/surjectivity, arbitrary restricted-system identification, arithmetic or all-degree Tate result. |
+| Compact relative-norm limits | `CompactUniversalNormLimits` | For chosen compact invariant topologies with common-universe level-compact data, full-limit projection range equals universal norms, restricted universal-norm transitions are onto, and the genuine inclusion of any closed restricted system containing universal norms induces an isomorphism of actual compact additive limits with both projection equations. A specified restricted morphism must preserve its chosen coefficients (`map_mem`); universal norms are functorial for every level-compact coefficient map. No full/arbitrary transition surjectivity, ambient coefficient topology, identification with the Tate norm row, arithmetic or all-degree Tate result. |
 | Compact coefficient and norm functoriality | `CompactExceptionalTateCoefficientMaps`, `CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality` | Level-compact morphisms give continuous compact coefficient/exceptional-Tate stage maps, natural maps of their compact limit diagrams and limits, and morphisms of selected restricted relative-norm diagrams. Arbitrarily chosen restricted systems require preservation; full and universal-norm systems are canonically functorial. No extra ring/ambient-coefficient topology or surjectivity is assumed. |
 | Finite Tate diagrams | `FiniteTateDiagrams`, `NonpositiveTateLimits`, `NonpositiveTateFunctoriality` | Covariant deflation along open normal inclusions of a profinite group, `TopModuleCat` limits and coefficient-morphism functoriality for the homological model of degrees below `-1` and exceptional degrees `-1` and `0`. No identification with completed continuous Tate theory. |
 | Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
@@ -66,7 +74,7 @@ direct clients, or the current root's import graph.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 46 listed production leaves. All 46 and the twenty-three clients
+publicly imports all 47 listed production leaves. All 47 and the twenty-four clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -133,7 +141,7 @@ download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
 then-current 40-leaf/seventeen-client graph or its renewed Tate dependency;
 it does not measure the later 43-leaf/twenty-client, 45-leaf/twenty-two-client
-or new 46-leaf/twenty-three-client graph.
+or the later 46-leaf/twenty-three-client and this 47-leaf/twenty-four-client graph.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -146,8 +154,8 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 46 imports;
-`CGCExamples` compiles precisely these twenty-three native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 47 imports;
+`CGCExamples` compiles precisely these twenty-four native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -157,6 +165,7 @@ the default build:
   [`CompactFiniteTateNormSequenceNative`](examples/CompactFiniteTateNormSequenceNative.lean),
   [`CompactTateNormLimitSequenceNative`](examples/CompactTateNormLimitSequenceNative.lean),
   [`CompactTateNormNaturalityNative`](examples/CompactTateNormNaturalityNative.lean),
+  [`CompactUniversalNormLimitsNative`](examples/CompactUniversalNormLimitsNative.lean),
   [`CompactNegativeBarNative`](examples/CompactNegativeBarNative.lean),
   [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean),
   [`ExceptionalDeflationNative`](examples/ExceptionalDeflationNative.lean),
@@ -180,7 +189,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other twenty-two client paths above can likewise be given to `lake env lean`.
+The other twenty-three client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
