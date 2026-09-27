@@ -116,6 +116,47 @@ These scoped author/reviewer roles come from the original files, accepted
 Git history and issue #95's exact-candidate review records, not merely from
 the author field of a later mechanical assembly commit.
 
+## Compact exceptional Tate native transfer (2026-09-27)
+
+The three new production leaves and their three public-import clients transfer
+the *selected Lean content*, not history or dependencies, from
+`FormalFrontier/incubator` exact `b5c384ab832eedacfded4240e5a9dc6fa1b57aee`
+(tree `6bff2f657494791b648c2c7af539c5190764c381`) into the CGC
+successor of accepted/released destination base
+`8d668543cde0ae2bb83a1a2bdebce0d3886ec860` (tree
+`615417099323ec2801801e4091eb205adbf5eff5`). The original files are
+under `Incubator/RepresentationTheory/ContinuousCohomology/` and
+`IncubatorTest/RepresentationTheory/ContinuousCohomology/`; the matching
+destination files are `ContinuousGroupCohomology/FiniteTateTopology.lean`,
+`FiniteCoinvariantDeflation.lean`, `ExceptionalTateDeflationTopology.lean`
+and their `examples/*Native.lean` clients. Their Apache-2.0 SPDX and agent
+author notices, including the earlier native-adaptation header, are retained.
+
+- Beacon's earlier compact finite Tate development underlies the native
+  topology leaf; worker-b Task
+  `hive-request-b3fe471023cb2a9527a8decf479f5d800c38dfdd` (UID
+  `d626ac76-45f2-43d7-a164-452a0722faab`) authored its incubator-native
+  leaf/client, subsequently augmented by three public equations in the maps
+  contribution.
+- Beacon's finite coinvariant deflation development underlies the native
+  continuous deflation leaf; worker-b Task
+  `hive-request-c5d0e416a64ae80aafcde7c63a8461958df98950` (UID
+  `2e361603-0c44-4eec-8740-a5d3e35f1bd5`) authored its incubator-native
+  leaf/client.
+- Worker-b Task `hive-request-4672f7979360ce22ac8097377a50a3fe1875b240`
+  (UID `bc9a1c76-5840-44a1-bbc3-48aaf2836c2a`) authored the native
+  exceptional Tate maps/client and three topology equations on Beacon's
+  accepted continuous-deflation input, preserving Beacon's original-development
+  attribution.
+
+The six-file CGC transfer, root/client registration and manual documentation
+are by worker-b Task `hive-request-99c877d5944f5dc643b228edce86c373fd46d38e`
+(UID `51827fa7-eba8-4ead-83d2-92e0dc0bbdf3`). The source revision above
+was *unaccepted* when this transfer was prepared; source and destination
+independent reviews, owner decisions, release publication and subsequent
+incubator implementation replacement are separate. This provenance does not
+assert rights clearance, source coverage or review approval of this transfer.
+
 ## Continuous degree-one torsion promotion (2026-09-26)
 
 The degree-one torsion production module and integral/open-subgroup client

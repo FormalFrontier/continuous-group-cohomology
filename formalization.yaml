@@ -8,7 +8,8 @@ project:
     with nested-normal-subgroup transitivity, compact finite-bar homology and
     functoriality, finite profinite-quotient Tate diagrams, their topological
     limits and coefficient functoriality, and compact Hausdorff additive-group
-    limit models.
+    limit models, and compact Hausdorff exceptional Tate kernel/quotient
+    presentations with continuous finite-level deflation.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -35,7 +36,11 @@ sources:
       private release on 2026-09-26. The finite Tate diagram, limit and
       coefficient-functoriality files preserve the separately reviewed
       bbd25f08b4bee9095880a15c11d3712541a5c347 predecessor. This later assembly
-      still requires its own exact review and acceptance.
+      still requires its own exact review and acceptance. A later native
+      exceptional Tate topology/deflation transfer from the incubator is
+      prepared against exact source b5c384ab832eedacfded4240e5a9dc6fa1b57aee.
+      At its 2026-09-27 author handoff this destination adaptation was unreviewed;
+      the transfer itself is not a source-coverage or publication decision.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -61,9 +66,14 @@ status:
     torsion, finite coinvariants and
     finite-level deflation in Tate degrees -1 and 0, compact Hausdorff additive
     finite-bar homology and additive finite Tate comparison in degrees -(n+2).
-    Finite profinite-quotient Tate diagrams, categorical topological limits and
-    coefficient functoriality use covariant finite deflation; no completed
-    continuous Tate comparison or inverse-limit exactness is asserted.
+    Compact Hausdorff additive exceptional Tate stages in degrees -1 and 0
+    arise as the closed kernel and quotient-by-range of a finite norm;
+    continuous coinvariant deflation induces compact maps with additive
+    comparisons to algebraic finite Tate deflation. Finite profinite-quotient
+    Tate diagrams, categorical topological limits and coefficient functoriality
+    use covariant finite deflation; no topology on the coefficient ring or
+    algebraic Tate groups, completed continuous Tate comparison, or inverse-limit
+    exactness is asserted.
   main_results:
     - declaration: ContinuousCohomology.isAddTorsion_degreeOne
       file: ContinuousGroupCohomology/Torsion.lean
@@ -73,6 +83,26 @@ status:
       file: ContinuousGroupCohomology/CompactBarFunctoriality.lean
     - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyNegativeAddEquivFiniteTate
       file: ContinuousGroupCohomology/CompactNegativeTate.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateNegOne
+      file: ContinuousGroupCohomology/FiniteTateTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateZero
+      file: ContinuousGroupCohomology/FiniteTateTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyNegOneAddEquivFiniteTate
+      file: ContinuousGroupCohomology/FiniteTateTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyZeroAddEquivFiniteTate
+      file: ContinuousGroupCohomology/FiniteTateTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteCoinvariantDeflation
+      file: ContinuousGroupCohomology/FiniteCoinvariantDeflation.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.normFromFiniteCoinvariants_finiteCoinvariantDeflation
+      file: ContinuousGroupCohomology/FiniteCoinvariantDeflation.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateNegOneDeflation
+      file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.finiteTateZeroDeflation
+      file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyNegOneAddEquivFiniteTate_finiteNegativeOneDeflation
+      file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
+    - declaration: ContinuousGroupCohomology.LevelCompact.tateCohomologyZeroAddEquivFiniteTate_finiteZeroDeflation
+      file: ContinuousGroupCohomology/ExceptionalTateDeflationTopology.lean
 review:
   status: other
   notes: >-
@@ -94,7 +124,13 @@ review:
     remain preserved. No predecessor review is transferred automatically to
     this assembly, and none establishes whole-source coverage or approval of
     later release history. At this 2026-09-26 composition checkpoint, final
-    acceptance of the combined candidate remains pending.
+    acceptance of the combined candidate remains pending. The subsequent
+    compact exceptional Tate cluster was an unreviewed destination promotion
+    candidate at its 2026-09-27 author handoff, from incubator
+    b5c384ab832eedacfded4240e5a9dc6fa1b57aee;
+    independent source and destination review, owner acceptance and verified
+    release remain separate decisions. Its author transfer alone does not
+    establish approval or whole-source coverage.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
   original contributor/reviewer roles and the repaired pinned mathlib

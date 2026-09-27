@@ -17,10 +17,13 @@ public import ContinuousGroupCohomology.ContinuousGroupExtension
 public import ContinuousGroupCohomology.Corestriction
 public import ContinuousGroupCohomology.DegreeOne
 public import ContinuousGroupCohomology.ExceptionalDeflation
+public import ContinuousGroupCohomology.ExceptionalTateDeflationTopology
+public import ContinuousGroupCohomology.FiniteCoinvariantDeflation
 public import ContinuousGroupCohomology.FiniteCoinvariants
 public import ContinuousGroupCohomology.FiniteDeflationTransitivity
 public import ContinuousGroupCohomology.FiniteNegativeDeflation
 public import ContinuousGroupCohomology.FiniteTateDiagrams
+public import ContinuousGroupCohomology.FiniteTateTopology
 public import ContinuousGroupCohomology.GroupExtensionUlift
 public import ContinuousGroupCohomology.HomogeneousCochainsUlift
 public import ContinuousGroupCohomology.LevelCompact
@@ -46,7 +49,8 @@ public import ContinuousGroupCohomology.Torsion
 The public root reexports the low-degree continuous cohomology and transfer
 interface, compact-group degree-one torsion, topological quotients and actions,
 finite coinvariants, exceptional deflation and its transitivity, compact
-finite-bar homology, finite Tate deflation diagrams and their topological limits,
+finite-bar homology, compact exceptional Tate kernels/quotients and continuous
+finite-level deflation, finite Tate deflation diagrams and their topological limits,
 and compact or restricted finite-stage constructions.
 All shipped production modules are native Lean modules and reachable through
 this root.
@@ -56,5 +60,7 @@ limit statements concern compact Hausdorff additive groups and level systems,
 not a general completed continuous homology construction. The finite-bar
 homology comparison is additive, beginning in positive homology degree one
 and finite Tate degree negative two; functoriality requires equivariance and
-continuity of the coefficient map.
+continuity of the coefficient map. Compact exceptional Tate degrees `-1` and
+`0` compare additively with algebraic Tate cohomology, without giving the
+algebraic Tate groups a topology or assuming a topology on the coefficient ring.
 -/

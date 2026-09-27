@@ -3,12 +3,15 @@
 **Historical snapshot only:** this index analyzes the earlier
 27-leaf/eight-client graph and historical Tate dependency specified in
 [reproduction](README.md#frozen-inputs), **not** the current
-35-leaf/thirteen-client build. It excludes `CompactNegativeTate`,
+38-leaf/sixteen-client build. It excludes `CompactNegativeTate`,
 `CompactBarFunctoriality`, `ExceptionalDeflation`,
 `FiniteDeflationTransitivity`, `Torsion`, `FiniteTateDiagrams`,
-`NonpositiveTateLimits`, `NonpositiveTateFunctoriality` and their five direct clients; its root
+`NonpositiveTateLimits`, `NonpositiveTateFunctoriality`,
+`FiniteTateTopology`, `FiniteCoinvariantDeflation`,
+`ExceptionalTateDeflationTopology` and their eight direct clients; its root
 import row is historical. See the [manual compact-bar guide](CompactBar.md),
 [finite-deflation guide](FiniteDeflation.md),
+[compact exceptional Tate guide](FiniteTateTopology.md),
 [finite Tate diagrams guide](FiniteTateDiagrams.md),
 [degree-one torsion guide](../README.md#degree-one-torsion) and current Lean
 sources for the additional APIs and their exact hypotheses.

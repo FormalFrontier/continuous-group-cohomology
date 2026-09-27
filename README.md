@@ -4,8 +4,9 @@ A Lean library of low-degree continuous group cohomology, degree-one transfer
 and compact-group degree-one torsion,
 topological quotients and actions, finite-group coinvariants and finite-level
 deflation in Tate degrees `-1` and `0`, finite profinite-quotient Tate diagrams
-and their topological limits, compact finite-bar homology, and compact Hausdorff
-additive-group limit models.
+and their topological limits, compact finite-bar homology, compact Hausdorff
+additive-group limit models, and compact exceptional finite Tate stages with
+continuous deflation at nested open normal levels.
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The checked
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -17,6 +18,8 @@ notices and outstanding rights checks are recorded in
 rights determination.
 
 The [finite-deflation guide](docs/FiniteDeflation.md) covers finite-level maps;
+the [compact exceptional Tate guide](docs/FiniteTateTopology.md) covers the
+compact kernel/quotient, continuous finite coinvariant deflation and comparisons;
 the [finite Tate diagrams guide](docs/FiniteTateDiagrams.md) covers the newly
 restored diagrams, limits and coefficient functoriality.
 The [degree-one torsion guide](#degree-one-torsion)
@@ -24,7 +27,7 @@ covers the compact-group result. For compact finite-bar homology, comparison
 and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the eight additional leaves, five
+analyzed snapshot**: they do not index the eleven additional leaves, eight
 direct clients, or the current root's import graph.
 
 ## What is available
@@ -35,6 +38,7 @@ direct clients, or the current root's import graph.
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
+| Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
 | Finite Tate diagrams | `FiniteTateDiagrams`, `NonpositiveTateLimits`, `NonpositiveTateFunctoriality` | Covariant deflation along open normal inclusions of a profinite group, `TopModuleCat` limits and coefficient-morphism functoriality for the homological model of degrees below `-1` and exceptional degrees `-1` and `0`. No identification with completed continuous Tate theory. |
 | Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
 | Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
@@ -43,7 +47,7 @@ direct clients, or the current root's import graph.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 35 listed production leaves. All 35 and the thirteen clients
+publicly imports all 38 listed production leaves. All 38 and the sixteen clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -91,7 +95,7 @@ checkout is needed. Do not update the manifest when reproducing these pins.
 ```sh
 elan toolchain install leanprover/lean4:v4.34.0-rc2
 lake exe cache get
-LEAN_NUM_THREADS=2 lake --wfail build
+LEAN_NUM_THREADS=2 lake -KmaxJobs=2 --wfail build
 ```
 
 Fetching the **matching mathlib cache must succeed before any build**; diagnose
@@ -108,7 +112,7 @@ took **2.499 seconds**. These are sequential workload observations, not three
 independent clean builds. Toolchain installation, dependency checkout and cache
 download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
-35-leaf/thirteen-client graph or its renewed Tate dependency.
+38-leaf/sixteen-client graph or its renewed Tate dependency.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -121,17 +125,20 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 35 imports;
-`CGCExamples` compiles precisely these thirteen native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 38 imports;
+`CGCExamples` compiles precisely these sixteen native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
   [`CompactNegativeBarNative`](examples/CompactNegativeBarNative.lean),
   [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean),
   [`ExceptionalDeflationNative`](examples/ExceptionalDeflationNative.lean),
+  [`ExceptionalTateDeflationTopologyNative`](examples/ExceptionalTateDeflationTopologyNative.lean),
+  [`FiniteCoinvariantDeflationNative`](examples/FiniteCoinvariantDeflationNative.lean),
   [`FiniteCoinvariantsNative`](examples/FiniteCoinvariantsNative.lean),
   [`FiniteDeflationTransitivityNative`](examples/FiniteDeflationTransitivityNative.lean),
   [`FiniteNegativeNative`](examples/FiniteNegativeNative.lean),
+  [`FiniteTateTopologyNative`](examples/FiniteTateTopologyNative.lean),
   [`LevelCompactNative`](examples/LevelCompactNative.lean);
 - [`LevelCompactNormNative`](examples/LevelCompactNormNative.lean),
   [`NestedInvariantsNative`](examples/NestedInvariantsNative.lean),
@@ -145,7 +152,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other twelve client paths above can likewise be given to `lake env lean`.
+The other fifteen client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
@@ -158,9 +165,9 @@ is not a complete axiom or rights check.
 ## Scope and migration
 
 This native core does **not** ship earlier scalar-extension experiments,
-additional finite Tate comparison diagrams, finite-deflation
-continuity, inverse-limit exactness, or the broader completed continuous Tate
-and topology layers. The compact finite-bar construction supplies neither a
+additional finite Tate comparison diagrams, inverse-limit exactness, or the
+broader completed continuous Tate and topology layers. The compact finite-bar
+construction supplies neither a
 topological-module comparison over an unspecified scalar topology nor a general
 completed continuous homology construction. Earlier `design/`
 notes and eight legacy clients are also excluded. Historical development is
@@ -168,7 +175,9 @@ retained in project history but not imported, installed or required by this
 library. Migrate code importing an excluded module to the named retained API
 where its mathematics matches; otherwise retain an earlier development
 revision separately until the missing functionality is reviewed and added.
-Removing a legacy import alone does not recreate a deferred theorem.
+Removing a legacy import alone does not recreate a deferred theorem. The compact
+exceptional Tate modules supply continuous deflation for their stated finite
+levels, not general completed continuous Tate cohomology.
 
 This is an explicitly scoped library, not an all-degree Tate or continuous
 cohomology or general completed continuous homology formalization. The recovered
