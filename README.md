@@ -1,4 +1,6 @@
-# Continuous group cohomology: native core
+# Continuous group cohomology: native cohomology and compact finite quotients
+
+## Headline results
 
 A Lean library of low-degree continuous group cohomology, degree-one transfer
 and compact-group degree-one torsion,
@@ -19,6 +21,11 @@ the universal norms; their restricted norms are surjective, and inclusion of
 any closed restricted system containing them induces a natural compact-limit
 isomorphism. This does not assert full-transition surjectivity or identify
 that relative-norm diagram with the finite Tate norm row.
+The library also gives an all-degree, classwise open-normal finite-quotient
+lift for discrete jointly continuous coefficients, followed in positive
+degrees by class-dependent finite-quotient-order annihilation and additive
+torsion. These results use the actual quotient-invariant representation, not
+a uniformly chosen quotient or a trivialized coefficient action.
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -49,8 +56,48 @@ covers the compact-group result. For compact finite-bar homology, comparison
 and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the twenty additional leaves, sixteen
-direct clients, or the current root's import graph.
+analyzed snapshot**: they do not index the twenty-nine additional leaves,
+twenty-four direct clients, or the current root's import graph.
+
+## Classwise compact/discrete cohomology
+
+For a topologized ring `k`, compact topological group `G`, and discrete
+`X : TopRep k G` with a jointly continuous action, import
+`ContinuousGroupCohomology.CompactDiscreteTorsion` or the public root.
+`ContinuousCohomology.exists_openNormal_quotient_class_lift` expresses each
+class in any degree as the image of a class on a finite open-normal quotient
+with coefficients in `TopRep.quotientInvariants N.toSubgroup X`.
+`ContinuousCohomology.exists_openNormal_quotient_card_nsmul_eq_zero` gives,
+in positive degree, an annihilating quotient order for each class, and
+`ContinuousCohomology.compactDiscrete_isAddTorsion` packages the resulting
+`IsAddTorsion (continuousCohomology (n + 1) X)`. See the
+[classwise descent and torsion guide](docs/CompactDiscreteTorsion.md),
+[quotient-invariants guide](docs/QuotientInvariants.md),
+[finite-stage cochain guide](docs/FiniteStageCochains.md), and
+[finite-averaging guide](docs/FiniteAveraging.md) for hypotheses and proofs.
+The [compact/discrete factor guide](docs/CompactDiscreteFactor.md),
+[resolution-image guide](docs/ResolutionImage.md),
+[finite-stage resolution guide](docs/FiniteStageResolution.md), and
+[cochain-injectivity guide](docs/CochainInjectivity.md) describe reusable
+prerequisites and their limitations. All eight guides describe ordinary-import
+clients under `examples/*Native.lean`.
+
+The quotient and its order may depend on the class. This does **not** prove
+degree-zero torsion, a uniform bound or quotient, injectivity on cohomology,
+general boundary descent/full filtered-colimit comparison, acyclicity,
+vanishing or source-specific coverage. The older degree-one torsion and
+comparison API below remains available unchanged.
+
+**Preparation snapshot and subsequent disposition, 2026-09-30:** this
+source-only transfer originally used the then-unaccepted prospective incubator
+F2 cohort on accepted destination D. F2 was subsequently accepted **in
+isolation**, not as a shared-main integration. The original destination-native
+build and complete private/generated transitive standard-axiom audit succeeded
+for exact C4; independent destination review and Beacon's acceptance followed.
+C4 was integrated into development `main` on 2026-09-30 at 13:26:59 UTC.
+This is accepted development code, **not** an independently reviewed official
+release or a source-coverage decision. Separate release-artifact/history review
+and official publication remain pending. See [attribution](docs/attribution.md).
 
 ## What is available
 
@@ -59,6 +106,7 @@ direct clients, or the current root's import graph.
 | Continuous low-degree cohomology | `DegreeOne`, `LowDegreeExact`, `NormalizedCohomology`, `NestedInvariants` | Crossed cocycles modulo principal cocycles compute degree one with locally compact groups and jointly continuous actions; the degree-zero/one connecting sequence uses a continuous, not necessarily equivariant, splitting. |
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
+| Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order, degree-zero torsion, cohomology injection or full colimit comparison. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
 | Compact exceptional Tate diagrams and limits | `CompactExceptionalTateDiagrams`, `CompactExceptionalTateLimits` | Continuous compact deflation diagrams in degrees `-1` and `0`, natural isomorphisms of underlying additive diagrams with algebraic Tate diagrams, compact Hausdorff additive limits, projection equations and eventual-range images. Requires chosen `LevelCompact A` in a common universe; these two leaves alone do not supply coefficient maps, surjectivity or inverse-limit exactness. |
@@ -74,7 +122,7 @@ direct clients, or the current root's import graph.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 47 listed production leaves. All 47 and the twenty-four clients
+publicly imports all 56 listed production leaves. All 56 and the thirty-two clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -130,6 +178,22 @@ a failed cache fetch rather than silently rebuilding mathlib from source.
 
 ### Build-time and memory baseline
 
+For the **current 56-leaf/thirty-two-client graph**, the configured CI worker on
+2026-09-30 measured **393.666 seconds** (about **6.6 minutes**) for the single
+combined command `lake --offline --no-cache build ContinuousGroupCohomology
+CGCExamples`, completing 2,897 jobs successfully. This observation uses Lean
+`4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103` and finite Tate
+`fda003db3d06774f28b47232e8248852ffdbfc0d`, after successful matching mathlib-cache
+fetch and verification. For a comparable cache state, plan roughly **seven
+minutes for these two build targets**; this is an indicative estimate based on
+that one observation, not a portable guarantee or a separate warm-build timing.
+Toolchain installation, dependency checkout, cache download/verification and the
+subsequent axiom audit are excluded; any dependency compilation performed by the
+build command is included. CPU allocation, hardware and current per-command peak
+memory were not captured in these command receipts. The historical memory
+observation and headroom advice below remain useful planning context, not a
+measured minimum or a new memory measurement of this graph.
+
 For the **earlier 27-leaf/eight-client graph**, on 2026-09-26 with Tate pin
 `19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796`, after the matching
 mathlib cache fetch and an initial single-leaf build, the root build took
@@ -141,7 +205,8 @@ download time are excluded; any dependency compilation performed by a measured
 build command is included. These old observations do **not** benchmark this
 then-current 40-leaf/seventeen-client graph or its renewed Tate dependency;
 it does not measure the later 43-leaf/twenty-client, 45-leaf/twenty-two-client
-or the later 46-leaf/twenty-three-client and this 47-leaf/twenty-four-client graph.
+or the later 46-leaf/twenty-three-client and 47-leaf/twenty-four-client graphs,
+nor the current 56-leaf/thirty-two-client graph.
 
 The build environment had a shared **15 GiB** memory limit. Its lifetime cgroup
 high-water reading was **14,701,797,376 bytes** after the root build and
@@ -154,8 +219,8 @@ also depends on network access and available caches.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 47 imports;
-`CGCExamples` compiles precisely these twenty-four native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 56 imports;
+`CGCExamples` compiles precisely these thirty-two native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -181,7 +246,15 @@ the default build:
   [`NonpositiveTateDiagramsNative`](examples/NonpositiveTateDiagramsNative.lean),
   [`RestrictedLevelNative`](examples/RestrictedLevelNative.lean),
   [`RestrictedLevelCompactFunctorialityNative`](examples/RestrictedLevelCompactFunctorialityNative.lean), and
-  [`NativeCore`](examples/NativeCore.lean).
+  [`NativeCore`](examples/NativeCore.lean);
+- [`CompactDiscreteFactorNative`](examples/CompactDiscreteFactorNative.lean),
+  [`QuotientInvariantsNative`](examples/QuotientInvariantsNative.lean),
+  [`CochainInjectivityNative`](examples/CochainInjectivityNative.lean),
+  [`ResolutionImageNative`](examples/ResolutionImageNative.lean),
+  [`FiniteStageResolutionNative`](examples/FiniteStageResolutionNative.lean),
+  [`FiniteStageCochainsNative`](examples/FiniteStageCochainsNative.lean),
+  [`FiniteAveragingNative`](examples/FiniteAveragingNative.lean), and
+  [`CompactDiscreteTorsionNative`](examples/CompactDiscreteTorsionNative.lean).
 
 For an explicit fresh source elaboration of the aggregate-root client:
 
@@ -189,7 +262,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other twenty-three client paths above can likewise be given to `lake env lean`.
+The other thirty-one client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including

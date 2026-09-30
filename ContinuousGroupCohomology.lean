@@ -51,6 +51,15 @@ public import ContinuousGroupCohomology.TopRepUlift
 public import ContinuousGroupCohomology.TopologicalModN
 public import ContinuousGroupCohomology.TopologicalQuotientConjugationAction
 public import ContinuousGroupCohomology.Torsion
+public import ContinuousGroupCohomology.Topology.ContinuousMap.CompactDiscrete
+public import ContinuousGroupCohomology.Topology.Algebra.CompactGroup.DiscreteFactor
+public import ContinuousGroupCohomology.QuotientInvariants
+public import ContinuousGroupCohomology.CochainInjectivity
+public import ContinuousGroupCohomology.ResolutionImage
+public import ContinuousGroupCohomology.FiniteStageResolution
+public import ContinuousGroupCohomology.FiniteStageCochains
+public import ContinuousGroupCohomology.FiniteAveraging
+public import ContinuousGroupCohomology.CompactDiscreteTorsion
 
 /-!
 # Continuous group cohomology: native core
@@ -75,6 +84,13 @@ all three full-row arrows; the independently descended universal-norm quotient
 action makes the existing degree-zero-limit identification natural.
 All shipped production modules are native Lean modules and reachable through
 this root.
+
+For compact topological groups and discrete jointly continuous representations
+over a topologized ring, each native continuous-cohomology class in any degree
+lifts from an open-normal finite quotient with its actual invariant coefficients.
+In positive degrees each class is annihilated by the order of a suitable finite
+quotient, giving additive torsion. The quotient and order depend on the class;
+degree-zero torsion, injectivity and full colimit comparison are not asserted.
 
 Finite-group statements require the indicated finite-group hypotheses; compact
 limit statements concern compact Hausdorff additive groups and level systems,

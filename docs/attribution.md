@@ -535,3 +535,111 @@ and independent candidate review remain distinct requirements, with unchanged
 applicable evidence reused. Separate stored-proof replay is not required.
 Neither accepted component code nor this ledger alone decides whole-artifact
 rights or source coverage; the exact release acceptance records its disposition.
+
+## Native compact/discrete cohort (2026-09-30 preparation)
+
+The nine producers and eight direct ordinary-import clients are a source-only
+transfer of the 25-leaf prospective incubator F2 donor
+`2a85016c8451ffe9c441c0fc0a8767d63ac2963e` (tree
+`e01318cb9682ed90db566b8cedd33b9354684b96`). Eight mathematical guides
+adapt the donor's reusable API exposition to destination imports, removing
+internal research links and historical mutable handoff paragraphs. The Lean
+bodies retain their original notices, namespaces, proof text and author roles;
+only the internal import lines change. The 46 appended metadata results map
+donor declarations to these modules. This appendix preserves the contributor
+lineage displaced from the donor guides, not a new copyright claim.
+
+| Producer(s), client and guide | Original development credit |
+| --- | --- |
+| `Topology/ContinuousMap/CompactDiscrete`, `Topology/Algebra/CompactGroup/DiscreteFactor`, `CompactDiscreteFactorNative`, `CompactDiscreteFactor.md` | Worker-a Task `hive-request-89fd7c3b67301a23e8ab16afe8fe08a6b41d29ae`, UID `baa8b7cf-9d13-4fa6-ad9f-cd4f76496ca4`; subsequent shared registration: worker-a Task `hive-request-35322a455a163aff7bf371d229340ba25f0d5ab7`, UID `213bad31-802d-40a4-b402-b1bbe10e83a6`. |
+| `QuotientInvariants`, `QuotientInvariantsNative`, `QuotientInvariants.md` | Worker-b Task `hive-request-982cdb753403f2f54933b957f62e80c721169374`, UID `1e785dd8-cfef-4493-91db-aa3995b72a90`; bounded design: worker-a Task `hive-request-25b9543ef37a6ee436edf92f3e7badfe07dae7db`, UID `daf58a22-f692-4fcd-8cfc-42823be98e67`. At the transfer checkpoint the Lean file retained its original 2026 Formal Frontier copyright/Apache/author header; the later narrow correction is documented below. |
+| `CochainInjectivity`, `CochainInjectivityNative`, `CochainInjectivity.md` | Worker-b Task `hive-request-19a536cb1ddb5bf0a3b2128997ffa1abbafff25e`, UID `57f853e2-0382-449c-a687-c30d9d1b8878`. Underlying mathlib functoriality credits Edison Xie and Richard Hill in the donor guide. |
+| `ResolutionImage`, `ResolutionImageNative`, `ResolutionImage.md` | Worker-b Task `hive-request-effd5c16c6a6baf43787ff941ba44a0b3c7ac75c`, UID `8732fae7-924f-42f1-b3b2-a767847f9381`; bounded mathematical planning: worker-b Task `hive-request-c2dfb00e56a583e87e2e6ba96b022efd76a3c354`, independent static review worker-a Task `hive-request-bb2cb7656c0779e94277da476767c512c867a5c6`. |
+| `FiniteStageResolution`, `FiniteStageResolutionNative`, `FiniteStageResolution.md` | Worker-b Task `hive-request-20510aaa3ab0986c83e7321388fc7387f2d2d559`, UID `b4f68ebf-8dbe-41c7-9276-cf785e48b3c9`; uncompiled plan `74143918ed1cc8ad4aa6246746f874c054a67ac1` and static review `420e1f9899800905952df7763e71d2c59a9c3b78` were separate research, not code approval. |
+| `FiniteStageCochains`, `FiniteStageCochainsNative`, `FiniteStageCochains.md` | Worker-b Task `hive-request-817638facc183b186baf9f18ebc3cad09d494af7`, UID `28ebf26a-94e5-44a7-8f59-309e8a7dd6d9`. |
+| `FiniteAveraging`, `FiniteAveragingNative`, `FiniteAveraging.md` | Worker-b Task `hive-request-0cf2ab7a13a30cc390e3c76e3823fe26fca6b845`, UID `c9011551-ac24-40e7-827c-f5047af9df95`. |
+| `CompactDiscreteTorsion`, `CompactDiscreteTorsionNative`, `CompactDiscreteTorsion.md` | Worker-b Task `hive-request-d48b1f73cbb136296fee273929e67293016864e6`, UID `584eb9d0-7387-45b3-8756-0786dbd5ad45`. |
+
+The independent uncompiled compact positive-degree research plan
+`65bd2a9f5d4e7a41a644f0169b9f7e789860b0af` is by worker-b Task
+`hive-request-b79968117acd892d7669c56e7940025774e6abe5`, UID
+`b3913744-de9e-4dcf-bfa3-71e35855294e`; it is not a Lean dependency.
+The F2 on-T assembler is worker-b Task
+`hive-request-56917b7723c556302c4e295e92dd2bbf2b1a1357`, UID
+`1f9ea3fd-4de3-4e97-af5e-2dc349d32ca5`. Worker-a Task
+`hive-request-a9fb33bf1af8ab0aad10943fbc67966bfe4dc30e` (UID
+`b77f8db5-8ca6-40d5-9b30-293e4f9af489`) supplied favorable exact-F2/T **static** review
+`ee6ca1004691886685133b56df2322110c5f5724`, not native acceptance.
+The separate transfer investigation is worker-b Task
+`hive-request-8b1a96a6ce49e87342543330eb4faa3da64481d3`, UID
+`2df10765-4036-42da-8a66-bd04533b42c2`, report
+`52fbf575ce31189bba0bcf27bd15d3c3a929abe6` (source-only plan).
+This actual source-only transfer is worker-b Task
+`hive-request-e1a524fa83fc1872d68604278a62dffd9cbf0000`, UID
+`831de294-4482-433e-b3f9-1760513fb2b7`, with Beacon as responsible
+maintainer. The original published tree's attribution above remains intact.
+
+At this dated preparation checkpoint F2 was not yet accepted and its static
+review was not a destination review. The original preparation did not establish
+destination-native builds/axioms, independent exact-candidate review, owner
+acceptance, rights in copied expression or public history, or source
+correspondence. Its original header and project Apache labels did not assert
+whole-artifact clearance. Internal research and evidence remain in the owning
+records, not published as dependencies. Subsequent decisions follow here.
+
+## Native compact/discrete disposition and release preparation (2026-09-30)
+
+The exact F2 `2a85016c8451ffe9c441c0fc0a8767d63ac2963e`, sole-parent
+T `ccb5886051c4f6c006e956483c1e983d35144966`, was accepted **in isolation**
+after separate native evidence; this did not accept shared incubator main or
+merge incubator PR346. The original destination C4
+`f7cc7b2e0e4ae0c4f18b83d1e5159bbf0a500552` (tree
+`fc6741600d0e06e36939c91a6b4f612e42f37223`) had sole accepted D
+`8c7883a672c6f5d465a40f932df5f9ec65224b08` as parent. Its original
+destination-native run 1391 succeeded on 2026-09-30 at 13:22:11 UTC:
+both configured targets passed (2897 jobs), and the complete actual-origin
+transitive audit covered 89 modules, 2849 declarations including 687 private
+declarations, with only `propext`, `Classical.choice` and `Quot.sound`. The
+original exact-input ZIP and receipts remain separately archived under
+`evidence/native1391-pr158/` at `513ec10bab32f65b6c8bd192c5cb09a4dc39733f`;
+the source-only donor's mathlib83 computation does not certify the destination's
+mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103` graph. Fresh worker-a
+Task `hive-request-e4cea51fd838a3cd5410f433de8dc7574e1b389d`, UID
+`6a8118fe-03e8-4518-9cae-0ebc406e90e6`, reviewed exact C4, report
+`68587d82dabaeb2435309ca0ff30123debf0ba71` (PR158 approval 5348).
+Beacon accepted C4 as development code (PR158 comment 71530); its protected
+fast-forward integration into development `main` finished 2026-09-30
+13:26:59 UTC. Neither the old F2/T static verdict nor C4's development review
+is an independent review of this later release artifact and public history.
+
+The production header of
+[`QuotientInvariants.lean`](../ContinuousGroupCohomology/QuotientInvariants.lean)
+was introduced *with the new file* at original incubator commit
+`03c2bd58429cd62f8a84ff69aa9951744b4bfeec`, under
+`Incubator/RepresentationTheory/Continuous/QuotientInvariants.lean`;
+its parent `dd83b2ff0e22e8296fec1bfc90aa21ae2c30f681` has no such file.
+That introduction credits original worker-b Task
+`hive-request-982cdb753403f2f54933b957f62e80c721169374`, UID
+`1e785dd8-cfef-4493-91db-aa3995b72a90`, not a third-party copyright holder.
+The unchanged donor F2 header and transferred C4 header carry the same
+`Copyright (c) 2026 Formal Frontier. All rights reserved.` project label;
+there is no established ownership basis for that project-generated assertion.
+Following the standing reviewed-correction procedure, this preparation removes
+only that unsupported owner assertion, retains Apache-2.0 notice and the actual
+Task credit, and uses **Authors: Formal Frontier Agents** in both the producer
+and [`native client`](../examples/QuotientInvariantsNative.lean). No upstream
+notice or non-header Lean body is changed. The authentic Nailin Guan/mathlib
+adaptation notice in `TopModuleCatUlift.lean` remains untouched. This correction
+is subject to fresh independent exact-candidate review and does not establish
+whole-artifact redistribution clearance or invent a new copyright owner.
+
+Release-readiness preparation by worker-b Task
+`hive-request-4c05e72be530538af79c4823c100115b214f82d1`, UID
+`3a604e46-1c37-4171-8c9c-41f0da27891e`, updates only the dated public
+status/attribution/metadata narratives and those two initial headers, using
+accepted C4 as its sole internal parent and the prior official public-release
+commit `2dc85f6c6340928f1c4e408844d6c65b63804d52` as its separate public
+parent. Their common shipping tree, evidence and exact revision identities are
+recorded outside the public artifact. The older complete attribution and
+historical API snapshot remain; this preparation is neither release acceptance,
+official publication, incubator conversion nor source-coverage acceptance.

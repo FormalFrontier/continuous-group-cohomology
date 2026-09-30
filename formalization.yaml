@@ -2,6 +2,21 @@ version: "v0.4"
 project:
   name: Continuous group cohomology
   description: >-
+    Dated 2026-09-30 source-only preparation from then-unaccepted incubator
+    F2 2a85016c8451ffe9c441c0fc0a8767d63ac2963e on accepted destination
+    D 8c7883a672c6f5d465a40f932df5f9ec65224b08. F2 was subsequently
+    accepted in isolation, not as a shared-main integration. Exact destination
+    C4 f7cc7b2e0e4ae0c4f18b83d1e5159bbf0a500552 passed its original native
+    build and complete standard-axiom audit, received independent destination
+    review and Beacon's acceptance, and entered development main on
+    2026-09-30 at 13:26:59 UTC. Nine native producer
+    modules add all-degree classwise finite-quotient lifting with genuine
+    quotient-invariant coefficients and positive-degree class-dependent
+    quotient-order annihilation and additive torsion. The eight accompanying
+    native examples and guides describe the precise hypotheses and boundaries.
+    This accepted development is not an independently reviewed official release,
+    official publication or a source-coverage decision.
+    The complete previously published library description follows:
     Native Lean core for continuous cohomology in degrees zero and one,
     degree-one transfer and compact-group torsion, topological quotients,
     finite-group coinvariants and finite-level deflation in Tate degrees -1 and 0
@@ -143,6 +158,17 @@ automation:
     vote was transferred. Exact-commit decisions are recorded separately.
 status:
   scope: >-
+    Dated 2026-09-30 preparation, subsequently accepted as development code
+    after the original destination-native check and independent review:
+    classwise lift in every degree for compact
+    topological groups and discrete jointly continuous representations over
+    topologized rings, using actual invariant coefficients at an open-normal
+    finite quotient; positive-degree quotient-order annihilation and IsAddTorsion
+    with class-dependent quotient/order. No degree-zero torsion, uniform stage
+    or bound, cohomology injection, general boundary descent, full colimit,
+    acyclicity, vanishing, or source-specific coverage is asserted. The complete
+    accepted destination D scope follows as a predecessor snapshot; separate
+    release-artifact/history review and official publication remain pending:
     Low-degree continuous cohomology, transfer and compact-group degree-one
     torsion, finite coinvariants and
     finite-level deflation in Tate degrees -1 and 0, compact Hausdorff additive
@@ -423,9 +449,109 @@ status:
       file: ContinuousGroupCohomology/CompactUniversalNormLimits.lean
     - declaration: ContinuousGroupCohomology.RestrictedLevelCompactRep.universalNorm_limitIso_naturality
       file: ContinuousGroupCohomology/CompactUniversalNormLimits.lean
+    - declaration: TopRep.finiteSumCoind
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.finiteSumCoind_apply
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.coind₁ι_comp_finiteSumCoind
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.coind₁Map_comp_finiteSumCoind
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.finiteSumCoind_d_add_d_finiteSumCoind
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.finiteSumCochain
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.finiteSumCochain_comp_d_add_d_comp_finiteSumCochain
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopModuleCat.shortComplex_homologyπ_surjective
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: ContinuousCohomology.π_surjective
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: ContinuousCohomology.finiteGroup_card_nsmul_π
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: ContinuousCohomology.fintype_card_nsmul
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: ContinuousCohomology.finiteGroup_card_nsmul
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: ContinuousCohomology.finiteGroup_isAddTorsion
+      file: ContinuousGroupCohomology/FiniteAveraging.lean
+    - declaration: TopRep.quotientInvariants_stable
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsAction
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsActionQuot
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariants
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariants_ρ_mk
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsIncl
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsMap
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsFunctor
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsFunctor_map_val
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.quotientInvariantsIncl_naturality
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.jointlyContinuous_quotientInvariants
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: TopRep.jointlyContinuous_quotientInvariants_of_isOpen
+      file: ContinuousGroupCohomology/QuotientInvariants.lean
+    - declaration: ContinuousMap.discreteTopology_of_compactSpace
+      file: ContinuousGroupCohomology/Topology/ContinuousMap/CompactDiscrete.lean
+    - declaration: ContinuousMap.exists_openNormalSubgroup_factor
+      file: ContinuousGroupCohomology/Topology/Algebra/CompactGroup/DiscreteFactor.lean
+    - declaration: ContinuousCohomology.resolutionMap_injective
+      file: ContinuousGroupCohomology/CochainInjectivity.lean
+    - declaration: ContinuousCohomology.cochainsMap_injective
+      file: ContinuousGroupCohomology/CochainInjectivity.lean
+    - declaration: ContinuousCohomology.cocyclesMap_injective
+      file: ContinuousGroupCohomology/CochainInjectivity.lean
+    - declaration: ContinuousCohomology.cochainsMap_d_eq_zero_iff
+      file: ContinuousGroupCohomology/CochainInjectivity.lean
+    - declaration: ContinuousCohomology.openNormalQuotientHom
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.StageDescends
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.stageDescends_zero
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.stageDescends_succ
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.stageDescends_antitone
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.stageDescends_iff_exists_lift
+      file: ContinuousGroupCohomology/ResolutionImage.lean
+    - declaration: ContinuousCohomology.discreteTopology_resolutionX
+      file: ContinuousGroupCohomology/FiniteStageResolution.lean
+    - declaration: ContinuousCohomology.exists_common_stage_refinement
+      file: ContinuousGroupCohomology/FiniteStageResolution.lean
+    - declaration: ContinuousCohomology.exists_openNormal_stage_descends
+      file: ContinuousGroupCohomology/FiniteStageResolution.lean
+    - declaration: ContinuousCohomology.exists_openNormal_resolution_lift
+      file: ContinuousGroupCohomology/FiniteStageResolution.lean
+    - declaration: ContinuousCohomology.exists_openNormal_quotient_cochain_lift
+      file: ContinuousGroupCohomology/FiniteStageCochains.lean
+    - declaration: ContinuousCohomology.exists_openNormal_quotient_closed_cochain_lift
+      file: ContinuousGroupCohomology/FiniteStageCochains.lean
+    - declaration: ContinuousCohomology.exists_openNormal_quotient_class_lift
+      file: ContinuousGroupCohomology/CompactDiscreteTorsion.lean
+    - declaration: ContinuousCohomology.exists_openNormal_quotient_card_nsmul_eq_zero
+      file: ContinuousGroupCohomology/CompactDiscreteTorsion.lean
+    - declaration: ContinuousCohomology.compactDiscrete_isAddTorsion
+      file: ContinuousGroupCohomology/CompactDiscreteTorsion.lean
 review:
   status: other
   notes: >-
+    Dated 2026-09-30 preparation snapshot only: prospective incubator F2 is
+    unaccepted, and this exact relocated candidate has no destination-native
+    build or full transitive standard-axiom check and no independent destination
+    transfer/API/provenance review or maintainer acceptance. A favorable static
+    F2/T reviewer verdict does not substitute for its separate native evidence
+    and responsible-maintainer decision. Official publication, subsequent
+    incubator conversion and source-coverage decisions remain separate.
+    The complete earlier destination review history follows unchanged:
     Earlier accepted development contributions received scoped independent
     reviews. The four recovered files originally had a conditional review on an
     unaccepted predecessor. Fresh Worker-a Task
