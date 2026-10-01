@@ -80,7 +80,5 @@ specializes to a proper intermediate subgroup of a four-element finite group.
 The private auxiliary `prodEquivOfExact` is an equivalence of underlying
 **sets**, not a group direct-product splitting. No compact inverse limit,
 topological exactness, all-degree Tate equivalence or source coverage is claimed.
-This recovered contribution was independently reviewed and accepted on
-2026-09-26 at `c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26`.
-That ordinary code decision does not establish source coverage or, by itself,
-accept a later release artifact or its publication.
+A source-specific coverage determination is separate from this mathematical
+API and its current library review.

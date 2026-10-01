@@ -2,8 +2,6 @@
 SPDX-License-Identifier: Apache-2.0
 Authors: Formal Frontier Agents
 Original development: Beacon
-Native adaptation: hive-request-64988ad41c768fe5c8bfc3f699d6db6c8fb4b650
-  (c322a0ba-d728-4f4a-9ec6-678e3ca42caf)
 -/
 module
 

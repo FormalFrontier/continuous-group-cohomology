@@ -3,14 +3,8 @@
 # Authors: Formal Frontier Agents
 """Data-only refusal and source-only replay checks for the frozen native adapter.
 
-Adapted by worker-b Hive Task hive-request-cca415cd0c40e1f555e1a385d1289c4864a3aee4
-(UID 39f509ab-c2e1-4b59-8573-31cc7b920eb9) from accepted
-profinite-groups 79c4bcf23fa81319f9e3936be3f804421c7b98c3, authored by
-worker-b Task hive-request-49578d0143b3fe26e93ee6e54fa1752f1d60bc26
-(UID e4f64178-9024-4fe9-8eba-f63c724e7497), in turn from the accepted
-finite-group Tate adapter by worker-b Task
-hive-request-381dc6f93292eb39ea2d5b25f09baacdc8b20d9e
-(UID cd8c84f8-2dbf-4399-9c70-1de364ffa99f).
+Adapted from Formal Frontier's profinite-groups and finite-group Tate
+documentation adapter tests; these checks do not certify proofs or releases.
 """
 
 import argparse
@@ -87,6 +81,14 @@ class NativeControls(unittest.TestCase):
         self.assertEqual(manifest["native_record_sha256"], api.NATIVE_RECORD_SHA256)
         self.assertEqual(manifest["inputs"], api.SOURCE_INPUT_SHA256)
         self.assertEqual(manifest["api_sha256"], api.digest(markdown))
+        self.assertEqual(manifest["published_source_revision"], api.PUBLISHED_SOURCE)
+        self.assertEqual(manifest["published_source_repository"],
+                         api.PUBLISHED_SOURCE_REPOSITORY)
+        for section in ("production_declarations", "checked_use_client_declarations"):
+            for row in manifest[section]:
+                path = row["module"].replace(".", "/") + ".lean"
+                link = f"[Source]({api.PUBLISHED_SOURCE_URL}/{path}#L{row['line']})"
+                self.assertIn(link.encode("utf-8"), markdown)
         self.assertEqual(len(manifest["production_declarations"]),
                          sum(api.COUNTS[module] for module in api.PRODUCTION))
         self.assertEqual(len(manifest["checked_use_client_declarations"]),

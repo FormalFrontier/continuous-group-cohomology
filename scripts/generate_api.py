@@ -3,17 +3,9 @@
 # Authors: Formal Frontier Agents
 """Bounded native doc-gen4 Markdown/JSON adapter for continuous group cohomology.
 
-Adapted from the accepted profinite-groups generator at 79c4bcf23fa81319f9e3936be3f804421c7b98c3
-by worker-b Hive Task hive-request-cca415cd0c40e1f555e1a385d1289c4864a3aee4,
-UID 39f509ab-c2e1-4b59-8573-31cc7b920eb9. The profinite generator was
-authored by worker-b Task hive-request-49578d0143b3fe26e93ee6e54fa1752f1d60bc26
-(UID e4f64178-9024-4fe9-8eba-f63c724e7497), adapting the accepted
-finite-group Tate adapter by worker-b Task
-hive-request-381dc6f93292eb39ea2d5b25f09baacdc8b20d9e
-(UID cd8c84f8-2dbf-4399-9c70-1de364ffa99f). Earlier expression comes from
-polynomial-root-stability 95ac896f81a3190b2634a4246a3e924d2a267a61
-and ideal-completion f0c8c34386109116e4912fb425a8ad15d9dc42a4.
-This is documentation input validation, not a proof or release check.
+Adapted from Formal Frontier's profinite-groups and finite-group Tate adapters,
+with earlier documentation patterns from polynomial-root-stability and
+ideal-completion. This validates documentation inputs, not proofs or releases.
 """
 
 if not __debug__:
@@ -32,6 +24,9 @@ TOOL_TREE = "ebf77f3e174c145c9ca2db0df1c18a78ae87c93b"
 SOURCE = "afd0296d5138cc87f365aebe1d6d6d33c5546ba9"
 SOURCE_TREE = "cfb84abe6f06142f5c898f22a5a2fe9760fbc6a6"
 RAW_ORIGIN = "f73154dfa181cc8fd00a102c58f221940a335ad0"
+PUBLISHED_SOURCE = "be74358d7b1140e76ab6b2ad72f6aa068138e687"
+PUBLISHED_SOURCE_REPOSITORY = "https://github.com/FormalFrontier/continuous-group-cohomology"
+PUBLISHED_SOURCE_URL = PUBLISHED_SOURCE_REPOSITORY + "/blob/" + PUBLISHED_SOURCE
 LINE_OFFSETS = {
     "ContinuousGroupCohomology.NestedInvariants": 4,
     "ContinuousGroupCohomology.TopModuleCatUlift": 4,
@@ -1015,18 +1010,26 @@ def validate(records, raw_records, sources, revision):
 def render(records, raw_records, sources, revision):
     sections = validate(records, raw_records, sources, revision)
     production, clients, instance_rows, module_counts = [], [], [], {}
-    lines = ["# Native API reference", "",
-             "Source: pinned Lean `v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`,",
+    lines = ["# Native API reference (historical analyzed snapshot)", "",
+             "This index covers the earlier 27-leaf/eight-client graph, not the current",
+             "63-leaf/thirty-nine-client graph or its aggregate root. The linked source is",
+             "the [published initial native-core release](" + PUBLISHED_SOURCE_REPOSITORY +
+             "/tree/" + PUBLISHED_SOURCE + "), whose 39 analyzed source and pin input bytes",
+             "match the original private analysis at `" + SOURCE + "` exactly. This",
+             "public display revision is not the raw extraction revision. For later APIs,",
+             "use the [current library README](../README.md#what-is-available), Lean sources",
+             "and [native finite-stage guide](FiniteStageColimit.md).", "",
+             "Analyzed with Lean `v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`,",
              "independent doc-gen4 `" + TOOL + "`. All 28 production modules (public root and 27 leaves)",
              "and eight checked-use client modules are indexed below. Each complete native displayed",
              "signature retains its implicit, typeclass and universe binders (native pretty-print",
              "abbreviations `⋯`, where present, are linked to their original unelided source).",
-             "Source anchors point into this tree; 35 unchanged native records are reused from `" + RAW_ORIGIN + "`",
+             "Source anchors point into that immutable published tree; 35 native records were reused from `" + RAW_ORIGIN + "`",
              "with explicit +4 line remaps in NestedInvariants and TopModuleCatUlift; NativeCore is renewed",
              "on the final source. Generated entries can point to their parent; raw origin is in the manifest.",
              "Missing Lean docstrings have explicitly labeled, independently written catalogue prose.",
              "Module prose, private declarations and proof bodies are outside this declaration/instance",
-             "index. This is not proof, source-coverage, rights or release certification.",
+             "index. This is not a current complete API, proof, coverage, rights or release check.",
              "[Reproduction and scope](README.md).", ""]
     for section, heading, target in (("production", "Production API", production),
                                      ("clients", "Checked-use clients", clients)):
@@ -1050,8 +1053,8 @@ def render(records, raw_records, sources, revision):
                 else:
                     lines.extend(["**Original catalogue explanation (not a Lean docstring):** " +
                                   row["note"], ""])
-                lines.extend(["[Source](../" + row["path"] + "#L" + str(row["line"]) +
-                              ") (native source start line; generated entries may point to their parent).", ""])
+                lines.extend(["[Source](" + PUBLISHED_SOURCE_URL + "/" + row["path"] + "#L" +
+                              str(row["line"]) + ") (historical source start line; generated entries may point to their parent).", ""])
             if instances:
                 lines.extend(["#### Native instance table", ""])
                 for name, (class_name, type_names) in sorted(instances.items()):
@@ -1066,7 +1069,10 @@ def render(records, raw_records, sources, revision):
                     mathlib_revision="e37d88a26f3791ed5a93daa1f949af1021b8d103",
                     finite_group_tate_revision="19c1d8ce0f11e9ce7af8ce5ae1e2479aa7cd0796",
                     analyzed_source_revision=SOURCE,
-                    analyzed_source_tree=SOURCE_TREE, production_modules=list(PRODUCTION),
+                    analyzed_source_tree=SOURCE_TREE,
+                    published_source_revision=PUBLISHED_SOURCE,
+                    published_source_repository=PUBLISHED_SOURCE_REPOSITORY,
+                    production_modules=list(PRODUCTION),
                     checked_use_client_modules=list(CLIENTS), inputs=SOURCE_INPUT_SHA256,
                     raw_origin_revision=RAW_ORIGIN,
                     raw_module_revisions={module: SOURCE if module == "examples.NativeCore" else RAW_ORIGIN

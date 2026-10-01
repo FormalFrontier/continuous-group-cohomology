@@ -17,9 +17,8 @@ neither the ambient coefficient module nor the ring is given a topology.
 Naturality of the relative norm and of exceptional finite deflation is proved
 from the representation morphism and the published representative formulas.
 
-Native adaptation of Beacon's historical `CompactTateCoefficientMaps` by
-`hive-request-d61b09970e5688d0b1e0da08ec7719208350ad23`
-(`b087c1ae-8092-47fc-ba95-7e8a338a0201`).
+This develops a native interface for Beacon's historical
+`CompactTateCoefficientMaps` construction.
 -/
 
 public section

@@ -2,8 +2,6 @@
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Formal Frontier Agents
 Foundation mathematics and APIs: Beacon (six existing mathematical leaves)
-Native client examples: worker-b Hive Task hive-request-3dd6d1127d8e9fa2263572b3d9b88fba1e4dab16
-  (UID c022d295-e4c3-4eb1-8d62-fb9c9577d85d)
 -/
 module
 

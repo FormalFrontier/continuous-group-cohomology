@@ -1,41 +1,24 @@
 # Native API reference (historical analyzed snapshot)
 
-**Historical snapshot only:** this index analyzes the earlier
-27-leaf/eight-client graph and historical Tate dependency specified in
-[reproduction](README.md#frozen-inputs), **not** the current
-47-leaf/twenty-four-client build (72 local modules including the root). It excludes `CompactNegativeTate`,
-`CompactBarFunctoriality`, `ExceptionalDeflation`,
-`FiniteDeflationTransitivity`, `Torsion`, `FiniteTateDiagrams`,
-`NonpositiveTateLimits`, `NonpositiveTateFunctoriality`,
-`FiniteTateTopology`, `FiniteCoinvariantDeflation`,
-`ExceptionalTateDeflationTopology`, `CompactExceptionalTateDiagrams`,
-`CompactExceptionalTateLimits`, `CompactExceptionalTateCoefficientMaps`,
-`CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality`,
-`CompactFiniteTateNormSequence`, `CompactTateNormLimitSequence`,
-`CompactTateNormNaturality`, `CompactUniversalNormLimits` and their sixteen direct clients; its root
-import row is historical. See the [manual compact-bar guide](CompactBar.md),
-[finite-deflation guide](FiniteDeflation.md),
-[compact exceptional Tate guide](FiniteTateTopology.md),
-[compact coefficient and norm functoriality guide](CompactCoefficientFunctoriality.md),
-[finite Tate diagrams guide](FiniteTateDiagrams.md),
-[finite norm-row guide](CompactFiniteTateNormSequence.md),
-[full-system norm-limit guide](CompactTateNormLimitSequence.md),
-[compact norm-row naturality guide](CompactTateNormNaturality.md),
-[compact universal-norm limit guide](CompactUniversalNormLimits.md),
-[degree-one torsion guide](../README.md#degree-one-torsion) and current Lean
-sources for the additional APIs and their exact hypotheses.
+This index covers the earlier 27-leaf/eight-client graph, not the current
+63-leaf/thirty-nine-client graph or its aggregate root. The linked source is
+the [published initial native-core release](https://github.com/FormalFrontier/continuous-group-cohomology/tree/be74358d7b1140e76ab6b2ad72f6aa068138e687), whose 39 analyzed source and pin input bytes
+match the original private analysis at `afd0296d5138cc87f365aebe1d6d6d33c5546ba9` exactly. This
+public display revision is not the raw extraction revision. For later APIs,
+use the [current library README](../README.md#what-is-available), Lean sources
+and [native finite-stage guide](FiniteStageColimit.md).
 
-Source: pinned Lean `v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`,
+Analyzed with Lean `v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`,
 independent doc-gen4 `97d4ecdfc8e09e7f511724c25e303d448de6a3db`. All 28 production modules (public root and 27 leaves)
 and eight checked-use client modules are indexed below. Each complete native displayed
 signature retains its implicit, typeclass and universe binders (native pretty-print
 abbreviations `⋯`, where present, are linked to their original unelided source).
-Source anchors point into this tree; 35 unchanged native records are reused from `f73154dfa181cc8fd00a102c58f221940a335ad0`
+Source anchors point into that immutable published tree; 35 native records were reused from `f73154dfa181cc8fd00a102c58f221940a335ad0`
 with explicit +4 line remaps in NestedInvariants and TopModuleCatUlift; NativeCore is renewed
 on the final source. Generated entries can point to their parent; raw origin is in the manifest.
 Missing Lean docstrings have explicitly labeled, independently written catalogue prose.
 Module prose, private declarations and proof bodies are outside this declaration/instance
-index. This is not proof, source-coverage, rights or release certification.
+index. This is not a current complete API, proof, coverage, rights or release check.
 [Reproduction and scope](README.md).
 
 ## Production API
@@ -62,7 +45,7 @@ structure PointwiseContinuousMulAction (G : Type uG) (A : Type uA) [Group G] [Gr
 continuous.  The acting group carries no topology, and this structure makes no
 joint-continuity claim.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L36) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L36) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.mk
 
@@ -74,7 +57,7 @@ constructor PointwiseContinuousMulAction.mk : {G : Type uG} → {A : Type uA} �
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `PointwiseContinuousMulAction`; the structure fields and parameters are in the displayed signature and source declaration. Closed versus algebraic action-difference quotients for pointwise-continuous actions.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L36) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L36) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.toMonoidHom
 
@@ -86,7 +69,7 @@ abbrev PointwiseContinuousMulAction.toMonoidHom {G : Type uG} {A : Type uA} [Gro
 
 **Native source docstring:** The underlying algebraic action.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.continuous_toFun
 
@@ -98,7 +81,7 @@ theorem PointwiseContinuousMulAction.continuous_toFun {G : Type uG} {A : Type uA
 
 **Native source docstring:** Each action value is continuous.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L44) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L44) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.instCoeFun
 
@@ -110,7 +93,7 @@ instance PointwiseContinuousMulAction.instCoeFun {G : Type uG} {A : Type uA} [Gr
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CoeFun` instance in closed versus algebraic action-difference quotients for pointwise-continuous actions (native type names: `PointwiseContinuousMulAction`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L51) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L51) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.ext
 
@@ -122,7 +105,7 @@ theorem PointwiseContinuousMulAction.ext {G : Type uG} {A : Type uA} [Group G] [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `ext` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.ext_iff
 
@@ -134,7 +117,7 @@ theorem PointwiseContinuousMulAction.ext_iff {G : Type uG} {A : Type uA} [Group 
 
 **Original catalogue explanation (not a Lean docstring):** The iff characterization named `ext_iff` in closed versus algebraic action-difference quotients for pointwise-continuous actions; use the full signature for both directions and their assumptions.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map_one
 
@@ -146,7 +129,7 @@ theorem PointwiseContinuousMulAction.map_one {G : Type uG} {A : Type uA} [Group 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `map_one` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L62) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L62) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map_mul
 
@@ -158,7 +141,7 @@ theorem PointwiseContinuousMulAction.map_mul {G : Type uG} {A : Type uA} [Group 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `map_mul` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L66) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L66) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.continuousMulEquiv
 
@@ -171,7 +154,7 @@ def PointwiseContinuousMulAction.continuousMulEquiv {G : Type uG} {A : Type uA} 
 **Native source docstring:** An individual action value, bundled as a continuous multiplicative
 equivalence.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.continuousMulEquiv_apply
 
@@ -183,7 +166,7 @@ theorem PointwiseContinuousMulAction.continuousMulEquiv_apply {G : Type uG} {A :
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `continuousMulEquiv_apply` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L84) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L84) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.trivial
 
@@ -195,7 +178,7 @@ def PointwiseContinuousMulAction.trivial {G : Type uG} {A : Type uA} [Group G] [
 
 **Native source docstring:** The trivial pointwise continuous action.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L88) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L88) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.trivial_apply
 
@@ -207,7 +190,7 @@ theorem PointwiseContinuousMulAction.trivial_apply {G : Type uG} {A : Type uA} [
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `trivial_apply` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L93) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L93) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.differenceSet
 
@@ -219,7 +202,7 @@ def PointwiseContinuousMulAction.differenceSet {G : Type uG} {A : Type uA} [Grou
 
 **Native source docstring:** The set of action differences `g • a * a⁻¹`.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.differenceSubgroup
 
@@ -231,7 +214,7 @@ def PointwiseContinuousMulAction.differenceSubgroup {G : Type uG} {A : Type uA} 
 
 **Native source docstring:** The algebraic subgroup generated by all action differences.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L108) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L108) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup
 
@@ -243,7 +226,7 @@ def PointwiseContinuousMulAction.closedDifferenceSubgroup {G : Type uG} {A : Typ
 
 **Native source docstring:** The closed subgroup generated by all action differences.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L112) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L112) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.instNormalDifferenceSubgroup
 
@@ -255,7 +238,7 @@ instance PointwiseContinuousMulAction.instNormalDifferenceSubgroup {G : Type uG}
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `Subgroup.Normal` instance in closed versus algebraic action-difference quotients for pointwise-continuous actions (native type names: `PointwiseContinuousMulAction.differenceSubgroup`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L116) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L116) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.instNormalClosedDifferenceSubgroup
 
@@ -267,7 +250,7 @@ instance PointwiseContinuousMulAction.instNormalClosedDifferenceSubgroup {G : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `Subgroup.Normal` instance in closed versus algebraic action-difference quotients for pointwise-continuous actions (native type names: `PointwiseContinuousMulAction.closedDifferenceSubgroup`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L120) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L120) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.AlgebraicCoinvariants
 
@@ -280,7 +263,7 @@ abbrev PointwiseContinuousMulAction.AlgebraicCoinvariants {G : Type uG} {A : Typ
 **Native source docstring:** Underlying algebraic coinvariants: quotient by the unclosed relation
 subgroup.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L124) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L124) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.Coinvariants
 
@@ -292,7 +275,7 @@ abbrev PointwiseContinuousMulAction.Coinvariants {G : Type uG} {A : Type uA} [Gr
 
 **Native source docstring:** Closed topological coinvariants, carrying mathlib's quotient topology.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L129) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L129) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.coinvariantsMk
 
@@ -304,7 +287,7 @@ def PointwiseContinuousMulAction.coinvariantsMk {G : Type uG} {A : Type uA} [Gro
 
 **Native source docstring:** The canonical continuous projection to closed topological coinvariants.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L133) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L133) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.coinvariantsMk_apply
 
@@ -316,7 +299,7 @@ theorem PointwiseContinuousMulAction.coinvariantsMk_apply {G : Type uG} {A : Typ
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `coinvariantsMk_apply` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L139) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L139) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.difference_mem_differenceSubgroup
 
@@ -328,7 +311,7 @@ theorem PointwiseContinuousMulAction.difference_mem_differenceSubgroup {G : Type
 
 **Native source docstring:** Each action difference belongs to the algebraic relation subgroup.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L144) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L144) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.coinvariantsMk_action
 
@@ -341,7 +324,7 @@ theorem PointwiseContinuousMulAction.coinvariantsMk_action {G : Type uG} {A : Ty
 **Native source docstring:** The projection identifies an element with each of its translates.  This
 also fixes the action-difference orientation used by the construction.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L150) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L150) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicMk
 
@@ -353,7 +336,7 @@ def PointwiseContinuousMulAction.algebraicMk {G : Type uG} {A : Type uA} [Group 
 
 **Native source docstring:** The algebraic quotient projection.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L160) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L160) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicToClosed
 
@@ -366,7 +349,7 @@ def PointwiseContinuousMulAction.algebraicToClosed {G : Type uG} {A : Type uA} [
 **Native source docstring:** Canonical comparison from algebraic coinvariants to closed topological
 coinvariants.  It is generally a further quotient, not an equivalence.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L166) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L166) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicToClosed_algebraicMk
 
@@ -378,7 +361,7 @@ theorem PointwiseContinuousMulAction.algebraicToClosed_algebraicMk {G : Type uG}
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `algebraicToClosed_algebraicMk` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L177) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L177) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicToClosed_surjective
 
@@ -390,7 +373,7 @@ theorem PointwiseContinuousMulAction.algebraicToClosed_surjective {G : Type uG} 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `algebraicToClosed_surjective` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L182) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L182) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup_eq_differenceSubgroup
 
@@ -403,7 +386,7 @@ theorem PointwiseContinuousMulAction.closedDifferenceSubgroup_eq_differenceSubgr
 **Native source docstring:** If the algebraic relation subgroup is already closed, taking its closure
 does not enlarge it.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L189) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L189) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.KillsDifferences
 
@@ -416,7 +399,7 @@ def PointwiseContinuousMulAction.KillsDifferences {G : Type uG} {A : Type uA} [G
 **Native source docstring:** A homomorphism kills every action difference precisely in the pointwise
 form useful for the universal property.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L199) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L199) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.differenceSubgroup_le_ker
 
@@ -428,7 +411,7 @@ theorem PointwiseContinuousMulAction.differenceSubgroup_le_ker {G : Type uG} {A 
 
 **Native source docstring:** Killing the generators kills their algebraic closure.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L206) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L206) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicLift
 
@@ -442,7 +425,7 @@ def PointwiseContinuousMulAction.algebraicLift {G : Type uG} {A : Type uA} [Grou
 topology: a continuous homomorphism killing every action difference factors
 through the unclosed algebraic coinvariants.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L214) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L214) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicLift_algebraicMk
 
@@ -454,7 +437,7 @@ theorem PointwiseContinuousMulAction.algebraicLift_algebraicMk {G : Type uG} {A 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `algebraicLift_algebraicMk` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L227) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L227) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicHom_ext
 
@@ -467,7 +450,7 @@ theorem PointwiseContinuousMulAction.algebraicHom_ext {G : Type uG} {A : Type uA
 **Native source docstring:** Continuous homomorphisms out of the algebraic coinvariants are determined
 on the canonical projection.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L235) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L235) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.liftOfClosed
 
@@ -480,7 +463,7 @@ def PointwiseContinuousMulAction.liftOfClosed {G : Type uG} {A : Type uA} [Group
 **Native source docstring:** Raw topological universal property.  Without a separation assumption on
 the target, the exact condition is that `f` kill the closed relation subgroup.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L246) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L246) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.liftOfClosed_mk
 
@@ -492,7 +475,7 @@ theorem PointwiseContinuousMulAction.liftOfClosed_mk {G : Type uG} {A : Type uA}
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `liftOfClosed_mk` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L256) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L256) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup_le_ker
 
@@ -506,7 +489,7 @@ theorem PointwiseContinuousMulAction.closedDifferenceSubgroup_le_ker {G : Type u
 difference kills their closed generated subgroup.  The T1 assumption makes
 the target kernel closed; no separation hypothesis is imposed on `A` or `G`.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L262) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L262) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.lift
 
@@ -519,7 +502,7 @@ def PointwiseContinuousMulAction.lift {G : Type uG} {A : Type uA} [Group G] [Com
 **Native source docstring:** Topological universal property for continuous homomorphisms to T1 groups
 which kill every action difference.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L274) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L274) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.lift_mk
 
@@ -531,7 +514,7 @@ theorem PointwiseContinuousMulAction.lift_mk {G : Type uG} {A : Type uA} [Group 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `lift_mk` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L281) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L281) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.algebraicLift_eq_lift_comp
 
@@ -545,7 +528,7 @@ theorem PointwiseContinuousMulAction.algebraicLift_eq_lift_comp {G : Type uG} {A
 the canonical algebraic-to-closed comparison whenever the T1 lift is
 available.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L287) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L287) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.hom_ext
 
@@ -557,7 +540,7 @@ theorem PointwiseContinuousMulAction.hom_ext {G : Type uG} {A : Type uA} [Group 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `hom_ext` in closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L301) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L301) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.IsEquivariant
 
@@ -570,7 +553,7 @@ def PointwiseContinuousMulAction.IsEquivariant {G : Type uG} {A : Type uA} [Grou
 **Native source docstring:** Equivariance of a multiplicative homomorphism for two pointwise
 continuous actions of the same group.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L316) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L316) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map
 
@@ -583,7 +566,7 @@ def PointwiseContinuousMulAction.map {G : Type uG} {A : Type uA} [Group G] [Comm
 **Native source docstring:** A continuous equivariant homomorphism induces a continuous homomorphism
 on closed topological coinvariants.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L322) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L322) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map_mk
 
@@ -595,7 +578,7 @@ theorem PointwiseContinuousMulAction.map_mk {G : Type uG} {A : Type uA} [Group G
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `map_mk` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L345) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L345) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.isEquivariant_id
 
@@ -607,7 +590,7 @@ theorem PointwiseContinuousMulAction.isEquivariant_id {G : Type uG} {A : Type uA
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `isEquivariant_id` for closed versus algebraic action-difference quotients for pointwise-continuous actions; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L353) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L353) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map_id
 
@@ -619,7 +602,7 @@ theorem PointwiseContinuousMulAction.map_id {G : Type uG} {A : Type uA} [Group G
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `map_id` for closed versus algebraic action-difference quotients for pointwise-continuous actions; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L358) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L358) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.isEquivariant_comp
 
@@ -631,7 +614,7 @@ theorem PointwiseContinuousMulAction.isEquivariant_comp {G : Type uG} {A : Type 
 
 **Native source docstring:** The composite of equivariant continuous homomorphisms is equivariant.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L371) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L371) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.map_comp
 
@@ -643,7 +626,7 @@ theorem PointwiseContinuousMulAction.map_comp {G : Type uG} {A : Type uA} [Group
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `map_comp` for closed versus algebraic action-difference quotients for pointwise-continuous actions; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L382) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L382) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.isEquivariant_symm
 
@@ -656,7 +639,7 @@ theorem PointwiseContinuousMulAction.isEquivariant_symm {G : Type uG} {A : Type 
 **Native source docstring:** Equivariance is preserved by taking the inverse of an equivariant
 continuous multiplicative equivalence.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L400) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L400) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.congr
 
@@ -669,7 +652,7 @@ def PointwiseContinuousMulAction.congr {G : Type uG} {A : Type uA} [Group G] [Co
 **Native source docstring:** A continuous equivariant equivalence induces a continuous equivalence on
 closed topological coinvariants.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L412) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L412) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.congr_mk
 
@@ -681,7 +664,7 @@ theorem PointwiseContinuousMulAction.congr_mk {G : Type uG} {A : Type uA} [Group
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `congr_mk` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L444) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L444) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.differenceSubgroup_trivial
 
@@ -693,7 +676,7 @@ theorem PointwiseContinuousMulAction.differenceSubgroup_trivial {G : Type uG} {A
 
 **Native source docstring:** The algebraic relation subgroup of the trivial action is trivial.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L462) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L462) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup_trivial
 
@@ -706,7 +689,7 @@ theorem PointwiseContinuousMulAction.closedDifferenceSubgroup_trivial {G : Type 
 **Native source docstring:** Without a T1 hypothesis, trivial-action closed coinvariants quotient by
 the closure of `{1}` rather than silently identifying that closure with `{1}`.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L473) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L473) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup_trivial_of_t1
 
@@ -719,7 +702,7 @@ theorem PointwiseContinuousMulAction.closedDifferenceSubgroup_trivial_of_t1 {G :
 **Native source docstring:** For a T1 coefficient group, the closed relation subgroup of the trivial
 action is trivial.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L482) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L482) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.differenceSubgroup_eq_bot_of_subsingleton
 
@@ -731,7 +714,7 @@ theorem PointwiseContinuousMulAction.differenceSubgroup_eq_bot_of_subsingleton {
 
 **Native source docstring:** An action by a subsingleton acting group is algebraically trivial.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L494) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L494) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.closedDifferenceSubgroup_eq_bot_of_subsingleton
 
@@ -744,7 +727,7 @@ theorem PointwiseContinuousMulAction.closedDifferenceSubgroup_eq_bot_of_subsingl
 **Native source docstring:** For a T1 coefficient group, any action by a subsingleton acting group has
 trivial closed relation subgroup.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L504) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L504) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationAction
 
@@ -757,7 +740,7 @@ noncomputable def ContinuousGroupExtension.quotientConjActTopologicalAbelianizat
 **Native source docstring:** The quotient conjugation action on topological abelianization, packaged as
 a pointwise continuous action.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L527) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L527) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvariants
 
@@ -769,7 +752,7 @@ abbrev ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvari
 
 **Native source docstring:** Closed topological coinvariants of the quotient conjugation action.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L536) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L536) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvariantsMk
 
@@ -782,7 +765,7 @@ noncomputable def ContinuousGroupExtension.quotientConjActTopologicalAbelianizat
 **Native source docstring:** The canonical continuous projection from topological abelianization to
 closed quotient-conjugation coinvariants.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L541) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L541) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvariantsMk_conjAct
 
@@ -795,7 +778,7 @@ theorem ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvar
 **Native source docstring:** Arbitrary-lift formula: the coinvariant projection identifies a kernel
 class with its conjugate by any chosen lift.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L549) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L549) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvariantsMk_conjAct_eq_of_rightHom_eq
 
@@ -807,7 +790,7 @@ theorem ContinuousGroupExtension.quotientConjActTopologicalAbelianizationCoinvar
 
 **Native source docstring:** Lift independence remains explicit at the coinvariant projection.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L562) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L562) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationAction
 
@@ -820,7 +803,7 @@ theorem ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationA
 **Native source docstring:** A continuous equivalence of extensions preserves the packaged quotient
 action with the accepted fixed-kernel/fixed-quotient orientation.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L578) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L578) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationCoinvariantsEquiv
 
@@ -833,7 +816,7 @@ noncomputable def ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbeli
 **Native source docstring:** The induced equivalence on closed coinvariants, in the accepted
 source-to-target orientation of an extension equivalence.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L586) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L586) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationCoinvariantsEquiv_mk
 
@@ -845,7 +828,7 @@ theorem ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationC
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `quotientConjActTopologicalAbelianizationCoinvariantsEquiv_mk` for closed versus algebraic action-difference quotients for pointwise-continuous actions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L600) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ClosedTopologicalCoinvariants.lean#L600) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -869,7 +852,7 @@ structure CompHausAddCommGrp : Type (u + 1)
 
 **Native source docstring:** The category of compact Hausdorff topological additive commutative groups.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L34) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L34) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.mk
 
@@ -881,7 +864,7 @@ constructor CompHausAddCommGrp.mk : (toCompHaus : CompHaus) → [addCommGroup : 
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `CompHausAddCommGrp`; the structure fields and parameters are in the displayed signature and source declaration. The category of compact hausdorff additive commutative groups and continuous homomorphisms.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L34) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L34) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.toCompHaus
 
@@ -893,7 +876,7 @@ abbrev CompHausAddCommGrp.toCompHaus (self : CompHausAddCommGrp.{u}) : CompHaus
 
 **Native source docstring:** The underlying compact Hausdorff space.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.addCommGroup
 
@@ -905,7 +888,7 @@ abbrev CompHausAddCommGrp.addCommGroup (self : CompHausAddCommGrp.{u}) : AddComm
 
 **Native source docstring:** The additive commutative group structure.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.isTopologicalAddGroup
 
@@ -917,7 +900,7 @@ theorem CompHausAddCommGrp.isTopologicalAddGroup (self : CompHausAddCommGrp.{u})
 
 **Native source docstring:** Addition and negation are continuous.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### instCoeSortCompHausAddCommGrpType
 
@@ -929,7 +912,7 @@ instance instCoeSortCompHausAddCommGrpType : CoeSort CompHausAddCommGrp.{u} (Typ
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CoeSort` instance in the category of compact Hausdorff additive commutative groups and continuous homomorphisms (native type names: `CompHausAddCommGrp`, `_builtin_typeu`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L44) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L44) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.of
 
@@ -941,7 +924,7 @@ abbrev CompHausAddCommGrp.of (A : Type u) [AddCommGroup A] [TopologicalSpace A] 
 
 **Native source docstring:** Bundle a compact Hausdorff topological additive commutative group.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L52) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L52) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.coe_of
 
@@ -953,7 +936,7 @@ theorem CompHausAddCommGrp.coe_of (A : Type u) [AddCommGroup A] [TopologicalSpac
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `coe_of` in the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L60) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L60) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom
 
@@ -965,7 +948,7 @@ structure CompHausAddCommGrp.Hom (A B : CompHausAddCommGrp.{u}) : Type u
 
 **Native source docstring:** Morphisms of compact Hausdorff topological additive commutative groups.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L66) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L66) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom.mk
 
@@ -977,7 +960,7 @@ constructor CompHausAddCommGrp.Hom.mk : {A B : CompHausAddCommGrp.{u}} → (↑A
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `CompHausAddCommGrp.Hom`; the structure fields and parameters are in the displayed signature and source declaration. The category of compact hausdorff additive commutative groups and continuous homomorphisms.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L66) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L66) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom.ext
 
@@ -989,7 +972,7 @@ theorem CompHausAddCommGrp.Hom.ext {A B : CompHausAddCommGrp.{u}} {x y : A.Hom B
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `ext` in the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L67) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L67) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom.ext_iff
 
@@ -1001,7 +984,7 @@ theorem CompHausAddCommGrp.Hom.ext_iff {A B : CompHausAddCommGrp.{u}} {x y : A.H
 
 **Original catalogue explanation (not a Lean docstring):** The iff characterization named `ext_iff` in the category of compact Hausdorff additive commutative groups and continuous homomorphisms; use the full signature for both directions and their assumptions.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L67) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L67) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom.hom'
 
@@ -1013,7 +996,7 @@ abbrev CompHausAddCommGrp.Hom.hom' {A B : CompHausAddCommGrp.{u}} (self : A.Hom 
 
 **Native source docstring:** The underlying continuous additive homomorphism.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L70) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L70) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instCategory
 
@@ -1025,7 +1008,7 @@ instance CompHausAddCommGrp.instCategory : CategoryTheory.Category.{u_1, u_1 + 1
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Category` instance in the category of compact Hausdorff additive commutative groups and continuous homomorphisms (native type names: `CompHausAddCommGrp`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instConcreteCategoryContinuousAddMonoidHomCarrierToTopTrueToCompHaus
 
@@ -1037,7 +1020,7 @@ instance CompHausAddCommGrp.instConcreteCategoryContinuousAddMonoidHomCarrierToT
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.ConcreteCategory` instance in the category of compact Hausdorff additive commutative groups and continuous homomorphisms (native type names: `CompHausAddCommGrp`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.Hom.hom
 
@@ -1049,7 +1032,7 @@ abbrev CompHausAddCommGrp.Hom.hom {A B : CompHausAddCommGrp.{u}} (f : A ⟶ B) :
 
 **Native source docstring:** The continuous additive homomorphism underlying a morphism.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L81) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L81) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.ofHom
 
@@ -1061,7 +1044,7 @@ abbrev CompHausAddCommGrp.ofHom {A B : Type u} [AddCommGroup A] [TopologicalSpac
 
 **Native source docstring:** Typecheck a continuous additive homomorphism as a categorical morphism.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L85) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L85) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instCoeFunHomForallCarrierToTopTrueToCompHaus
 
@@ -1073,7 +1056,7 @@ instance CompHausAddCommGrp.instCoeFunHomForallCarrierToTopTrueToCompHaus {A B :
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CoeFun` instance in the category of compact Hausdorff additive commutative groups and continuous homomorphisms (native type names: `Quiver.Hom`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L92) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L92) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.hom_id
 
@@ -1085,7 +1068,7 @@ theorem CompHausAddCommGrp.hom_id {A : CompHausAddCommGrp.{u}} : Hom.hom (Catego
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `hom_id` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L95) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.hom_comp
 
@@ -1097,7 +1080,7 @@ theorem CompHausAddCommGrp.hom_comp {A B C : CompHausAddCommGrp.{u}} (f : A ⟶ 
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `hom_comp` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L100) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L100) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.hom_ext
 
@@ -1109,7 +1092,7 @@ theorem CompHausAddCommGrp.hom_ext {A B : CompHausAddCommGrp.{u}} {f g : A ⟶ B
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `hom_ext` in the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.hom_ext_iff
 
@@ -1121,7 +1104,7 @@ theorem CompHausAddCommGrp.hom_ext_iff {A B : CompHausAddCommGrp.{u}} {f g : A �
 
 **Original catalogue explanation (not a Lean docstring):** The iff characterization named `hom_ext_iff` in the category of compact Hausdorff additive commutative groups and continuous homomorphisms; use the full signature for both directions and their assumptions.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instHasForget₂ContinuousAddMonoidHomCarrierToTopTrueToCompHausCompHausContinuousMap
 
@@ -1134,7 +1117,7 @@ instance CompHausAddCommGrp.instHasForget₂ContinuousAddMonoidHomCarrierToTopTr
 **Native source docstring:** Forget a compact Hausdorff topological additive commutative group to its
 underlying compact Hausdorff space.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L110) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L110) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instFaithfulCompHausForget₂ContinuousAddMonoidHomCarrierToTopTrueToCompHausContinuousMap
 
@@ -1146,7 +1129,7 @@ instance CompHausAddCommGrp.instFaithfulCompHausForget₂ContinuousAddMonoidHomC
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Faithful` instance in the category of compact Hausdorff additive commutative groups and continuous homomorphisms (native type names: `CategoryTheory.forget₂`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L117) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L117) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instHasForget₂ContinuousAddMonoidHomCarrierToTopTrueToCompHausAddCommGrpCatAddMonoidHomCarrier
 
@@ -1158,7 +1141,7 @@ instance CompHausAddCommGrp.instHasForget₂ContinuousAddMonoidHomCarrierToTopTr
 
 **Native source docstring:** Forget to the underlying additive commutative group.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L123) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L123) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.ofClosedAddSubgroup
 
@@ -1171,7 +1154,7 @@ noncomputable abbrev CompHausAddCommGrp.ofClosedAddSubgroup (A : CompHausAddComm
 **Native source docstring:** A closed additive subgroup of a compact Hausdorff additive commutative
 group is again a compact Hausdorff additive commutative group.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L129) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L129) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotient
 
@@ -1183,7 +1166,7 @@ noncomputable abbrev CompHausAddCommGrp.quotient (A : CompHausAddCommGrp.{u}) (H
 
 **Native source docstring:** The quotient by a closed additive subgroup, with its quotient topology.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L137) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L137) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelClosedAddSubgroup
 
@@ -1196,7 +1179,7 @@ def CompHausAddCommGrp.kernelClosedAddSubgroup {A B : CompHausAddCommGrp.{u}} (f
 **Native source docstring:** The kernel of a continuous additive homomorphism as a closed additive
 subgroup.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L143) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L143) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelGroup
 
@@ -1209,7 +1192,7 @@ noncomputable abbrev CompHausAddCommGrp.kernelGroup {A B : CompHausAddCommGrp.{u
 **Native source docstring:** The compact Hausdorff group carried by the kernel of a continuous additive
 homomorphism.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L152) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L152) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.rangeClosedAddSubgroup
 
@@ -1222,7 +1205,7 @@ def CompHausAddCommGrp.rangeClosedAddSubgroup {A B : CompHausAddCommGrp.{u}} (f 
 **Native source docstring:** The range of a continuous homomorphism from a compact space is a closed
 additive subgroup of the Hausdorff target.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L158) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L158) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRange
 
@@ -1235,7 +1218,7 @@ noncomputable abbrev CompHausAddCommGrp.quotientRange {A B : CompHausAddCommGrp.
 **Native source docstring:** The compact Hausdorff quotient of the target by the range of a continuous
 additive homomorphism.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L167) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L167) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelι
 
@@ -1247,7 +1230,7 @@ noncomputable def CompHausAddCommGrp.kernelι {A B : CompHausAddCommGrp.{u}} (f 
 
 **Native source docstring:** The canonical inclusion of the compact Hausdorff kernel.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L173) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L173) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRangeπ
 
@@ -1259,7 +1242,7 @@ noncomputable def CompHausAddCommGrp.quotientRangeπ {A B : CompHausAddCommGrp.{
 
 **Native source docstring:** The canonical projection to the compact Hausdorff quotient by the range.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L182) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L182) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelι_apply
 
@@ -1271,7 +1254,7 @@ theorem CompHausAddCommGrp.kernelι_apply {A B : CompHausAddCommGrp.{u}} (f : A 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `kernelι_apply` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L189) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L189) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.comp_kernelι_apply
 
@@ -1283,7 +1266,7 @@ theorem CompHausAddCommGrp.comp_kernelι_apply {A B : CompHausAddCommGrp.{u}} (f
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `comp_kernelι_apply` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L194) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L194) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRangeπ_apply
 
@@ -1295,7 +1278,7 @@ theorem CompHausAddCommGrp.quotientRangeπ_apply {A B : CompHausAddCommGrp.{u}} 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `quotientRangeπ_apply` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L199) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L199) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRangeπ_comp_apply
 
@@ -1307,7 +1290,7 @@ theorem CompHausAddCommGrp.quotientRangeπ_comp_apply {A B : CompHausAddCommGrp.
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `quotientRangeπ_comp_apply` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L204) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L204) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelMap
 
@@ -1320,7 +1303,7 @@ noncomputable def CompHausAddCommGrp.kernelMap {X Y X' Y' : CompHausAddCommGrp.{
 **Native source docstring:** A continuous commutative square induces a continuous map on closed
 kernels.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L211) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L211) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRangeMap
 
@@ -1333,7 +1316,7 @@ noncomputable def CompHausAddCommGrp.quotientRangeMap {X Y X' Y' : CompHausAddCo
 **Native source docstring:** A continuous commutative square induces a continuous map on quotients by
 the two compact ranges.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L228) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L228) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.kernelMap_apply
 
@@ -1345,7 +1328,7 @@ theorem CompHausAddCommGrp.kernelMap_apply {X Y X' Y' : CompHausAddCommGrp.{u}} 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `kernelMap_apply` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L247) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L247) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.quotientRangeMap_mk
 
@@ -1357,7 +1340,7 @@ theorem CompHausAddCommGrp.quotientRangeMap_mk {X Y X' Y' : CompHausAddCommGrp.{
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `quotientRangeMap_mk` for the category of compact Hausdorff additive commutative groups and continuous homomorphisms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroup.lean#L258) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroup.lean#L258) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -1390,7 +1373,7 @@ def CompHausAddCommGrp.limitConePtAux {J : Type v} [CategoryTheory.SmallCategory
 **Native source docstring:** The compatible tuples underlying a limit of compact Hausdorff additive
 commutative groups.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L41) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L41) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instAddCommGroupCarrierToTopTruePtCompHausLimitConeCompForget₂ContinuousAddMonoidHomToCompHausContinuousMap
 
@@ -1402,7 +1385,7 @@ instance CompHausAddCommGrp.instAddCommGroupCarrierToTopTruePtCompHausLimitConeC
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `AddCommGroup` instance in limits of compact Hausdorff additive commutative groups, including the stated indexing hypotheses (native type names: `TopCat.carrier`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L49) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L49) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instIsTopologicalAddGroupCarrierToTopTruePtCompHausLimitConeCompForget₂ContinuousAddMonoidHomToCompHausContinuousMap
 
@@ -1414,7 +1397,7 @@ instance CompHausAddCommGrp.instIsTopologicalAddGroupCarrierToTopTruePtCompHausL
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `IsTopologicalAddGroup` instance in limits of compact Hausdorff additive commutative groups, including the stated indexing hypotheses (native type names: `TopCat.carrier`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L53) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L53) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limitCone
 
@@ -1426,7 +1409,7 @@ abbrev CompHausAddCommGrp.limitCone {J : Type v} [CategoryTheory.SmallCategory J
 
 **Native source docstring:** The explicit limit cone in compact Hausdorff additive commutative groups.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limitConeIsLimit
 
@@ -1438,7 +1421,7 @@ def CompHausAddCommGrp.limitConeIsLimit {J : Type v} [CategoryTheory.SmallCatego
 
 **Native source docstring:** The explicit cone is limiting.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instHasLimit
 
@@ -1450,7 +1433,7 @@ instance CompHausAddCommGrp.instHasLimit {J : Type v} [CategoryTheory.SmallCateg
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Limits.HasLimit` instance in limits of compact Hausdorff additive commutative groups, including the stated indexing hypotheses; the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L100) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L100) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instPreservesLimitCompHausForget₂ContinuousAddMonoidHomCarrierToTopTrueToCompHausContinuousMap
 
@@ -1462,7 +1445,7 @@ instance CompHausAddCommGrp.instPreservesLimitCompHausForget₂ContinuousAddMono
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Limits.PreservesLimit` instance in limits of compact Hausdorff additive commutative groups, including the stated indexing hypotheses (native type names: `CategoryTheory.forget₂`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L103) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L103) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limit_π_range_eq_eventualRange
 
@@ -1476,7 +1459,7 @@ theorem CompHausAddCommGrp.limit_π_range_eq_eventualRange {J : Type v} [Categor
 the range of a canonical limit projection is exactly the intersection of the
 ranges of all transition maps into that stage.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L233) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L233) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limit_π_surjective_of_eventualRange_eq_univ
 
@@ -1489,7 +1472,7 @@ theorem CompHausAddCommGrp.limit_π_surjective_of_eventualRange_eq_univ {J : Typ
 **Native source docstring:** A canonical projection from a cofiltered compact Hausdorff additive-group
 limit is surjective when the eventual range at that stage is the whole stage.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L249) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L249) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limit_π_surjective_of_maps_surjective
 
@@ -1502,7 +1485,7 @@ theorem CompHausAddCommGrp.limit_π_surjective_of_maps_surjective {J : Type v} [
 **Native source docstring:** A canonical projection from a cofiltered compact Hausdorff additive-group
 limit is surjective if every transition map into that stage is surjective.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L257) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L257) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.instHasLimitsOfShape
 
@@ -1514,7 +1497,7 @@ theorem CompHausAddCommGrp.instHasLimitsOfShape {J : Type v} [CategoryTheory.Sma
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for limits of compact Hausdorff additive commutative groups, including the stated indexing hypotheses; local instance syntax does not by itself promise a global public instance.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L270) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L270) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limit_map_surjective
 
@@ -1528,7 +1511,7 @@ theorem CompHausAddCommGrp.limit_map_surjective {J : Type v} [CategoryTheory.Sma
 of compact Hausdorff additive commutative groups induces a surjective map on
 their limits.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L440) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L440) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.limit_map_exact
 
@@ -1542,7 +1525,7 @@ theorem CompHausAddCommGrp.limit_map_exact {J : Type v} [CategoryTheory.SmallCat
 compact Hausdorff additive commutative groups induce exact maps on their
 limits.
 
-[Source](../ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L463) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactAddCommGroupLimits.lean#L463) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -1569,7 +1552,7 @@ noncomputable def CompHausAddCommGrp.finiteFinsuppTopology (X : CompHausAddCommG
 **Native source docstring:** The finite-product topology on finitely supported functions, transported
 from the equivalent finite function space.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L33) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L33) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.finiteFinsuppHomeomorph
 
@@ -1582,7 +1565,7 @@ noncomputable def CompHausAddCommGrp.finiteFinsuppHomeomorph (X : CompHausAddCom
 **Native source docstring:** The defining homeomorphism from finite-support functions to the finite
 function space.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.finiteFinsupp
 
@@ -1595,7 +1578,7 @@ noncomputable def CompHausAddCommGrp.finiteFinsupp (X : CompHausAddCommGrp.{u}) 
 **Native source docstring:** A finite product of a compact Hausdorff additive commutative group,
 presented as a `Finsupp`.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L49) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L49) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.finiteFinsuppMap
 
@@ -1608,7 +1591,7 @@ noncomputable def CompHausAddCommGrp.finiteFinsuppMap (X Y : CompHausAddCommGrp.
 **Native source docstring:** An additive map between finite products is continuous if every
 single-input/single-output matrix coefficient is continuous.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L62) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L62) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.finiteFinsuppMap_apply
 
@@ -1620,7 +1603,7 @@ theorem CompHausAddCommGrp.finiteFinsuppMap_apply (X Y : CompHausAddCommGrp.{u})
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteFinsuppMap_apply` for finite-stage homology maps for compact additive-group constructions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.boundaryToKernel
 
@@ -1633,7 +1616,7 @@ noncomputable def CompHausAddCommGrp.boundaryToKernel {X₂ X₁ X₀ : CompHaus
 **Native source docstring:** Restrict the first boundary of a continuous three-term complex to the
 closed kernel of the second boundary.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.boundaryToKernel_apply
 
@@ -1645,7 +1628,7 @@ theorem CompHausAddCommGrp.boundaryToKernel_apply {X₂ X₁ X₀ : CompHausAddC
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `boundaryToKernel_apply` for finite-stage homology maps for compact additive-group constructions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L127) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L127) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.homology
 
@@ -1657,7 +1640,7 @@ noncomputable def CompHausAddCommGrp.homology {X₂ X₁ X₀ : CompHausAddCommG
 
 **Native source docstring:** Compact Hausdorff homology of a continuous three-term complex.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L135) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L135) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.homologyMap
 
@@ -1670,7 +1653,7 @@ noncomputable def CompHausAddCommGrp.homologyMap {X₂ X₁ X₀ Y₂ Y₁ Y₀ 
 **Native source docstring:** A commuting map of continuous three-term complexes induces a continuous
 map on compact Hausdorff homology.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L142) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L142) (historical source start line; generated entries may point to their parent).
 
 #### CompHausAddCommGrp.homologyMap_mk
 
@@ -1682,7 +1665,7 @@ theorem CompHausAddCommGrp.homologyMap_mk {X₂ X₁ X₀ Y₂ Y₁ Y₀ : CompH
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `homologyMap_mk` for finite-stage homology maps for compact additive-group constructions; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/CompactFiniteHomology.lean#L162) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactFiniteHomology.lean#L162) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.CompactTopModuleLimits
 
@@ -1699,7 +1682,7 @@ noncomputable def TopModuleCat.compHausDiagram {J : Type v} [CategoryTheory.Smal
 **Native source docstring:** A diagram of compact Hausdorff spaces obtained by forgetting the module
 structure from a diagram of compact Hausdorff topological modules.
 
-[Source](../ContinuousGroupCohomology/CompactTopModuleLimits.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactTopModuleLimits.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.limitCompHausHomeomorph
 
@@ -1713,7 +1696,7 @@ noncomputable def TopModuleCat.limitCompHausHomeomorph {J : Type v} [CategoryThe
 `TopModuleCat` limit to the underlying space of the same limit formed in
 `CompHaus`.
 
-[Source](../ContinuousGroupCohomology/CompactTopModuleLimits.lean#L47) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactTopModuleLimits.lean#L47) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.compactSpace_limit_of_compact_t2
 
@@ -1725,7 +1708,7 @@ theorem TopModuleCat.compactSpace_limit_of_compact_t2 {J : Type v} [CategoryTheo
 
 **Native source docstring:** A limit of compact Hausdorff topological modules is compact.
 
-[Source](../ContinuousGroupCohomology/CompactTopModuleLimits.lean#L59) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactTopModuleLimits.lean#L59) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.t2Space_limit_of_compact_t2
 
@@ -1737,7 +1720,7 @@ theorem TopModuleCat.t2Space_limit_of_compact_t2 {J : Type v} [CategoryTheory.Sm
 
 **Native source docstring:** A limit of compact Hausdorff topological modules is Hausdorff.
 
-[Source](../ContinuousGroupCohomology/CompactTopModuleLimits.lean#L65) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/CompactTopModuleLimits.lean#L65) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.Composition
 
@@ -1754,7 +1737,7 @@ def OpenSubgroup.trans {G : Type v} [Group G] [TopologicalSpace G] (H : OpenSubg
 **Native source docstring:** Flatten an open subgroup of an open subgroup into the ambient group.
 Its underlying subgroup computes as the image of the nested subgroup.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### OpenSubgroup.trans_toSubgroup
 
@@ -1766,7 +1749,7 @@ theorem OpenSubgroup.trans_toSubgroup {G : Type v} [Group G] [TopologicalSpace G
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `trans_toSubgroup` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L50) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L50) (historical source start line; generated entries may point to their parent).
 
 #### OpenSubgroup.transEquiv
 
@@ -1779,7 +1762,7 @@ noncomputable def OpenSubgroup.transEquiv {G : Type v} [Group G] [TopologicalSpa
 **Native source docstring:** The flattened subgroup has the same topological group as the nested subgroup.
 The equivalence computes on subgroup elements.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### OpenSubgroup.transEquiv_apply
 
@@ -1791,7 +1774,7 @@ theorem OpenSubgroup.transEquiv_apply {G : Type v} [Group G] [TopologicalSpace G
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transEquiv_apply` for composition of degree-one transfer over towers of open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### OpenSubgroup.transEquiv_symm_apply
 
@@ -1803,7 +1786,7 @@ theorem OpenSubgroup.transEquiv_symm_apply {G : Type v} [Group G] [TopologicalSp
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transEquiv_symm_apply` for composition of degree-one transfer over towers of open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### OpenSubgroup.transFiniteIndex
 
@@ -1815,7 +1798,7 @@ instance OpenSubgroup.transFiniteIndex {G : Type v} [Group G] [TopologicalSpace 
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `Subgroup.FiniteIndex` instance in composition of degree-one transfer over towers of open finite-index subgroups (native type names: `OpenSubgroup.toSubgroup`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L88) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L88) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.jointlyContinuous_res_trans
 
@@ -1829,7 +1812,7 @@ theorem TopRep.jointlyContinuous_res_trans {k : Type u} [Ring k] [TopologicalSpa
 restrictions. This proof is the existing private local instance, made available
 to exported compositions without changing the instance search of importers.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L110) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L110) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.transContinuousHom
 
@@ -1842,7 +1825,7 @@ noncomputable def ContinuousCohomology.transContinuousHom {G : Type v} [Group G]
 **Native source docstring:** The continuous homomorphism identifying a nested open subgroup with its
 flattening in the ambient group. Its value computes via `transEquiv`.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L126) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L126) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.transCoeffHom
 
@@ -1854,7 +1837,7 @@ noncomputable def ContinuousCohomology.transCoeffHom {k : Type u} [Ring k] [Topo
 
 **Native source docstring:** Identity on coefficients, comparing direct and iterated restriction.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L133) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L133) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedTrans
 
@@ -1867,7 +1850,7 @@ noncomputable def ContinuousCohomology.crossedTrans {k : Type u} [Ring k] [Topol
 **Native source docstring:** Pull a crossed homomorphism for the flattened subgroup back to the nested
 subgroup through the canonical equivalence. Evaluation computes by pullback.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L142) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L142) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedTrans_apply
 
@@ -1879,7 +1862,7 @@ theorem ContinuousCohomology.crossedTrans_apply {k : Type u} [Ring k] [Topologic
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedTrans_apply` for composition of degree-one transfer over towers of open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L162) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L162) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.towerRep
 
@@ -1892,7 +1875,7 @@ def ContinuousCohomology.CorestrictionTransversal.towerRep {G : Type v} [Group G
 **Native source docstring:** The representative `u * t` obtained from nested right transversals.
 Its multiplication computes in the transversal product equivalence.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L170) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L170) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.towerRep_injective
 
@@ -1904,7 +1887,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.towerRep_injective {G : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `towerRep_injective` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L179) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L179) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.towerRepEquiv
 
@@ -1917,7 +1900,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.towerRepEquiv {G
 **Native source docstring:** The canonical indexing equivalence for the product transversal.
 Evaluation computes to the product representative.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L188) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L188) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.towerRepEquiv_apply_coe
 
@@ -1929,7 +1912,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.towerRepEquiv_apply_coe {G
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `towerRepEquiv_apply_coe` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L197) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L197) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.towerDecompositionEquiv
 
@@ -1942,7 +1925,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.towerDecompositi
 **Native source docstring:** Decomposition of the ambient group through two nested right transversals.
 The inverse computes when constructing the composite right transversal.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L203) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L203) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transRightTransversal
 
@@ -1956,7 +1939,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transRightTransv
 right transversal for the flattened copy of `K` in `G`. Its carrier computes
 as the range of the representative-product map.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L213) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L213) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.coe_transRightTransversal
 
@@ -1968,7 +1951,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.coe_transRightTransversal 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `coe_transRightTransversal` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L247) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L247) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transRightRepEquiv
 
@@ -1981,7 +1964,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transRightRepEqu
 **Native source docstring:** The product indexing equivalence with the actual composite transversal.
 Its application computes the representative product.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L253) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L253) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transRightRepEquiv_apply_coe
 
@@ -1993,7 +1976,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transRightRepEquiv_apply_c
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transRightRepEquiv_apply_coe` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L275) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L275) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transRightTransversal_equiv
 
@@ -2005,7 +1988,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transRightTransversal_equi
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transRightTransversal_equiv` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L282) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L282) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor_transRightTransversal
 
@@ -2017,7 +2000,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.factor_transRightTransvers
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factor_transRightTransversal` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L305) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L305) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.next_transRightTransversal
 
@@ -2029,7 +2012,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.next_transRightTransversal
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `next_transRightTransversal` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L313) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L313) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_trans
 
@@ -2041,7 +2024,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_trans {k :
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferCrossed_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L321) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L321) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedTrans_principal
 
@@ -2053,7 +2036,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedTrans_principal {k 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedTrans_principal` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L368) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L368) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedQuotientTrans
 
@@ -2066,7 +2049,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.crossedQuotientT
 **Native source docstring:** Pullback along the nested/flattened equivalence descends modulo principal
 cocycles. Its lift computes on quotient representatives.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L378) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L378) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedQuotientTrans_mk
 
@@ -2078,7 +2061,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedQuotientTrans_mk {k
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedQuotientTrans_mk` for composition of degree-one transfer over towers of open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L410) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L410) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedTrans_comp_mkQL
 
@@ -2090,7 +2073,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedTrans_comp_mkQL {k 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedTrans_comp_mkQL` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L423) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L423) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_trans
 
@@ -2102,7 +2085,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_trans {k 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferQuotient_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L437) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L437) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_trans
 
@@ -2114,7 +2097,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_tran
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `cocyclesOneCrossedIso_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L460) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L460) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_trans
 
@@ -2126,7 +2109,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_trans 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `homologyQuotientIso_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L487) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L487) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_trans_assoc
 
@@ -2138,7 +2121,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_trans_
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated reassociated statement associated with `ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the original `@[reassoc]` source anchor is shown below.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L487) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L487) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.degreeOneIso_trans
 
@@ -2150,7 +2133,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.degreeOneIso_trans {k : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `degreeOneIso_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L507) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L507) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transDegreeOne
 
@@ -2163,7 +2146,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transDegreeOne {
 **Native source docstring:** Degree-one transport from a flattened subgroup to the corresponding
 nested subgroup, expressed through crossed homomorphisms.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L524) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L524) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transDegreeOne_eq_map
 
@@ -2175,7 +2158,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transDegreeOne_eq_map {k :
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transDegreeOne_eq_map` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L540) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L540) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOneWithTransversal_trans
 
@@ -2187,7 +2170,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOneWithTransv
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `corestrictionOneWithTransversal_trans` in composition of degree-one transfer over towers of open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L550) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L550) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_trans_crossed
 
@@ -2200,7 +2183,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_trans_cro
 **Native source docstring:** Degree-one corestriction is transitive through nested open finite-index
 subgroups, after the canonical flattened/nested identification.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L581) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L581) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_trans
 
@@ -2214,7 +2197,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_trans {k 
 subgroups, using native continuous-cohomology transport along the canonical
 equivalence with the flattened subgroup.
 
-[Source](../ContinuousGroupCohomology/Composition.lean#L602) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Composition.lean#L602) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -2235,7 +2218,7 @@ noncomputable def TopRep.continuousCohomologyUliftIsoSameUniverse {k : Type u} [
 **Native source docstring:** In one common small universe, continuous cohomology commutes with raising
 the acting group and coefficient carrier.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L31) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L31) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftIsoSameUniverse_naturality
 
@@ -2248,7 +2231,7 @@ theorem TopRep.continuousCohomologyUliftIsoSameUniverse_naturality {k : Type u} 
 **Native source docstring:** The same-universe continuous-cohomology comparison is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L45) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L45) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftIsoSameUniverse_naturality_assoc
 
@@ -2261,7 +2244,7 @@ theorem TopRep.continuousCohomologyUliftIsoSameUniverse_naturality_assoc {k : Ty
 **Native source docstring:** The same-universe continuous-cohomology comparison is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L47) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L47) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftMapSameUniverse
 
@@ -2274,7 +2257,7 @@ noncomputable def TopRep.continuousCohomologyUliftMapSameUniverse {k : Type u} [
 **Native source docstring:** Transport a coefficient map through the same-universe continuous-
 cohomology comparison.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftMapSameUniverse_eq_map
 
@@ -2287,7 +2270,7 @@ theorem TopRep.continuousCohomologyUliftMapSameUniverse_eq_map {k : Type u} [Rin
 **Native source docstring:** The transported same-universe coefficient map is exactly mathlib's native
 continuous-cohomology map on the raised representations.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L89) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L89) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftMapSameUniverse_id
 
@@ -2299,7 +2282,7 @@ theorem TopRep.continuousCohomologyUliftMapSameUniverse_id {k : Type u} [Ring k]
 
 **Native source docstring:** The transported same-universe coefficient map preserves identities.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L102) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L102) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftMapSameUniverse_comp
 
@@ -2311,7 +2294,7 @@ theorem TopRep.continuousCohomologyUliftMapSameUniverse_comp {k : Type u} [Ring 
 
 **Native source docstring:** The transported same-universe coefficient map preserves composition.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.continuousCohomologyUliftMapSameUniverse_comp_assoc
 
@@ -2323,7 +2306,7 @@ theorem TopRep.continuousCohomologyUliftMapSameUniverse_comp_assoc {k : Type u} 
 
 **Native source docstring:** The transported same-universe coefficient map preserves composition.
 
-[Source](../ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L114) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousCohomologyUlift.lean#L114) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.ContinuousGroupExtension
 
@@ -2341,7 +2324,7 @@ structure ContinuousGroupExtension (N : Type uN) (E : Type uE) (Q : Type uQ) [Gr
 sequence of topological groups in the strong sense of
 `TopologicalGroup.IsSES`.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L30) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L30) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.mk
 
@@ -2353,7 +2336,7 @@ constructor ContinuousGroupExtension.mk : {N : Type uN} → {E : Type uE} → {Q
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupExtension`; the structure fields and parameters are in the displayed signature and source declaration. Topological group extensions with the strong short-exact-sequence condition.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L30) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L30) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.toGroupExtension
 
@@ -2365,7 +2348,7 @@ abbrev ContinuousGroupExtension.toGroupExtension {N : Type uN} {E : Type uE} {Q 
 
 **Original catalogue explanation (not a Lean docstring):** Defines `toGroupExtension` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L33) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L33) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.isSES
 
@@ -2378,7 +2361,7 @@ theorem ContinuousGroupExtension.isSES {N : Type uN} {E : Type uE} {Q : Type uQ}
 **Native source docstring:** The inclusion is a closed embedding, the projection is an open quotient
 map, and their underlying homomorphisms are exact.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.mk'
 
@@ -2391,7 +2374,7 @@ def ContinuousGroupExtension.mk' {N : Type uN} {E : Type uE} {Q : Type uQ} [Grou
 **Native source docstring:** Construct a continuous group extension from an abstract extension and the
 strong topological short-exactness witness.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L49) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L49) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.mk'_toGroupExtension
 
@@ -2403,7 +2386,7 @@ theorem ContinuousGroupExtension.mk'_toGroupExtension {N : Type uN} {E : Type uE
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mk'_toGroupExtension` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.inlContinuous
 
@@ -2415,7 +2398,7 @@ def ContinuousGroupExtension.inlContinuous {N : Type uN} {E : Type uE} {Q : Type
 
 **Native source docstring:** The inclusion, bundled as a continuous homomorphism.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L62) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L62) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.inlContinuous_apply
 
@@ -2427,7 +2410,7 @@ theorem ContinuousGroupExtension.inlContinuous_apply {N : Type uN} {E : Type uE}
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `inlContinuous_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L67) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L67) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.rightHomContinuous
 
@@ -2439,7 +2422,7 @@ def ContinuousGroupExtension.rightHomContinuous {N : Type uN} {E : Type uE} {Q :
 
 **Native source docstring:** The projection, bundled as a continuous homomorphism.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.rightHomContinuous_apply
 
@@ -2451,7 +2434,7 @@ theorem ContinuousGroupExtension.rightHomContinuous_apply {N : Type uN} {E : Typ
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `rightHomContinuous_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L76) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L76) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift
 
@@ -2464,7 +2447,7 @@ def ContinuousGroupExtension.ulift {N : Type uN} {E : Type uE} {Q : Type uQ} [Gr
 **Native source docstring:** Raise the kernel, middle group, and quotient of a continuous extension
 through independently chosen universes.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L80) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L80) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift_toGroupExtension
 
@@ -2476,7 +2459,7 @@ theorem ContinuousGroupExtension.ulift_toGroupExtension {N : Type uN} {E : Type 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `ulift_toGroupExtension` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L88) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L88) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift_inl_apply
 
@@ -2488,7 +2471,7 @@ theorem ContinuousGroupExtension.ulift_inl_apply {N : Type uN} {E : Type uE} {Q 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_inl_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L93) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L93) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift_rightHom_apply
 
@@ -2500,7 +2483,7 @@ theorem ContinuousGroupExtension.ulift_rightHom_apply {N : Type uN} {E : Type uE
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_rightHom_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L98) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L98) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift_inlContinuous_apply
 
@@ -2512,7 +2495,7 @@ theorem ContinuousGroupExtension.ulift_inlContinuous_apply {N : Type uN} {E : Ty
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_inlContinuous_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L103) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L103) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ulift_rightHomContinuous_apply
 
@@ -2524,7 +2507,7 @@ theorem ContinuousGroupExtension.ulift_rightHomContinuous_apply {N : Type uN} {E
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_rightHomContinuous_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L108) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L108) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.commonUniverseUlift
 
@@ -2537,7 +2520,7 @@ def ContinuousGroupExtension.commonUniverseUlift {N : Type uN} {E : Type uE} {Q 
 **Native source docstring:** The canonical common-universe lift of an independently universe-polymorphic
 continuous extension.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.commonUniverseUlift_toGroupExtension
 
@@ -2549,7 +2532,7 @@ theorem ContinuousGroupExtension.commonUniverseUlift_toGroupExtension {N : Type 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `commonUniverseUlift_toGroupExtension` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L122) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L122) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.commonUniverseUlift_inl_apply
 
@@ -2561,7 +2544,7 @@ theorem ContinuousGroupExtension.commonUniverseUlift_inl_apply {N : Type uN} {E 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `commonUniverseUlift_inl_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L128) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L128) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.commonUniverseUlift_rightHom_apply
 
@@ -2573,7 +2556,7 @@ theorem ContinuousGroupExtension.commonUniverseUlift_rightHom_apply {N : Type uN
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `commonUniverseUlift_rightHom_apply` for topological group extensions with the strong short-exact-sequence condition; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L133) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L133) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv
 
@@ -2586,7 +2569,7 @@ structure ContinuousGroupExtension.Equiv {N : Type uN} {E : Type uE} {Q : Type u
 **Native source docstring:** An equivalence of continuous extensions with fixed kernel and quotient.
 The equivalence of middle groups is required to be a homeomorphism.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L138) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L138) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.mk
 
@@ -2598,7 +2581,7 @@ constructor ContinuousGroupExtension.Equiv.mk : {N : Type uN} → {E : Type uE} 
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupExtension.Equiv`; the structure fields and parameters are in the displayed signature and source declaration. Topological group extensions with the strong short-exact-sequence condition.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L138) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L138) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.toContinuousMulEquiv
 
@@ -2610,7 +2593,7 @@ abbrev ContinuousGroupExtension.Equiv.toContinuousMulEquiv {N : Type uN} {E : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Defines `toContinuousMulEquiv` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L140) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L140) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.inl_comm
 
@@ -2622,7 +2605,7 @@ theorem ContinuousGroupExtension.Equiv.inl_comm {N : Type uN} {E : Type uE} {Q :
 
 **Native source docstring:** Compatibility with the kernel inclusions.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L144) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L144) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.rightHom_comm
 
@@ -2634,7 +2617,7 @@ theorem ContinuousGroupExtension.Equiv.rightHom_comm {N : Type uN} {E : Type uE}
 
 **Native source docstring:** Compatibility with the quotient projections.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L146) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L146) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.toGroupExtensionEquiv
 
@@ -2646,7 +2629,7 @@ def ContinuousGroupExtension.Equiv.toGroupExtensionEquiv {N : Type uN} {E : Type
 
 **Native source docstring:** Forget topology from an equivalence of continuous extensions.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L154) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L154) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.instEquivLike
 
@@ -2658,7 +2641,7 @@ instance ContinuousGroupExtension.Equiv.instEquivLike {N : Type uN} {E : Type uE
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `EquivLike` instance in topological group extensions with the strong short-exact-sequence condition (native type names: `ContinuousGroupExtension.Equiv`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L161) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L161) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.instMulEquivClass
 
@@ -2670,7 +2653,7 @@ instance ContinuousGroupExtension.Equiv.instMulEquivClass {N : Type uN} {E : Typ
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `MulEquivClass` instance in topological group extensions with the strong short-exact-sequence condition (native type names: `ContinuousGroupExtension.Equiv`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L172) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L172) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.instHomeomorphClass
 
@@ -2682,7 +2665,7 @@ instance ContinuousGroupExtension.Equiv.instHomeomorphClass {N : Type uN} {E : T
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `HomeomorphClass` instance in topological group extensions with the strong short-exact-sequence condition (native type names: `ContinuousGroupExtension.Equiv`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L175) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L175) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.map_inl
 
@@ -2694,7 +2677,7 @@ theorem ContinuousGroupExtension.Equiv.map_inl {N : Type uN} {E : Type uE} {Q : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `map_inl` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L179) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L179) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.rightHom_map
 
@@ -2706,7 +2689,7 @@ theorem ContinuousGroupExtension.Equiv.rightHom_map {N : Type uN} {E : Type uE} 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `rightHom_map` in topological group extensions with the strong short-exact-sequence condition; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/ContinuousGroupExtension.lean#L184) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/ContinuousGroupExtension.lean#L184) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -2730,7 +2713,7 @@ instance TopRep.jointlyContinuous_res {k : Type u} [Ring k] [TopologicalSpace k]
 
 **Native source docstring:** Joint continuity is preserved when a representation is restricted to a subgroup.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L46) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L46) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor
 
@@ -2743,7 +2726,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.factor {G : Type
 **Native source docstring:** The `H`-factor in the unique decomposition `t * g = η(t,g) * (t ⋆ g)`.
 Its representative calculation is used in composition of transversals.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L63) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L63) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.next
 
@@ -2756,7 +2739,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.next {G : Type v
 **Native source docstring:** The new transversal representative in `t * g = η(t,g) * (t ⋆ g)`.
 Its representative calculation is used in composition of transversals.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L68) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L68) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor_mul_next
 
@@ -2768,7 +2751,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.factor_mul_next {G : Type 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factor_mul_next` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L75) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.next_one
 
@@ -2780,7 +2763,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.next_one {G : Type v} [Gro
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `next_one` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L80) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L80) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor_one
 
@@ -2792,7 +2775,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.factor_one {G : Type v} [G
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factor_one` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L86) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L86) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.equiv_mul
 
@@ -2804,7 +2787,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.equiv_mul {G : Type v} [Gr
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `equiv_mul` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L91) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L91) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor_mul
 
@@ -2816,7 +2799,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.factor_mul {G : Type v} [G
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factor_mul` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L98) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L98) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.next_mul
 
@@ -2828,7 +2811,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.next_mul {G : Type v} [Gro
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `next_mul` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L103) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L103) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.inv_mul_factor
 
@@ -2840,7 +2823,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.inv_mul_factor {G : Type v
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `inv_mul_factor` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L110) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L110) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.nextEquiv
 
@@ -2852,7 +2835,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.nextEquiv {G : T
 
 **Native source docstring:** Right multiplication permutes the chosen right-transversal representatives.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L120) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L120) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.continuous_factor
 
@@ -2864,7 +2847,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.continuous_factor {G : Typ
 
 **Native source docstring:** Openness of the subgroup makes the transversal factor locally continuous.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L132) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L132) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeFactor
 
@@ -2876,7 +2859,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.changeFactor {G 
 
 **Native source docstring:** The subgroup correction matching a representative in `T` with one in `S`.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L155) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L155) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeRep
 
@@ -2888,7 +2871,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.changeRep {G : T
 
 **Native source docstring:** The representative in `S` of the same right coset as a representative in `T`.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L159) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L159) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeFactor_mul_changeRep
 
@@ -2900,7 +2883,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.changeFactor_mul_changeRep
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `changeFactor_mul_changeRep` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L164) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L164) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeRep_rightCoset
 
@@ -2912,7 +2895,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.changeRep_rightCoset {G : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `changeRep_rightCoset` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L169) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L169) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeRepEquiv
 
@@ -2924,7 +2907,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.changeRepEquiv {
 
 **Native source docstring:** Matching representatives of two right transversals gives an equivalence.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L176) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L176) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeRep_next
 
@@ -2936,7 +2919,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.changeRep_next {G : Type v
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `changeRep_next` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L196) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L196) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factor_change
 
@@ -2948,7 +2931,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.factor_change {G : Type v}
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factor_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L218) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L218) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.factorC
 
@@ -2960,7 +2943,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.factorC {G : Typ
 
 **Native source docstring:** The subgroup factor as a continuous map.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L248) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L248) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossed_one
 
@@ -2972,7 +2955,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossed_one {k : Type u} [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossed_one` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L256) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L256) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossed_inv
 
@@ -2984,7 +2967,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossed_inv {k : Type u} [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossed_inv` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L262) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L262) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.rho_mul_apply
 
@@ -2996,7 +2979,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.rho_mul_apply {k : Type u}
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `rho_mul_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L270) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L270) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.rho_inv_changeFactor
 
@@ -3008,7 +2991,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.rho_inv_changeFactor {k : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `rho_inv_changeFactor` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L277) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L277) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transversalFintype
 
@@ -3020,7 +3003,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transversalFinty
 
 **Original catalogue explanation (not a Lean docstring):** Defines `transversalFintype` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L285) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L285) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.changeCoefficient
 
@@ -3032,7 +3015,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.changeCoefficien
 
 **Native source docstring:** The coefficient measuring the change from `T` to `S`.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L290) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L290) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.rho_inv_factor
 
@@ -3044,7 +3027,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.rho_inv_factor {k : Type u
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `rho_inv_factor` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L298) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L298) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.rho_factor_change
 
@@ -3056,7 +3039,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.rho_factor_change {k : Typ
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `rho_factor_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L311) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L311) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transfer_term_change
 
@@ -3068,7 +3051,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transfer_term_change {k : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transfer_term_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L329) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L329) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferTerm
 
@@ -3080,7 +3063,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transferTerm {k 
 
 **Native source docstring:** The contribution of one transversal representative to transfer.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L357) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L357) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferRaw
 
@@ -3092,7 +3075,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transferRaw {k :
 
 **Native source docstring:** The finite-coordinate transfer formula, before verifying the crossed identity.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L366) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L366) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferRaw_apply
 
@@ -3104,7 +3087,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferRaw_apply {k : Typ
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transferRaw_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L372) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L372) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferRaw_change
 
@@ -3116,7 +3099,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferRaw_change {k : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferRaw_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L383) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L383) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferRaw_crossed
 
@@ -3128,7 +3111,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferRaw_crossed {k : T
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferRaw_crossed` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L441) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L441) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed
 
@@ -3140,7 +3123,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transferCrossed 
 
 **Native source docstring:** Transfer on continuous crossed homomorphisms for a fixed right transversal.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L490) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L490) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_apply
 
@@ -3152,7 +3135,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_apply {k :
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transferCrossed_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L497) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L497) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_natural
 
@@ -3164,7 +3147,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_natural {k
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferCrossed_natural` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L504) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L504) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_change
 
@@ -3176,7 +3159,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_change {k 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferCrossed_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L518) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L518) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCoefficient
 
@@ -3188,7 +3171,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transferCoeffici
 
 **Native source docstring:** The coefficient trace associated to the chosen transversal.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L532) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L532) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCoefficient_apply
 
@@ -3200,7 +3183,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCoefficient_apply 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transferCoefficient_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L538) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L538) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_principal
 
@@ -3212,7 +3195,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_principal 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferCrossed_principal` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L545) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L545) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient
 
@@ -3225,7 +3208,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.transferQuotient
 **Native source docstring:** Transfer descends continuously through principal cocycles.
 Its lift computes on representatives in the transitivity comparison.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L577) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L577) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transfer_mkQL_change
 
@@ -3237,7 +3220,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transfer_mkQL_change {k : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transfer_mkQL_change` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L597) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L597) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_eq
 
@@ -3249,7 +3232,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_eq {k : T
 
 **Native source docstring:** Transfer on the quotient is independent of the chosen right transversal.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L612) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L612) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural
 
@@ -3261,7 +3244,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferQuotient_natural` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L625) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L625) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural_hom
 
@@ -3274,7 +3257,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural_h
 **Native source docstring:** The categorical form of coefficient naturality for fixed-transversal
 transfer on crossed-homomorphism quotients.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L642) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L642) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural_hom_assoc
 
@@ -3287,7 +3270,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_natural_h
 **Native source docstring:** The categorical form of coefficient naturality for fixed-transversal
 transfer on crossed-homomorphism quotients.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L644) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L644) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOneWithTransversal
 
@@ -3300,7 +3283,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.corestrictionOne
 **Native source docstring:** The degree-one corestriction morphism determined by a right transversal.
 Its crossed-quotient formula is used by the composition and Mackey laws.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L657) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L657) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOneWithTransversal_eq
 
@@ -3312,7 +3295,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOneWithTransv
 
 **Native source docstring:** Degree-one corestriction is independent of the chosen right transversal.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L669) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L669) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne
 
@@ -3325,7 +3308,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.corestrictionOne
 **Native source docstring:** Canonical degree-one corestriction for an open finite-index subgroup.
 Its default-transversal formula is used by the Mackey comparison.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L679) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L679) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_eq_withTransversal
 
@@ -3337,7 +3320,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_eq_withTr
 
 **Native source docstring:** The canonical map may be computed using any chosen right transversal.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L688) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L688) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_natural
 
@@ -3349,7 +3332,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_natural {
 
 **Native source docstring:** Canonical degree-one corestriction commutes with coefficient morphisms.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L697) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L697) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedRestrict
 
@@ -3362,7 +3345,7 @@ def ContinuousCohomology.CorestrictionTransversal.crossedRestrict {k : Type u} [
 **Native source docstring:** Restriction of continuous crossed homomorphisms to an open subgroup.
 Its value on subgroup elements is computed by evaluation in the ambient group.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L711) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L711) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedRestrict_apply
 
@@ -3374,7 +3357,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedRestrict_apply {k :
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedRestrict_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L725) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L725) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedRestrict_principal
 
@@ -3386,7 +3369,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedRestrict_principal 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedRestrict_principal` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L731) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L731) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict
 
@@ -3399,7 +3382,7 @@ def ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict {k : T
 **Native source docstring:** Restriction descends to continuous crossed homomorphisms modulo principal
 cocycles. Its application computes on quotient representatives.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L738) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L738) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict_mk
 
@@ -3411,7 +3394,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict_mk
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedQuotientRestrict_mk` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L760) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L760) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupInclusion
 
@@ -3423,7 +3406,7 @@ def ContinuousCohomology.CorestrictionTransversal.openSubgroupInclusion {G : Typ
 
 **Native source docstring:** The continuous inclusion of an open subgroup.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L767) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L767) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.restrictionCoeffHom
 
@@ -3437,7 +3420,7 @@ def ContinuousCohomology.CorestrictionTransversal.restrictionCoeffHom {k : Type 
 inclusion with the representation restricted along the underlying subgroup
 inclusion.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L772) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L772) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedRestrict_comp_mkQL
 
@@ -3449,7 +3432,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedRestrict_comp_mkQL 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedRestrict_comp_mkQL` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L783) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L783) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupIsTopologicalGroup
 
@@ -3461,7 +3444,7 @@ instance ContinuousCohomology.CorestrictionTransversal.openSubgroupIsTopological
 
 **Native source docstring:** An open subgroup inherits the ambient topological-group structure.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L793) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L793) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_restrict
 
@@ -3473,7 +3456,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_rest
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `cocyclesOneCrossedIso_restrict` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L800) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L800) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_restrict
 
@@ -3485,7 +3468,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_restri
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `homologyQuotientIso_restrict` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L822) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L822) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_restrict_assoc
 
@@ -3497,7 +3480,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_restri
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated reassociated statement associated with `ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_restrict` in transfer in continuous degree-one cohomology for open finite-index subgroups; the original `@[reassoc]` source anchor is shown below.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L822) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L822) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.degreeOneIso_restrict
 
@@ -3510,7 +3493,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.degreeOneIso_restrict {k :
 **Native source docstring:** The crossed-homomorphism restriction map agrees with mathlib's native
 continuous-cohomology restriction in degree one.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L839) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L839) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transfer_restrict_term
 
@@ -3522,7 +3505,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transfer_restrict_term {k 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transfer_restrict_term` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L856) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L856) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.restrictionTransferCoefficient
 
@@ -3535,7 +3518,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.restrictionTrans
 **Native source docstring:** The coefficient of the principal cocycle appearing when transfer is
 applied to a restricted crossed homomorphism.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L875) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L875) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_restrict_apply
 
@@ -3547,7 +3530,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_restrict_a
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `transferCrossed_restrict_apply` for transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L882) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L882) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_restrict
 
@@ -3559,7 +3542,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_restrict {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferCrossed_restrict` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L929) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L929) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_restrict
 
@@ -3571,7 +3554,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_rest
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferQuotient_comp_restrict` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L945) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L945) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_restrict_hom
 
@@ -3583,7 +3566,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_rest
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transferQuotient_comp_restrict_hom` in transfer in continuous degree-one cohomology for open finite-index subgroups; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L967) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L967) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_restrict_hom_assoc
 
@@ -3595,7 +3578,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_rest
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated reassociated statement associated with `ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_restrict_hom` in transfer in continuous degree-one cohomology for open finite-index subgroups; the original `@[reassoc]` source anchor is shown below.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L967) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L967) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.restriction_corestrictionOne
 
@@ -3608,7 +3591,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.restriction_corestrictionO
 **Native source docstring:** Restriction followed by degree-one corestriction is multiplication by the
 subgroup index.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L979) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L979) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupTopFiniteIndex
 
@@ -3620,7 +3603,7 @@ instance ContinuousCohomology.CorestrictionTransversal.openSubgroupTopFiniteInde
 
 **Native source docstring:** The top open subgroup has finite index.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L996) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L996) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupTopLocallyCompact
 
@@ -3632,7 +3615,7 @@ instance ContinuousCohomology.CorestrictionTransversal.openSubgroupTopLocallyCom
 
 **Native source docstring:** The top open subgroup of a locally compact group is locally compact.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L1002) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L1002) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_top
 
@@ -3645,7 +3628,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_top {k : 
 **Native source docstring:** Corestriction from the whole group is the identity after the canonical
 restriction identification between `G` and its top open subgroup.
 
-[Source](../ContinuousGroupCohomology/Corestriction.lean#L1007) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Corestriction.lean#L1007) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -3672,7 +3655,7 @@ def ContinuousCohomology.continuousCrossedHom {k : Type u} [Ring k] [Topological
 **Native source docstring:** Continuous additive crossed homomorphisms for the action carried by `X`.
 The defining relation is needed to construct functorial crossed maps.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.principalMap
 
@@ -3685,7 +3668,7 @@ def ContinuousCohomology.principalMap {k : Type u} [Ring k] [TopologicalSpace k]
 **Native source docstring:** The continuous principal crossed homomorphism attached to a coefficient.
 Its orbit-map formula is needed by the continuous principal-cocycle comparison.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.principalToCrossed
 
@@ -3698,7 +3681,7 @@ def ContinuousCohomology.principalToCrossed {k : Type u} [Ring k] [TopologicalSp
 **Native source docstring:** Principal crossed homomorphisms, regarded inside all continuous crossed homomorphisms.
 The underlying map is used to establish continuity of `principalToCrossedL`.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.principalCocycles
 
@@ -3711,7 +3694,7 @@ def ContinuousCohomology.principalCocycles {k : Type u} [Ring k] [TopologicalSpa
 **Native source docstring:** The submodule of principal continuous crossed homomorphisms.
 Its range presentation reduces when comparing quotient maps.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L94) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L94) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap
 
@@ -3724,7 +3707,7 @@ def ContinuousCohomology.crossedMap {k : Type u} [Ring k] [TopologicalSpace k] {
 **Native source docstring:** A coefficient morphism sends continuous crossed homomorphisms forward.
 Its application to a cocycle computes pointwise in external clients.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L103) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L103) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap_apply
 
@@ -3736,7 +3719,7 @@ theorem ContinuousCohomology.crossedMap_apply {k : Type u} [Ring k] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedMap_apply` for crossed degree-one cocycles, principal cocycles and homology quotients; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L115) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L115) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap_principal
 
@@ -3748,7 +3731,7 @@ theorem ContinuousCohomology.crossedMap_principal {k : Type u} [Ring k] [Topolog
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedMap_principal` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L120) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L120) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedQuotientMap
 
@@ -3761,7 +3744,7 @@ def ContinuousCohomology.crossedQuotientMap {k : Type u} [Ring k] [TopologicalSp
 **Native source docstring:** A coefficient morphism descends to continuous crossed homomorphisms modulo principals.
 Its lift computes on quotient representatives.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L127) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L127) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedQuotientMap_mk
 
@@ -3773,7 +3756,7 @@ theorem ContinuousCohomology.crossedQuotientMap_mk {k : Type u} [Ring k] [Topolo
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `crossedQuotientMap_mk` for crossed degree-one cocycles, principal cocycles and homology quotients; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L145) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L145) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap_id
 
@@ -3785,7 +3768,7 @@ theorem ContinuousCohomology.crossedMap_id {k : Type u} [Ring k] [TopologicalSpa
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `crossedMap_id` for crossed degree-one cocycles, principal cocycles and homology quotients; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L152) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L152) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap_comp
 
@@ -3797,7 +3780,7 @@ theorem ContinuousCohomology.crossedMap_comp {k : Type u} [Ring k] [TopologicalS
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `crossedMap_comp` for crossed degree-one cocycles, principal cocycles and homology quotients; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L157) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L157) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedQuotientMap_id
 
@@ -3809,7 +3792,7 @@ theorem ContinuousCohomology.crossedQuotientMap_id {k : Type u} [Ring k] [Topolo
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `crossedQuotientMap_id` for crossed degree-one cocycles, principal cocycles and homology quotients; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L163) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L163) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedQuotientMap_comp
 
@@ -3821,7 +3804,7 @@ theorem ContinuousCohomology.crossedQuotientMap_comp {k : Type u} [Ring k] [Topo
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `crossedQuotientMap_comp` for crossed degree-one cocycles, principal cocycles and homology quotients; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L172) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L172) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.orbitMap
 
@@ -3834,7 +3817,7 @@ def ContinuousCohomology.orbitMap {k : Type u} [Ring k] [TopologicalSpace k] {G 
 **Native source docstring:** The orbit map of a coefficient, regarded as a continuous map on the group.
 Its pointwise action formula identifies continuous principal cocycles.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L183) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L183) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cochainsZeroEquiv
 
@@ -3848,7 +3831,7 @@ def ContinuousCohomology.cochainsZeroEquiv {k : Type u} [Ring k] [TopologicalSpa
 with their coefficient representation when the represented action is jointly
 continuous.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L196) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L196) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homogeneousOne
 
@@ -3861,7 +3844,7 @@ def ContinuousCohomology.homogeneousOne {k : Type u} [Ring k] [TopologicalSpace 
 **Native source docstring:** The homogeneous degree-one cochain associated to a continuous crossed
 homomorphism.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L229) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L229) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homogeneousOne_mem_invariants
 
@@ -3873,7 +3856,7 @@ theorem ContinuousCohomology.homogeneousOne_mem_invariants {k : Type u} [Ring k]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `homogeneousOne_mem_invariants` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L239) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L239) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homogeneousOne_mem_ker
 
@@ -3885,7 +3868,7 @@ theorem ContinuousCohomology.homogeneousOne_mem_ker {k : Type u} [Ring k] [Topol
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `homogeneousOne_mem_ker` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L257) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L257) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.oneKer_isCrossed
 
@@ -3897,7 +3880,7 @@ theorem ContinuousCohomology.oneKer_isCrossed {k : Type u} [Ring k] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `oneKer_isCrossed` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L284) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L284) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.oneKerToCrossed
 
@@ -3910,7 +3893,7 @@ def ContinuousCohomology.oneKerToCrossed {k : Type u} [Ring k] [TopologicalSpace
 **Native source docstring:** Evaluation at `(1, ·)` sends homogeneous degree-one cocycles to continuous
 crossed homomorphisms.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L300) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L300) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedToOneKer
 
@@ -3923,7 +3906,7 @@ def ContinuousCohomology.crossedToOneKer {k : Type u} [Ring k] [TopologicalSpace
 **Native source docstring:** A continuous crossed homomorphism, regarded as a homogeneous degree-one
 cocycle.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L308) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L308) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.oneKerLinearEquiv
 
@@ -3936,7 +3919,7 @@ def ContinuousCohomology.oneKerLinearEquiv {k : Type u} [Ring k] [TopologicalSpa
 **Native source docstring:** Algebraically, homogeneous degree-one cocycles are continuous crossed
 homomorphisms.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L332) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L332) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.continuous_homogeneousOne
 
@@ -3948,7 +3931,7 @@ theorem ContinuousCohomology.continuous_homogeneousOne {k : Type u} [Ring k] [To
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `continuous_homogeneousOne` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L355) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L355) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.oneKerEquiv
 
@@ -3961,7 +3944,7 @@ def ContinuousCohomology.oneKerEquiv {k : Type u} [Ring k] [TopologicalSpace k] 
 **Native source docstring:** For a locally compact group, homogeneous degree-one cocycles and continuous
 crossed homomorphisms are continuously linearly equivalent.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L367) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L367) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cochainsZeroIso
 
@@ -3973,7 +3956,7 @@ noncomputable def ContinuousCohomology.cochainsZeroIso {k : Type u} [Ring k] [To
 
 **Original catalogue explanation (not a Lean docstring):** Defines `cochainsZeroIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L377) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L377) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.oneKerCrossedIso
 
@@ -3985,7 +3968,7 @@ noncomputable def ContinuousCohomology.oneKerCrossedIso {k : Type u} [Ring k] [T
 
 **Original catalogue explanation (not a Lean docstring):** Defines `oneKerCrossedIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L381) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L381) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.principalToCrossedL
 
@@ -3998,7 +3981,7 @@ def ContinuousCohomology.principalToCrossedL {k : Type u} [Ring k] [TopologicalS
 **Native source docstring:** The principal-cocycle map as a continuous linear map.
 Its underlying linear map reduces to `principalToCrossed`.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L387) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L387) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.principalToCrossedL_toLinearMap
 
@@ -4010,7 +3993,7 @@ theorem ContinuousCohomology.principalToCrossedL_toLinearMap {k : Type u} [Ring 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `principalToCrossedL_toLinearMap` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L397) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L397) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.crossedMap_comp_mkQL
 
@@ -4022,7 +4005,7 @@ theorem ContinuousCohomology.crossedMap_comp_mkQL {k : Type u} [Ring k] [Topolog
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `crossedMap_comp_mkQL` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L401) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L401) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cocyclesOneIso
 
@@ -4035,7 +4018,7 @@ noncomputable abbrev ContinuousCohomology.cocyclesOneIso {k : Type u} [Ring k] [
 **Native source docstring:** The abstract degree-one cocycles of the homogeneous complex, identified
 with the explicit kernel of its degree-one differential.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L410) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L410) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cocyclesOneCrossedIso
 
@@ -4048,7 +4031,7 @@ noncomputable def ContinuousCohomology.cocyclesOneCrossedIso {k : Type u} [Ring 
 **Native source docstring:** Degree-one homogeneous cocycles and continuous crossed homomorphisms as
 topological modules.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L418) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L418) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.boundaryToOneKer
 
@@ -4061,7 +4044,7 @@ noncomputable def ContinuousCohomology.boundaryToOneKer {k : Type u} [Ring k] [T
 **Native source docstring:** The degree-zero differential, with codomain restricted to the explicit
 kernel of the degree-one differential.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L424) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L424) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cocyclesOneIso_hom_comp_kerι
 
@@ -4073,7 +4056,7 @@ theorem ContinuousCohomology.cocyclesOneIso_hom_comp_kerι {k : Type u} [Ring k]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `cocyclesOneIso_hom_comp_kerι` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L436) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L436) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cocyclesOneCrossedIso_hom_apply
 
@@ -4085,7 +4068,7 @@ theorem ContinuousCohomology.cocyclesOneCrossedIso_hom_apply {k : Type u} [Ring 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `cocyclesOneCrossedIso_hom_apply` for crossed degree-one cocycles, principal cocycles and homology quotients; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L442) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L442) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.cocyclesOneCrossedIso_natural
 
@@ -4098,7 +4081,7 @@ theorem ContinuousCohomology.cocyclesOneCrossedIso_natural {k : Type u} [Ring k]
 **Native source docstring:** The identification of homogeneous one-cocycles with continuous crossed
 homomorphisms commutes with coefficient morphisms.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L450) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L450) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.toCycles_comp_cocyclesOneIso
 
@@ -4110,7 +4093,7 @@ theorem ContinuousCohomology.toCycles_comp_cocyclesOneIso {k : Type u} [Ring k] 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `toCycles_comp_cocyclesOneIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L465) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L465) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.boundaryToOneKer_comm
 
@@ -4122,7 +4105,7 @@ theorem ContinuousCohomology.boundaryToOneKer_comm {k : Type u} [Ring k] [Topolo
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `boundaryToOneKer_comm` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L473) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L473) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.toCycles_comp_cocyclesOneCrossedIso
 
@@ -4134,7 +4117,7 @@ theorem ContinuousCohomology.toCycles_comp_cocyclesOneCrossedIso {k : Type u} [R
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `toCycles_comp_cocyclesOneCrossedIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L484) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L484) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.boundaryArrowIso
 
@@ -4146,7 +4129,7 @@ noncomputable def ContinuousCohomology.boundaryArrowIso {k : Type u} [Ring k] [T
 
 **Original catalogue explanation (not a Lean docstring):** Defines `boundaryArrowIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L491) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L491) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homologyQuotientIso
 
@@ -4160,7 +4143,7 @@ noncomputable def ContinuousCohomology.homologyQuotientIso {k : Type u} [Ring k]
 continuous crossed homomorphisms by principal cocycles. The canonical inverse
 computes in the corestriction comparison.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L498) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L498) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.π_comp_homologyQuotientIso
 
@@ -4172,7 +4155,7 @@ theorem ContinuousCohomology.π_comp_homologyQuotientIso {k : Type u} [Ring k] [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `π_comp_homologyQuotientIso` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L512) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L512) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homologyQuotientIso_natural
 
@@ -4185,7 +4168,7 @@ theorem ContinuousCohomology.homologyQuotientIso_natural {k : Type u} [Ring k] [
 **Native source docstring:** The degree-one cohomology-to-crossed-quotient identification commutes with
 mathlib's native coefficient map.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L526) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L526) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.homologyQuotientIso_natural_assoc
 
@@ -4198,7 +4181,7 @@ theorem ContinuousCohomology.homologyQuotientIso_natural_assoc {k : Type u} [Rin
 **Native source docstring:** The degree-one cohomology-to-crossed-quotient identification commutes with
 mathlib's native coefficient map.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L528) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L528) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.degreeOneIso
 
@@ -4211,7 +4194,7 @@ noncomputable def ContinuousCohomology.degreeOneIso {k : Type u} [Ring k] [Topol
 **Native source docstring:** Continuous crossed homomorphisms modulo principal cocycles compute first
 continuous cohomology. Its inverse computes as `homologyQuotientIso`.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L539) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L539) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.degreeOneIso_inv
 
@@ -4223,7 +4206,7 @@ theorem ContinuousCohomology.degreeOneIso_inv {k : Type u} [Ring k] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `degreeOneIso_inv` in crossed degree-one cocycles, principal cocycles and homology quotients; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L547) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L547) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.degreeOneIso_natural
 
@@ -4236,7 +4219,7 @@ theorem ContinuousCohomology.degreeOneIso_natural {k : Type u} [Ring k] [Topolog
 **Native source docstring:** The crossed-quotient-to-degree-one-cohomology identification commutes with
 mathlib's native coefficient map.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L551) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L551) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.degreeOneIso_natural_assoc
 
@@ -4249,7 +4232,7 @@ theorem ContinuousCohomology.degreeOneIso_natural_assoc {k : Type u} [Ring k] [T
 **Native source docstring:** The crossed-quotient-to-degree-one-cohomology identification commutes with
 mathlib's native coefficient map.
 
-[Source](../ContinuousGroupCohomology/DegreeOne.lean#L553) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/DegreeOne.lean#L553) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.FiniteCoinvariants
 
@@ -4266,7 +4249,7 @@ noncomputable def ContinuousGroupCohomology.finiteOrbitDifference {R : Type uR} 
 **Native source docstring:** The finite orbit-difference map
 `(x_g)_g ↦ ∑ g, (g x_g - x_g)`.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L41) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L41) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifference_apply
 
@@ -4278,7 +4261,7 @@ theorem ContinuousGroupCohomology.finiteOrbitDifference_apply {R : Type uR} [Com
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteOrbitDifference_apply` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L56) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L56) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifference_single
 
@@ -4290,7 +4273,7 @@ theorem ContinuousGroupCohomology.finiteOrbitDifference_single {R : Type uR} [Co
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `finiteOrbitDifference_single` in finite acting groups, orbit-difference relations, coinvariants and norms; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L63) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L63) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifference_range
 
@@ -4303,7 +4286,7 @@ theorem ContinuousGroupCohomology.finiteOrbitDifference_range {R : Type uR} [Com
 **Native source docstring:** The range of the finite orbit-difference map is exactly the relation
 submodule defining algebraic coinvariants.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L74) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L74) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifferenceContinuousHom
 
@@ -4315,7 +4298,7 @@ noncomputable def ContinuousGroupCohomology.finiteOrbitDifferenceContinuousHom {
 
 **Native source docstring:** The orbit-difference map as a continuous additive homomorphism.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L96) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L96) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifferenceHom
 
@@ -4328,7 +4311,7 @@ noncomputable def ContinuousGroupCohomology.finiteOrbitDifferenceHom {R : Type u
 **Native source docstring:** The orbit-difference map in the category of compact Hausdorff additive
 commutative groups.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L109) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L109) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteOrbitDifferenceHom_range
 
@@ -4340,7 +4323,7 @@ theorem ContinuousGroupCohomology.finiteOrbitDifferenceHom_range {R : Type uR} [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `finiteOrbitDifferenceHom_range` in finite acting groups, orbit-difference relations, coinvariants and norms; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L117) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L117) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.coinvariantsClosedAddSubgroup
 
@@ -4353,7 +4336,7 @@ def ContinuousGroupCohomology.coinvariantsClosedAddSubgroup {R : Type uR} [CommR
 **Native source docstring:** The coinvariant relation subgroup is closed: it is the range of the
 continuous finite orbit-difference map from a compact source.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L126) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L126) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariants
 
@@ -4366,7 +4349,7 @@ noncomputable abbrev ContinuousGroupCohomology.finiteCoinvariants {R : Type uR} 
 **Native source docstring:** Algebraic coinvariants equipped with their compact Hausdorff quotient
 topology.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L136) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L136) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsMk
 
@@ -4378,7 +4361,7 @@ noncomputable def ContinuousGroupCohomology.finiteCoinvariantsMk {R : Type uR} [
 
 **Native source docstring:** The canonical continuous projection to finite coinvariants.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L143) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L143) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsMk_apply
 
@@ -4390,7 +4373,7 @@ theorem ContinuousGroupCohomology.finiteCoinvariantsMk_apply {R : Type uR} [Comm
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteCoinvariantsMk_apply` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L152) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L152) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsDesc
 
@@ -4403,7 +4386,7 @@ noncomputable def ContinuousGroupCohomology.finiteCoinvariantsDesc {R : Type uR}
 **Native source docstring:** A continuous invariant linear map out of a finite-group representation
 descends continuously to its compact coinvariants.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L161) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L161) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsDesc_mk
 
@@ -4415,7 +4398,7 @@ theorem ContinuousGroupCohomology.finiteCoinvariantsDesc_mk {R : Type uR} [CommR
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteCoinvariantsDesc_mk` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L174) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L174) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsMap
 
@@ -4428,7 +4411,7 @@ noncomputable def ContinuousGroupCohomology.finiteCoinvariantsMap {R : Type uR} 
 **Native source docstring:** A continuous intertwining map between finite-group representations induces
 a continuous map on their compact coinvariants.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L182) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L182) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteCoinvariantsMap_mk
 
@@ -4440,7 +4423,7 @@ theorem ContinuousGroupCohomology.finiteCoinvariantsMap_mk {R : Type uR} [CommRi
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteCoinvariantsMap_mk` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L196) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L196) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.group
 
@@ -4453,7 +4436,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.group {R : Type uR} [Co
 **Native source docstring:** The compact Hausdorff additive group at one level of a `LevelCompact`
 coefficient system.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L245) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L245) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.continuous_quotientToInvariants_action
 
@@ -4465,7 +4448,7 @@ theorem ContinuousGroupCohomology.LevelCompact.continuous_quotientToInvariants_a
 
 **Native source docstring:** The residual `G / S`-action on `A^S` is continuous for the level topology.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L255) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L255) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_eq_quotientToInvariants_norm
 
@@ -4479,7 +4462,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_eq_quotientToInvaria
 for the residual `G / S`-action, after forgetting the redundant outer
 invariance proof in its target.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L374) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L374) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_quotientToInvariants_action
 
@@ -4492,7 +4475,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_quotientToInvariants
 **Native source docstring:** The accepted continuous relative norm from `A^S` to `A^G` is invariant
 under the residual finite quotient action on its source.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L450) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L450) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.finiteCoinvariants
 
@@ -4505,7 +4488,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.finiteCoinvariants {R :
 **Native source docstring:** The algebraic coinvariants `(A^S)_{G/S}` with the compact Hausdorff
 quotient topology supplied by the level-compact structure.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L479) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L479) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.finiteCoinvariantsMk
 
@@ -4517,7 +4500,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.finiteCoinvariantsMk {R
 
 **Native source docstring:** The canonical continuous map `A^S → (A^S)_{G/S}`.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L495) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L495) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.finiteCoinvariantsMk_apply
 
@@ -4529,7 +4512,7 @@ theorem ContinuousGroupCohomology.LevelCompact.finiteCoinvariantsMk_apply {R : T
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `finiteCoinvariantsMk_apply` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L511) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L511) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.normFromFiniteCoinvariants
 
@@ -4542,7 +4525,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.normFromFiniteCoinvaria
 **Native source docstring:** The accepted continuous relative norm `A^S → A^G`, descended to the
 compact Hausdorff coinvariants `(A^S)_{G/S}`.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L519) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L519) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.normFromFiniteCoinvariants_mk
 
@@ -4554,7 +4537,7 @@ theorem ContinuousGroupCohomology.LevelCompact.normFromFiniteCoinvariants_mk {R 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `normFromFiniteCoinvariants_mk` for finite acting groups, orbit-difference relations, coinvariants and norms; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/FiniteCoinvariants.lean#L551) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteCoinvariants.lean#L551) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.FiniteNegativeDeflation
 
@@ -4571,7 +4554,7 @@ noncomputable def ContinuousGroupCohomology.nestedQuotientInvariantsHomologyNatT
 **Native source docstring:** Homology transport from iterated invariants to direct invariants through
 the third-isomorphism equivalence.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsHomologyNatTrans_app
 
@@ -4584,7 +4567,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsHomologyNatTrans_app {
 **Native source docstring:** The homology transport component is the single map induced by the
 third-isomorphism equivalence and the nested-invariants representation map.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteNegativeDeflationNatTrans
 
@@ -4598,7 +4581,7 @@ noncomputable def ContinuousGroupCohomology.finiteNegativeDeflationNatTrans {R G
 representation. In positive homological degree `n`, its components model Tate
 deflation in degree `-n-1`.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L91) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L91) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteNegativeDeflation
 
@@ -4610,7 +4593,7 @@ noncomputable def ContinuousGroupCohomology.finiteNegativeDeflation {R G : Type 
 
 **Native source docstring:** The component of finite-level negative deflation at `A`.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L112) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L112) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteNegativeDeflation_formula
 
@@ -4623,7 +4606,7 @@ theorem ContinuousGroupCohomology.finiteNegativeDeflation_formula {R G : Type u}
 **Native source docstring:** Finite-level negative deflation is coinflation, followed by the quotient
 norm, followed by transport through the third-isomorphism equivalence.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L120) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L120) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteNegativeDeflation_naturality
 
@@ -4635,7 +4618,7 @@ theorem ContinuousGroupCohomology.finiteNegativeDeflation_naturality {R G : Type
 
 **Native source docstring:** Finite-level negative deflation commutes with coefficient morphisms.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L144) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L144) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.finiteNegativeDeflation_naturality_assoc
 
@@ -4647,7 +4630,7 @@ theorem ContinuousGroupCohomology.finiteNegativeDeflation_naturality_assoc {R G 
 
 **Native source docstring:** Finite-level negative deflation commutes with coefficient morphisms.
 
-[Source](../ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L145) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/FiniteNegativeDeflation.lean#L145) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.GroupExtensionUlift
 
@@ -4664,7 +4647,7 @@ def ContinuousMulEquiv.ulift {G : Type uG} [Group G] [TopologicalSpace G] : ULif
 **Native source docstring:** The canonical continuous multiplicative equivalence from a universe lift
 of a group to the original group.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L30) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L30) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousMulEquiv.ulift_apply
 
@@ -4676,7 +4659,7 @@ theorem ContinuousMulEquiv.ulift_apply {G : Type uG} [Group G] [TopologicalSpace
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_apply` for universe transport of the named topological group-extension maps; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L35) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L35) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousMulEquiv.ulift_symm_apply
 
@@ -4688,7 +4671,7 @@ theorem ContinuousMulEquiv.ulift_symm_apply {G : Type uG} [Group G] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_symm_apply` for universe transport of the named topological group-extension maps; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.ulift
 
@@ -4701,7 +4684,7 @@ def GroupExtension.ulift {N : Type uN} {E : Type uE} {G : Type uG} [Group N] [Gr
 **Native source docstring:** Raise all three groups in a group extension through independently chosen
 universes.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.ulift_inl_apply
 
@@ -4713,7 +4696,7 @@ theorem GroupExtension.ulift_inl_apply {N : Type uN} {E : Type uE} {G : Type uG}
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_inl_apply` for universe transport of the named topological group-extension maps; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L74) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L74) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.ulift_rightHom_apply
 
@@ -4725,7 +4708,7 @@ theorem GroupExtension.ulift_rightHom_apply {N : Type uN} {E : Type uE} {G : Typ
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_rightHom_apply` for universe transport of the named topological group-extension maps; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.isSES_ulift
 
@@ -4738,7 +4721,7 @@ theorem GroupExtension.isSES_ulift {N : Type uN} {E : Type uE} {G : Type uG} [Gr
 **Native source docstring:** A topological short exact sequence remains short exact after independently
 raising the universes of all three groups.
 
-[Source](../ContinuousGroupCohomology/GroupExtensionUlift.lean#L84) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/GroupExtensionUlift.lean#L84) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.HomogeneousCochainsUlift
 
@@ -4756,7 +4739,7 @@ noncomputable def ContinuousMap.uliftContinuousLinearEquiv {k : Type u} [Semirin
 the continuous-function space between independently raised source and target
 types.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.coind₁UliftEquiv
 
@@ -4769,7 +4752,7 @@ noncomputable def TopRep.coind₁UliftEquiv {k : Type u} [Ring k] [TopologicalSp
 **Native source docstring:** Coinduction by continuous functions commutes with independently raising
 the acting group and coefficient carrier.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.coind₁UliftIso
 
@@ -4782,7 +4765,7 @@ noncomputable def TopRep.coind₁UliftIso {k : Type u} [Ring k] [TopologicalSpac
 **Native source docstring:** The topological representations obtained by coinducing before or after
 independent universe lifts are isomorphic.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L90) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L90) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.invariantsUliftContinuousLinearEquiv
 
@@ -4795,7 +4778,7 @@ noncomputable def TopRep.invariantsUliftContinuousLinearEquiv {k : Type u} [Ring
 **Native source docstring:** Invariants commute with independently raising the acting group and
 coefficient carrier.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L144) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L144) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.invariantsUliftIso
 
@@ -4808,7 +4791,7 @@ noncomputable def TopRep.invariantsUliftIso {k : Type u} [Ring k] [TopologicalSp
 **Native source docstring:** The invariant topological modules before and after independent universe
 lifts are isomorphic.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L169) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L169) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.resolutionUliftIsoSameUniverse
 
@@ -4822,7 +4805,7 @@ noncomputable def TopRep.resolutionUliftIsoSameUniverse {k : Type u} [Ring k] [T
 resolution is isomorphic to the corresponding term after raising the acting
 group and coefficient carrier.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L197) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L197) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.resolutionUliftIsoSameUniverse_naturality
 
@@ -4835,7 +4818,7 @@ theorem TopRep.resolutionUliftIsoSameUniverse_naturality {k : Type u} [Ring k] [
 **Native source docstring:** The termwise same-universe resolution isomorphisms are natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L210) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L210) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.resolutionUliftIsoSameUniverse_d_comm
 
@@ -4848,7 +4831,7 @@ theorem TopRep.resolutionUliftIsoSameUniverse_d_comm {k : Type u} [Ring k] [Topo
 **Native source docstring:** The termwise same-universe resolution isomorphisms commute with the
 recursive resolution differential.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L228) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L228) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.homogeneousCochainsUliftXIsoSameUniverse
 
@@ -4861,7 +4844,7 @@ noncomputable def TopRep.homogeneousCochainsUliftXIsoSameUniverse {k : Type u} [
 **Native source docstring:** Degreewise isomorphism between the raised homogeneous cochains and the
 homogeneous cochains of the raised representation, in one small universe.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L253) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L253) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.homogeneousCochainsUliftXIsoSameUniverse_comm
 
@@ -4874,7 +4857,7 @@ theorem TopRep.homogeneousCochainsUliftXIsoSameUniverse_comm {k : Type u} [Ring 
 **Native source docstring:** The degreewise same-universe homogeneous-cochain isomorphisms commute with
 the cochain differential.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L263) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L263) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.homogeneousCochainsUliftIsoSameUniverse
 
@@ -4888,7 +4871,7 @@ noncomputable def TopRep.homogeneousCochainsUliftIsoSameUniverse {k : Type u} [R
 isomorphic to taking homogeneous cochains after raising the acting group and
 coefficient carrier.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L282) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L282) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.homogeneousCochainsUliftIsoSameUniverse_naturality
 
@@ -4901,7 +4884,7 @@ theorem TopRep.homogeneousCochainsUliftIsoSameUniverse_naturality {k : Type u} [
 **Native source docstring:** The same-universe homogeneous-cochain comparison is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L295) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L295) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.homogeneousCochainsUliftIsoSameUniverse_naturality_assoc
 
@@ -4914,7 +4897,7 @@ theorem TopRep.homogeneousCochainsUliftIsoSameUniverse_naturality_assoc {k : Typ
 **Native source docstring:** The same-universe homogeneous-cochain comparison is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L297) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/HomogeneousCochainsUlift.lean#L297) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.LevelCompact
 
@@ -4930,7 +4913,7 @@ noncomputable abbrev ContinuousGroupCohomology.openSubgroupInvariants {R : Type 
 
 **Native source docstring:** The submodule of vectors fixed by an open subgroup.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.openSubgroupInvariantsTransport
 
@@ -4945,7 +4928,7 @@ def ContinuousGroupCohomology.openSubgroupInvariantsTransport {R : Type uR} [Com
 The containment has the source-to-target orientation: if
 `V ≤ σ U σ⁻¹`, then `a ↦ σ • a` sends `A^U` to `A^V`.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.openSubgroupInvariantsTransport_coe
 
@@ -4957,7 +4940,7 @@ theorem ContinuousGroupCohomology.openSubgroupInvariantsTransport_coe {R : Type 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `openSubgroupInvariantsTransport_coe` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.openSubgroupInvariantsTransport_comp_le
 
@@ -4969,7 +4952,7 @@ theorem ContinuousGroupCohomology.openSubgroupInvariantsTransport_comp_le {G : T
 
 **Native source docstring:** The containment needed to compose two open-subgroup invariant transports.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L65) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L65) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.openSubgroupInvariantsTransport_comp
 
@@ -4982,7 +4965,7 @@ theorem ContinuousGroupCohomology.openSubgroupInvariantsTransport_comp {R : Type
 **Native source docstring:** Transport through two subgroup containments composes by multiplying the
 transporting elements in target-to-source order.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L75) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact
 
@@ -4998,7 +4981,7 @@ open subgroup, compatible with transport by the ambient group action.
 This is additional levelwise topology data.  It does not impose a topology on
 the ambient coefficient module or on the coefficient ring.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L88) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L88) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.mk
 
@@ -5010,7 +4993,7 @@ constructor ContinuousGroupCohomology.LevelCompact.mk : {R : Type uR} → [inst 
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupCohomology.LevelCompact`; the structure fields and parameters are in the displayed signature and source declaration. Compact hausdorff models of open-subgroup invariant levels.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L88) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L88) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.topology
 
@@ -5022,7 +5005,7 @@ abbrev ContinuousGroupCohomology.LevelCompact.topology {R : Type uR} [CommRing R
 
 **Original catalogue explanation (not a Lean docstring):** Defines `topology` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L94) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L94) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.compact
 
@@ -5034,7 +5017,7 @@ theorem ContinuousGroupCohomology.LevelCompact.compact {R : Type uR} [CommRing R
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `compact` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L95) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.t2
 
@@ -5046,7 +5029,7 @@ theorem ContinuousGroupCohomology.LevelCompact.t2 {R : Type uR} [CommRing R] {G 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `t2` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L96) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L96) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.topologicalAddGroup
 
@@ -5058,7 +5041,7 @@ theorem ContinuousGroupCohomology.LevelCompact.topologicalAddGroup {R : Type uR}
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `topologicalAddGroup` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L97) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L97) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.continuous_transport
 
@@ -5070,7 +5053,7 @@ theorem ContinuousGroupCohomology.LevelCompact.continuous_transport {R : Type uR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `continuous_transport` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L99) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L99) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.inclusion
 
@@ -5082,7 +5065,7 @@ def ContinuousGroupCohomology.LevelCompact.inclusion {R : Type uR} [CommRing R] 
 
 **Native source docstring:** Inclusion of invariant submodules for an inclusion of open subgroups.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L106) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L106) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.inclusion_coe
 
@@ -5094,7 +5077,7 @@ theorem ContinuousGroupCohomology.LevelCompact.inclusion_coe {R : Type uR} [Comm
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `inclusion_coe` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.inclusion_self
 
@@ -5106,7 +5089,7 @@ theorem ContinuousGroupCohomology.LevelCompact.inclusion_self {R : Type uR} [Com
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `inclusion_self` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L119) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L119) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.inclusion_injective
 
@@ -5118,7 +5101,7 @@ theorem ContinuousGroupCohomology.LevelCompact.inclusion_injective {R : Type uR}
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `inclusion_injective` in compact Hausdorff models of open-subgroup invariant levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L125) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L125) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.continuous_inclusion
 
@@ -5130,7 +5113,7 @@ theorem ContinuousGroupCohomology.LevelCompact.continuous_inclusion {R : Type uR
 
 **Native source docstring:** The inclusion `A^U → A^V` is continuous whenever `V ≤ U`.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L132) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L132) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.inclusion_isClosedEmbedding
 
@@ -5143,7 +5126,7 @@ theorem ContinuousGroupCohomology.LevelCompact.inclusion_isClosedEmbedding {R : 
 **Native source docstring:** The natural inclusion between two levels is a closed embedding.  In
 particular, the topology on `A^U` is the topology induced from `A^V`.
 
-[Source](../ContinuousGroupCohomology/LevelCompact.lean#L141) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompact.lean#L141) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.LevelCompactFunctoriality
 
@@ -5160,7 +5143,7 @@ structure ContinuousGroupCohomology.LevelCompactRep (R : Type uR) [CommRing R] (
 **Native source docstring:** A representation together with compact Hausdorff additive-group
 topologies on all of its open-subgroup invariants.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L35) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L35) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.mk
 
@@ -5172,7 +5155,7 @@ constructor ContinuousGroupCohomology.LevelCompactRep.mk : {R : Type uR} → [in
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupCohomology.LevelCompactRep`; the structure fields and parameters are in the displayed signature and source declaration. Functoriality of compact level systems and their invariant maps.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L35) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L35) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.rep
 
@@ -5184,7 +5167,7 @@ abbrev ContinuousGroupCohomology.LevelCompactRep.rep {R : Type uR} [CommRing R] 
 
 **Native source docstring:** The underlying representation.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.levelCompact
 
@@ -5196,7 +5179,7 @@ abbrev ContinuousGroupCohomology.LevelCompactRep.levelCompact {R : Type uR} [Com
 
 **Native source docstring:** The levelwise compact topology data.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.invariantsMap
 
@@ -5209,7 +5192,7 @@ noncomputable abbrev ContinuousGroupCohomology.LevelCompactRep.invariantsMap {R 
 **Native source docstring:** The map on open-subgroup invariants induced by a representation
 morphism.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom
 
@@ -5223,7 +5206,7 @@ structure ContinuousGroupCohomology.LevelCompactRep.Hom {R : Type uR} [CommRing 
 whose restriction to invariants at every open subgroup is continuous for the
 specified level topologies.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L55) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L55) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom.mk
 
@@ -5235,7 +5218,7 @@ constructor ContinuousGroupCohomology.LevelCompactRep.Hom.mk : {R : Type uR} →
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupCohomology.LevelCompactRep.Hom`; the structure fields and parameters are in the displayed signature and source declaration. Functoriality of compact level systems and their invariant maps.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L55) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L55) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom.ext
 
@@ -5247,7 +5230,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.Hom.ext {R : Type uR} {inst✝
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `ext` in functoriality of compact level systems and their invariant maps; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L58) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L58) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom.ext_iff
 
@@ -5259,7 +5242,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.Hom.ext_iff {R : Type uR} {ins
 
 **Original catalogue explanation (not a Lean docstring):** The iff characterization named `ext_iff` in functoriality of compact level systems and their invariant maps; use the full signature for both directions and their assumptions.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L58) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L58) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom.hom
 
@@ -5271,7 +5254,7 @@ abbrev ContinuousGroupCohomology.LevelCompactRep.Hom.hom {R : Type uR} [CommRing
 
 **Native source docstring:** The underlying representation morphism.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L61) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L61) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.Hom.continuous_invariants
 
@@ -5283,7 +5266,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.Hom.continuous_invariants {R :
 
 **Native source docstring:** Continuity at every open-subgroup invariant level.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L63) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L63) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.instCategory
 
@@ -5295,7 +5278,7 @@ instance ContinuousGroupCohomology.LevelCompactRep.instCategory {R : Type uR} [C
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Category` instance in functoriality of compact level systems and their invariant maps (native type names: `ContinuousGroupCohomology.LevelCompactRep`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L69) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L69) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.forget
 
@@ -5307,7 +5290,7 @@ def ContinuousGroupCohomology.LevelCompactRep.forget {R : Type uR} [CommRing R] 
 
 **Native source docstring:** Forget a level-compact representation to its underlying representation.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L98) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L98) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.forget_map
 
@@ -5319,7 +5302,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.forget_map {R : Type uR} [Comm
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `forget_map` in functoriality of compact level systems and their invariant maps; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L99) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L99) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.forget_obj
 
@@ -5331,7 +5314,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.forget_obj {R : Type uR} [Comm
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `forget_obj` in functoriality of compact level systems and their invariant maps; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L99) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L99) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.instFaithfulRepForget
 
@@ -5343,7 +5326,7 @@ instance ContinuousGroupCohomology.LevelCompactRep.instFaithfulRepForget {R : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Faithful` instance in functoriality of compact level systems and their invariant maps (native type names: `ContinuousGroupCohomology.LevelCompactRep.forget`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.toRepHom
 
@@ -5355,7 +5338,7 @@ abbrev ContinuousGroupCohomology.LevelCompactRep.toRepHom {R : Type uR} [CommRin
 
 **Native source docstring:** The representation morphism underlying a level-compact morphism.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L107) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L107) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.mapInvariants
 
@@ -5367,7 +5350,7 @@ noncomputable abbrev ContinuousGroupCohomology.LevelCompactRep.mapInvariants {R 
 
 **Native source docstring:** The map on invariants induced by a level-compact morphism.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L112) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L112) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.mapInvariants_coe
 
@@ -5379,7 +5362,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.mapInvariants_coe {R : Type uR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mapInvariants_coe` in functoriality of compact level systems and their invariant maps; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L118) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L118) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompactRep.continuous_mapInvariants
 
@@ -5391,7 +5374,7 @@ theorem ContinuousGroupCohomology.LevelCompactRep.continuous_mapInvariants {R : 
 
 **Native source docstring:** The invariant-level map of a level-compact morphism is continuous.
 
-[Source](../ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L124) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactFunctoriality.lean#L124) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -5414,7 +5397,7 @@ def ContinuousGroupCohomology.LevelCompact.relativeNormSubgroup {G : Type uG} [G
 **Native source docstring:** The pullback of `V` to the open subgroup `U`.  When `V ≤ U`, this is the
 copy of `V` used to choose relative norm representatives inside `U`.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L43) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L43) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNormSubgroup_finiteIndex
 
@@ -5426,7 +5409,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNormSubgroup_finiteIndex 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `relativeNormSubgroup_finiteIndex` in relative norm maps between compact open-subgroup levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNormTransversalFintype
 
@@ -5438,7 +5421,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.relativeNormTransversal
 
 **Original catalogue explanation (not a Lean docstring):** Defines `relativeNormTransversalFintype` in relative norm maps between compact open-subgroup levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L52) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L52) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNormWithTransversal
 
@@ -5452,7 +5435,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.relativeNormWithTransve
 
 The inverse in the summand matches the right-transversal convention.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L59) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L59) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNormWithTransversal_coe
 
@@ -5464,7 +5447,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNormWithTransversal_coe {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `relativeNormWithTransversal_coe` in relative norm maps between compact open-subgroup levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNormWithTransversal_eq
 
@@ -5476,7 +5459,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNormWithTransversal_eq {R
 
 **Native source docstring:** The relative norm is independent of the chosen right transversal.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L114) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L114) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm
 
@@ -5488,7 +5471,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.relativeNorm {R : Type 
 
 **Native source docstring:** The canonical relative norm from `V`-invariants to `U`-invariants.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L149) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L149) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_eq_withTransversal
 
@@ -5500,7 +5483,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_eq_withTransversal {
 
 **Native source docstring:** The canonical relative norm can be computed with any right transversal.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L154) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L154) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_comp
 
@@ -5512,7 +5495,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_comp {R : Type uR} [
 
 **Native source docstring:** Relative norms compose through a tower of open subgroups.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L298) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L298) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_refl
 
@@ -5524,7 +5507,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_refl {R : Type uR} [
 
 **Native source docstring:** The relative norm from an open subgroup to itself is the identity.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L312) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L312) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_quotientToInvariants_action_mk
 
@@ -5537,7 +5520,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_quotientToInvariants
 **Native source docstring:** Relative norms between open normal levels commute with the residual quotient
 actions, evaluated on representatives in the ambient group.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L464) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L464) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_range_quotientToInvariants_stable
 
@@ -5550,7 +5533,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_range_quotientToInva
 **Native source docstring:** The range of a relative norm between open normal levels is stable under
 the residual action on its target.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L490) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L490) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.continuous_relativeNormWithTransversal
 
@@ -5563,7 +5546,7 @@ theorem ContinuousGroupCohomology.LevelCompact.continuous_relativeNormWithTransv
 **Native source docstring:** A relative norm computed with any right transversal is continuous for the
 levelwise compact topologies.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L538) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L538) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.continuous_relativeNorm
 
@@ -5575,7 +5558,7 @@ theorem ContinuousGroupCohomology.LevelCompact.continuous_relativeNorm {R : Type
 
 **Native source docstring:** The canonical relative norm is continuous for a `LevelCompact` system.
 
-[Source](../ContinuousGroupCohomology/LevelCompactNorm.lean#L570) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LevelCompactNorm.lean#L570) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.LowDegreeExact
 
@@ -5595,7 +5578,7 @@ continuous linear splitting data on the underlying topological modules.
 The retraction and section need not commute with the `G`-actions.  Requiring
 them to be equivariant would make the low-degree connecting map trivial.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L30) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L30) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.mk
 
@@ -5607,7 +5590,7 @@ constructor ContinuousCohomology.TopologicallySplitShortExact.mk : {k : Type u} 
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousCohomology.TopologicallySplitShortExact`; the structure fields and parameters are in the displayed signature and source declaration. Connecting morphisms and low-degree exactness for topologically split sequences.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L30) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L30) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.i
 
@@ -5619,7 +5602,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.i {k : Type u} [Ring k]
 
 **Native source docstring:** The equivariant inclusion of the kernel coefficient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.p
 
@@ -5631,7 +5614,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.p {k : Type u} [Ring k]
 
 **Native source docstring:** The equivariant projection to the quotient coefficient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact
 
@@ -5643,7 +5626,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact {k : Type u} [Ri
 
 **Native source docstring:** Exactness of the underlying sequence.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.injective_i
 
@@ -5655,7 +5638,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.injective_i {k : Type 
 
 **Native source docstring:** Injectivity at the left endpoint.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L44) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L44) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.surjective_p
 
@@ -5667,7 +5650,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.surjective_p {k : Type
 
 **Native source docstring:** Surjectivity at the right endpoint.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L46) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L46) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.retract
 
@@ -5679,7 +5662,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.retract {k : Type u} [R
 
 **Native source docstring:** A continuous linear retraction of `i`, not necessarily equivariant.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.retract_i
 
@@ -5691,7 +5674,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.retract_i {k : Type u}
 
 **Native source docstring:** The retraction is a left inverse to `i`.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L50) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L50) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.section_
 
@@ -5703,7 +5686,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.section_ {k : Type u} [
 
 **Native source docstring:** A continuous linear section of `p`, not necessarily equivariant.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L52) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L52) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.p_section
 
@@ -5715,7 +5698,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.p_section {k : Type u}
 
 **Native source docstring:** The section is a right inverse to `p`.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.p_i
 
@@ -5727,7 +5710,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.p_i {k : Type u} [Ring
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `p_i` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L60) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L60) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.retract_i_apply
 
@@ -5739,7 +5722,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.retract_i_apply {k : T
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `retract_i_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L64) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L64) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.p_section_apply
 
@@ -5751,7 +5734,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.p_section_apply {k : T
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `p_section_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L68) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L68) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.i_retract_of_p_eq_zero
 
@@ -5764,7 +5747,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.i_retract_of_p_eq_zero
 **Native source docstring:** On the kernel of `p`, applying the retraction and then `i` recovers the
 original coefficient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exists_eq_i_of_p_eq_zero
 
@@ -5777,7 +5760,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exists_eq_i_of_p_eq_ze
 **Native source docstring:** Every element of the kernel of `p` has the canonical preimage supplied by
 the chosen retraction.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L79) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L79) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.retract_eq_on_ker
 
@@ -5790,7 +5773,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.retract_eq_on_ker {k :
 **Native source docstring:** Any two underlying continuous-linear retractions of `i` agree on
 `ker p`.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L85) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L85) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.withRetract
 
@@ -5803,7 +5786,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.withRetract {k : Type u} [
 **Native source docstring:** Replace the chosen underlying retraction without changing the exact
 coefficient sequence.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L92) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L92) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.withSection
 
@@ -5816,7 +5799,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.withSection {k : Type u} [
 **Native source docstring:** Replace the chosen underlying section without changing the exact
 coefficient sequence.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L98) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L98) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom
 
@@ -5830,7 +5813,7 @@ structure ContinuousCohomology.TopologicallySplitShortExact.Hom {k : Type u} [Ri
 is required only for the equivariant coefficient maps, not for the chosen
 underlying splittings.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.mk
 
@@ -5842,7 +5825,7 @@ constructor ContinuousCohomology.TopologicallySplitShortExact.Hom.mk : {k : Type
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousCohomology.TopologicallySplitShortExact.Hom`; the structure fields and parameters are in the displayed signature and source declaration. Connecting morphisms and low-degree exactness for topologically split sequences.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.a
 
@@ -5854,7 +5837,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.Hom.a {k : Type u} [Rin
 
 **Native source docstring:** The map on kernel coefficients.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L110) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L110) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.b
 
@@ -5866,7 +5849,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.Hom.b {k : Type u} [Rin
 
 **Native source docstring:** The map on middle coefficients.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L112) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L112) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.c
 
@@ -5878,7 +5861,7 @@ abbrev ContinuousCohomology.TopologicallySplitShortExact.Hom.c {k : Type u} [Rin
 
 **Native source docstring:** The map on quotient coefficients.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L114) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L114) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.i_comm
 
@@ -5890,7 +5873,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.Hom.i_comm {k : Type u
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `i_comm` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L115) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L115) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.p_comm
 
@@ -5902,7 +5885,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.Hom.p_comm {k : Type u
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `p_comm` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L116) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L116) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.i_comm_apply
 
@@ -5914,7 +5897,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.Hom.i_comm_apply {k : 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `i_comm_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L123) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L123) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.Hom.p_comm_apply
 
@@ -5926,7 +5909,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.Hom.p_comm_apply {k : 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `p_comm_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L128) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L128) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.invariantsInclusion
 
@@ -5939,7 +5922,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.invariantsInclusion {k : T
 **Native source docstring:** The inclusion induced on invariant coefficients.
 The application formula computes using the underlying equivariant inclusion.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L135) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L135) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.invariantsProjection
 
@@ -5952,7 +5935,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.invariantsProjection {k : 
 **Native source docstring:** The projection induced on invariant coefficients.
 The application formula computes using the underlying equivariant projection.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L141) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L141) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.invariantsInclusion_apply
 
@@ -5964,7 +5947,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.invariantsInclusion_ap
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `invariantsInclusion_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L147) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L147) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.invariantsProjection_apply
 
@@ -5976,7 +5959,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.invariantsProjection_a
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `invariantsProjection_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L151) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L151) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsInclusion_invariantsProjection
 
@@ -5988,7 +5971,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsInclus
 
 **Native source docstring:** Exactness of the invariant-coefficient sequence at the middle term.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L155) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L155) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.sectionOnInvariants
 
@@ -6001,7 +5984,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.sectionOnInvariants {k : T
 **Native source docstring:** The chosen section, restricted to invariant quotient coefficients.
 Its application evaluates the underlying continuous section.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L176) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L176) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.sectionOnInvariants_apply
 
@@ -6013,7 +5996,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.sectionOnInvariants_ap
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `sectionOnInvariants_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L183) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L183) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingRawMap
 
@@ -6026,7 +6009,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.connectingRawMap {k : Type
 **Native source docstring:** The continuous `A`-valued function obtained by applying the retraction to
 the principal defect of a chosen lift. Its application computes this defect.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L187) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L187) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingRawMap_apply
 
@@ -6038,7 +6021,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingRawMap_apply
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `connectingRawMap_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L197) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L197) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.p_section_defect_eq_zero
 
@@ -6050,7 +6033,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.p_section_defect_eq_ze
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `p_section_defect_eq_zero` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L204) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L204) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed
 
@@ -6063,7 +6046,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed {k : Typ
 **Native source docstring:** The connecting construction before quotienting by principal crossed
 homomorphisms. Its application computes the raw connecting cocycle.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L208) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L208) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_apply
 
@@ -6075,7 +6058,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_appl
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `connectingCrossed_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L230) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L230) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_withRetract
 
@@ -6087,7 +6070,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_with
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `connectingCrossed_withRetract` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L237) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L237) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_change_section
 
@@ -6099,7 +6082,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_chan
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `connectingCrossed_change_section` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L246) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L246) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient
 
@@ -6112,7 +6095,7 @@ def ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient {k : Ty
 **Native source docstring:** The low-degree connecting map into continuous crossed homomorphisms modulo
 principal crossed homomorphisms. Its application computes on representatives.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L272) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L272) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_apply
 
@@ -6124,7 +6107,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_app
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `connectingQuotient_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L281) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L281) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_withRetract
 
@@ -6136,7 +6119,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_wit
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `connectingQuotient_withRetract` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L288) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L288) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_withSection
 
@@ -6148,7 +6131,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_wit
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `connectingQuotient_withSection` in connecting morphisms and low-degree exactness for topologically split sequences; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L296) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L296) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_invariantsProjection
 
@@ -6161,7 +6144,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingCrossed_inva
 **Native source docstring:** If an invariant quotient coefficient already has an invariant lift, its
 connecting crossed homomorphism is principal.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L310) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L310) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsProjection_connectingQuotient
 
@@ -6173,7 +6156,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsProjec
 
 **Native source docstring:** Exactness at the quotient-invariant term of the low-degree sequence.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L335) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L335) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_connectingQuotient_crossedQuotientMap_i
 
@@ -6185,7 +6168,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_connectingQuotie
 
 **Native source docstring:** Exactness at the first crossed-homomorphism quotient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L373) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L373) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_crossedQuotientMap_i_crossedQuotientMap_p
 
@@ -6197,7 +6180,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_crossedQuotientM
 
 **Native source docstring:** Exactness at the second crossed-homomorphism quotient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L433) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L433) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_natural
 
@@ -6210,7 +6193,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingQuotient_nat
 **Native source docstring:** The quotient-level connecting map is natural for morphisms of split short
 exact sequences; the chosen underlying splittings need not be compatible.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L498) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L498) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingMap
 
@@ -6224,7 +6207,7 @@ noncomputable def ContinuousCohomology.TopologicallySplitShortExact.connectingMa
 native first continuous cohomology object. Its application factors through
 the crossed-homomorphism quotient.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L540) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L540) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingMap_apply
 
@@ -6236,7 +6219,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingMap_apply {k
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `connectingMap_apply` for connecting morphisms and low-degree exactness for topologically split sequences; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L549) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L549) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.connectingMap_natural
 
@@ -6249,7 +6232,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.connectingMap_natural 
 **Native source docstring:** The native connecting map is natural for morphisms of topologically split
 short exact sequences.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L555) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L555) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsProjection_connectingMap
 
@@ -6262,7 +6245,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_invariantsProjec
 **Native source docstring:** Exactness at the quotient-invariant term, with the connecting map valued
 in mathlib's native first continuous cohomology object.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L579) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L579) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_connectingMap_map_i
 
@@ -6274,7 +6257,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_connectingMap_ma
 
 **Native source docstring:** Exactness at the first native continuous-cohomology term.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L598) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L598) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.TopologicallySplitShortExact.exact_map_i_map_p
 
@@ -6286,7 +6269,7 @@ theorem ContinuousCohomology.TopologicallySplitShortExact.exact_map_i_map_p {k :
 
 **Native source docstring:** Exactness at the second native continuous-cohomology term.
 
-[Source](../ContinuousGroupCohomology/LowDegreeExact.lean#L618) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/LowDegreeExact.lean#L618) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.Mackey
 
@@ -6304,7 +6287,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.innerConjCrossed_formula {
 by the negative of a principal crossed homomorphism, in the repository's
 positive-principal convention.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L47) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L47) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateRightTransversal
 
@@ -6317,7 +6300,7 @@ def ContinuousCohomology.CorestrictionTransversal.conjugateRightTransversal {K :
 **Native source docstring:** Transport a right transversal across conjugation of its subgroup.
 Its carrier condition computes in the conjugation equivalence.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L82) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L82) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateTransversalEquiv
 
@@ -6330,7 +6313,7 @@ def ContinuousCohomology.CorestrictionTransversal.conjugateTransversalEquiv {K :
 **Native source docstring:** Multiplication by the conjugating element identifies the transported and
 original right transversals. The equivalence computes on representatives.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L130) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L130) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateTransversalEquiv_coe
 
@@ -6342,7 +6325,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.conjugateTransversalEquiv_
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `conjugateTransversalEquiv_coe` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L147) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L147) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateTransversal_factor
 
@@ -6354,7 +6337,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.conjugateTransversal_facto
 
 **Native source docstring:** The factors for conjugated right transversals agree after conjugation.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L152) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L152) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateTransversal_next
 
@@ -6367,7 +6350,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.conjugateTransversal_next 
 **Native source docstring:** The next representatives for conjugated right transversals agree under the
 transport equivalence.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L182) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L182) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyStabilizer
 
@@ -6380,7 +6363,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyStabilizer {G : Type v} 
 **Native source docstring:** The subgroup of `K₀` stabilizing the right `H`-coset represented by `x`.
 Its membership predicate computes in the open-stabilizer comparison.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L216) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L216) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyStabilizer_mul_left_mul_right
 
@@ -6393,7 +6376,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyStabilizer_mul_left_
 **Native source docstring:** Changing a double-coset representative by `h * x * b` conjugates its
 stabilizer by `b` inside the right-hand subgroup.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L223) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L223) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.conjugateTransferSummand_formula
 
@@ -6406,7 +6389,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.conjugateTransferSummand_f
 **Native source docstring:** The coefficient action in the conjugated transfer summand has the literal
 order needed for finite reindexing.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L255) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L255) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugationHom
 
@@ -6419,7 +6402,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyConjugationHom {G : Type
 **Native source docstring:** Conjugation by `x`, restricted to the right-hand open subgroup.
 Its value computes when using stabilizer membership.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L263) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L263) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer
 
@@ -6432,7 +6415,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer {G : Type
 **Native source docstring:** The open stabilizer in `K` of the right `H`-coset represented by `x`.
 Its underlying subgroup computes as the Mackey stabilizer.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L271) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L271) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer_toSubgroup
 
@@ -6444,7 +6427,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer_toSub
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyOpenStabilizer_toSubgroup` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L277) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L277) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizerFiniteIndex
 
@@ -6457,7 +6440,7 @@ instance ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizerFinit
 **Native source docstring:** The Mackey stabilizer has finite index in `K` as soon as `H` has finite
 index in the ambient group.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L282) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L282) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.jointlyContinuous_mackeyStabilizer
 
@@ -6471,7 +6454,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.jointlyContinuous_mackeySt
 Mackey stabilizer. This reuses the existing private local proof without adding
 an instance to the API seen by importers.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L308) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L308) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyStabilizerToLeft
 
@@ -6483,7 +6466,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyStabilizerToLeft {G : Ty
 
 **Native source docstring:** Conjugation identifies a Mackey stabilizer with a subgroup of `H`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L320) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L320) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed
 
@@ -6497,7 +6480,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed {k : Ty
 of the right `H`-coset represented by `x`. Its application computes by
 conjugating the input cocycle.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L338) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L338) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_apply
 
@@ -6509,7 +6492,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_app
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mackeyConjugateCrossed_apply` for the double-coset decomposition of continuous degree-one transfer; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L375) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L375) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_principal
 
@@ -6522,7 +6505,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_pri
 **Native source docstring:** Conjugation and restriction send principal crossed homomorphisms to
 principal crossed homomorphisms with the conjugated coefficient.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L382) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L382) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateQuotient
 
@@ -6535,7 +6518,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyConjugateQuotient {k : T
 **Native source docstring:** Conjugation and restriction descend to crossed homomorphisms modulo
 principal crossed homomorphisms. Its lift computes on representatives.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L399) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L399) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateQuotient_mk
 
@@ -6547,7 +6530,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyConjugateQuotient_mk
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mackeyConjugateQuotient_mk` for the double-coset decomposition of continuous degree-one transfer; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L429) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L429) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyTransferCrossedWithTransversal
 
@@ -6560,7 +6543,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyTransferCr
 **Native source docstring:** Transfer from a Mackey stabilizer to `K`, with the finite-index witness
 obtained from the ambient finite index of `H`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L440) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L440) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithTransversal
 
@@ -6573,7 +6556,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeySummandQuo
 **Native source docstring:** The quotient-level Mackey summand attached to `x`, computed with a chosen
 right transversal of its stabilizer in `K`. Its lift computes on cocycles.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L453) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L453) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithTransversal_eq
 
@@ -6586,7 +6569,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithT
 **Native source docstring:** A Mackey summand on crossed-homomorphism quotients is independent of the
 right transversal used for its stabilizer.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L469) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L469) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotient
 
@@ -6600,7 +6583,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeySummandQuo
 Its apparent dependence on the representative is removed below by the
 double-coset representative-change argument.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L482) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L482) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotient_eq_withTransversal
 
@@ -6613,7 +6596,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotient_eq_w
 **Native source docstring:** The canonical Mackey summand can be computed from any stabilizer
 transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L495) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L495) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithTransversal_mk
 
@@ -6625,7 +6608,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithT
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mackeySummandQuotientWithTransversal_mk` for the double-coset decomposition of continuous degree-one transfer; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L507) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L507) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupConjugationHom
 
@@ -6638,7 +6621,7 @@ def ContinuousCohomology.CorestrictionTransversal.openSubgroupConjugationHom {G 
 **Native source docstring:** Conjugation by an element of an open subgroup, as a continuous
 endomorphism of that open subgroup. It computes pointwise by conjugation.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L521) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L521) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.openSubgroupConjugationHom_apply
 
@@ -6650,7 +6633,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.openSubgroupConjugationHom
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `openSubgroupConjugationHom_apply` for the double-coset decomposition of continuous degree-one transfer; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L528) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L528) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer_mul_left_mul_right
 
@@ -6663,7 +6646,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyOpenStabilizer_mul_l
 **Native source docstring:** The open Mackey stabilizer transforms by conjugation under a change of
 ambient representative.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L532) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L532) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeRightTransversal
 
@@ -6676,7 +6659,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeRightTrans
 **Native source docstring:** The right transversal used after changing an ambient representative by
 `h * x * b`. It computes as the conjugate transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L549) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L549) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransversalEquiv
 
@@ -6690,7 +6673,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransversa
 with the original stabilizer transversal. Its application computes to the
 translated representative.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L562) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L562) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransversalEquiv_coe
 
@@ -6702,7 +6685,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransv
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyRepresentativeTransversalEquiv_coe` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L574) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L574) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransversal_factor
 
@@ -6714,7 +6697,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransv
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyRepresentativeTransversal_factor` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L582) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L582) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransversal_next
 
@@ -6726,7 +6709,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeTransv
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyRepresentativeTransversal_next` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L618) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L618) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentative_transferTerm
 
@@ -6738,7 +6721,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyRepresentative_trans
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyRepresentative_transferTerm` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L655) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L655) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRepresentativeCoefficient
 
@@ -6751,7 +6734,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyRepresenta
 **Native source docstring:** The coefficient of the principal defect caused by changing the ambient
 Mackey representative on the left.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L741) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L741) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyTransferCrossed_mul_left_mul_right
 
@@ -6765,7 +6748,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyTransferCrossed_mul_
 transporting the stabilizer transversal accordingly, changes the transferred
 crossed homomorphism by one principal crossed homomorphism.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L753) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L753) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithTransversal_mul_left_mul_right
 
@@ -6778,7 +6761,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotientWithT
 **Native source docstring:** Representative change is invisible on the quotient when the changed
 stabilizer uses the transported transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L841) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L841) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotient_mul_left_mul_right
 
@@ -6791,7 +6774,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeySummandQuotient_mul_
 **Native source docstring:** The canonical quotient-level Mackey summand depends only on the ambient
 double coset represented by `x`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L874) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L874) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetFinite
 
@@ -6803,7 +6786,7 @@ instance ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetFinite {
 
 **Native source docstring:** A finite left index gives finitely many double cosets.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L892) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L892) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetSummand
 
@@ -6816,7 +6799,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCose
 **Native source docstring:** The representative-independent quotient-level summand attached to a
 double coset. It computes on canonical representatives.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L907) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L907) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetSummand_mk
 
@@ -6828,7 +6811,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetSummand_m
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mackeyDoubleCosetSummand_mk` for the double-coset decomposition of continuous degree-one transfer; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L924) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L924) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetSum
 
@@ -6840,7 +6823,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCose
 
 **Native source docstring:** The finite sum of the quotient-level summands over `H \ G / K`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L933) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L933) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembledRepresentative
 
@@ -6854,7 +6837,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyAssembledR
 of a right coset of its Mackey stabilizer. Its product formula is used by the
 assembled-transversal membership calculation.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L945) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L945) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembledRightTransversal
 
@@ -6868,7 +6851,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyAssembledR
 to a right transversal of `H` in the ambient group. Its carrier computes as
 the range of assembled representatives.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L955) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L955) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembledRepresentativeMem
 
@@ -6882,7 +6865,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyAssembledR
 inside the assembled ambient transversal. Its ambient value computes as a
 product of representatives.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1066) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1066) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembledRepresentativeMem_coe
 
@@ -6894,7 +6877,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyAssembledRepresentat
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `mackeyAssembledRepresentativeMem_coe` in the double-coset decomposition of continuous degree-one transfer; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1078) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1078) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembled_factor
 
@@ -6907,7 +6890,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyAssembled_factor {G 
 **Native source docstring:** The factor in the assembled ambient transversal is the conjugate of the
 factor in the corresponding stabilizer transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1087) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1087) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembled_next
 
@@ -6920,7 +6903,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyAssembled_next {G : 
 **Native source docstring:** The next representative in the assembled ambient transversal retains the
 double coset and applies the local next-representative operation.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1137) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1137) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyAssembledTransversalEquiv
 
@@ -6933,7 +6916,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyAssembledT
 **Native source docstring:** The sigma type of double cosets and local transversal representatives is
 equivalent to the assembled ambient transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1185) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1185) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyCrossedSumWithTransversal
 
@@ -6946,7 +6929,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyCrossedSum
 **Native source docstring:** The crossed-homomorphism sum of the Mackey stabilizer transfers, computed
 from a chosen family of local right transversals.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1228) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1228) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferCrossed_mackey_apply
 
@@ -6960,7 +6943,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferCrossed_mackey_app
 of the transfers from the Mackey stabilizers, at the crossed-homomorphism
 level.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1241) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1241) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedRestrict_transferCrossed_mackey
 
@@ -6973,7 +6956,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedRestrict_transferCr
 **Native source docstring:** Crossed-homomorphism form of the degree-one Mackey decomposition for the
 assembled ambient transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1331) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1331) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyStabilizerRightTransversal
 
@@ -6985,7 +6968,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyStabilizer
 
 **Native source docstring:** A canonical right transversal for each Mackey stabilizer.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1344) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1344) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyRightTransversal
 
@@ -6998,7 +6981,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyRightTrans
 **Native source docstring:** The ambient right transversal assembled from canonical double-coset
 representatives and canonical stabilizer transversals.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1352) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1352) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict_comp_transferQuotient_mackey
 
@@ -7010,7 +6993,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.crossedQuotientRestrict_co
 
 **Native source docstring:** Quotient-level degree-one Mackey formula.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1359) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1359) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_crossedQuotientRestrict_mackey_hom
 
@@ -7022,7 +7005,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_cros
 
 **Native source docstring:** Categorical form of the quotient-level Mackey formula.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1428) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1428) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_crossedQuotientRestrict_mackey_hom_assoc
 
@@ -7034,7 +7017,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.transferQuotient_comp_cros
 
 **Native source docstring:** Categorical form of the quotient-level Mackey formula.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1429) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1429) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyCoefficientHom
 
@@ -7047,7 +7030,7 @@ def ContinuousCohomology.CorestrictionTransversal.mackeyCoefficientHom {k : Type
 **Native source docstring:** The coefficient comparison for the conjugation map from a Mackey
 stabilizer to the left subgroup.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1440) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1440) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.cochainsMap_one_apply
 
@@ -7060,7 +7043,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.cochainsMap_one_apply {k :
 **Native source docstring:** Evaluation in degree one of the homogeneous-cochain map induced by a group
 homomorphism and compatible coefficient morphism.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1460) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1460) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_mackey
 
@@ -7073,7 +7056,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.cocyclesOneCrossedIso_mack
 **Native source docstring:** The explicit conjugation/restriction map on crossed homomorphisms agrees
 with the map induced on degree-one cocycles.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1484) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1484) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_comp_mkQL
 
@@ -7086,7 +7069,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyConjugateCrossed_com
 **Native source docstring:** The crossed-homomorphism conjugation map commutes with passage to principal
 cocycle quotients.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1528) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1528) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_mackey
 
@@ -7099,7 +7082,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.homologyQuotientIso_mackey
 **Native source docstring:** The native cohomology map induced by conjugation and coefficient transport
 agrees with the conjugation map on crossed-homomorphism quotients.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1545) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1545) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.degreeOneIso_mackey
 
@@ -7112,7 +7095,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.degreeOneIso_mackey {k : T
 **Native source docstring:** Conjugation and restriction commute with the crossed-quotient-to-degree-one
 cohomology comparison.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1640) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1640) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.map_comp_degreeOneIso_inv_mackey
 
@@ -7124,7 +7107,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.map_comp_degreeOneIso_inv_
 
 **Native source docstring:** A reassociated inverse form of `degreeOneIso_mackey`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1663) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1663) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_eq_degreeOne
 
@@ -7137,7 +7120,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_eq_degree
 **Native source docstring:** Canonical degree-one corestriction unfolds through the crossed-quotient
 comparison and the canonical stabilizer transversal.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1682) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1682) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSummand
 
@@ -7150,7 +7133,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCose
 **Native source docstring:** The native degree-one summand attached to a double coset: conjugate and
 restrict to its Mackey stabilizer, then corestrict to the right subgroup.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1695) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1695) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSummand_eq_quotient
 
@@ -7163,7 +7146,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSumman
 **Native source docstring:** The native double-coset summand agrees with the representative-independent
 crossed-quotient summand transported through the degree-one comparison.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1714) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1714) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSum
 
@@ -7175,7 +7158,7 @@ noncomputable def ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCose
 
 **Native source docstring:** The finite native degree-one Mackey sum over `H \\ G / K`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1775) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1775) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSum_eq_sum
 
@@ -7187,7 +7170,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.mackeyDoubleCosetOneSum_eq
 
 **Native source docstring:** The native Mackey sum is the finite sum of its double-coset summands.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1788) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1788) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousCohomology.CorestrictionTransversal.corestrictionOne_comp_restriction_mackey
 
@@ -7200,7 +7183,7 @@ theorem ContinuousCohomology.CorestrictionTransversal.corestrictionOne_comp_rest
 **Native source docstring:** Restriction to `K` after canonical corestriction from `H` is the finite
 degree-one Mackey sum over `H \\ G / K`.
 
-[Source](../ContinuousGroupCohomology/Mackey.lean#L1839) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/Mackey.lean#L1839) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -7223,7 +7206,7 @@ noncomputable def ContinuousGroupCohomology.nestedQuotientInvariantsEquiv {R : T
 **Native source docstring:** Taking invariants under `T / S` after taking invariants under `S` agrees
 with taking invariants under `T`.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L34) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L34) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsEquiv_apply_val
 
@@ -7235,7 +7218,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsEquiv_apply_val {R : T
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `nestedQuotientInvariantsEquiv_apply_val` in iterated invariants under a normal subgroup and its quotient; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L64) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L64) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsEquiv_symm_apply_val
 
@@ -7247,7 +7230,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsEquiv_symm_apply_val {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `nestedQuotientInvariantsEquiv_symm_apply_val` in iterated invariants under a normal subgroup and its quotient; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepIso
 
@@ -7260,7 +7243,7 @@ noncomputable def ContinuousGroupCohomology.nestedQuotientInvariantsRepIso {R : 
 **Native source docstring:** The nested-invariants equivalence is equivariant after the third
 isomorphism theorem identifies the two quotient groups.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_hom_apply_val
 
@@ -7272,7 +7255,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_hom_apply_val {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `nestedQuotientInvariantsRepIso_hom_apply_val` in iterated invariants under a normal subgroup and its quotient; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L95) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_naturality
 
@@ -7285,7 +7268,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_naturality {R :
 **Native source docstring:** The nested-invariants representation isomorphism is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L102) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L102) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_naturality_assoc
 
@@ -7298,7 +7281,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsRepIso_naturality_asso
 **Native source docstring:** The nested-invariants representation isomorphism is natural in the
 coefficient representation.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepNatTrans
 
@@ -7311,7 +7294,7 @@ noncomputable def ContinuousGroupCohomology.nestedQuotientInvariantsRepNatTrans 
 **Native source docstring:** The natural transformation from iterated invariants to direct invariants,
 after restriction along the third-isomorphism equivalence.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L117) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L117) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.nestedQuotientInvariantsRepNatTrans_app
 
@@ -7323,7 +7306,7 @@ theorem ContinuousGroupCohomology.nestedQuotientInvariantsRepNatTrans_app {R : T
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `nestedQuotientInvariantsRepNatTrans_app` in iterated invariants under a normal subgroup and its quotient; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/NestedInvariants.lean#L130) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NestedInvariants.lean#L130) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.NormalizedCohomology
 
@@ -7340,7 +7323,7 @@ abbrev TopRep.normalized {k : Type u} [Ring k] [TopologicalSpace k] {G : Type v}
 **Native source docstring:** Raise both the acting group and coefficient carrier of a topological
 representation into their canonical common maximum universe.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedFunctor
 
@@ -7353,7 +7336,7 @@ abbrev TopRep.normalizedFunctor {k : Type u} [Ring k] [TopologicalSpace k] {G : 
 **Native source docstring:** The functor raising a topological representation into the canonical
 common maximum of its fixed group and coefficient universes.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L44) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L44) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedMap
 
@@ -7365,7 +7348,7 @@ abbrev TopRep.normalizedMap {k : Type u} [Ring k] [TopologicalSpace k] {G : Type
 
 **Native source docstring:** Raise a coefficient morphism into the canonical common maximum universe.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L50) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L50) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedHomogeneousCochains
 
@@ -7378,7 +7361,7 @@ abbrev TopRep.normalizedHomogeneousCochains {k : Type u} [Ring k] [TopologicalSp
 **Native source docstring:** Homogeneous continuous cochains after canonical common-universe
 normalization.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L55) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L55) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedContinuousCohomology
 
@@ -7390,7 +7373,7 @@ noncomputable abbrev TopRep.normalizedContinuousCohomology {k : Type u} [Ring k]
 
 **Native source docstring:** Continuous cohomology after canonical common-universe normalization.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L61) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L61) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedContinuousCohomologyMap
 
@@ -7403,7 +7386,7 @@ noncomputable def TopRep.normalizedContinuousCohomologyMap {k : Type u} [Ring k]
 **Native source docstring:** The map on normalized continuous cohomology induced by a coefficient
 morphism for a fixed acting group.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L66) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L66) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedContinuousCohomologyMap_id
 
@@ -7415,7 +7398,7 @@ theorem TopRep.normalizedContinuousCohomologyMap_id {k : Type u} [Ring k] [Topol
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `normalizedContinuousCohomologyMap_id` for normalization of continuous cohomology and its coefficient maps; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L75) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedContinuousCohomologyMap_comp
 
@@ -7427,7 +7410,7 @@ theorem TopRep.normalizedContinuousCohomologyMap_comp {k : Type u} [Ring k] [Top
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `normalizedContinuousCohomologyMap_comp` for normalization of continuous cohomology and its coefficient maps; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L95) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.normalizedContinuousCohomologyMap_comp_assoc
 
@@ -7439,7 +7422,7 @@ theorem TopRep.normalizedContinuousCohomologyMap_comp_assoc {k : Type u} [Ring k
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated reassociated statement associated with `TopRep.normalizedContinuousCohomologyMap_comp` in normalization of continuous cohomology and its coefficient maps; the original `@[reassoc]` source anchor is shown below.
 
-[Source](../ContinuousGroupCohomology/NormalizedCohomology.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/NormalizedCohomology.lean#L95) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.QuotientConjugationAction
 
@@ -7456,7 +7439,7 @@ noncomputable def GroupExtension.conjActAbelianization {N : Type uN} {E : Type u
 **Native source docstring:** The conjugation action of the middle group on the abelianization of the
 kernel of a group extension.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L47) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L47) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.conjActAbelianization_apply_of
 
@@ -7469,7 +7452,7 @@ theorem GroupExtension.conjActAbelianization_apply_of {N : Type uN} {E : Type uE
 **Native source docstring:** Abelianized conjugation sends the class of a kernel element to the class
 of its conjugate.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L64) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L64) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.conjActAbelianization_inl
 
@@ -7481,7 +7464,7 @@ theorem GroupExtension.conjActAbelianization_inl {N : Type uN} {E : Type uE} {Q 
 
 **Native source docstring:** An embedded kernel element acts trivially on the kernel abelianization.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.ker_rightHom_le_ker_conjActAbelianization
 
@@ -7494,7 +7477,7 @@ theorem GroupExtension.ker_rightHom_le_ker_conjActAbelianization {N : Type uN} {
 **Native source docstring:** The kernel of the extension projection acts trivially after abelianizing
 the kernel.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L86) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L86) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.quotientConjActAbelianization
 
@@ -7507,7 +7490,7 @@ noncomputable def GroupExtension.quotientConjActAbelianization {N : Type uN} {E 
 **Native source docstring:** The quotient group acts canonically on the abelianization of the kernel by
 conjugation through any lift to the middle group.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L96) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L96) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.quotientConjActAbelianization_rightHom
 
@@ -7519,7 +7502,7 @@ theorem GroupExtension.quotientConjActAbelianization_rightHom {N : Type uN} {E :
 
 **Native source docstring:** Characterization of the quotient action on an arbitrary lift.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.quotientConjActAbelianization_apply_of
 
@@ -7532,7 +7515,7 @@ theorem GroupExtension.quotientConjActAbelianization_apply_of {N : Type uN} {E :
 **Native source docstring:** Pointwise lift formula for the quotient action, including its conjugation
 orientation on representatives of the kernel abelianization.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L121) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L121) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.conjActAbelianization_eq_of_rightHom_eq
 
@@ -7545,7 +7528,7 @@ theorem GroupExtension.conjActAbelianization_eq_of_rightHom_eq {N : Type uN} {E 
 **Native source docstring:** Two lifts of the same quotient element induce the same automorphism of the
 kernel abelianization.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L131) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L131) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.abelianization_conjAct_eq_of_rightHom_eq
 
@@ -7558,7 +7541,7 @@ theorem GroupExtension.abelianization_conjAct_eq_of_rightHom_eq {N : Type uN} {E
 **Native source docstring:** Inspectable representative-level form of independence from the chosen
 lift of a quotient element.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L139) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L139) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.Equiv.conjActAbelianization
 
@@ -7571,7 +7554,7 @@ theorem GroupExtension.Equiv.conjActAbelianization {N : Type uN} {E : Type uE} {
 **Native source docstring:** An equivalence of extensions intertwines the middle-group actions on the
 common kernel abelianization.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L153) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L153) (historical source start line; generated entries may point to their parent).
 
 #### GroupExtension.Equiv.quotientConjActAbelianization
 
@@ -7584,7 +7567,7 @@ theorem GroupExtension.Equiv.quotientConjActAbelianization {N : Type uN} {E : Ty
 **Native source docstring:** Equivalent extensions with the same kernel and quotient have exactly the
 same descended action on the kernel abelianization.
 
-[Source](../ContinuousGroupCohomology/QuotientConjugationAction.lean#L172) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/QuotientConjugationAction.lean#L172) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.RestrictedLevelCompact
 
@@ -7601,7 +7584,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.universalNormSubmodule 
 **Native source docstring:** The elements of `A^U` lying in the range of the relative norm from every
 deeper open normal level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.mem_universalNormSubmodule_iff
 
@@ -7613,7 +7596,7 @@ theorem ContinuousGroupCohomology.LevelCompact.mem_universalNormSubmodule_iff {R
 
 **Original catalogue explanation (not a Lean docstring):** The iff characterization named `mem_universalNormSubmodule_iff` in closed restricted level systems and finite-stage relative-norm ranges; use the full signature for both directions and their assumptions.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormSubmodule_le_range
 
@@ -7625,7 +7608,7 @@ theorem ContinuousGroupCohomology.LevelCompact.universalNormSubmodule_le_range {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universalNormSubmodule_le_range` in closed restricted level systems and finite-stage relative-norm ranges; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.relativeNorm_mem_universalNormSubmodule
 
@@ -7638,7 +7621,7 @@ theorem ContinuousGroupCohomology.LevelCompact.relativeNorm_mem_universalNormSub
 **Native source docstring:** Relative norms carry universal norms at a deeper normal level to universal
 norms at the target level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L64) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L64) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormSubmodule_stable
 
@@ -7650,7 +7633,7 @@ theorem ContinuousGroupCohomology.LevelCompact.universalNormSubmodule_stable {R 
 
 **Native source docstring:** The universal-norm submodule is stable under the residual quotient action.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L93) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L93) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormSubrepresentation
 
@@ -7663,7 +7646,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.universalNormSubreprese
 **Native source docstring:** Universal norms at `U`, as a subrepresentation of the residual
 `G / U`-representation on `A^U`.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormSubrepresentation_toSubmodule
 
@@ -7675,7 +7658,7 @@ theorem ContinuousGroupCohomology.LevelCompact.universalNormSubrepresentation_to
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universalNormSubrepresentation_toSubmodule` in closed restricted level systems and finite-stage relative-norm ranges; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.isClosed_universalNormSubmodule
 
@@ -7687,7 +7670,7 @@ theorem ContinuousGroupCohomology.LevelCompact.isClosed_universalNormSubmodule {
 
 **Native source docstring:** Universal norms form a closed submodule for the level topology.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L120) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L120) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem
 
@@ -7704,7 +7687,7 @@ The topology on each chosen coefficient module is inherited from the supplied
 `LevelCompact` topology; no topology on the ambient representation or scalar
 ring is required.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L142) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L142) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.mk
 
@@ -7716,7 +7699,7 @@ constructor ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.mk : {R
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem`; the structure fields and parameters are in the displayed signature and source declaration. Closed restricted level systems and finite-stage relative-norm ranges.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L142) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L142) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.subrepresentation
 
@@ -7728,7 +7711,7 @@ abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.subrepresent
 
 **Native source docstring:** The chosen `G / U`-stable coefficient submodule at level `U`.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L150) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L150) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.universalNorm_le
 
@@ -7740,7 +7723,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.universalNo
 
 **Native source docstring:** Every universal norm belongs to the chosen coefficient system.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L153) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L153) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNorm_mem
 
@@ -7752,7 +7735,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNor
 
 **Native source docstring:** Relative norms preserve the chosen coefficient system.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L156) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L156) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.isClosed
 
@@ -7764,7 +7747,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.isClosed {R
 
 **Native source docstring:** Each chosen coefficient submodule is closed in its level topology.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L162) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L162) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.coefficients
 
@@ -7776,7 +7759,7 @@ abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.coefficients
 
 **Native source docstring:** The coefficient module selected at an open normal level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L172) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L172) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.topology
 
@@ -7789,7 +7772,7 @@ abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.topology {R 
 **Native source docstring:** The topology inherited by a restricted coefficient module from the full
 invariant module at the same level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L176) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L176) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.t2
 
@@ -7801,7 +7784,7 @@ noncomputable abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSyste
 
 **Native source docstring:** A restricted coefficient module is Hausdorff in its inherited topology.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L183) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L183) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.compact
 
@@ -7813,7 +7796,7 @@ noncomputable abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSyste
 
 **Native source docstring:** A restricted coefficient module is compact in its inherited topology.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L193) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L193) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.topologicalAddGroup
 
@@ -7825,7 +7808,7 @@ noncomputable abbrev ContinuousGroupCohomology.LevelCompact.RestrictedLevelSyste
 
 **Native source docstring:** Addition and negation are continuous on a restricted coefficient module.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L203) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L203) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.group
 
@@ -7838,7 +7821,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.g
 **Native source docstring:** The compact Hausdorff additive group carried by a restricted coefficient
 module at one open normal level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L213) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L213) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNorm
 
@@ -7850,7 +7833,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.r
 
 **Native source docstring:** A relative norm restricted to the chosen coefficient modules.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L223) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L223) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNorm_coe
 
@@ -7862,7 +7845,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNor
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `relativeNorm_coe` in closed restricted level systems and finite-stage relative-norm ranges; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L236) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L236) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNorm_comp
 
@@ -7874,7 +7857,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNor
 
 **Native source docstring:** Restricted relative norms compose through a tower of open normal levels.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L243) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L243) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.continuous_relativeNorm
 
@@ -7886,7 +7869,7 @@ theorem ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.continuous_
 
 **Native source docstring:** Restricted relative norms are continuous for the inherited topologies.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L263) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L263) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.relativeNormHom
 
@@ -7899,7 +7882,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.RestrictedLevelSystem.r
 **Native source docstring:** A restricted relative norm as a morphism of compact Hausdorff additive
 groups.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L277) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L277) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.fullRestrictedLevelSystem
 
@@ -7912,7 +7895,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.fullRestrictedLevelSyst
 **Native source docstring:** The unrestricted system choosing the full invariant module at every open
 normal level.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L289) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L289) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormRestrictedLevelSystem
 
@@ -7924,7 +7907,7 @@ noncomputable def ContinuousGroupCohomology.LevelCompact.universalNormRestricted
 
 **Native source docstring:** The canonical restricted system consisting exactly of universal norms.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L300) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L300) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.fullRestrictedLevelSystem_subrepresentation
 
@@ -7936,7 +7919,7 @@ theorem ContinuousGroupCohomology.LevelCompact.fullRestrictedLevelSystem_subrepr
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `fullRestrictedLevelSystem_subrepresentation` in closed restricted level systems and finite-stage relative-norm ranges; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L310) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L310) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupCohomology.LevelCompact.universalNormRestrictedLevelSystem_subrepresentation
 
@@ -7948,7 +7931,7 @@ theorem ContinuousGroupCohomology.LevelCompact.universalNormRestrictedLevelSyste
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universalNormRestrictedLevelSystem_subrepresentation` in closed restricted level systems and finite-stage relative-norm ranges; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/RestrictedLevelCompact.lean#L316) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/RestrictedLevelCompact.lean#L316) (historical source start line; generated entries may point to their parent).
 
 ### ContinuousGroupCohomology.TopModuleCatUlift
 
@@ -7965,7 +7948,7 @@ instance ULift.instIsTopologicalAddGroupOfIsTopologicalAddGroup {M : Type v} [Ad
 **Native source docstring:** Raising the universe of a topological additive group preserves its
 topological additive group structure.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L33) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L33) (historical source start line; generated entries may point to their parent).
 
 #### ULift.instContinuousSMulOfContinuousSMul
 
@@ -7978,7 +7961,7 @@ instance ULift.instContinuousSMulOfContinuousSMul {R : Type u} {M : Type v} [Sem
 **Native source docstring:** A scalar action remains continuous after raising the universe of the
 acted-on type.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctor
 
@@ -7990,7 +7973,7 @@ def TopModuleCat.uliftFunctor (R : Type u) [Ring R] [TopologicalSpace R] : Categ
 
 **Native source docstring:** Raise the universe of a topological `R`-module.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L56) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L56) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctor_map
 
@@ -8002,7 +7985,7 @@ theorem TopModuleCat.uliftFunctor_map (R : Type u) [Ring R] [TopologicalSpace R]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `uliftFunctor_map` in universe-lift functors for topological module categories; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctor_obj
 
@@ -8014,7 +7997,7 @@ theorem TopModuleCat.uliftFunctor_obj (R : Type u) [Ring R] [TopologicalSpace R]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `uliftFunctor_obj` in universe-lift functors for topological module categories; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.fullyFaithfulUliftFunctor
 
@@ -8026,7 +8009,7 @@ def TopModuleCat.fullyFaithfulUliftFunctor (R : Type u) [Ring R] [TopologicalSpa
 
 **Native source docstring:** The universe-raising functor on topological modules is fully faithful.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instFullUliftFunctor
 
@@ -8038,7 +8021,7 @@ instance TopModuleCat.instFullUliftFunctor (R : Type u) [Ring R] [TopologicalSpa
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Full` instance in universe-lift functors for topological module categories (native type names: `TopModuleCat.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instFaithfulUliftFunctor
 
@@ -8050,7 +8033,7 @@ instance TopModuleCat.instFaithfulUliftFunctor (R : Type u) [Ring R] [Topologica
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Faithful` instance in universe-lift functors for topological module categories (native type names: `TopModuleCat.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L80) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L80) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instAdditiveUliftFunctor
 
@@ -8062,7 +8045,7 @@ instance TopModuleCat.instAdditiveUliftFunctor (R : Type u) [Ring R] [Topologica
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Additive` instance in universe-lift functors for topological module categories (native type names: `TopModuleCat.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L82) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L82) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorObjEquiv
 
@@ -8075,7 +8058,7 @@ def TopModuleCat.uliftFunctorObjEquiv (R : Type u) [Ring R] [TopologicalSpace R]
 **Native source docstring:** The original topological module is canonically continuously linearly
 equivalent to the carrier of its universe lift.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L84) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L84) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorObjEquiv_apply
 
@@ -8087,7 +8070,7 @@ theorem TopModuleCat.uliftFunctorObjEquiv_apply (R : Type u) [Ring R] [Topologic
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `uliftFunctorObjEquiv_apply` for universe-lift functors for topological module categories; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L90) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L90) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorObjEquiv_symm_apply
 
@@ -8099,7 +8082,7 @@ theorem TopModuleCat.uliftFunctorObjEquiv_symm_apply (R : Type u) [Ring R] [Topo
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `uliftFunctorObjEquiv_symm_apply` for universe-lift functors for topological module categories; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L95) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L95) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorObjEquiv_naturality
 
@@ -8111,7 +8094,7 @@ theorem TopModuleCat.uliftFunctorObjEquiv_naturality (R : Type u) [Ring R] [Topo
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `uliftFunctorObjEquiv_naturality` for universe-lift functors for topological module categories; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L101) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L101) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorObjEquiv_symm_naturality
 
@@ -8123,7 +8106,7 @@ theorem TopModuleCat.uliftFunctorObjEquiv_symm_naturality (R : Type u) [Ring R] 
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `uliftFunctorObjEquiv_symm_naturality` for universe-lift functors for topological module categories; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L107) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L107) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.uliftFunctorIsoSameUniverse
 
@@ -8136,7 +8119,7 @@ noncomputable def TopModuleCat.uliftFunctorIsoSameUniverse (R : Type u) [Ring R]
 **Native source docstring:** In one fixed object universe, the identity functor on topological modules is
 naturally isomorphic to universe lifting.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L115) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L115) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instEssSurjUliftFunctorSameUniverse
 
@@ -8148,7 +8131,7 @@ instance TopModuleCat.instEssSurjUliftFunctorSameUniverse (R : Type u) [Ring R] 
 
 **Native source docstring:** Same-universe lifting of topological modules is essentially surjective.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L123) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L123) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instIsEquivalenceUliftFunctorSameUniverse
 
@@ -8161,7 +8144,7 @@ instance TopModuleCat.instIsEquivalenceUliftFunctorSameUniverse (R : Type u) [Ri
 **Native source docstring:** Same-universe lifting is an equivalence of the category of topological
 modules with itself.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L128) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L128) (historical source start line; generated entries may point to their parent).
 
 #### TopModuleCat.instLinearUliftFunctor
 
@@ -8173,7 +8156,7 @@ instance TopModuleCat.instLinearUliftFunctor (R : Type u) [CommRing R] [Topologi
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Linear` instance in universe-lift functors for topological module categories (native type names: `TopModuleCat.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopModuleCatUlift.lean#L139) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopModuleCatUlift.lean#L139) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -8207,7 +8190,7 @@ class TopRep.JointlyContinuous {k : Type u} [Ring k] [TopologicalSpace k] {G : T
 
 **Native source docstring:** The action carried by a topological representation is jointly continuous.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L34) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L34) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.JointlyContinuous.mk
 
@@ -8219,7 +8202,7 @@ constructor TopRep.JointlyContinuous.mk : ∀ {k : Type u} [inst : Ring k] [inst
 
 **Original catalogue explanation (not a Lean docstring):** Lean-generated constructor for the source structure/class `TopRep.JointlyContinuous`; the structure fields and parameters are in the displayed signature and source declaration. Universe-lift functors and jointly continuous topological representations.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L34) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L34) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.JointlyContinuous.continuous_action
 
@@ -8231,7 +8214,7 @@ theorem TopRep.JointlyContinuous.continuous_action {k : Type u} {inst✝ : Ring 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `continuous_action` in universe-lift functors and jointly continuous topological representations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L36) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L36) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.ulift
 
@@ -8244,7 +8227,7 @@ def TopRep.ulift {k : Type u} [Ring k] [TopologicalSpace k] {G : Type v} [Monoid
 **Native source docstring:** Simultaneously raise the universes of the acting monoid and the carrier of
 a topological representation.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L38) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L38) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.ulift_ρ_apply
 
@@ -8256,7 +8239,7 @@ theorem TopRep.ulift_ρ_apply {k : Type u} [Ring k] [TopologicalSpace k] {G : Ty
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `ulift_ρ_apply` for universe-lift functors and jointly continuous topological representations; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L54) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L54) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftMap
 
@@ -8269,7 +8252,7 @@ def TopRep.uliftMap {k : Type u} [Ring k] [TopologicalSpace k] {G : Type v} [Mon
 **Native source docstring:** Raise a morphism of topological representations together with its source
 and target carriers and the acting monoid.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L61) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L61) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftMap_apply
 
@@ -8281,7 +8264,7 @@ theorem TopRep.uliftMap_apply {k : Type u} [Ring k] [TopologicalSpace k] {G : Ty
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `uliftMap_apply` for universe-lift functors and jointly continuous topological representations; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L78) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L78) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftFunctor
 
@@ -8294,7 +8277,7 @@ def TopRep.uliftFunctor {k : Type u} [Ring k] [TopologicalSpace k] {G : Type v} 
 **Native source docstring:** Simultaneously raise the acting monoid and coefficient carrier of every
 object and morphism in `TopRep`.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L87) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L87) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftFunctor_map
 
@@ -8306,7 +8289,7 @@ theorem TopRep.uliftFunctor_map {k : Type u} [Ring k] [TopologicalSpace k] {G : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `uliftFunctor_map` in universe-lift functors and jointly continuous topological representations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L89) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L89) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftFunctor_obj
 
@@ -8318,7 +8301,7 @@ theorem TopRep.uliftFunctor_obj {k : Type u} [Ring k] [TopologicalSpace k] {G : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `uliftFunctor_obj` in universe-lift functors and jointly continuous topological representations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L89) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L89) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.instAdditiveUliftFunctor
 
@@ -8330,7 +8313,7 @@ instance TopRep.instAdditiveUliftFunctor {k : Type u} [Ring k] [TopologicalSpace
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Additive` instance in universe-lift functors and jointly continuous topological representations (native type names: `TopRep.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftEquiv
 
@@ -8343,7 +8326,7 @@ def TopRep.uliftEquiv {k : Type u} [Ring k] [TopologicalSpace k] {G : Type v} [M
 **Native source docstring:** The original representation, restricted along the canonical map from the
 lifted acting monoid, is equivalent to the lifted coefficient representation.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L108) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L108) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftEquiv_apply
 
@@ -8355,7 +8338,7 @@ theorem TopRep.uliftEquiv_apply {k : Type u} [Ring k] [TopologicalSpace k] {G : 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `uliftEquiv_apply` for universe-lift functors and jointly continuous topological representations; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L118) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L118) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftEquiv_symm_apply
 
@@ -8367,7 +8350,7 @@ theorem TopRep.uliftEquiv_symm_apply {k : Type u} [Ring k] [TopologicalSpace k] 
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `uliftEquiv_symm_apply` for universe-lift functors and jointly continuous topological representations; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L125) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L125) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.uliftEquiv_naturality
 
@@ -8379,7 +8362,7 @@ theorem TopRep.uliftEquiv_naturality {k : Type u} [Ring k] [TopologicalSpace k] 
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `uliftEquiv_naturality` for universe-lift functors and jointly continuous topological representations; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L132) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L132) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.jointlyContinuousUlift
 
@@ -8392,7 +8375,7 @@ instance TopRep.jointlyContinuousUlift {k : Type u} [Ring k] [TopologicalSpace k
 **Native source docstring:** Joint continuity of an action is preserved when both the acting monoid
 and the coefficient carrier are raised to independent universes.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L149) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L149) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.jointlyContinuous_ulift_iff
 
@@ -8405,7 +8388,7 @@ theorem TopRep.jointlyContinuous_ulift_iff {k : Type u} [Ring k] [TopologicalSpa
 **Native source docstring:** Joint continuity of an action is equivalent to joint continuity after
 raising the acting monoid and coefficient carrier to independent universes.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L161) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L161) (historical source start line; generated entries may point to their parent).
 
 #### TopRep.instLinearUliftFunctor
 
@@ -8417,7 +8400,7 @@ instance TopRep.instLinearUliftFunctor {k : Type u} [CommRing k] [TopologicalSpa
 
 **Original catalogue explanation (not a Lean docstring):** Provides the native `CategoryTheory.Functor.Linear` instance in universe-lift functors and jointly continuous topological representations (native type names: `TopRep.uliftFunctor`); the displayed signature retains all instance parameters.
 
-[Source](../ContinuousGroupCohomology/TopRepUlift.lean#L186) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopRepUlift.lean#L186) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -8441,7 +8424,7 @@ def TopologicalModN.multiples (A : Type uA) [AddCommGroup A] (n : ℕ) : AddSubg
 
 **Native source docstring:** The subgroup of `n`-fold multiples in an additive commutative group.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L43) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L43) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.closedMultiples
 
@@ -8453,7 +8436,7 @@ def TopologicalModN.closedMultiples (A : Type uA) [AddCommGroup A] [TopologicalS
 
 **Native source docstring:** The topological closure of the subgroup of `n`-fold multiples.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L47) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L47) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN
 
@@ -8466,7 +8449,7 @@ abbrev TopologicalModN (A : Type uA) [AddCommGroup A] [TopologicalSpace A] [IsTo
 **Native source docstring:** The quotient of `A` by the closure of its subgroup of `n`-fold multiples,
 with mathlib's quotient topology.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L53) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L53) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.mkQ
 
@@ -8478,7 +8461,7 @@ def TopologicalModN.mkQ {A : Type uA} [AddCommGroup A] [TopologicalSpace A] [IsT
 
 **Native source docstring:** The canonical continuous additive quotient homomorphism.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L67) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L67) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.mkQ_apply
 
@@ -8490,7 +8473,7 @@ theorem TopologicalModN.mkQ_apply {A : Type uA} [AddCommGroup A] [TopologicalSpa
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mkQ_apply` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.nsmul_mem_closedMultiples
 
@@ -8502,7 +8485,7 @@ theorem TopologicalModN.nsmul_mem_closedMultiples {A : Type uA} [AddCommGroup A]
 
 **Native source docstring:** Every multiple belongs to the closed subgroup of multiples.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L76) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L76) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.instModule
 
@@ -8515,7 +8498,7 @@ instance TopologicalModN.instModule {A : Type uA} [AddCommGroup A] [TopologicalS
 **Native source docstring:** The closed mod-`n` quotient is canonically a `ZMod n`-module, for every
 natural `n`, including zero and one.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L81) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L81) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.instContinuousSMul
 
@@ -8528,7 +8511,7 @@ instance TopologicalModN.instContinuousSMul {A : Type uA} [AddCommGroup A] [Topo
 **Native source docstring:** Scalar multiplication by the discrete ring `ZMod n` is jointly
 continuous.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L86) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L86) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.instT1Space
 
@@ -8540,7 +8523,7 @@ instance TopologicalModN.instT1Space {A : Type uA} [AddCommGroup A] [Topological
 
 **Native source docstring:** The quotient is T1 even when the input group is not.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L100) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L100) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.instT2Space
 
@@ -8552,7 +8535,7 @@ instance TopologicalModN.instT2Space {A : Type uA} [AddCommGroup A] [Topological
 
 **Native source docstring:** The quotient is Hausdorff even when the input group is not.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L105) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L105) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.KillsMultiples
 
@@ -8565,7 +8548,7 @@ def TopologicalModN.KillsMultiples {A : Type uA} {B : Type uB} [AddCommGroup B] 
 **Native source docstring:** Pointwise formulation saying that a homomorphism kills all `n`-fold
 multiples.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L109) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L109) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_le_ker
 
@@ -8577,7 +8560,7 @@ theorem TopologicalModN.multiples_le_ker {A : Type uA} {B : Type uB} [AddCommGro
 
 **Native source docstring:** Killing all pointwise multiples kills the algebraic multiple subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L116) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L116) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.liftOfClosed
 
@@ -8591,7 +8574,7 @@ def TopologicalModN.liftOfClosed {A : Type uA} {B : Type uB} [AddCommGroup A] [A
 the exact hypothesis is containment of the closed multiple subgroup in the
 kernel.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L123) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L123) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.liftOfClosed_mk
 
@@ -8603,7 +8586,7 @@ theorem TopologicalModN.liftOfClosed_mk {A : Type uA} {B : Type uB} [AddCommGrou
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `liftOfClosed_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L135) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L135) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.closedMultiples_le_ker
 
@@ -8616,7 +8599,7 @@ theorem TopologicalModN.closedMultiples_le_ker {A : Type uA} {B : Type uB} [AddC
 **Native source docstring:** For a T1 target, pointwise killing of multiples implies the exact closed
 kernel hypothesis.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L141) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L141) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.lift
 
@@ -8629,7 +8612,7 @@ def TopologicalModN.lift {A : Type uA} {B : Type uB} [AddCommGroup A] [AddCommGr
 **Native source docstring:** Universal property for continuous homomorphisms to T1 targets which kill
 all `n`-fold multiples.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L149) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L149) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.lift_mk
 
@@ -8641,7 +8624,7 @@ theorem TopologicalModN.lift_mk {A : Type uA} {B : Type uB} [AddCommGroup A] [Ad
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `lift_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L156) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L156) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.hom_ext
 
@@ -8654,7 +8637,7 @@ theorem TopologicalModN.hom_ext {A : Type uA} {B : Type uB} [AddCommGroup A] [Ad
 **Native source docstring:** Continuous additive homomorphisms out of the quotient are determined on
 representatives.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L162) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L162) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.map_closedMultiples_le
 
@@ -8667,7 +8650,7 @@ theorem TopologicalModN.map_closedMultiples_le {A : Type uA} {B : Type uB} [AddC
 **Native source docstring:** A continuous homomorphism sends the closed multiple subgroup into the
 closed multiple subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L171) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L171) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.map
 
@@ -8679,7 +8662,7 @@ def TopologicalModN.map {A : Type uA} {B : Type uB} [AddCommGroup A] [AddCommGro
 
 **Native source docstring:** Functoriality of closed topological reduction modulo `n`.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L183) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L183) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.map_mk
 
@@ -8691,7 +8674,7 @@ theorem TopologicalModN.map_mk {A : Type uA} {B : Type uB} [AddCommGroup A] [Add
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `map_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L191) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L191) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.map_id
 
@@ -8703,7 +8686,7 @@ theorem TopologicalModN.map_id {A : Type uA} [AddCommGroup A] [TopologicalSpace 
 
 **Native source docstring:** Reduction maps the identity homomorphism to the identity.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L195) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L195) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.map_comp
 
@@ -8715,7 +8698,7 @@ theorem TopologicalModN.map_comp {A : Type uA} {B : Type uB} {C : Type uC} [AddC
 
 **Native source docstring:** Reduction respects composition.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L204) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L204) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.congr
 
@@ -8728,7 +8711,7 @@ def TopologicalModN.congr {A : Type uA} {B : Type uB} [AddCommGroup A] [AddCommG
 **Native source docstring:** A continuous additive equivalence induces a continuous equivalence after
 closed topological reduction.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L212) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L212) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.congr_mk
 
@@ -8740,7 +8723,7 @@ theorem TopologicalModN.congr_mk {A : Type uA} {B : Type uB} [AddCommGroup A] [A
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `congr_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L239) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L239) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_zero
 
@@ -8752,7 +8735,7 @@ theorem TopologicalModN.multiples_zero {A : Type uA} [AddCommGroup A] : multiple
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `multiples_zero` in closed power subgroups and topological reduction modulo n; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L249) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L249) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.closedMultiples_zero
 
@@ -8764,7 +8747,7 @@ theorem TopologicalModN.closedMultiples_zero {A : Type uA} [AddCommGroup A] [Top
 
 **Native source docstring:** At `n = 0`, the denominator is the closure of zero.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L260) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L260) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_one
 
@@ -8776,7 +8759,7 @@ theorem TopologicalModN.multiples_one {A : Type uA} [AddCommGroup A] : multiples
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `multiples_one` in closed power subgroups and topological reduction modulo n; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L267) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L267) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.closedMultiples_one
 
@@ -8788,7 +8771,7 @@ theorem TopologicalModN.closedMultiples_one {A : Type uA} [AddCommGroup A] [Topo
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `closedMultiples_one` in closed power subgroups and topological reduction modulo n; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L272) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L272) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.instTopologicalSpaceModN
 
@@ -8800,7 +8783,7 @@ instance TopologicalModN.instTopologicalSpaceModN {A : Type uA} [AddCommGroup A]
 
 **Native source docstring:** Algebraic `ModN` carries the quotient topology induced by `ModN.mkQ`.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L278) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L278) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.modNMk
 
@@ -8813,7 +8796,7 @@ def TopologicalModN.modNMk {A : Type uA} [AddCommGroup A] [TopologicalSpace A] (
 **Native source docstring:** The algebraic mod-`n` quotient map, bundled continuously for the quotient
 topology on `ModN`.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L282) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L282) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.modNMk_apply
 
@@ -8825,7 +8808,7 @@ theorem TopologicalModN.modNMk_apply {A : Type uA} [AddCommGroup A] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `modNMk_apply` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L289) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L289) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.algebraicToClosed
 
@@ -8839,7 +8822,7 @@ def TopologicalModN.algebraicToClosed {A : Type uA} [AddCommGroup A] [Topologica
 topological additive commutative group.  It is generally a further quotient,
 not an equivalence.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L292) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L292) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.algebraicToClosed_mk
 
@@ -8851,7 +8834,7 @@ theorem TopologicalModN.algebraicToClosed_mk {A : Type uA} [AddCommGroup A] [Top
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `algebraicToClosed_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L319) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L319) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_isCompact
 
@@ -8863,7 +8846,7 @@ theorem TopologicalModN.multiples_isCompact {A : Type uA} [AddCommGroup A] [Topo
 
 **Native source docstring:** On a compact Hausdorff group, the subgroup of multiples is compact.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L331) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L331) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_isClosed
 
@@ -8875,7 +8858,7 @@ theorem TopologicalModN.multiples_isClosed {A : Type uA} [AddCommGroup A] [Topol
 
 **Native source docstring:** On a compact Hausdorff group, the subgroup of multiples is closed.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L337) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L337) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.closedMultiples_eq
 
@@ -8888,7 +8871,7 @@ theorem TopologicalModN.closedMultiples_eq {A : Type uA} [AddCommGroup A] [Topol
 **Native source docstring:** On the compact Hausdorff boundary, taking the closure does not enlarge
 the multiple subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L342) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L342) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.multiples_eq_modNSubgroup
 
@@ -8901,7 +8884,7 @@ theorem TopologicalModN.multiples_eq_modNSubgroup {A : Type uA} [AddCommGroup A]
 **Native source docstring:** The subgroup used by algebraic `ModN` is the subgroup of `n`-fold
 multiples.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L353) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L353) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.compactToModN
 
@@ -8915,7 +8898,7 @@ def TopologicalModN.compactToModN {A : Type uA} [AddCommGroup A] [TopologicalSpa
 additively equivalent to mathlib's algebraic `ModN`, equipped with its quotient
 topology.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L365) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L365) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.compactToModN_mk
 
@@ -8927,7 +8910,7 @@ theorem TopologicalModN.compactToModN_mk {A : Type uA} [AddCommGroup A] [Topolog
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `compactToModN_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L376) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L376) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.compactModNEquiv
 
@@ -8941,7 +8924,7 @@ def TopologicalModN.compactModNEquiv {A : Type uA} [AddCommGroup A] [Topological
 additively equivalent to mathlib's algebraic `ModN`, equipped with its quotient
 topology.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L381) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L381) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalModN.compactModNEquiv_mk
 
@@ -8953,7 +8936,7 @@ theorem TopologicalModN.compactModNEquiv_mk {A : Type uA} [AddCommGroup A] [Topo
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `compactModNEquiv_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L407) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L407) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.powers
 
@@ -8965,7 +8948,7 @@ def TopologicalPowerQuotient.powers (A : Type uA) [CommGroup A] (n : ℕ) : Subg
 
 **Native source docstring:** The subgroup of `n`-th powers.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L422) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L422) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.closedPowers
 
@@ -8977,7 +8960,7 @@ def TopologicalPowerQuotient.closedPowers (A : Type uA) [CommGroup A] [Topologic
 
 **Native source docstring:** The topological closure of the subgroup of `n`-th powers.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L426) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L426) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient
 
@@ -8989,7 +8972,7 @@ abbrev TopologicalPowerQuotient (A : Type uA) [CommGroup A] [TopologicalSpace A]
 
 **Native source docstring:** Multiplicative facade for the quotient by the closure of `n`-th powers.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L433) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L433) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.presentation
 
@@ -9002,7 +8985,7 @@ theorem TopologicalPowerQuotient.presentation {A : Type uA} [CommGroup A] [Topol
 **Native source docstring:** The multiplicative facade is definitionally the quotient by the closed
 power subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L445) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L445) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.multiplicativePresentation
 
@@ -9015,7 +8998,7 @@ theorem TopologicalPowerQuotient.multiplicativePresentation {A : Type uA} [CommG
 **Native source docstring:** The direct closed-power presentation agrees definitionally with the
 multiplicative form of the additive closed-multiple quotient.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L450) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L450) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.instT1Space
 
@@ -9027,7 +9010,7 @@ instance TopologicalPowerQuotient.instT1Space {A : Type uA} [CommGroup A] [Topol
 
 **Native source docstring:** The closed-power quotient is T1 even when the input group is not.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L456) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L456) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.instT2Space
 
@@ -9039,7 +9022,7 @@ instance TopologicalPowerQuotient.instT2Space {A : Type uA} [CommGroup A] [Topol
 
 **Native source docstring:** The closed-power quotient is Hausdorff even when the input group is not.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L461) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L461) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.mkQ
 
@@ -9051,7 +9034,7 @@ def TopologicalPowerQuotient.mkQ {A : Type uA} [CommGroup A] [TopologicalSpace A
 
 **Native source docstring:** The canonical continuous multiplicative quotient homomorphism.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L465) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L465) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.mkQ_apply
 
@@ -9063,7 +9046,7 @@ theorem TopologicalPowerQuotient.mkQ_apply {A : Type uA} [CommGroup A] [Topologi
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `mkQ_apply` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L470) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L470) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.pow_mem_closedPowers
 
@@ -9075,7 +9058,7 @@ theorem TopologicalPowerQuotient.pow_mem_closedPowers {A : Type uA} [CommGroup A
 
 **Native source docstring:** Every `n`-th power belongs to the closed power subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L474) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L474) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.map_closedPowers_le
 
@@ -9088,7 +9071,7 @@ theorem TopologicalPowerQuotient.map_closedPowers_le {A : Type uA} {B : Type uB}
 **Native source docstring:** A continuous homomorphism sends the closed power subgroup into the closed
 power subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L479) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L479) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.map
 
@@ -9100,7 +9083,7 @@ def TopologicalPowerQuotient.map {A : Type uA} {B : Type uB} [CommGroup A] [Comm
 
 **Native source docstring:** Functoriality of the multiplicative closed-power quotient.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L491) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L491) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.map_mk
 
@@ -9112,7 +9095,7 @@ theorem TopologicalPowerQuotient.map_mk {A : Type uA} {B : Type uB} [CommGroup A
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `map_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L503) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L503) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.map_id
 
@@ -9124,7 +9107,7 @@ theorem TopologicalPowerQuotient.map_id {A : Type uA} [CommGroup A] [Topological
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `map_id` for closed power subgroups and topological reduction modulo n; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L507) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L507) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.map_comp
 
@@ -9136,7 +9119,7 @@ theorem TopologicalPowerQuotient.map_comp {A : Type uA} {B : Type uB} {C : Type 
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `map_comp` for closed power subgroups and topological reduction modulo n; refer to the signature for the actual hypotheses.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L515) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L515) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.congr
 
@@ -9149,7 +9132,7 @@ def TopologicalPowerQuotient.congr {A : Type uA} {B : Type uB} [CommGroup A] [Co
 **Native source docstring:** A continuous multiplicative equivalence induces an equivalence of closed
 power quotients.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L522) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L522) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalPowerQuotient.congr_mk
 
@@ -9161,7 +9144,7 @@ theorem TopologicalPowerQuotient.congr_mk {A : Type uA} {B : Type uB} [CommGroup
 
 **Original catalogue explanation (not a Lean docstring):** The named computation `congr_mk` for closed power subgroups and topological reduction modulo n; the displayed source type specifies its input and result exactly.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L549) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L549) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.topologicalPowerQuotient
 
@@ -9174,7 +9157,7 @@ def PointwiseContinuousMulAction.topologicalPowerQuotient {Q : Type uQ} {A : Typ
 **Native source docstring:** Descend every individually continuous automorphism to the quotient by
 closed `n`-th powers.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L567) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L567) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.topologicalPowerQuotient_mk
 
@@ -9186,7 +9169,7 @@ theorem PointwiseContinuousMulAction.topologicalPowerQuotient_mk {Q : Type uQ} {
 
 **Native source docstring:** Exact representative formula for the descended action.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L604) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L604) (historical source start line; generated entries may point to their parent).
 
 #### PointwiseContinuousMulAction.topologicalPowerQuotient_isEquivariant
 
@@ -9199,7 +9182,7 @@ theorem PointwiseContinuousMulAction.topologicalPowerQuotient_isEquivariant {Q :
 **Native source docstring:** An equivariant continuous homomorphism remains equivariant after passing
 to closed power quotients.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L616) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L616) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationModNAction
 
@@ -9212,7 +9195,7 @@ noncomputable abbrev ContinuousGroupExtension.quotientConjActTopologicalAbeliani
 **Native source docstring:** Reduce the accepted quotient-conjugation action before forming closed
 coinvariants.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L648) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L648) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationModNCoinvariants
 
@@ -9226,7 +9209,7 @@ abbrev ContinuousGroupExtension.quotientConjActTopologicalAbelianizationModNCoin
 This definition deliberately does not identify the result with reduction
 performed after coinvariants.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L654) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L654) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationModNAction
 
@@ -9239,7 +9222,7 @@ theorem ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationM
 **Native source docstring:** Accepted fixed-kernel/fixed-quotient extension equivalences preserve the
 descended action after closed topological reduction.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L668) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L668) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationModNCoinvariantsEquiv
 
@@ -9252,7 +9235,7 @@ noncomputable def ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbeli
 **Native source docstring:** Extension equivalences induce the identity-on-representatives continuous
 equivalence between the reduced closed coinvariants.
 
-[Source](../ContinuousGroupCohomology/TopologicalModN.lean#L679) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalModN.lean#L679) (historical source start line; generated entries may point to their parent).
 
 #### Native instance table
 
@@ -9285,7 +9268,7 @@ def TopologicalAbelianization.fromAbelianization (G : Type uN) [Group G] [Topolo
 **Native source docstring:** The canonical homomorphism from algebraic abelianization to topological
 abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### TopologicalAbelianization.fromAbelianization_apply_of
 
@@ -9297,7 +9280,7 @@ theorem TopologicalAbelianization.fromAbelianization_apply_of (G : Type uN) [Gro
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `fromAbelianization_apply_of` in topological quotient-conjugation actions of group extensions; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L48) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L48) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousMulEquiv.quotientGroupCongr
 
@@ -9311,7 +9294,7 @@ def ContinuousMulEquiv.quotientGroupCongr {G : Type uN} {H : Type uH} [Group G] 
 multiplicative equivalence of quotient groups when it carries the first
 normal subgroup onto the second.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L60) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L60) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.continuous_conjAct
 
@@ -9325,7 +9308,7 @@ theorem ContinuousGroupExtension.continuous_conjAct {N : Type uN} {E : Type uE} 
 kernel inclusion is an inducing map, not an independently assumed topology on
 the abstract conjugation automorphism.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L82) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L82) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActContinuous
 
@@ -9338,7 +9321,7 @@ noncomputable def ContinuousGroupExtension.conjActContinuous {N : Type uN} {E : 
 **Native source docstring:** Conjugation by a middle-group element, bundled as a continuous
 multiplicative automorphism of the kernel.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L94) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L94) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.map_topologicalClosure_commutator_conjActContinuous
 
@@ -9351,7 +9334,7 @@ theorem ContinuousGroupExtension.map_topologicalClosure_commutator_conjActContin
 **Native source docstring:** Continuous conjugation preserves the closure of the kernel's commutator
 subgroup.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L109) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L109) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActTopologicalAbelianizationContinuous
 
@@ -9364,7 +9347,7 @@ noncomputable def ContinuousGroupExtension.conjActTopologicalAbelianizationConti
 **Native source docstring:** Conjugation by a middle-group element on the topological abelianization of
 the kernel, bundled as a continuous automorphism.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L129) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L129) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActTopologicalAbelianizationContinuous_apply_mk
 
@@ -9377,7 +9360,7 @@ theorem ContinuousGroupExtension.conjActTopologicalAbelianizationContinuous_appl
 **Native source docstring:** Conjugation on topological abelianization sends a representative to the
 class of its conjugate.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L138) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L138) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActTopologicalAbelianization
 
@@ -9391,7 +9374,7 @@ noncomputable def ContinuousGroupExtension.conjActTopologicalAbelianization {N :
 the bundled-continuous refinement
 `conjActTopologicalAbelianizationContinuous`.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L146) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L146) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActTopologicalAbelianization_inl
 
@@ -9403,7 +9386,7 @@ theorem ContinuousGroupExtension.conjActTopologicalAbelianization_inl {N : Type 
 
 **Native source docstring:** An embedded kernel element acts trivially on topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L169) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L169) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.ker_rightHom_le_ker_conjActTopologicalAbelianization
 
@@ -9416,7 +9399,7 @@ theorem ContinuousGroupExtension.ker_rightHom_le_ker_conjActTopologicalAbelianiz
 **Native source docstring:** The kernel of the extension projection acts trivially on topological
 abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L186) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L186) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianization
 
@@ -9428,7 +9411,7 @@ noncomputable def ContinuousGroupExtension.quotientConjActTopologicalAbelianizat
 
 **Native source docstring:** The quotient-group action on the topological abelianization of the kernel.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L196) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L196) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianization_rightHom
 
@@ -9441,7 +9424,7 @@ theorem ContinuousGroupExtension.quotientConjActTopologicalAbelianization_rightH
 **Native source docstring:** The quotient action evaluated on a projected middle-group element is the
 corresponding conjugation action.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L204) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L204) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationContinuous
 
@@ -9454,7 +9437,7 @@ noncomputable def ContinuousGroupExtension.quotientConjActTopologicalAbelianizat
 **Native source docstring:** The value of the quotient action at any element, bundled as a continuous
 automorphism of topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L223) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L223) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationContinuous_rightHom
 
@@ -9467,7 +9450,7 @@ theorem ContinuousGroupExtension.quotientConjActTopologicalAbelianizationContinu
 **Native source docstring:** The bundled continuous quotient action agrees with continuous conjugation
 on every lift.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L238) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L238) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.quotientConjActTopologicalAbelianizationContinuous_apply_mk
 
@@ -9480,7 +9463,7 @@ theorem ContinuousGroupExtension.quotientConjActTopologicalAbelianizationContinu
 **Native source docstring:** Arbitrary-lift formula for the continuous quotient action on a
 representative of topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L250) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L250) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.conjActTopologicalAbelianizationContinuous_eq_of_rightHom_eq
 
@@ -9493,7 +9476,7 @@ theorem ContinuousGroupExtension.conjActTopologicalAbelianizationContinuous_eq_o
 **Native source docstring:** Two lifts of the same quotient element induce the same bundled continuous
 automorphism of topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L261) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L261) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.topologicalAbelianization_conjAct_eq_of_rightHom_eq
 
@@ -9505,7 +9488,7 @@ theorem ContinuousGroupExtension.topologicalAbelianization_conjAct_eq_of_rightHo
 
 **Native source docstring:** Representative-level form of independence from the chosen lift.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L271) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L271) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.fromAbelianization_quotientConjAct
 
@@ -9518,7 +9501,7 @@ theorem ContinuousGroupExtension.fromAbelianization_quotientConjAct {N : Type uN
 **Native source docstring:** The canonical map from algebraic to topological abelianization
 intertwines the accepted algebraic quotient action with the topological one.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L282) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L282) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.conjActTopologicalAbelianization
 
@@ -9531,7 +9514,7 @@ theorem ContinuousGroupExtension.Equiv.conjActTopologicalAbelianization {N : Typ
 **Native source docstring:** A continuous equivalence of extensions intertwines the middle-group
 actions on topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L300) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L300) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianization
 
@@ -9544,7 +9527,7 @@ theorem ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianization 
 **Native source docstring:** Equivalent continuous extensions with the same kernel and quotient have
 the same quotient action on topological abelianization.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L321) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L321) (historical source start line; generated entries may point to their parent).
 
 #### ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationContinuous
 
@@ -9557,7 +9540,7 @@ theorem ContinuousGroupExtension.Equiv.quotientConjActTopologicalAbelianizationC
 **Native source docstring:** Naturality of the bundled continuous automorphism attached to each
 quotient element under an equivalence of continuous extensions.
 
-[Source](../ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L341) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/ContinuousGroupCohomology/TopologicalQuotientConjugationAction.lean#L341) (historical source start line; generated entries may point to their parent).
 
 ## Checked-use clients
 
@@ -9581,7 +9564,7 @@ theorem FiniteCoinvariantsNative.orbit_single {R : Type uR} [CommRing R] {H : Ty
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `orbit_single` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L39) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L39) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.orbit_range
 
@@ -9593,7 +9576,7 @@ theorem FiniteCoinvariantsNative.orbit_range {R : Type uR} [CommRing R] {H : Typ
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `orbit_range` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L43) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L43) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.orbit_range_closed
 
@@ -9605,7 +9588,7 @@ theorem FiniteCoinvariantsNative.orbit_range_closed {R : Type uR} [CommRing R] {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `orbit_range_closed` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L51) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L51) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.quotient_projection
 
@@ -9617,7 +9600,7 @@ theorem FiniteCoinvariantsNative.quotient_projection {R : Type uR} [CommRing R] 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `quotient_projection` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.invariant_descends_on_generators
 
@@ -9629,7 +9612,7 @@ theorem FiniteCoinvariantsNative.invariant_descends_on_generators {R : Type uR} 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `invariant_descends_on_generators` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L65) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L65) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.invariant_descent_continuous
 
@@ -9641,7 +9624,7 @@ theorem FiniteCoinvariantsNative.invariant_descent_continuous {R : Type uR} [Com
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `invariant_descent_continuous` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L72) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L72) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.intertwining_map_on_generators
 
@@ -9653,7 +9636,7 @@ theorem FiniteCoinvariantsNative.intertwining_map_on_generators {R : Type uR} [C
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `intertwining_map_on_generators` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L79) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L79) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.residual_action_continuous
 
@@ -9665,7 +9648,7 @@ theorem FiniteCoinvariantsNative.residual_action_continuous {R : Type uR} [CommR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `residual_action_continuous` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L96) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L96) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.full_level_norm_comparison
 
@@ -9677,7 +9660,7 @@ theorem FiniteCoinvariantsNative.full_level_norm_comparison {R : Type uR} [CommR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `full_level_norm_comparison` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L104) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L104) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.descended_norm_on_generators
 
@@ -9689,7 +9672,7 @@ theorem FiniteCoinvariantsNative.descended_norm_on_generators {R : Type uR} [Com
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `descended_norm_on_generators` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L113) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L113) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.descended_norm_continuous
 
@@ -9701,7 +9684,7 @@ theorem FiniteCoinvariantsNative.descended_norm_continuous {R : Type uR} [CommRi
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `descended_norm_continuous` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L122) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L122) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 
@@ -9713,7 +9696,7 @@ def FiniteCoinvariantsNative.instTopologicalSpaceMultiplicativeZModOfNatNat_exam
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked finite-coinvariant and descended-norm examples; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L132) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L132) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.instDiscreteTopologyMultiplicativeZModOfNatNat_examples
 
@@ -9725,7 +9708,7 @@ theorem FiniteCoinvariantsNative.instDiscreteTopologyMultiplicativeZModOfNatNat_
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked finite-coinvariant and descended-norm examples; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L133) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L133) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.properNormalLevel
 
@@ -9737,7 +9720,7 @@ def FiniteCoinvariantsNative.properNormalLevel : OpenNormalSubgroup (Multiplicat
 
 **Original catalogue explanation (not a Lean docstring):** Defines `properNormalLevel` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L135) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L135) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.properNormalLevel_lt_top
 
@@ -9749,7 +9732,7 @@ theorem FiniteCoinvariantsNative.properNormalLevel_lt_top : properNormalLevel.to
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `properNormalLevel_lt_top` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L141) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L141) (historical source start line; generated entries may point to their parent).
 
 #### FiniteCoinvariantsNative.descended_norm_proper_level
 
@@ -9761,7 +9744,7 @@ theorem FiniteCoinvariantsNative.descended_norm_proper_level {R : Type uR} [Comm
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `descended_norm_proper_level` in checked finite-coinvariant and descended-norm examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteCoinvariantsNative.lean#L146) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteCoinvariantsNative.lean#L146) (historical source start line; generated entries may point to their parent).
 
 ### examples.FiniteNegativeNative
 
@@ -9777,7 +9760,7 @@ theorem FiniteNegativeNativeClient.transport_component {R G : Type u} [CommRing 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `transport_component` in checked concrete finite negative-deflation examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteNegativeNative.lean#L37) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L37) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.factorization
 
@@ -9789,7 +9772,7 @@ theorem FiniteNegativeNativeClient.factorization {R G : Type u} [CommRing R] [Gr
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `factorization` in checked concrete finite negative-deflation examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteNegativeNative.lean#L45) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L45) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.coefficient_naturality
 
@@ -9801,7 +9784,7 @@ theorem FiniteNegativeNativeClient.coefficient_naturality {R G : Type u} [CommRi
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `coefficient_naturality` for checked concrete finite negative-deflation examples; refer to the signature for the actual hypotheses.
 
-[Source](../examples/FiniteNegativeNative.lean#L62) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L62) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.bottom_lt_top
 
@@ -9813,7 +9796,7 @@ theorem FiniteNegativeNativeClient.bottom_lt_top : ⊥ < ⊤
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `bottom_lt_top` in checked concrete finite negative-deflation examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteNegativeNative.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L75) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.instFintypeSubtypeQuotientMultiplicativeZModOfNatNatSubgroupBotMemMapMk'Top_examples
 
@@ -9825,7 +9808,7 @@ noncomputable def FiniteNegativeNativeClient.instFintypeSubtypeQuotientMultiplic
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked concrete finite negative-deflation examples; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/FiniteNegativeNative.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.concrete_degree_zero
 
@@ -9837,7 +9820,7 @@ theorem FiniteNegativeNativeClient.concrete_degree_zero (A : Rep ℤ (Multiplica
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `concrete_degree_zero` in checked concrete finite negative-deflation examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteNegativeNative.lean#L81) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L81) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.concrete_positive_degree
 
@@ -9849,7 +9832,7 @@ theorem FiniteNegativeNativeClient.concrete_positive_degree (A : Rep ℤ (Multip
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `concrete_positive_degree` in checked concrete finite negative-deflation examples; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/FiniteNegativeNative.lean#L98) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L98) (historical source start line; generated entries may point to their parent).
 
 #### FiniteNegativeNativeClient.concrete_positive_naturality
 
@@ -9861,7 +9844,7 @@ theorem FiniteNegativeNativeClient.concrete_positive_naturality {A B : Rep ℤ (
 
 **Original catalogue explanation (not a Lean docstring):** The named composition, identity or naturality law `concrete_positive_naturality` for checked concrete finite negative-deflation examples; refer to the signature for the actual hypotheses.
 
-[Source](../examples/FiniteNegativeNative.lean#L117) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/FiniteNegativeNative.lean#L117) (historical source start line; generated entries may point to their parent).
 
 ### examples.LevelCompactNative
 
@@ -9883,7 +9866,7 @@ theorem LevelCompactNormNative.relativeNormSubgroup_comap {G : Type uG} [Group G
 
 **Native source docstring:** The subgroup used for the relative norm is the pullback inside `U`.
 
-[Source](../examples/LevelCompactNormNative.lean#L35) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L35) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.normClientTransversalFintype
 
@@ -9895,7 +9878,7 @@ noncomputable def LevelCompactNormNative.normClientTransversalFintype {G : Type 
 
 **Original catalogue explanation (not a Lean docstring):** Defines `normClientTransversalFintype` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L40) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L40) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_with_choice
 
@@ -9907,7 +9890,7 @@ theorem LevelCompactNormNative.norm_with_choice {R : Type uR} [CommRing R] {G : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_with_choice` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L45) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L45) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_two_choices
 
@@ -9919,7 +9902,7 @@ theorem LevelCompactNormNative.norm_two_choices {R : Type uR} [CommRing R] {G : 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_two_choices` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L52) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L52) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_with_choice_coe
 
@@ -9931,7 +9914,7 @@ theorem LevelCompactNormNative.norm_with_choice_coe {R : Type uR} [CommRing R] {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_with_choice_coe` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L59) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L59) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_tower
 
@@ -9943,7 +9926,7 @@ theorem LevelCompactNormNative.norm_tower {R : Type uR} [CommRing R] {G : Type u
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_tower` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L68) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L68) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_same_level
 
@@ -9955,7 +9938,7 @@ theorem LevelCompactNormNative.norm_same_level {R : Type uR} [CommRing R] {G : T
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_same_level` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L75) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_residual_action
 
@@ -9967,7 +9950,7 @@ theorem LevelCompactNormNative.norm_residual_action {R : Type uR} [CommRing R] {
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_residual_action` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L79) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L79) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_range_residual_stable
 
@@ -9979,7 +9962,7 @@ theorem LevelCompactNormNative.norm_range_residual_stable {R : Type uR} [CommRin
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_range_residual_stable` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L90) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L90) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_continuous
 
@@ -9991,7 +9974,7 @@ theorem LevelCompactNormNative.norm_continuous {R : Type uR} [CommRing R] {G : T
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_continuous` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L100) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L100) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 
@@ -10003,7 +9986,7 @@ def LevelCompactNormNative.instTopologicalSpaceMultiplicativeZModOfNatNat_exampl
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked relative-norm calculations on compact levels; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/LevelCompactNormNative.lean#L108) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L108) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.instDiscreteTopologyMultiplicativeZModOfNatNat_examples
 
@@ -10015,7 +9998,7 @@ theorem LevelCompactNormNative.instDiscreteTopologyMultiplicativeZModOfNatNat_ex
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked relative-norm calculations on compact levels; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/LevelCompactNormNative.lean#L109) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L109) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.twoElementBottom
 
@@ -10027,7 +10010,7 @@ def LevelCompactNormNative.twoElementBottom : OpenSubgroup (Multiplicative (ZMod
 
 **Original catalogue explanation (not a Lean docstring):** Defines `twoElementBottom` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L111) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L111) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.twoElementBottom_lt_top
 
@@ -10039,7 +10022,7 @@ theorem LevelCompactNormNative.twoElementBottom_lt_top : twoElementBottom < ⊤
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `twoElementBottom_lt_top` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L115) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L115) (historical source start line; generated entries may point to their parent).
 
 #### LevelCompactNormNative.norm_twoElement_proper_level
 
@@ -10051,7 +10034,7 @@ theorem LevelCompactNormNative.norm_twoElement_proper_level {R : Type uR} [CommR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `norm_twoElement_proper_level` in checked relative-norm calculations on compact levels; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/LevelCompactNormNative.lean#L119) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/LevelCompactNormNative.lean#L119) (historical source start line; generated entries may point to their parent).
 
 ### examples.NativeCore
 
@@ -10067,7 +10050,7 @@ theorem NativeCore.split_connecting_exact {k : Type u} [Ring k] [TopologicalSpac
 
 **Native source docstring:** Exactness at invariant quotient coefficients in continuous degree one.
 
-[Source](../examples/NativeCore.lean#L35) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/NativeCore.lean#L35) (historical source start line; generated entries may point to their parent).
 
 #### NativeCore.transfer_from_full_group
 
@@ -10079,7 +10062,7 @@ theorem NativeCore.transfer_from_full_group {k : Type u} [Ring k] [TopologicalSp
 
 **Native source docstring:** For the full open subgroup, restriction followed by transfer is the identity.
 
-[Source](../examples/NativeCore.lean#L44) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/NativeCore.lean#L44) (historical source start line; generated entries may point to their parent).
 
 #### NativeCore.finite_orbit_relations
 
@@ -10091,7 +10074,7 @@ theorem NativeCore.finite_orbit_relations {R : Type u} [CommRing R] {H : Type v}
 
 **Native source docstring:** Finite orbit differences generate precisely the coinvariant relations.
 
-[Source](../examples/NativeCore.lean#L56) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/NativeCore.lean#L56) (historical source start line; generated entries may point to their parent).
 
 #### NativeCore.compact_mod_n_representative
 
@@ -10104,7 +10087,7 @@ theorem NativeCore.compact_mod_n_representative {A : Type u} [AddCommGroup A] [T
 **Native source docstring:** Closed reduction modulo `n` agrees with algebraic reduction on representatives
 of a compact Hausdorff additive group.
 
-[Source](../examples/NativeCore.lean#L65) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/NativeCore.lean#L65) (historical source start line; generated entries may point to their parent).
 
 #### NativeCore.compact_limit_projection
 
@@ -10118,7 +10101,7 @@ theorem NativeCore.compact_limit_projection {J : Type v} [CategoryTheory.SmallCa
 additive groups, surjective transitions into that object imply a surjective
 limit projection. An empty index category has no object at which to apply this.
 
-[Source](../examples/NativeCore.lean#L75) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/NativeCore.lean#L75) (historical source start line; generated entries may point to their parent).
 
 ### examples.NestedInvariantsNative
 
@@ -10140,7 +10123,7 @@ theorem RestrictedLevelNative.universal_membership {R G : Type u} [CommRing R] [
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universal_membership` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L42) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L42) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.universal_in_each_norm_range
 
@@ -10152,7 +10135,7 @@ theorem RestrictedLevelNative.universal_in_each_norm_range {R G : Type u} [CommR
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universal_in_each_norm_range` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L50) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L50) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.universal_stable
 
@@ -10164,7 +10147,7 @@ theorem RestrictedLevelNative.universal_stable {R G : Type u} [CommRing R] [Grou
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universal_stable` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L57) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L57) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.universal_norm_preservation
 
@@ -10176,7 +10159,7 @@ theorem RestrictedLevelNative.universal_norm_preservation {R G : Type u} [CommRi
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `universal_norm_preservation` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L64) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L64) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_contains_universal
 
@@ -10188,7 +10171,7 @@ theorem RestrictedLevelNative.chosen_contains_universal {R G : Type u} [CommRing
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_contains_universal` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L71) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L71) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_norm_formula
 
@@ -10200,7 +10183,7 @@ theorem RestrictedLevelNative.chosen_norm_formula {R G : Type u} [CommRing R] [G
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_norm_formula` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L77) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L77) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_norm_tower
 
@@ -10212,7 +10195,7 @@ theorem RestrictedLevelNative.chosen_norm_tower {R G : Type u} [CommRing R] [Gro
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_norm_tower` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L83) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L83) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_norm_same_level
 
@@ -10224,7 +10207,7 @@ theorem RestrictedLevelNative.chosen_norm_same_level {R G : Type u} [CommRing R]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_norm_same_level` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L89) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L89) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_norm_continuous
 
@@ -10236,7 +10219,7 @@ theorem RestrictedLevelNative.chosen_norm_continuous {R G : Type u} [CommRing R]
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_norm_continuous` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L100) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L100) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_compact
 
@@ -10248,7 +10231,7 @@ theorem RestrictedLevelNative.chosen_compact {R G : Type u} [CommRing R] [Group 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_compact` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L106) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L106) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_hausdorff
 
@@ -10260,7 +10243,7 @@ theorem RestrictedLevelNative.chosen_hausdorff {R G : Type u} [CommRing R] [Grou
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_hausdorff` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L111) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L111) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_additive_group
 
@@ -10272,7 +10255,7 @@ theorem RestrictedLevelNative.chosen_additive_group {R G : Type u} [CommRing R] 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `chosen_additive_group` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L116) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L116) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_compact_group
 
@@ -10284,7 +10267,7 @@ noncomputable def RestrictedLevelNative.chosen_compact_group {R G : Type u} [Com
 
 **Original catalogue explanation (not a Lean docstring):** Defines `chosen_compact_group` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L121) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L121) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.chosen_norm_group_hom
 
@@ -10296,7 +10279,7 @@ noncomputable def RestrictedLevelNative.chosen_norm_group_hom {R G : Type u} [Co
 
 **Original catalogue explanation (not a Lean docstring):** Defines `chosen_norm_group_hom` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L125) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L125) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.full_choice
 
@@ -10308,7 +10291,7 @@ theorem RestrictedLevelNative.full_choice {R G : Type u} [CommRing R] [Group G] 
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `full_choice` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L130) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L130) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.canonical_choice
 
@@ -10320,7 +10303,7 @@ theorem RestrictedLevelNative.canonical_choice {R G : Type u} [CommRing R] [Grou
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `canonical_choice` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L134) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L134) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.canonical_le_full
 
@@ -10332,7 +10315,7 @@ theorem RestrictedLevelNative.canonical_le_full {R G : Type u} [CommRing R] [Gro
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `canonical_le_full` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L140) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L140) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 
@@ -10344,7 +10327,7 @@ def RestrictedLevelNative.instTopologicalSpaceMultiplicativeZModOfNatNat_example
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked restricted-level and norm-range calculations; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/RestrictedLevelNative.lean#L149) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L149) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.instDiscreteTopologyMultiplicativeZModOfNatNat_examples
 
@@ -10356,7 +10339,7 @@ theorem RestrictedLevelNative.instDiscreteTopologyMultiplicativeZModOfNatNat_exa
 
 **Original catalogue explanation (not a Lean docstring):** Generated declaration of a module-local instance for checked restricted-level and norm-range calculations; local instance syntax does not by itself promise a global public instance.
 
-[Source](../examples/RestrictedLevelNative.lean#L150) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L150) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.twoElementBottom
 
@@ -10368,7 +10351,7 @@ def RestrictedLevelNative.twoElementBottom : OpenNormalSubgroup (Multiplicative 
 
 **Original catalogue explanation (not a Lean docstring):** Defines `twoElementBottom` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L152) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L152) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.twoElementTop
 
@@ -10380,7 +10363,7 @@ def RestrictedLevelNative.twoElementTop : OpenNormalSubgroup (Multiplicative (ZM
 
 **Original catalogue explanation (not a Lean docstring):** Defines `twoElementTop` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L158) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L158) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.twoElementBottom_lt_top
 
@@ -10392,7 +10375,7 @@ theorem RestrictedLevelNative.twoElementBottom_lt_top : twoElementBottom < twoEl
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `twoElementBottom_lt_top` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L164) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L164) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.finiteDiscreteLevelCompact
 
@@ -10404,7 +10387,7 @@ noncomputable def RestrictedLevelNative.finiteDiscreteLevelCompact (A : Rep (ZMo
 
 **Original catalogue explanation (not a Lean docstring):** Defines `finiteDiscreteLevelCompact` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L168) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L168) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.proper_level_norm_range
 
@@ -10416,7 +10399,7 @@ theorem RestrictedLevelNative.proper_level_norm_range {Rfinite : Type} [CommRing
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `proper_level_norm_range` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L191) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L191) (historical source start line; generated entries may point to their parent).
 
 #### RestrictedLevelNative.finite_discrete_proper_norm_range
 
@@ -10428,4 +10411,4 @@ theorem RestrictedLevelNative.finite_discrete_proper_norm_range (A : Rep (ZMod 2
 
 **Original catalogue explanation (not a Lean docstring):** Records a theorem about `finite_discrete_proper_norm_range` in checked restricted-level and norm-range calculations; the displayed signature, not this orientation text, specifies its exact scope.
 
-[Source](../examples/RestrictedLevelNative.lean#L204) (native source start line; generated entries may point to their parent).
+[Source](https://github.com/FormalFrontier/continuous-group-cohomology/blob/be74358d7b1140e76ab6b2ad72f6aa068138e687/examples/RestrictedLevelNative.lean#L204) (historical source start line; generated entries may point to their parent).

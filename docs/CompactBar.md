@@ -72,6 +72,5 @@ gives an *additive* equivalence from finite Tate cohomology in degree
 
 This layer establishes neither continuity of finite deflation across levels,
 nor inverse-limit exactness, a completed continuous Tate theory, or a
-source-coverage decision. Its exact three-file historical candidate and
-review are recorded in the [attribution](attribution.md); the current
-assembly requires its own independent review and applicable build/axiom audit.
+source-coverage decision. See [attribution](attribution.md) for original
+contributor credit.

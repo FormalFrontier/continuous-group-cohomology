@@ -1,4 +1,4 @@
-# Injective restriction on native continuous cochains (2026-09-30)
+# Injective restriction on native continuous cochains
 
 Import `ContinuousGroupCohomology.CochainInjectivity`.
 For topological groups `G`, `H` in the native same-universe setup, an arbitrary

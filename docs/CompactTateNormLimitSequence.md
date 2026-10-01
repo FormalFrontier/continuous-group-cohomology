@@ -87,14 +87,5 @@ systems (whose top target is `B_top`, not automatically `A^G`), coefficient
 naturality, scalar topologies, arithmetic, all-degree Tate theory and source
 correspondence are outside this result.
 
-Original design: worker-b Hive Task
-`hive-request-c6482d383e26ff324ba537448bc3a3ec237da49a` (UID
-`f7a1f3b6-03ae-45da-ab9f-ee553a6d140e`); finite row: worker-b Hive Task
-`hive-request-e6d76bdf4dadaad23f990aa082128217880d7321` (UID
-`b9bd4a7e-8ee1-4213-9075-d0ebba7ab03e`); full-system implementation:
-worker-b Hive Task `hive-request-a3c785c9e3c2568cbdb2e8592ff3c30ed2a0feee`
-(UID `8642a473-88cb-463a-beca-1c6e7fc1b695`). This implementation uses
-the explicitly packaged full open-normal subgroup, not a generic top-index
-shortcut. The destination transfer's review, changed-pin build/private-inclusive
-axiom audit, maintainer acceptance and verified release are independent gates;
-no source correspondence or coverage follows from this guide.
+The result concerns the full open-normal diagram, not arbitrary restricted
+systems. See [attribution](attribution.md) for contributor origins.

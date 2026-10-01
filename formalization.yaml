@@ -2,42 +2,17 @@ version: "v0.4"
 project:
   name: Continuous group cohomology
   description: >-
-    Dated 2026-09-30 source-only preparation from then-unaccepted incubator
-    F2 2a85016c8451ffe9c441c0fc0a8767d63ac2963e on accepted destination
-    D 8c7883a672c6f5d465a40f932df5f9ec65224b08. F2 was subsequently
-    accepted in isolation, not as a shared-main integration. Exact destination
-    C4 f7cc7b2e0e4ae0c4f18b83d1e5159bbf0a500552 passed its original native
-    build and complete standard-axiom audit, received independent destination
-    review and Beacon's acceptance, and entered development main on
-    2026-09-30 at 13:26:59 UTC. Nine native producer
-    modules add all-degree classwise finite-quotient lifting with genuine
-    quotient-invariant coefficients and positive-degree class-dependent
-    quotient-order annihilation and additive torsion. The eight accompanying
-    native examples and guides describe the precise hypotheses and boundaries.
-    This accepted development is not an independently reviewed official release,
-    official publication or a source-coverage decision.
-    The complete previously published library description follows:
-    Native Lean core for continuous cohomology in degrees zero and one,
-    degree-one transfer and compact-group torsion, topological quotients,
-    finite-group coinvariants and finite-level deflation in Tate degrees -1 and 0
-    with nested-normal-subgroup transitivity, compact finite-bar homology and
-    functoriality, finite profinite-quotient Tate diagrams, their topological
-    limits and coefficient functoriality, and compact Hausdorff additive-group
-    limit models, and compact Hausdorff exceptional Tate kernel/quotient
-    presentations with continuous finite-level deflation, compact exceptional
-    Tate diagrams, additive natural comparisons and compact additive limits,
-    continuous coefficient maps on the exceptional stages and limits, and
-    functoriality of selected restricted relative-norm systems. Compact finite
-    Tate norm rows and their full open-normal inverse-limit sequence identify
-    universal norms and a compact Hausdorff additive quotient. Continuous
-    coefficient maps on the actual finite-coinvariant limit give naturality of
-    all three full-row arrows and the independently descended quotient action
-    and its degree-zero-limit natural isomorphism.
-    Separately, full invariant compact relative-norm limits project precisely
-    onto universal norms; restricted universal-norm transitions are surjective,
-    and genuine inclusions of chosen closed restricted systems containing them
-    induce natural compact additive limit isomorphisms with both projection
-    equations, without surjectivity of full or arbitrary restricted transitions.
+    Native continuous group cohomology in low degrees; transfer and compact-group
+    degree-one torsion; finite-level Tate deflation, compact exceptional Tate
+    groups and diagrams, compact finite-bar homology and norm-limit sequences.
+    For compact topological groups with discrete jointly continuous coefficients
+    over a topologized ring, every continuous cohomology class lifts from a
+    finite open-normal quotient with invariant coefficients. In positive degrees
+    a class-dependent quotient order annihilates the class. The native
+    open-normal inflation cocone is a filtered colimit in all degrees, including
+    zero, with the actual cohomology topology and arbitrary topological-module
+    targets. Its equality refinements depend on the classes; no fixed-stage
+    injection, uniform bound or closed-boundary-range hypothesis is claimed.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
@@ -46,97 +21,10 @@ sources:
     type: original-development
     relationship: other
     note: >-
-      This is original project development, not a fictional publication,
-      a claim that every result is new, or a source-coverage decision.
-      Existing mathlib and finite-group Tate results are reused. The
-      native-core assembly was a scoped preparation using previously accepted
-      ordinary mathematical components. The subsequently recovered exceptional
-      deflation and transitivity contribution was independently reviewed and
-      accepted on 2026-09-26 at c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26.
-      A later continuous degree-one torsion transfer preserves an independently
-      reviewed predecessor. At its 2026-09-26 preparation checkpoint, destination
-      packaging still required fresh review; exact decisions are recorded separately.
-      Exact release and publication decisions belong in their external records;
-      neither ordinary code acceptance nor this note establishes source coverage.
-      Two compact finite-bar leaves and a direct client were restored from
-      the separately reviewed historical candidate b23f9c5237e99c5270fe0e7db0154de918f75daa;
-      their later exact combined contribution completed independent review and
-      private release on 2026-09-26. The finite Tate diagram, limit and
-      coefficient-functoriality files preserve the separately reviewed
-      bbd25f08b4bee9095880a15c11d3712541a5c347 predecessor. This later assembly
-      still required its own exact review and acceptance at its 2026-09-26
-      assembly checkpoint. A later native
-      exceptional Tate topology/deflation transfer from the incubator is
-      prepared against exact source b5c384ab832eedacfded4240e5a9dc6fa1b57aee.
-      At its 2026-09-27 author handoff this destination adaptation was unreviewed;
-      the transfer itself is not a source-coverage or publication decision.
-      Two subsequent compact exceptional Tate diagram/limit leaves and one native
-      client transfer from independently reviewed incubator main
-      aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2. At its 2026-09-27 author
-      handoff this destination transfer was unreviewed; the transfer itself
-      is not a source-coverage or release decision.
-      Three further accepted incubator coefficient/norm-functoriality leaves
-      and their direct clients are transferred from incubator main
-      28d4a7eba8c30747eb006156d8aea30e2f6c46a8. At its 2026-09-27 author
-      handoff this destination transfer was unreviewed, not an accepted release
-      or a source-coverage decision. Exact later review and release decisions
-      are recorded separately; its source check uses a different mathlib pin.
-      At the 2026-09-27 source-only author-handoff checkpoint, the two compact
-      Tate norm producers and direct clients were transferred from then
-      code-unaccepted incubator revision e2a5c7e6f255535aedb5b8ed597c13f6c418c8c1.
-      The earlier finite row was separately integrated into incubator main;
-      the registered norm-limit source union still needed its own full
-      native/private-inclusive evidence, predecessor acceptance and maintainer
-      integration. At that checkpoint this destination copy also required its
-      own changed-pin compatibility, review, audit, acceptance and release gates.
-      Later exact decisions are recorded separately; these are historical handoff
-      conditions, not current lifecycle claims. No incubator ancestry or
-      dependency is imported here.
-      At its 2026-09-27 source-only author handoff, the naturality copy came
-      from then-unaccepted frozen incubator PR121 revision
-      06f99031c7cf284320dc65fcaf787a569a791be4.
-      The original implementation, source registrar and destination transfer
-      have distinct Task/UID credits in docs/attribution.md. The isolated
-      review and private-inclusive source audit covered only their exact
-      inputs, not the changed source registration or destination mathlib pin.
-      Subsequently, source PR121 passed its own review and checks and was
-      accepted and integrated at 06f99031c7cf284320dc65fcaf787a569a791be4
-      (CGC #30/53755, #30/53761). Destination PR150 separately passed
-      independent review and native547 full-root/client, private-inclusive
-      standard-axiom checks, then was accepted and integrated at
-      f37e95ea83e8477e84a58e327df7535cb93c12cc (CGC #30/53596,
-      #30/53776, #30/53786). Its separately reviewed release was accepted
-      and verified on private GitHub main at official
-      472fc313990d73049bf9a403ec47282c8851fea3 (CGC #30/54239), and the
-      later incubator naturality import conversion PR129 was accepted and
-      protected-integrated at 9c91f0959037f9ec437adc5fd2891ef96b654ddd
-      (CGC #30/54877; incubator #129/54887). Neither code nor release alone
-      establishes source correspondence or coverage.
-      The separate compact universal-norm limit producer/client/guide originate
-      with worker-b Task hive-request-03e922288088a5d1c219136acc3e6c751b1deed4
-      (UID c434e120-0a6c-400b-8688-df1930ee09cf), then-unregistered
-      incubator leaf a3a22a2ff480a29bf9c6bc65bdc3258318d0ddb5. Worker-a Task
-      hive-request-379227b17cfd2bc24a9d90fad508433bb05eff34 (UID
-      e03485c6-faa5-4c86-8c26-ca675c07ab8f) independently approved the
-      frozen leaf in CGC #30/54289; Beacon adopted leaf readiness, not source
-      registration or integration, in CGC #30/54295. Worker-b Task
-      hive-request-e9e4a4d665612156fc293987266d82d3095b832f (UID
-      7b81731e-77c0-4035-b4f8-486145079158) transferred it source-only
-      onto CGC 0534608dbab4845ee3e356f4f79cc1422eff013c. Source-focused
-      evidence af111b8039277f3757173783a88390f88dddfd82 has different
-      mathlib and CGC pins, so it does not certify this destination. Later source
-      registration PR131 was accepted and protected-integrated at
-      74260f173dacd7fab9156b70ca427a96f83ea2f2 (CGC #30/54932;
-      incubator #131/54934), preserving the original Lean blobs. Destination
-      PR154 separately passed fresh worker-a review (CGC #30/54424) and native603
-      both-root build and 72-module complete private-inclusive standard-axiom
-      audit at the actual destination pins (CGC #30/54767); Beacon accepted
-      and protected-integrated 157fbdc282f1697a857a9d552aa394f8a0214bba
-      (CGC #30/54948). Independent final whole-artifact/history/rights release
-      review, owner release acceptance, protected promotion, verified GitHub
-      publication and later separately reviewed incubator conversion remain
-      pending for this new contribution. No source correspondence, coverage
-      or whole-release rights clearance is implied.
+      Original Formal Frontier development, not a separate mathematical paper
+      or a source-coverage assertion. Reuses the cited mathlib and finite-group
+      Tate interfaces. Attribution and the specific mathematical APIs are
+      documented in docs/attribution.md and the linked module guides.
 related_formalizations:
   - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
     relationship: builds-on
@@ -146,67 +34,92 @@ related_formalizations:
 automation:
   methods:
     - method: agent
-      framework: Hive Tasks and Codex CLI
+      framework: Codex CLI
       tool_setup: >-
         AI agents developed Lean proofs and documentation with Lake, Lean,
         mathlib and independent agent review of scoped contributions.
   notes: >-
-    Authoring was AI-assisted. At the 2026-09-26 preparation checkpoint,
-    the earlier native-core packaging did not inherit first-release approval
-    from independently reviewed components. Restored finite deflation received
-    its own fresh exact-combined-candidate review; no old conditional component
-    vote was transferred. Exact-commit decisions are recorded separately.
+    Proof development and documentation were AI-assisted using Codex CLI and
+    independently inspected in scoped reviews. This self-report does not
+    replace independent review of the entire candidate or release.
 status:
   scope: >-
-    Dated 2026-09-30 preparation, subsequently accepted as development code
-    after the original destination-native check and independent review:
-    classwise lift in every degree for compact
-    topological groups and discrete jointly continuous representations over
-    topologized rings, using actual invariant coefficients at an open-normal
-    finite quotient; positive-degree quotient-order annihilation and IsAddTorsion
-    with class-dependent quotient/order. No degree-zero torsion, uniform stage
-    or bound, cohomology injection, general boundary descent, full colimit,
-    acyclicity, vanishing, or source-specific coverage is asserted. The complete
-    accepted destination D scope follows as a predecessor snapshot; separate
-    release-artifact/history review and official publication remain pending:
-    Low-degree continuous cohomology, transfer and compact-group degree-one
-    torsion, finite coinvariants and
-    finite-level deflation in Tate degrees -1 and 0, compact Hausdorff additive
-    finite-bar homology and additive finite Tate comparison in degrees -(n+2).
-    Compact Hausdorff additive exceptional Tate stages in degrees -1 and 0
-    arise as the closed kernel and quotient-by-range of a finite norm;
-    continuous coinvariant deflation induces compact maps with additive
-    comparisons to algebraic finite Tate deflation. Finite profinite-quotient
-    Tate diagrams, categorical topological limits and coefficient functoriality
-    use covariant finite deflation. Compact exceptional Tate diagrams give
-    degree -1 and 0 closed-kernel/quotient stages, additive natural comparisons
-    and limits in compact Hausdorff additive groups with eventual-range projections.
-    Level-compact morphisms act continuously on compact exceptional Tate
-    stages and limits. Morphisms of chosen restricted systems preserve the
-    selected coefficients and their actual compact relative-norm diagrams;
-    full and universal-norm systems are functorial without extra preservation.
-    The actual compact finite coinvariant/kernel/constant-invariant/quotient
-    norm row has both finite-stage exact middle pairs and onto degree-zero
-    deflation. Its full open-normal compact inverse-limit sequence has both
-    exact middle pairs, injective/onto endpoints, actual universal-norm
-    kernel and norm range, compact quotient iso and onto degree-zero limit
-    projections. For common-universe R and profinite G, arbitrary LevelCompactRep
-    morphisms act on the actual finite-coinvariant diagram and limit, commute
-    with the three full-row arrows, preserve the actual closed universal-norm
-    subgroup, descend continuously to its quotient and make the existing
-    quotient-to-degree-zero-limit iso natural. The R, G, Rep and LevelCompact
-    data require no scalar or ambient coefficient topology. Separately, the
-    projection of the full invariant compact relative-norm limit detects the
-    existing universal-norm submodule, restricted universal-norm transitions
-    are onto, and inclusion of any chosen closed restricted system containing
-    universal norms induces a natural iso of the actual compact additive
-    limits, with both projection equations. Arbitrary chosen-system naturality
-    requires a specified preserving restricted morphism (`map_mem`), whereas
-    the universal-norm functor supplies preservation for all level-compact
-    coefficient maps. No full or arbitrary restricted transition surjectivity,
-    onto coinvariant/kernel transitions, general inverse-limit exactness,
-    completed continuous Tate comparison, all-degree or arithmetic result is asserted.
+    Low-degree continuous cohomology, finite-index transfer, compact-group
+    degree-one torsion, classwise finite-quotient lifts and positive-degree
+    classwise torsion, and the all-degree native open-normal finite-stage
+    colimit (including degree zero and arbitrary topological-module targets).
+    The colimit assumes a compact topological group and discrete jointly
+    continuous coefficients over a ring with a topology; generic algebraic
+    boundaries and transition diagrams need fewer assumptions. Also includes
+    finite-level Tate deflation, compact finite-bar homology, compact exceptional
+    Tate stages and diagrams, coefficient naturality, norm rows, compact
+    full-system limits and restricted universal-norm comparisons under the
+    hypotheses of their respective declarations. There is no fixed-stage
+    positive-degree injectivity, uniform refinement or bound, closed boundary
+    range requirement for the native colimit, arbitrary-system inverse-limit
+    exactness, general completed continuous Tate theory or source-coverage
+    assertion. See README.md and individual guides for precise boundaries.
   main_results:
+    - declaration: ContinuousCohomology.openNormalInflationCoconeIsColimit_type
+      file: ContinuousGroupCohomology/FiniteStageColimit.lean
+    - declaration: ContinuousCohomology.openNormalInflationCoconeIsColimit
+      file: ContinuousGroupCohomology/FiniteStageColimit.lean
+    - declaration: ContinuousCohomology.discreteTopology_continuousCohomology
+      file: ContinuousGroupCohomology/DiscreteCohomology.lean
+    - declaration: ContinuousCohomology.exists_quotient_cochain_lift_below
+      file: ContinuousGroupCohomology/SeededCochains.lean
+    - declaration: TopModuleCat.shortComplex_homologyπ_eq_zero_iff
+      file: ContinuousGroupCohomology/Algebra/Category/ModuleCat/Topology/HomologyBoundary.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom_mk
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom_surjective
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom_comp_quotient
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom_id
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionHom_comp
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionIncl
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionIncl_val
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionIncl_injective
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransitionIncl_inflate
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_cochainsMap_id
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_map_id
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_cochainsMap_comp
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_map_comp
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_cochainsMap_inflate
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.quotientTransition_map_inflate
+      file: ContinuousGroupCohomology/QuotientTransitions.lean
+    - declaration: ContinuousCohomology.class_eq_zero_of_inflation_zero_degree_zero
+      file: ContinuousGroupCohomology/FiniteStageBoundary.lean
+    - declaration: ContinuousCohomology.exists_refinement_class_eq_zero
+      file: ContinuousGroupCohomology/FiniteStageBoundary.lean
+    - declaration: ContinuousCohomology.exists_refinement_class_eq_of_inflation_eq
+      file: ContinuousGroupCohomology/FiniteStageBoundary.lean
+    - declaration: ContinuousCohomology.isFiltered_orderDual_openNormalSubgroup
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
+    - declaration: ContinuousCohomology.openNormalCohomologyDiagram
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
+    - declaration: ContinuousCohomology.openNormalInflationCocone
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
+    - declaration: ContinuousCohomology.openNormalCohomologyDiagram_obj
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
+    - declaration: ContinuousCohomology.openNormalCohomologyDiagram_map
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
+    - declaration: ContinuousCohomology.openNormalInflationCocone_ι_app
+      file: ContinuousGroupCohomology/OpenNormalDiagram.lean
     - declaration: ContinuousCohomology.isAddTorsion_degreeOne
       file: ContinuousGroupCohomology/Torsion.lean
     - declaration: ContinuousGroupCohomology.finiteNegativeOneDeflation_comp
@@ -544,115 +457,16 @@ status:
 review:
   status: other
   notes: >-
-    Dated 2026-09-30 preparation snapshot only: prospective incubator F2 is
-    unaccepted, and this exact relocated candidate has no destination-native
-    build or full transitive standard-axiom check and no independent destination
-    transfer/API/provenance review or maintainer acceptance. A favorable static
-    F2/T reviewer verdict does not substitute for its separate native evidence
-    and responsible-maintainer decision. Official publication, subsequent
-    incubator conversion and source-coverage decisions remain separate.
-    The complete earlier destination review history follows unchanged:
-    Earlier accepted development contributions received scoped independent
-    reviews. The four recovered files originally had a conditional review on an
-    unaccepted predecessor. Fresh Worker-a Task
-    hive-request-f139e336e97ab3fe7242e258c5c79f30b9530847 independently approved
-    the actual combined c0dae4cfc6d0a5c6065d9a6b7db1941a54b63b26 contribution
-    in PR110 review3532, with Beacon acceptance and integration on 2026-09-26.
-    At the 2026-09-26 preparation checkpoint, the later compact-group degree-one
-    torsion transfer had not yet received independent destination review or
-    release acceptance. Later exact-commit decisions are recorded separately.
-    Compact finite bars subsequently completed their own exact review and private
-    release. PR114 review3578 separately reviewed the finite Tate diagram
-    predecessor bbd25f08b4bee9095880a15c11d3712541a5c347. The original
-    ordinary-import audit's missing private declarations were corrected by
-    explicit full-module audits: 1962 base declarations and 67 diagram/client
-    declarations, all using only standard axioms. Historical incomplete outputs
-    remain preserved. No predecessor review is transferred automatically to
-    this assembly, and none establishes whole-source coverage or approval of
-    later release history. At this 2026-09-26 composition checkpoint, final
-    acceptance of the combined candidate remains pending. The subsequent
-    compact exceptional Tate cluster was an unreviewed destination promotion
-    candidate at its 2026-09-27 author handoff, from incubator
-    b5c384ab832eedacfded4240e5a9dc6fa1b57aee;
-    independent source and destination review, owner acceptance and verified
-    release remain separate decisions. Its author transfer alone does not
-    establish approval or whole-source coverage. The later compact exceptional
-    Tate diagrams/limits transfer is separately reviewed in incubator main
-    aa65d3e5c96fbe5ddd6037f7e7b39fe82114ecf2. At its 2026-09-27 author
-    handoff it had not been independently reviewed or accepted in this
-    destination. Exact later destination review, acceptance and official
-    publication are separate decisions; no source-coverage determination
-    follows from this transfer.
-    The later three-leaf coefficient/norm-functoriality destination transfer
-    from accepted incubator main 28d4a7eba8c30747eb006156d8aea30e2f6c46a8
-    had not received independent destination review, destination CI build or
-    complete transitive standard-axiom audit on its changed graph at the
-    2026-09-27 author-handoff checkpoint. Exact later destination review,
-    acceptance and publication decisions are recorded separately. Source
-    review and check evidence do not establish destination compatibility.
-    The finite norm row was independently reviewed in isolation and registered
-    in incubator main; the norm-limit isolated implementation was independently
-    reviewed. At the 2026-09-27 source-only author-handoff checkpoint, the frozen
-    registered source union e2a5c7e6f255535aedb5b8ed597c13f6c418c8c1 had fresh
-    affected review, but not full native/private-inclusive source evidence or
-    owner code acceptance/integration. This two-producer destination transfer
-    by worker-b Task hive-request-ba37e00a800bc572211ffad45e96e858655ebf56
-    (UID 79c9b89e-3363-442b-a61a-66ededf98c30) was then a source-only candidate.
-    At that checkpoint it had not received independent destination review,
-    changed-pin build or complete private-inclusive transitive standard-axiom
-    audit. Later exact review, check and owner decisions are recorded separately;
-    these are historical handoff conditions, not current lifecycle claims.
-    Owner acceptance, reviewed release, verified GitHub publication, later
-    separate incubator conversion and source correspondence are distinct decisions.
-    The original compact norm-row naturality isolated leaf 36b855eb9ae325c9669de7fd3264a1fb83ccef7a
-    was independently reviewed by worker-a Task hive-request-4661f56c3281eda913c0a11cdf4eedbb6fda6a3f
-    (UID 10398f84-5ce6-4c37-b9d5-a8aec6ae7a66). Separate scoped private-inclusive
-    evidence dfbe0fa51529c1b7695d6bc2b63c711a530af077 covers 39 producer
-    and eight client origins, not the changed source PR121 graph or the destination.
-    At the 2026-09-27 destination source-only handoff, source PR121 remained
-    unaccepted; the new transfer by worker-b Task hive-request-89268f99753a32543c537bc946e6f0fdc94c084c
-    (UID 6fb5a0a9-b048-4a08-ab62-90614094ecd7) still required fresh destination
-    review and changed-pin, private-inclusive native evidence. Subsequently,
-    source PR121 passed fresh affected review and native544 and was accepted and
-    integrated at 06f99031c7cf284320dc65fcaf787a569a791be4 (CGC #30/53761).
-    Destination PR150 passed independent review and native547 full-root/client
-    build and complete private-inclusive transitive standard-axiom audit, then
-    Beacon accepted and integrated it at f37e95ea83e8477e84a58e327df7535cb93c12cc
-    (CGC #30/53596, #30/53776, #30/53786). Subsequently its distinct final
-    release review/acceptance and private GitHub publication completed at
-    official 472fc313990d73049bf9a403ec47282c8851fea3 (CGC #30/54239),
-    and the later reviewed incubator import conversion PR129 was accepted
-    and protected-integrated at 9c91f0959037f9ec437adc5fd2891ef96b654ddd
-    (CGC #30/54877; incubator #129/54887). These did not occur at the dated
-    handoff; no source-coverage determination follows from this transfer.
-    The later universal-norm limit leaf a3a22a2ff480a29bf9c6bc65bdc3258318d0ddb5
-    was independently reviewed in isolation by worker-a Task
-    hive-request-379227b17cfd2bc24a9d90fad508433bb05eff34 (UID
-    e03485c6-faa5-4c86-8c26-ca675c07ab8f; CGC #30/54289). Beacon adopted
-    only isolated-leaf readiness (CGC #30/54295) at that checkpoint. Its native
-    focused build and 46-origin complete private-inclusive standard-axiom audit at
-    af111b8039277f3757173783a88390f88dddfd82 use a different mathlib pin.
-    This source-only CGC transfer by worker-b Task
-    hive-request-e9e4a4d665612156fc293987266d82d3095b832f (UID
-    7b81731e-77c0-4035-b4f8-486145079158) was not by itself fresh destination
-    review or changed-pin/full-root/client/native proof-integrity evidence.
-    Source registrar worker-b Task hive-request-7a6745cdb480416d30333dab258a27e133ef9fed
-    (UID 07bed2ba-b0a2-4ba7-861b-aa0364716943) registered the original
-    files in accepted and integrated incubator PR131
-    74260f173dacd7fab9156b70ca427a96f83ea2f2 (CGC #30/54932).
-    Independent destination reviewer worker-a Task
-    hive-request-3c9cfef2b5e3ff3583db27d9833858f1b53e5c84 (UID
-    5ee84ff8-274d-48d1-a7f1-d4bcdd39f1fe; CGC #30/54424) approved
-    exact PR154 157fbdc282f1697a857a9d552aa394f8a0214bba. Applicable
-    native603 both-root/private-inclusive evidence was verified in CGC #30/54767,
-    and Beacon accepted and protected-integrated that destination in #30/54948.
-    Separate final whole-artifact/history/rights release review and owner
-    acceptance, protected public promotion, verified GitHub publication and
-    later reviewed incubator conversion remain pending. Neither code acceptance
-    nor later release alone establishes source correspondence or coverage.
+    Earlier components received scoped independent mathematical/API review;
+    the preceding public-reader preparation received bounded scoped review.
+    Those reviews alone do not certify a combined successor or release. Exact
+    successor acceptance requires applicable affected independent review, a
+    successful actual-destination build and complete transitive standard-axiom
+    audit (including private and generated declarations), plus the responsible
+    maintainer's release decision. This metadata claims none of those later
+    checks or decisions; formalization status does not determine source coverage.
 acknowledgements: >-
-  Builds on Lean, mathlib and Formal Frontier's finite-group Tate library;
-  original contributor/reviewer roles and the repaired pinned mathlib
-  ModuleCat universe-lift attribution are identified in docs/attribution.md.
-  Whole-artifact rights and history review remained separate at the
-  2026-09-26 preparation checkpoint.
+  Builds on Lean, mathlib and Formal Frontier's finite-group Tate library.
+  The original and adapted contributor roles, including Nailin Guan's upstream
+  ModuleCat universe-lift expression and authentic notice, are described in
+  docs/attribution.md and the relevant Lean headers.

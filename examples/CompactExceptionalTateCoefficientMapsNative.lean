@@ -14,8 +14,7 @@ The generic client exercises continuity, norm naturality, actual kernel and
 quotient maps, identity, composition and both deflation squares. A finite
 two-element group, its proper trivial subgroup and multiplication by two on
 the nonzero finite coefficient module `ZMod 3` supply a nonidentity morphism.
-Native adaptation by `hive-request-d61b09970e5688d0b1e0da08ec7719208350ad23`
-(`b087c1ae-8092-47fc-ba95-7e8a338a0201`).
+These examples exercise the native version of the coefficient-map interface.
 -/
 
 public section

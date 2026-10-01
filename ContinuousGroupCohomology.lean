@@ -60,6 +60,13 @@ public import ContinuousGroupCohomology.FiniteStageResolution
 public import ContinuousGroupCohomology.FiniteStageCochains
 public import ContinuousGroupCohomology.FiniteAveraging
 public import ContinuousGroupCohomology.CompactDiscreteTorsion
+public import ContinuousGroupCohomology.Algebra.Category.ModuleCat.Topology.HomologyBoundary
+public import ContinuousGroupCohomology.SeededCochains
+public import ContinuousGroupCohomology.QuotientTransitions
+public import ContinuousGroupCohomology.FiniteStageBoundary
+public import ContinuousGroupCohomology.DiscreteCohomology
+public import ContinuousGroupCohomology.OpenNormalDiagram
+public import ContinuousGroupCohomology.FiniteStageColimit
 
 /-!
 # Continuous group cohomology: native core
@@ -89,8 +96,13 @@ For compact topological groups and discrete jointly continuous representations
 over a topologized ring, each native continuous-cohomology class in any degree
 lifts from an open-normal finite quotient with its actual invariant coefficients.
 In positive degrees each class is annihilated by the order of a suitable finite
-quotient, giving additive torsion. The quotient and order depend on the class;
-degree-zero torsion, injectivity and full colimit comparison are not asserted.
+quotient, giving additive torsion. The quotient and order depend on the class.
+Native finite-stage transition maps and class-dependent refinement give an
+all-degree filtered colimit of quotient-invariant cohomology at the actual
+topological-module cohomology apex, including degree zero. This requires the
+stated compactness, discreteness and joint continuity of the representation;
+it does not give fixed-stage injectivity, a uniform refinement or degree-zero
+torsion.
 
 Finite-group statements require the indicated finite-group hypotheses; compact
 limit statements concern compact Hausdorff additive groups and level systems,

@@ -69,12 +69,6 @@ lake build ContinuousGroupCohomology.CompactFiniteTateNormSequence
 lake build CGCExamples
 ```
 
-Original finite-row implementation: worker-b Hive Task
-`hive-request-e6d76bdf4dadaad23f990aa082128217880d7321` (UID
-`b9bd4a7e-8ee1-4213-9075-d0ebba7ab03e`); its mathematical/API design
-investigation: worker-b Task `hive-request-c6482d383e26ff324ba537448bc3a3ec237da49a`
-(UID `f7a1f3b6-03ae-45da-ab9f-ee553a6d140e`). The exact incubator
-finite-row leaf had independent review before its later registered integration.
-This destination transfer is a separate contribution; its review, changed-pin
-build/private-inclusive axiom audit, maintainer acceptance and verified release
-remain separate gates. No source correspondence or coverage follows from it.
+The exact hypotheses and implementation are in
+[`CompactFiniteTateNormSequence.lean`](../ContinuousGroupCohomology/CompactFiniteTateNormSequence.lean).
+Contributor origins are summarized in [attribution](attribution.md).

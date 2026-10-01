@@ -1,9 +1,6 @@
 /-
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Formal Frontier Agents
-Native client by worker-b Hive Task
-hive-request-d2af742e44a5a0d1ef011810e719a1ab0abdf38b,
-UID 88d05553-3c39-40c0-9c53-1b25f0339af5.
 -/
 module
 

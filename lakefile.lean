@@ -1,3 +1,7 @@
+/-
+SPDX-License-Identifier: Apache-2.0
+Authors: Formal Frontier Agents
+-/
 import Lake
 
 open Lake DSL
@@ -16,7 +20,7 @@ require finiteGroupTateCohomology from git
 @[default_target]
 lean_lib ContinuousGroupCohomology
 
--- Compile all thirty-two native clients in both the named and default targets.
+-- Compile all thirty-nine native clients in both the named and default targets.
 @[default_target]
 lean_lib CGCExamples where
   roots := #[
@@ -52,4 +56,11 @@ lean_lib CGCExamples where
     `examples.FiniteStageCochainsNative,
     `examples.FiniteAveragingNative,
     `examples.CompactDiscreteTorsionNative,
+    `examples.HomologyBoundaryNative,
+    `examples.SeededCochainsNative,
+    `examples.QuotientTransitionsNative,
+    `examples.FiniteStageBoundaryNative,
+    `examples.DiscreteCohomologyNative,
+    `examples.OpenNormalDiagramNative,
+    `examples.FiniteStageColimitNative,
   ]
