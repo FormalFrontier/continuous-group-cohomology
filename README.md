@@ -26,6 +26,15 @@ jointly continuous when the input actions are, for a topologized monoid without
 a continuity assumption on its multiplication. Direct sums work over a
 topologized ring, and tensors over a topologized commutative ring.
 
+The [sign-product example](ContinuousGroupCohomology/DiscreteProduct.lean)
+shows an existential boundary: the countable product of finite-discrete integer
+unit groups acts coordinatewise on integer sequences. The ordinary product
+action is jointly continuous but its carrier is not discrete; on a separate
+chosen-discrete copy of the algebraic product, each sign acts continuously but
+the action is not jointly continuous. Its nonzero constant-one vector has
+nonopen singleton stabilizer. This does not concern every infinite product or
+assert a categorical product construction.
+
 Discrete linear Hom carries all linear maps with the chosen discrete topology
 and inverse-oriented conjugation. Its action is jointly continuous for a
 discrete acting group, a finite `T₁` acting group, a finitely generated source
@@ -218,8 +227,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 65 imports;
-`CGCExamples` compiles precisely these forty-one native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 66 imports;
+`CGCExamples` compiles precisely these forty-two native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -261,8 +270,10 @@ the default build:
   [`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean),
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
-- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client; and
-- [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean).
+- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
+- [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
+- [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
+  coordinatewise sign-product boundary client.
 
 For an explicit fresh source elaboration of the aggregate-root client:
 

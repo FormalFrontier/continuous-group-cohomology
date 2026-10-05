@@ -67,6 +67,7 @@ public import ContinuousGroupCohomology.SeededCochains
 public import ContinuousGroupCohomology.QuotientTransitions
 public import ContinuousGroupCohomology.FiniteStageBoundary
 public import ContinuousGroupCohomology.DiscreteCohomology
+public import ContinuousGroupCohomology.DiscreteProduct
 public import ContinuousGroupCohomology.OpenNormalDiagram
 public import ContinuousGroupCohomology.FiniteStageColimit
 
