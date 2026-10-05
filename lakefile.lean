@@ -20,7 +20,7 @@ require finiteGroupTateCohomology from git
 @[default_target]
 lean_lib ContinuousGroupCohomology
 
--- Compile all forty native clients in both the named and default targets.
+-- Compile all forty-one native clients in both the named and default targets.
 @[default_target]
 lean_lib CGCExamples where
   roots := #[
@@ -63,5 +63,6 @@ lean_lib CGCExamples where
     `examples.DiscreteCohomologyNative,
     `examples.OpenNormalDiagramNative,
     `examples.FiniteStageColimitNative,
+    `ContinuousGroupCohomologyExamples.DiscreteHom,
     `CGCExamples.TopRepDiscrete,
   ]

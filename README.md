@@ -26,6 +26,13 @@ jointly continuous when the input actions are, for a topologized monoid without
 a continuity assumption on its multiplication. Direct sums work over a
 topologized ring, and tensors over a topologized commutative ring.
 
+Discrete linear Hom carries all linear maps with the chosen discrete topology
+and inverse-oriented conjugation. Its action is jointly continuous for a
+discrete acting group, a finite `T₁` acting group, a finitely generated source
+with discrete jointly continuous inputs, or a finite possibly non-`T₁` group
+with such inputs. Scalar continuity is separate: it follows from discrete
+scalars, or from finite generation with a discrete continuously-scaled target.
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -122,15 +129,35 @@ ingredients and their individual hypotheses.
 | Compact levels | `LevelCompact`, `LevelCompactFunctoriality`, `LevelCompactNorm`, `RestrictedLevelCompact` | Compact level systems, functoriality, relative norms and restricted systems with explicit finite-stage hypotheses. |
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 | Discrete representation sums and tensors | `TopRepDiscrete` | Arbitrary varying-index algebraic sums and two-factor tensors with discrete output topology, canonical Mathlib actions, coordinate/pure-tensor equations and jointly continuous actions when the inputs have them. |
+| Discrete linear Hom | `TopRepDiscreteHom` | All linear maps with the discrete carrier topology and inverse-oriented conjugation, separate scalar-continuity criteria and four joint-action continuity criteria. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 64 listed production leaves. All 64 and the forty clients
+publicly imports all 65 listed production leaves. All 65 and the forty-one clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
 topological and compact results require the relevant continuity, compactness and
 separation assumptions, not merely algebraic group structure. Consult theorem
 statements and individual module documentation for precise universes and instances.
+
+## Discrete linear Hom
+
+`ContinuousGroupCohomology.TopRepDiscreteHom` equips all `k`-linear maps with
+a discrete carrier and Mathlib's inverse-oriented conjugation action. Its
+action formula and fixed-map criterion compare with Mathlib's invariant and
+intertwining-map API. Scalar continuity is automatic for discrete scalars,
+including `k = ℤ`; finite generation of the source gives a separate route
+when the target has discrete, continuous scalar multiplication.
+
+Finite-source scalar continuity and four group-action joint-continuity routes
+hold under their separate hypotheses. The four group conditions are:
+discrete `G`; finite `T₁` `G`; a finitely generated source with discrete,
+jointly continuous inputs; and finite possibly non-`T₁` `G` with discrete,
+jointly continuous inputs. A finite acting group alone does not ensure
+scalar continuity for arbitrary `k`. The
+[`DiscreteHom` client](ContinuousGroupCohomologyExamples/DiscreteHom.lean)
+instantiates the action and statements on sign representations, including
+an infinite-rank source and an infinite acting group.
 
 ### Degree-one torsion
 
@@ -183,7 +210,7 @@ a failed cache fetch rather than silently rebuilding mathlib from source.
 A previous 56-leaf/thirty-two-client combined root/client CI build at the pinned
 Lean, mathlib and Tate revisions took about **6.6 minutes** after fetching the
 matching mathlib cache. This is an indicative observation, **not** a benchmark
-of the present 64-leaf/forty-client graph or a guaranteed build time.
+of the present 65-leaf/forty-one-client graph or a guaranteed build time.
 An earlier, smaller graph had a shared 15 GiB memory limit and a lifetime
 high-water reading of about 14.2 GiB after its client build; this is neither
 peak RSS for a command nor a measured minimum. Allow headroom for other jobs,
@@ -191,8 +218,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 64 imports;
-`CGCExamples` compiles precisely these forty native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 65 imports;
+`CGCExamples` compiles precisely these forty-one native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -234,7 +261,8 @@ the default build:
   [`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean),
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
-- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client.
+- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client; and
+- [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean).
 
 For an explicit fresh source elaboration of the aggregate-root client:
 
@@ -242,7 +270,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other thirty-nine client paths above can likewise be given to `lake env lean`.
+The other forty client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
@@ -283,11 +311,15 @@ the mathematical API in this library.
 ## References
 
 - Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
-  second edition, Chapter I, §1. The discrete direct-sum and tensor
-  constructions extend its profinite, integer-module setting.
+  second edition, Chapter I, §1.1 (the correction to its finite-generation
+  hypothesis credits Siyan Daniel Li). The discrete direct-sum, tensor and
+  linear-Hom results extend its profinite, integer-module setting.
 - Mathlib, especially `Representation.directSum`, `Representation.tprod` and
   `TopRep` for representation constructions, and its continuous-cohomology,
-  topological and categorical foundations.
+  topological and categorical foundations. Its representation-theory and
+  topological-action formalizations include conjugation and invariants
+  (Antoine Labelle), intertwining maps (Stepan Nesterov and Edison Xie),
+  and the open-stabilizer criterion (Yury Kudryashov).
 - [Finite group Tate cohomology](https://github.com/FormalFrontier/finite-group-tate-cohomology),
   the formal library providing finite Tate definitions and norm maps; see
   [attribution](docs/attribution.md).
