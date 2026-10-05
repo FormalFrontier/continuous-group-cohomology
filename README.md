@@ -140,7 +140,7 @@ topological and compact results require the relevant continuity, compactness and
 separation assumptions, not merely algebraic group structure. Consult theorem
 statements and individual module documentation for precise universes and instances.
 
-## Discrete linear Hom
+### Discrete linear Hom
 
 `ContinuousGroupCohomology.TopRepDiscreteHom` equips all `k`-linear maps with
 a discrete carrier and Mathlib's inverse-oriented conjugation action. Its
