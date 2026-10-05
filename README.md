@@ -20,6 +20,12 @@ targets. It uses the actual cohomology topology, genuine algebraic boundaries
 and class-dependent eventual refinements, not fixed-stage positive-degree
 injectivity, a uniform refinement or a closed-boundary-range assumption.
 
+Arbitrary algebraic direct sums of discrete representations and tensors of two
+discrete representations inherit a chosen discrete topology. Their actions are
+jointly continuous when the input actions are, for a topologized monoid without
+a continuity assumption on its multiplication. Direct sums work over a
+topologized ring, and tensors over a topologized commutative ring.
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -48,8 +54,8 @@ covers the compact-group result. For compact finite-bar homology, comparison
 and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
 The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
 and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index the thirty-six additional leaves,
-thirty-one direct clients, or the current root's import graph. Their source
+analyzed snapshot**: they do not index later-added modules and clients or the
+current root's import graph. Their source
 links resolve to the matching [published historical release](https://github.com/FormalFrontier/continuous-group-cohomology/tree/be74358d7b1140e76ab6b2ad72f6aa068138e687),
 not mutable line numbers in the current modules; the API digest and renderer
 agree on the checked-in historical index.
@@ -115,9 +121,10 @@ ingredients and their individual hypotheses.
 | Compact groups and limits | `CompactAddCommGroup`, `CompactAddCommGroupLimits`, `CompactFiniteHomology`, `CompactTopModuleLimits` | Compact Hausdorff additive groups, finite products, inverse limits and finite-stage homology constructions; cofiltered limit statements include empty indexing categories where stated. |
 | Compact levels | `LevelCompact`, `LevelCompactFunctoriality`, `LevelCompactNorm`, `RestrictedLevelCompact` | Compact level systems, functoriality, relative norms and restricted systems with explicit finite-stage hypotheses. |
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
+| Discrete representation sums and tensors | `TopRepDiscrete` | Arbitrary varying-index algebraic sums and two-factor tensors with discrete output topology, canonical Mathlib actions, coordinate/pure-tensor equations and jointly continuous actions when the inputs have them. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 63 listed production leaves. All 63 and the thirty-nine clients
+publicly imports all 64 listed production leaves. All 64 and the forty clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -176,7 +183,7 @@ a failed cache fetch rather than silently rebuilding mathlib from source.
 A previous 56-leaf/thirty-two-client combined root/client CI build at the pinned
 Lean, mathlib and Tate revisions took about **6.6 minutes** after fetching the
 matching mathlib cache. This is an indicative observation, **not** a benchmark
-of the present 63-leaf/thirty-nine-client graph or a guaranteed build time.
+of the present 64-leaf/forty-client graph or a guaranteed build time.
 An earlier, smaller graph had a shared 15 GiB memory limit and a lifetime
 high-water reading of about 14.2 GiB after its client build; this is neither
 peak RSS for a command nor a measured minimum. Allow headroom for other jobs,
@@ -184,8 +191,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 63 imports;
-`CGCExamples` compiles precisely these thirty-nine native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 64 imports;
+`CGCExamples` compiles precisely these forty native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -226,7 +233,8 @@ the default build:
   [`FiniteStageBoundaryNative`](examples/FiniteStageBoundaryNative.lean),
   [`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean),
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
-  [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean).
+  [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
+- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client.
 
 For an explicit fresh source elaboration of the aggregate-root client:
 
@@ -234,7 +242,7 @@ For an explicit fresh source elaboration of the aggregate-root client:
 lake env lean examples/NativeCore.lean
 ```
 
-The other thirty-eight client paths above can likewise be given to `lake env lean`.
+The other thirty-nine client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including
@@ -271,3 +279,15 @@ vanishing or uniform finite-quotient bounds. The all-degree colimit is a
 separate result with class-dependent equality refinements and no fixed-stage
 injectivity claim. A source-specific coverage determination is separate from
 the mathematical API in this library.
+
+## References
+
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §1. The discrete direct-sum and tensor
+  constructions extend its profinite, integer-module setting.
+- Mathlib, especially `Representation.directSum`, `Representation.tprod` and
+  `TopRep` for representation constructions, and its continuous-cohomology,
+  topological and categorical foundations.
+- [Finite group Tate cohomology](https://github.com/FormalFrontier/finite-group-tate-cohomology),
+  the formal library providing finite Tate definitions and norm maps; see
+  [attribution](docs/attribution.md).

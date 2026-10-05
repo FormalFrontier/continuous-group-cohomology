@@ -3,9 +3,8 @@
 The [API index](API.md) and [JSON manifest](api-manifest.json) cover the
 **historical analyzed graph** of 28 production modules (including the aggregate
 public root and 27 leaves) and eight checked-use clients, with separate inventories.
-They do **not** cover the current 63-leaf/thirty-nine-client graph (103 local
-modules including the root), its thirty-six additional production leaves,
-thirty-one additional direct clients or updated aggregate root. Consult the
+They do **not** cover later-added modules and clients or the current aggregate
+import graph. Consult the
 [manual finite-deflation guide](FiniteDeflation.md),
 [compact exceptional Tate guide](FiniteTateTopology.md),
 [compact coefficient and norm functoriality guide](CompactCoefficientFunctoriality.md),

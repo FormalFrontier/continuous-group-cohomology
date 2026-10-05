@@ -30,18 +30,16 @@ related_formalizations:
     relationship: builds-on
   - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/fda003db3d06774f28b47232e8248852ffdbfc0d
     relationship: builds-on
-    note: Pinned official private dependency; not a whole-library review or rights determination.
+    note: Pinned finite-group Tate cohomology dependency.
 automation:
   methods:
     - method: agent
       framework: Codex CLI
       tool_setup: >-
-        AI agents developed Lean proofs and documentation with Lake, Lean,
-        mathlib and independent agent review of scoped contributions.
+        Codex CLI assisted Lean proof and documentation development using
+        Lake, Lean and mathlib.
   notes: >-
-    Proof development and documentation were AI-assisted using Codex CLI and
-    independently inspected in scoped reviews. This self-report does not
-    replace independent review of the entire candidate or release.
+    Proof development and documentation were AI-assisted using Codex CLI.
 status:
   scope: >-
     Low-degree continuous cohomology, finite-index transfer, compact-group
@@ -457,14 +455,8 @@ status:
 review:
   status: other
   notes: >-
-    Earlier components received scoped independent mathematical/API review;
-    the preceding public-reader preparation received bounded scoped review.
-    Those reviews alone do not certify a combined successor or release. Exact
-    successor acceptance requires applicable affected independent review, a
-    successful actual-destination build and complete transitive standard-axiom
-    audit (including private and generated declarations), plus the responsible
-    maintainer's release decision. This metadata claims none of those later
-    checks or decisions; formalization status does not determine source coverage.
+    Scoped mathematical and API contributions received independent review;
+    formal journal review and complete source coverage are not claimed.
 acknowledgements: >-
   Builds on Lean, mathlib and Formal Frontier's finite-group Tate library.
   The original and adapted contributor roles, including Nailin Guan's upstream
