@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.TopRepDiscrete
+public import CGCExamples.TopRepDiscrete.SignAction
 public import Mathlib.Algebra.GroupWithZero.Action.Units
 public import Mathlib.Algebra.Ring.Int.Units
 public import Mathlib.Topology.Instances.Int
@@ -19,57 +20,12 @@ Integer units act on the integers by signs. Restricting this action to each
 coordinate of a countable product gives a genuinely infinite-index sum client.
 The pure tensor of two units is nonzero, while two sign changes cancel on it.
 Empty sums and zero tensor factors give the complementary degenerate cases.
+The diagonal tensor action is the one in `TopRep.discreteTensor`.
 -/
 
 open DirectSum TensorProduct
 
 namespace CGCExamples
-
-/-- The integer units act on the integers by their usual sign action. -/
-private def signedIntegers : TopRep ℤ ℤˣ := by
-  let representation : Representation ℤ ℤˣ ℤ :=
-    Representation.ofDistribMulAction ℤ ℤˣ ℤ
-  exact .of <| .ofMonoidHom {
-    toFun := fun g => ContinuousLinearMap.mk (representation g) (continuous_const_smul g)
-    map_one' := by
-      apply ContinuousLinearMap.ext
-      intro n
-      change representation 1 n = n
-      rw [map_one]
-      rfl
-    map_mul' := by
-      intro g h
-      apply ContinuousLinearMap.ext
-      intro n
-      change representation (g * h) n = representation g (representation h n)
-      rw [map_mul]
-      rfl
-  }
-
-private instance signedIntegers_discrete : DiscreteTopology signedIntegers := by
-  change DiscreteTopology ℤ
-  infer_instance
-
-private theorem signedIntegers_ρ_apply (g : ℤˣ) (n : ℤ) :
-    signedIntegers.ρ g n = g • n := by
-  rfl
-
-private theorem signedIntegers_negative_one :
-    signedIntegers.ρ (-1 : ℤˣ) (1 : ℤ) = (-1 : ℤ) := by
-  simp [signedIntegers_ρ_apply, Units.smul_def]
-  rfl
-
-private theorem signedIntegers_negative_one_not_fixed :
-    signedIntegers.ρ (-1 : ℤˣ) (1 : ℤ) ≠ (1 : ℤ) := by
-  rw [signedIntegers_negative_one]
-  change (-1 : ℤ) ≠ 1
-  norm_num
-
-private instance signedIntegers_jointlyContinuous :
-    TopRep.JointlyContinuous signedIntegers where
-  continuous_action := by
-    change Continuous (fun p : ℤˣ × ℤ => p.1 • p.2)
-    exact continuous_smul
 
 /-- The sign action of the `i`th factor of a product of unit groups. -/
 private def signedCoordinate (i : ℕ) : TopRep ℤ (ℕ → ℤˣ) :=
@@ -112,7 +68,9 @@ private theorem signedTensor_signs_cancel :
       (1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) := by
   simp only [neg_tmul, tmul_neg, neg_neg]
 
-private theorem signedTensor_negative_one_fixes_nonzero :
+/-- The pure tensor `1 ⊗ 1` is nonzero and fixed by simultaneous sign change,
+although the negative unit moves `1` in each factor. -/
+public theorem signedTensor_negative_one_fixes_nonzero :
     ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) : TopRep.discreteTensor signedIntegers signedIntegers) ≠ 0 ∧
       (TopRep.discreteTensor signedIntegers signedIntegers).ρ (-1 : ℤˣ)
         ((1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ)) = (1 : ℤ) ⊗ₜ[ℤ] (1 : ℤ) ∧

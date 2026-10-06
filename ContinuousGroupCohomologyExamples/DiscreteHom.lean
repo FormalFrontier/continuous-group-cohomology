@@ -4,7 +4,8 @@ Authors: Formal Frontier Agents
 -/
 module
 
-import ContinuousGroupCohomology.TopRepDiscreteHom
+public import ContinuousGroupCohomology.TopRepDiscreteHom
+public import CGCExamples.TopRepDiscrete.SignAction
 import Mathlib.Algebra.Group.Pi.Lemmas
 import Mathlib.Algebra.GroupWithZero.Action.Units
 import Mathlib.Algebra.Ring.Int.Units
@@ -213,5 +214,55 @@ theorem infiniteGroup_finiteSource_jointlyContinuous :
     ℤ _ _ (ℕ → Units ℤ) _ signProduct trivialProduct _ _ _ _ _ _ (by
       change Module.Finite ℤ ℤ
       infer_instance)
+
+@[expose] public section
+
+/-- The identity linear map on integers, viewed in discrete Hom from
+`CGCExamples.signedIntegers` to Mathlib's trivial continuous representation.
+This uses the discrete-Hom constructor as in the sign-to-trivial examples;
+it is not an equivariant `TopRep` morphism. -/
+noncomputable def signedIntegersToTrivial :
+    CGCExamples.signedIntegers.discreteLinHom
+      (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) :=
+  TopRep.discreteLinHomOfLinearMap CGCExamples.signedIntegers
+    (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) (LinearMap.id : ℤ →ₗ[ℤ] ℤ)
+
+/-- The underlying map from the integer-unit sign action to the trivial action
+is the identity on integers. -/
+@[simp] theorem signedIntegersToTrivial_apply (n : ℤ) :
+    (TopRep.discreteLinHomToLinearMap CGCExamples.signedIntegers
+      (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) signedIntegersToTrivial) n = n := rfl
+
+/-- Conjugation by the negative integer unit sends the underlying identity
+map to a map taking `1` to `-1`; this map is not fixed under conjugation. -/
+theorem signedIntegersToTrivial_conjugation_nonfixed :
+    (TopRep.discreteLinHomToLinearMap CGCExamples.signedIntegers
+      (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ))
+      ((CGCExamples.signedIntegers.discreteLinHom
+        (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ))).ρ (-1 : ℤˣ)
+        signedIntegersToTrivial)) (1 : ℤ) = (-1 : ℤ) ∧
+    signedIntegersToTrivial ∉
+      (CGCExamples.signedIntegers.discreteLinHom
+        (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ))).ρ.toRepresentation.invariants := by
+  constructor
+  · calc
+      _ = (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)).ρ (-1 : ℤˣ)
+            ((TopRep.discreteLinHomToLinearMap CGCExamples.signedIntegers
+              (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) signedIntegersToTrivial)
+              (CGCExamples.signedIntegers.ρ (-1 : ℤˣ)⁻¹ (1 : ℤ))) :=
+        TopRep.discreteLinHom_ρ_apply CGCExamples.signedIntegers
+          (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) (-1 : ℤˣ)
+          signedIntegersToTrivial (1 : ℤ)
+      _ = -1 := by
+        rw [show (-1 : ℤˣ)⁻¹ = -1 by simp, CGCExamples.signedIntegers_negative_one,
+          signedIntegersToTrivial_apply]
+        rfl
+  · intro hf
+    have h := (TopRep.mem_discreteLinHom_invariants_iff _ _ signedIntegersToTrivial).mp hf
+    have hneg := h (-1 : ℤˣ) (1 : ℤ)
+    change CGCExamples.signedIntegers.ρ (-1 : ℤˣ) (1 : ℤ) = (1 : ℤ) at hneg
+    exact CGCExamples.signedIntegers_negative_one_not_fixed hneg
+
+end
 
 end ContinuousGroupCohomologyExamples.DiscreteHom

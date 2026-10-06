@@ -11,7 +11,6 @@ public import ContinuousGroupCohomology.CompactDiscreteTorsion
 
 set_option warningAsError true
 set_option backward.isDefEq.respectTransparency.types false
-set_option maxHeartbeats 800000
 
 /-!
 # Finite-stage detection of zero continuous-cohomology classes

@@ -35,8 +35,8 @@ in the target need not lift a primitive in the source. No boundary lifting,
 quotient descent, inflation isomorphism, compact/torsion conclusion or source
 correspondence is supplied.
 
-Upstream mathematical definitions and resolution/cochain maps are those of
-mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`, especially
+Upstream mathematical definitions and resolution/cochain maps were originally
+developed against mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`, especially
 `Mathlib.RepresentationTheory.Homological.ContCohomology.Functoriality`
 (Edison Xie and Richard Hill), `Mathlib.RepresentationTheory.Continuous.Basic`
 and `Mathlib.RepresentationTheory.Continuous.TopRep`.

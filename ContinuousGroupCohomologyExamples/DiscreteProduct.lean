@@ -4,7 +4,7 @@ Authors: Formal Frontier Agents
 -/
 module
 
-import ContinuousGroupCohomology.DiscreteProduct
+public import ContinuousGroupCohomology.DiscreteProduct
 
 /-!
 # A nonzero vector in the sign-product boundary example
@@ -21,7 +21,9 @@ namespace SignProductExamples
 
 open SignProduct
 
-private theorem nonzero_vector_boundary (index : ℕ) :
+/-- The constant-one vector in the discrete carrier is nonzero and moved by every
+coordinate sign flip, although the sign action is not jointly continuous. -/
+public theorem nonzero_vector_boundary (index : ℕ) :
     discreteOneVector ≠ (0 : DiscreteProduct) ∧
       (flip index) • discreteOneVector ≠ discreteOneVector ∧
       ¬ Continuous (fun pair : SignGroup × DiscreteProduct => pair.1 • pair.2) := by

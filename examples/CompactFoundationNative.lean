@@ -5,10 +5,10 @@ Foundation mathematics and APIs: Beacon (six existing mathematical leaves)
 -/
 module
 
-import ContinuousGroupCohomology.CompactAddCommGroupLimits
+public import ContinuousGroupCohomology.CompactAddCommGroupLimits
 import ContinuousGroupCohomology.CompactFiniteHomology
 import ContinuousGroupCohomology.CompactTopModuleLimits
-import Mathlib.Topology.Instances.ZMod
+public import Mathlib.Topology.Instances.ZMod
 
 /-!
 # Native compact-group foundation client
@@ -17,6 +17,14 @@ This file uses only native leaves. It tests compact Hausdorff additive-group
 coercions and morphisms, closed-kernel and quotient representatives, finite
 products, limit projections, cofiltered exactness including an empty category,
 and explicit compact Hausdorff conclusions for topological-module limits.
+
+Doubling on the cyclic group of order four supplies a concrete compact-group
+kernel point and a class in the quotient by its closed range.
+
+## References
+
+* [Profinite groups: cyclic-group squaring example](https://github.com/FormalFrontier/profinite-groups/blob/453ea5d99e6ce681a79092c276413f741ee956ef/ProfiniteGroupsTests/ProcyclicHom.lean),
+  for the analogous multiplication-by-two map in multiplicative notation.
 -/
 
 set_option warningAsError true
@@ -138,5 +146,72 @@ example {R : Type u} [Ring R] [TopologicalSpace R]
     CompactSpace ↥(limit D) ∧ T2Space ↥(limit D) :=
   ⟨TopModuleCat.compactSpace_limit_of_compact_t2 D,
     TopModuleCat.t2Space_limit_of_compact_t2 D⟩
+
+end CompactFoundationNative
+
+public section
+
+namespace CompactFoundationNative
+
+/-- Doubling as a morphism of compact Hausdorff additive groups on `ZMod 4`. -/
+@[expose] def modFourDoubling :
+    CompHausAddCommGrp.of (ZMod 4) ⟶ CompHausAddCommGrp.of (ZMod 4) :=
+  CompHausAddCommGrp.ofHom
+    { toAddMonoidHom := AddMonoidHom.mulLeft (2 : ZMod 4)
+      continuous_toFun := continuous_of_discreteTopology }
+
+/-- Doubling acts by multiplication by two on `ZMod 4`. -/
+@[simp] lemma modFourDoubling_apply (x : ZMod 4) :
+    modFourDoubling x = (2 : ZMod 4) * x :=
+  rfl
+
+/-- Doubling sends one to two. -/
+lemma modFourDoubling_one : modFourDoubling (1 : ZMod 4) = 2 := by
+  rw [modFourDoubling_apply]
+  decide
+
+/-- Doubling on `ZMod 4` is not the zero morphism. -/
+lemma modFourDoubling_one_ne_zero : modFourDoubling (1 : ZMod 4) ≠ 0 := by
+  rw [modFourDoubling_one]
+  decide
+
+/-- The element two of `ZMod 4`, as a point of the compact Hausdorff kernel of doubling. -/
+@[expose] def modFourDoublingKernelTwo : CompHausAddCommGrp.kernelGroup modFourDoubling :=
+  ⟨2, by
+    change modFourDoubling (2 : ZMod 4) = 0
+    rw [modFourDoubling_apply]
+    decide⟩
+
+/-- The kernel inclusion sends the point over two to two in `ZMod 4`. -/
+lemma modFourDoubling_kernelι_two :
+    CompHausAddCommGrp.kernelι modFourDoubling modFourDoublingKernelTwo =
+      (2 : ZMod 4) :=
+  rfl
+
+/-- Doubling on `ZMod 4` has a nonzero kernel point and a nonzero class of one
+in the quotient by its closed range. -/
+theorem modFourDoubling_boundary :
+    modFourDoublingKernelTwo ≠ 0 ∧
+      CompHausAddCommGrp.quotientRangeπ modFourDoubling (1 : ZMod 4) ≠ 0 := by
+  constructor
+  · intro h
+    have hι := congrArg
+      (fun x : CompHausAddCommGrp.kernelGroup modFourDoubling =>
+        CompHausAddCommGrp.kernelι modFourDoubling x) h
+    rw [modFourDoubling_kernelι_two, map_zero] at hι
+    exact (by decide : (2 : ZMod 4) ≠ 0) hι
+  · intro h
+    have hmem : (1 : ZMod 4) ∈ modFourDoubling.hom.range := by
+      have hker : (1 : ZMod 4) ∈
+          (QuotientAddGroup.mk' modFourDoubling.hom.range).ker := by
+        apply AddMonoidHom.mem_ker.mpr
+        change (QuotientAddGroup.mk' modFourDoubling.hom.range) (1 : ZMod 4) = 0 at h
+        exact h
+      simpa only [QuotientAddGroup.ker_mk'] using hker
+    obtain ⟨x, hx⟩ := hmem
+    have hnot : ∀ x : ZMod 4, (2 : ZMod 4) * x ≠ 1 := by decide
+    change modFourDoubling x = 1 at hx
+    rw [modFourDoubling_apply] at hx
+    exact hnot x hx
 
 end CompactFoundationNative

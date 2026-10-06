@@ -37,6 +37,10 @@ client checks levels 0, 1 and 3, refinement, and a nontrivial action of the
 two-element group `Units ℤ` on discrete `ℤ` by signs. Its right-constant level-1
 map with constant value `1` does not lift when `N` is the whole group because
 that bottom value is not invariant. Right constancy alone is insufficient.
+These private proofs elaborate in `examples.FiniteStageResolutionNative`;
+the forwarding root retains its original producer imports, not its original
+isolated proof environment. Seven current client proof environments, comprising
+ten original environments, now elaborate together in the host.
 
 This leaf does not assert the existence of an appropriate `N` for a given
 cochain; it provides no invariant-cochain or cocycle lift, uniqueness, compact

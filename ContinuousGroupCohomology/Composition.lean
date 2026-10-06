@@ -235,7 +235,10 @@ noncomputable def transRightTransversal (H : OpenSubgroup G) (K : OpenSubgroup H
   subst p
   change ((k : OpenSubgroup.trans H K) : G) *
       towerRep H K U T ut = _
-  simp [eD, eP, towerDecompositionEquiv]
+  simp only [eD, eP, towerDecompositionEquiv, Equiv.trans_apply,
+    Equiv.symm_trans_apply, Equiv.prodCongr_symm, Equiv.prodCongr_apply,
+    Equiv.prodAssoc_symm_apply, Prod.map_apply', Equiv.symm_apply_apply,
+    Equiv.refl_symm, Equiv.refl_apply]
   rw [T.2.equiv_symm_apply, U.2.equiv_symm_apply]
   change (k : G) * ((ut.1 : H) * (ut.2 : G)) =
     ((((OpenSubgroup.transEquiv H K).symm k : K) : H) * (ut.1 : H)) *
@@ -434,6 +437,7 @@ lemma crossedTrans_comp_mkQL (H : OpenSubgroup G) (K : OpenSubgroup H)
   rfl
 
 set_option maxHeartbeats 800000 in
+-- The two-stage transversal calculation expands both quotient transfers.
 lemma transferQuotient_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
     [H.toSubgroup.FiniteIndex] [K.toSubgroup.FiniteIndex]
     (U : K.toSubgroup.RightTransversal) (T : H.toSubgroup.RightTransversal)
@@ -457,6 +461,7 @@ lemma transferQuotient_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
   rw [transferCrossed_trans]
 
 set_option maxHeartbeats 800000 in
+-- Evaluating the composed cocycle comparisons unfolds both restriction maps.
 lemma cocyclesOneCrossedIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
     [TopRep.JointlyContinuous X]
     [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
@@ -483,6 +488,7 @@ lemma cocyclesOneCrossedIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
   exact congrArg (fun τ => τ.1 1 h) hh
 
 set_option maxHeartbeats 3000000 in
+-- Transporting the quotient comparison requires reassociating the cohomology isomorphisms.
 set_option backward.isDefEq.respectTransparency false in
 @[reassoc]
 lemma homologyQuotientIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
@@ -503,6 +509,7 @@ lemma homologyQuotientIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
     ← π_comp_homologyQuotientIso, Category.assoc]
 
 set_option maxHeartbeats 3000000 in
+-- The degree-one comparison composes nested crossed and native cohomology isomorphisms.
 set_option backward.isDefEq.respectTransparency false in
 lemma degreeOneIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
     [TopRep.JointlyContinuous X]
@@ -537,6 +544,7 @@ noncomputable def transDegreeOne (H : OpenSubgroup G) (K : OpenSubgroup H)
         (TopRep.res K.subtype (TopRep.res H.subtype X))).hom
 
 set_option maxHeartbeats 800000 in
+-- Normalizing the nested degree-one map expands the quotient comparisons.
 lemma transDegreeOne_eq_map (H : OpenSubgroup G) (K : OpenSubgroup H)
     [TopRep.JointlyContinuous X]
     [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
@@ -547,6 +555,7 @@ lemma transDegreeOne_eq_map (H : OpenSubgroup G) (K : OpenSubgroup H)
   rw [← Category.assoc, Iso.inv_hom_id, Category.id_comp]
 
 set_option maxHeartbeats 800000 in
+-- Transversal corestriction transitivity compares the flattened and nested sums.
 lemma corestrictionOneWithTransversal_trans
     (H : OpenSubgroup G) (K : OpenSubgroup H)
     [H.toSubgroup.FiniteIndex] [K.toSubgroup.FiniteIndex]
@@ -578,6 +587,7 @@ lemma corestrictionOneWithTransversal_trans
         m ≫ (degreeOneIso X).hom) hq
 
 set_option maxHeartbeats 800000 in
+-- Flattening both crossed-homomorphism transfers expands the transversal formulas.
 /-- Degree-one corestriction is transitive through nested open finite-index
 subgroups, after the canonical flattened/nested identification. -/
 lemma corestrictionOne_trans_crossed (H : OpenSubgroup G) (K : OpenSubgroup H)
@@ -599,6 +609,7 @@ lemma corestrictionOne_trans_crossed (H : OpenSubgroup G) (K : OpenSubgroup H)
   exact corestrictionOneWithTransversal_trans X H K U T
 
 set_option maxHeartbeats 800000 in
+-- The native transitivity proof transports the crossed result through subgroup equivalences.
 /-- Degree-one corestriction is transitive through nested open finite-index
 subgroups, using native continuous-cohomology transport along the canonical
 equivalence with the flattened subgroup. -/

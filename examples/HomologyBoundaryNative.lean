@@ -5,21 +5,18 @@ Authors: Formal Frontier Agents
 module
 
 import ContinuousGroupCohomology.Algebra.Category.ModuleCat.Topology.HomologyBoundary
+import examples.FiniteStageResolutionNative
 
 set_option warningAsError true
 
-open CategoryTheory
+/-!
+# Boundary clients for topological-module homology
 
-universe u v
-
-namespace CGCExamples.TopModuleCat
-
-private theorem equal_classes_have_difference_boundary
-    {k : Type u} [Ring k] [TopologicalSpace k]
-    (S : ShortComplex (TopModuleCat.{v} k)) (z₁ z₂ : S.cycles)
-    (h : S.homologyπ.hom z₁ = S.homologyπ.hom z₂) :
-    ∃ w : S.X₁, S.toCycles.hom w = z₁ - z₂ := by
-  apply (TopModuleCat.shortComplex_homologyπ_eq_zero_iff S (z₁ - z₂)).mp
-  simpa only [map_sub, sub_eq_zero] using h
-
-end CGCExamples.TopModuleCat
+This entrypoint retains its ordinary producer import and forwards the
+equal-class boundary check to the finite-stage client host. The boundary,
+finite-stage boundary, colimit, resolution/sign, quotient-invariants,
+resolution-image, cochain, seeded descent, transition and diagram proofs
+elaborate together there: seven current environments comprise ten originally
+isolated proof environments. Importing this module does not repeat the former
+isolated boundary-proof elaboration.
+-/

@@ -98,6 +98,15 @@ The [compact/discrete factor guide](docs/CompactDiscreteFactor.md),
 [cochain-injectivity guide](docs/CochainInjectivity.md) describe reusable
 prerequisites and their limitations. All eight guides describe ordinary-import
 clients under `examples/*Native.lean`.
+The compact finite-quotient and native discreteness checks share
+[`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) with the
+degree-one torsion clients. This union replaces all three separately checked
+proof-import environments, including the former Torsion-only host;
+[`CompactDiscreteTorsionNative`](examples/CompactDiscreteTorsionNative.lean) and
+[`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean) are now
+declaration-free entrypoints retaining their original public producer imports;
+both import the host ordinarily rather than re-exporting it. The recommended
+production imports above are unchanged.
 
 The quotient and its order may depend on the class. This does **not** prove
 degree-zero torsion, a uniform bound or quotient, injectivity on cohomology
@@ -139,9 +148,10 @@ ingredients and their individual hypotheses.
 | Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
 | Discrete representation sums and tensors | `TopRepDiscrete` | Arbitrary varying-index algebraic sums and two-factor tensors with discrete output topology, canonical Mathlib actions, coordinate/pure-tensor equations and jointly continuous actions when the inputs have them. |
 | Discrete linear Hom | `TopRepDiscreteHom` | All linear maps with the discrete carrier topology and inverse-oriented conjugation, separate scalar-continuity criteria and four joint-action continuity criteria. |
+| Sign-product boundary | `DiscreteProduct` | The countable integer-unit sign product acts jointly continuously on integer sequences with their nondiscrete product topology; a separately discrete copy has continuous fixed-sign operators but no jointly continuous action. |
 
 The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-publicly imports all 65 listed production leaves. All 65 and the forty-one clients
+collects the production API. The production leaves and clients
 use Lean's native `module` system. A compact additive-group limit or finite-stage
 homology *model* is not a construction of general completed continuous homology.
 Finite quotients require their actual finite-index/finite-group hypotheses;
@@ -191,15 +201,17 @@ finite generation, a trivial action, or a common group-wide exponent. Transfer
 follows restriction in the classwise index argument; no higher-degree claim is
 made. [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) checks
 both the integral-representation specialization and restriction to an arbitrary
-open subgroup of `G`, without imposing a trivial action there.
+open subgroup of `G`, without imposing a trivial action there. Its proof-import
+environment also contains compact finite-quotient and discreteness clients, so
+these checks no longer test the Torsion-only import environment in isolation.
 
 ## Dependencies and builds
 
 Use `elan` and Lake with `lean-toolchain`'s
-`leanprover/lean4:v4.34.0-rc2`. `lakefile.lean` and `lake-manifest.json` fix
-mathlib at `e37d88a26f3791ed5a93daa1f949af1021b8d103` and the **official
-private** `finite-group-tate-cohomology` dependency at
-`fda003db3d06774f28b47232e8248852ffdbfc0d` from
+`leanprover/lean4:v4.34.0-rc2`. `lakefile.toml` and `lake-manifest.json` fix
+mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` and the released
+`finite-group-tate-cohomology` dependency at
+`d17f93bbc5b934f8b9f3cf077769a706a901608d` from
 `https://github.com/FormalFrontier/finite-group-tate-cohomology.git`.
 Authorized access to this private dependency and network access to the pinned
 mathlib/transitive dependencies and their cache are required. No source-research
@@ -216,10 +228,10 @@ a failed cache fetch rather than silently rebuilding mathlib from source.
 
 ### Build-time and memory baseline
 
-A previous 56-leaf/thirty-two-client combined root/client CI build at the pinned
+A previous 56-leaf/thirty-two-client combined root/client CI build at the then-pinned
 Lean, mathlib and Tate revisions took about **6.6 minutes** after fetching the
 matching mathlib cache. This is an indicative observation, **not** a benchmark
-of the present 65-leaf/forty-one-client graph or a guaranteed build time.
+of the current production/client graph or a guaranteed build time.
 An earlier, smaller graph had a shared 15 GiB memory limit and a lifetime
 high-water reading of about 14.2 GiB after its client build; this is neither
 peak RSS for a command nor a measured minimum. Allow headroom for other jobs,
@@ -275,13 +287,21 @@ the default build:
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.
 
+The finite-stage resolution, boundary, colimit, quotient-invariants,
+resolution-image, cochain, seeded descent, transition and diagram client proofs
+elaborate together in `examples.FiniteStageResolutionNative`: seven current
+environments combine ten original isolated environments. Their forwarding roots
+retain their original producer imports and visibility for importers, but
+building those roots does not repeat the original isolated proof elaborations.
+Import the corresponding `ContinuousGroupCohomology` production leaves for their APIs.
+
 For an explicit fresh source elaboration of the aggregate-root client:
 
 ```sh
 lake env lean examples/NativeCore.lean
 ```
 
-The other forty client paths above can likewise be given to `lake env lean`.
+The other client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
 proof dependencies. Release verification uses an applicable successful build and
 a complete actual transitive-axiom audit of repository declarations, including

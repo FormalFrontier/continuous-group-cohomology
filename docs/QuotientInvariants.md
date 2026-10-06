@@ -37,10 +37,14 @@ Pointwise-continuous `TopRep` operators do **not** imply a jointly continuous
 action for arbitrary `N`. In cohomology, a future use of `cochainsMap` may require
 the displayed inclusion as the coefficient arrow after restriction along the
 quotient homomorphism; this module does not construct cochains, descent or an
-inflation equivalence. Ordinary-import private clients cover the generic
+inflation equivalence. Private client proofs cover the generic
 noncommutative-ring signature, coefficient functor and naturality, the two
 joint-continuity hypotheses, degenerate cases and a concrete open subgroup
-with real (nondiscrete) coefficients.
+with real (nondiscrete) coefficients. They elaborate in
+`examples.FiniteStageResolutionNative`. The ordinary-import forwarding root
+retains its original producer and Mathlib imports but no longer checks these
+proofs in isolation: seven current client proof environments, comprising ten
+original environments, now elaborate together in the host.
 
 See the [ordinary-import client](../examples/QuotientInvariantsNative.lean).
 

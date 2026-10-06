@@ -26,7 +26,14 @@ isomorphisms, so the transport uses a continuous inverse, not just a
 continuous bijection. The coefficient ring retains its given topology.
 
 The ordinary-import arbitrary-degree and arbitrary-coefficient clients reside
-in `examples.DiscreteCohomologyNative`.
+in [`ContinuousTorsionNative`](../examples/ContinuousTorsionNative.lean).
+They share its imports with the compact finite-quotient and degree-one torsion
+clients. Thus none of the three former independent proof-import environments
+is checked in isolation, including the original Torsion-only host; the
+[`DiscreteCohomologyNative` entrypoint](../examples/DiscreteCohomologyNative.lean)
+retains its original public producer import and imports the host ordinarily,
+without re-exporting it. Continue to import
+`ContinuousGroupCohomology.DiscreteCohomology` to use the production theorem.
 This theorem neither constructs a finite-stage colimit nor assumes or proves
 eventual vanishing of a class at a refined stage.
 

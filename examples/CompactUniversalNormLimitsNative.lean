@@ -36,13 +36,13 @@ open ContinuousGroupCohomology
 open ContinuousGroupCohomology.RestrictedLevelCompactRep
 
 theorem chosenUniversalNormsAreReachable
-    (A : LevelCompactRep.{u,u,u} R G) (U V : OpenNormalSubgroup G)
+    (A : LevelCompactRep.{u, u, u} R G) (U V : OpenNormalSubgroup G)
     (hVU : V ≤ U) :
     Function.Surjective ((universalNorm A).system.relativeNorm U V hVU) := by
   exact universalNorm_relativeNorm_surjective A U V hVU
 
 theorem fullProjectionDetectsUniversalNorms
-    (A : LevelCompactRep.{u,u,u} R G) (U : OpenNormalSubgroup G)
+    (A : LevelCompactRep.{u, u, u} R G) (U : OpenNormalSubgroup G)
     (x : (full A).system.coefficients U) :
     x ∈ Set.range (limit.π (restrictedNormDiagram (full A)) U) ↔
       (x.1 : openSubgroupInvariants A.rep U.toOpenSubgroup) ∈
@@ -80,7 +80,7 @@ theorem coefficientMorphismCommutesWithComparison
   exact ConcreteCategory.congr_hom (restrictedNormLimitIso_naturality f) x
 
 theorem everyCoefficientMorphismPreservesUniversalComparison
-    {A C : LevelCompactRep.{u,u,u} R G} (f : A ⟶ C)
+    {A C : LevelCompactRep.{u, u, u} R G} (f : A ⟶ C)
     (x : (CategoryTheory.Limits.limit
       (restrictedNormDiagram (universalNormFunctor.obj A)) : CompHausAddCommGrp)) :
     (restrictedNormLimitIso (universalNormFunctor.obj C)).hom

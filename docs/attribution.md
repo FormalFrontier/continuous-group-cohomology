@@ -30,12 +30,12 @@ contributors Edison Xie and Richard Hill.
 ## Formal foundations and related libraries
 
 - [Lean 4](https://github.com/leanprover/lean4) and
-  [mathlib at the pinned revision](https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103)
+  [mathlib at the pinned revision](https://github.com/leanprover-community/mathlib4/tree/83abb3e776bdefcbc447a1e44d0debe4010039e5)
   provide the categorical, group-cohomological and topological foundations,
-  including [native continuous cohomology](https://github.com/leanprover-community/mathlib4/blob/e37d88a26f3791ed5a93daa1f949af1021b8d103/Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean).
+  including [native continuous cohomology](https://github.com/leanprover-community/mathlib4/blob/83abb3e776bdefcbc447a1e44d0debe4010039e5/Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean).
   Using these APIs does not make their upstream proof expression a project
   contribution.
-- The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/fda003db3d06774f28b47232e8248852ffdbfc0d)
+- The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d)
   supplies finite Tate definitions and norm maps used here. Authorized access
   to this private dependency is required for building from the current pins.
 - [`scripts/generate_api.py`](../scripts/generate_api.py) and

@@ -72,8 +72,8 @@ The pinned mathlib does not have `(⊤ : OpenNormalSubgroup G)`; use the named
 automatically total invariants.
 
 This library pins Lean `v4.34.0-rc2`, mathlib
-`e37d88a26f3791ed5a93daa1f949af1021b8d103` and the official
-finite-group Tate revision `fda003db3d06774f28b47232e8248852ffdbfc0d`.
+`83abb3e776bdefcbc447a1e44d0debe4010039e5` and the released
+finite-group Tate revision `d17f93bbc5b934f8b9f3cf077769a706a901608d`.
 Its finite norm row and full norm-limit sequence are available through the
 imports of this producer. From the library root, install the pinned toolchain,
 fetch the matching mathlib cache successfully, and build the root and named

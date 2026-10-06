@@ -26,48 +26,55 @@ open CategoryTheory ContinuousGroupCohomology
 
 namespace NestedInvariantsNativeClient
 
-local notation "G₂" => Multiplicative (ZMod 2)
-
-example : (⊥ : Subgroup G₂) < ⊤ := bot_lt_top
+example : (⊥ : Subgroup (Multiplicative (ZMod 2))) < ⊤ := bot_lt_top
 
 universe u
 
-variable {R : Type u} [CommRing R] (A : Rep.{0} R G₂)
+variable {R : Type u} [CommRing R] (A : Rep.{0} R (Multiplicative (ZMod 2)))
 
-example (g : G₂) :
+example (g : Multiplicative (ZMod 2)) :
     (QuotientGroup.quotientQuotientEquivQuotient
-      (⊥ : Subgroup G₂) ⊤ bot_le)
-        (QuotientGroup.mk' ((⊤ : Subgroup G₂).map
-          (QuotientGroup.mk' (⊥ : Subgroup G₂)))
-          (QuotientGroup.mk' (⊥ : Subgroup G₂) g)) =
-      QuotientGroup.mk' (⊤ : Subgroup G₂) g := rfl
+      (⊥ : Subgroup (Multiplicative (ZMod 2))) ⊤ bot_le)
+        (QuotientGroup.mk' ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+          (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))))
+          (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2))) g)) =
+      QuotientGroup.mk' (⊤ : Subgroup (Multiplicative (ZMod 2))) g := rfl
 
 example (x : Representation.invariants
-    ((A.quotientToInvariants (⊥ : Subgroup G₂)).ρ.comp
-      ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂))).subtype)) :
-    (nestedQuotientInvariantsEquiv A (⊥ : Subgroup G₂) ⊤ bot_le x).1 = x.1.1 :=
+    ((A.quotientToInvariants (⊥ : Subgroup (Multiplicative (ZMod 2)))).ρ.comp
+      ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+        (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2))))).subtype)) :
+    (nestedQuotientInvariantsEquiv A (⊥ : Subgroup (Multiplicative (ZMod 2)))
+      ⊤ bot_le x).1 = x.1.1 :=
   nestedQuotientInvariantsEquiv_apply_val A ⊥ ⊤ bot_le x
 
-example (x : Representation.invariants (A.ρ.comp (⊤ : Subgroup G₂).subtype)) :
-    ((nestedQuotientInvariantsEquiv A (⊥ : Subgroup G₂) ⊤ bot_le).symm x).1.1 = x.1 :=
+example (x : Representation.invariants
+    (A.ρ.comp (⊤ : Subgroup (Multiplicative (ZMod 2))).subtype)) :
+    ((nestedQuotientInvariantsEquiv A (⊥ : Subgroup (Multiplicative (ZMod 2)))
+      ⊤ bot_le).symm x).1.1 = x.1 :=
   nestedQuotientInvariantsEquiv_symm_apply_val A ⊥ ⊤ bot_le x
 
-example (x : (A.quotientToInvariants (⊥ : Subgroup G₂)).quotientToInvariants
-    ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂)))) :
-    ((nestedQuotientInvariantsRepIso A (⊥ : Subgroup G₂) ⊤ bot_le).hom x).1 =
-      x.1.1 :=
+example (x : (A.quotientToInvariants
+    (⊥ : Subgroup (Multiplicative (ZMod 2)))).quotientToInvariants
+    ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+      (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))))) :
+    ((nestedQuotientInvariantsRepIso A (⊥ : Subgroup (Multiplicative (ZMod 2)))
+      ⊤ bot_le).hom x).1 = x.1.1 :=
   nestedQuotientInvariantsRepIso_hom_apply_val A ⊥ ⊤ bot_le x
 
-example [Fintype ((⊤ : Subgroup G₂).map
-    (QuotientGroup.mk' (⊥ : Subgroup G₂)))]
-    (x : A.quotientToInvariants (⊥ : Subgroup G₂)) :
-    ((nestedQuotientInvariantsRepIso A (⊥ : Subgroup G₂) ⊤ bot_le).hom.hom
+example [Fintype ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+    (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))))]
+    (x : A.quotientToInvariants (⊥ : Subgroup (Multiplicative (ZMod 2)))) :
+    ((nestedQuotientInvariantsRepIso A (⊥ : Subgroup (Multiplicative (ZMod 2)))
+      ⊤ bot_le).hom.hom
       (FiniteGroupTateCohomology.quotientNorm
-        (A.quotientToInvariants (⊥ : Subgroup G₂))
-        ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂)))
+        (A.quotientToInvariants (⊥ : Subgroup (Multiplicative (ZMod 2))))
+        ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+          (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))))
         (Representation.Coinvariants.mk _ x))).1 =
-      ∑ q : (⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂)),
-        (((A.quotientToInvariants (⊥ : Subgroup G₂)).ρ q.1) x).1 := by
+      ∑ q : (⊤ : Subgroup (Multiplicative (ZMod 2))).map
+        (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))),
+        (((A.quotientToInvariants (⊥ : Subgroup (Multiplicative (ZMod 2)))).ρ q.1) x).1 := by
   rw [nestedQuotientInvariantsRepIso_hom_apply_val,
     FiniteGroupTateCohomology.quotientNorm_mk]
   simp only [Representation.norm, LinearMap.sum_apply, Submodule.coe_sum,
@@ -78,19 +85,22 @@ example [Fintype ((⊤ : Subgroup G₂).map
 
 example :
     (nestedQuotientInvariantsRepNatTrans (R := R)
-      (⊥ : Subgroup G₂) ⊤ bot_le).app A =
-      (nestedQuotientInvariantsRepIso A (⊥ : Subgroup G₂) ⊤ bot_le).hom :=
+      (⊥ : Subgroup (Multiplicative (ZMod 2))) ⊤ bot_le).app A =
+      (nestedQuotientInvariantsRepIso A
+        (⊥ : Subgroup (Multiplicative (ZMod 2))) ⊤ bot_le).hom :=
   nestedQuotientInvariantsRepNatTrans_app A ⊥ ⊤ bot_le
 
-example {B : Rep.{0} R G₂} (f : A ⟶ B) :
+example {B : Rep.{0} R (Multiplicative (ZMod 2))} (f : A ⟶ B) :
     (Rep.quotientToInvariantsFunctor R
-      ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂)))).map
-        ((Rep.quotientToInvariantsFunctor R (⊥ : Subgroup G₂)).map f) ≫
+      ((⊤ : Subgroup (Multiplicative (ZMod 2))).map
+        (QuotientGroup.mk' (⊥ : Subgroup (Multiplicative (ZMod 2)))))).map
+        ((Rep.quotientToInvariantsFunctor R
+          (⊥ : Subgroup (Multiplicative (ZMod 2)))).map f) ≫
       (nestedQuotientInvariantsRepIso B ⊥ ⊤ bot_le).hom =
     (nestedQuotientInvariantsRepIso A ⊥ ⊤ bot_le).hom ≫
       (Rep.resFunctor
         (QuotientGroup.quotientQuotientEquivQuotient
-          (⊥ : Subgroup G₂) ⊤ bot_le).toMonoidHom).map
+          (⊥ : Subgroup (Multiplicative (ZMod 2))) ⊤ bot_le).toMonoidHom).map
         ((Rep.quotientToInvariantsFunctor R ⊤).map f) :=
   nestedQuotientInvariantsRepIso_naturality f ⊥ ⊤ bot_le
 

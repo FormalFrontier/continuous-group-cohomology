@@ -26,11 +26,11 @@ sources:
       Tate interfaces. Attribution and the specific mathematical APIs are
       documented in docs/attribution.md and the linked module guides.
 related_formalizations:
-  - id: https://github.com/leanprover-community/mathlib4/tree/e37d88a26f3791ed5a93daa1f949af1021b8d103
+  - id: https://github.com/leanprover-community/mathlib4/tree/83abb3e776bdefcbc447a1e44d0debe4010039e5
     relationship: builds-on
-  - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/fda003db3d06774f28b47232e8248852ffdbfc0d
+  - id: https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d
     relationship: builds-on
-    note: Pinned finite-group Tate cohomology dependency.
+    note: Released finite-group Tate cohomology dependency, pinned to this commit.
 automation:
   methods:
     - method: agent

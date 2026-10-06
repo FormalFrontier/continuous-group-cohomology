@@ -750,6 +750,7 @@ noncomputable def mackeyRepresentativeCoefficient
     (X.ρ x⁻¹ (X.ρ ((h : G)⁻¹) (f.1 h)))
 
 set_option maxHeartbeats 500000 in
+-- The representative change reindexes the stabilizer transversal and transfer sum.
 /-- Changing an ambient Mackey representative from `x` to `h * x * b`, and
 transporting the stabilizer transversal accordingly, changes the transferred
 crossed homomorphism by one principal crossed homomorphism. -/
@@ -838,6 +839,7 @@ lemma mackeyTransferCrossed_mul_left_mul_right
   rfl
 
 set_option maxHeartbeats 500000 in
+-- Passing to the quotient eliminates the principal term in representative change.
 /-- Representative change is invisible on the quotient when the changed
 stabilizer uses the transported transversal. -/
 lemma mackeySummandQuotientWithTransversal_mul_left_mul_right
@@ -1356,6 +1358,7 @@ noncomputable def mackeyRightTransversal (H K : OpenSubgroup G)
   mackeyAssembledRightTransversal H K (mackeyStabilizerRightTransversal H K)
 
 set_option maxHeartbeats 2000000 in
+-- The quotient-level formula expands the finite double-coset transfer sum.
 /-- Quotient-level degree-one Mackey formula. -/
 lemma crossedQuotientRestrict_comp_transferQuotient_mackey
     (H K : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
@@ -1457,6 +1460,7 @@ def mackeyCoefficientHom (H K : OpenSubgroup G) (x : G) :
       group }
 
 set_option maxHeartbeats 800000 in
+-- Evaluation unfolds the degree-one homogeneous cochain map and coefficient transport.
 /-- Evaluation in degree one of the homogeneous-cochain map induced by a group
 homomorphism and compatible coefficient morphism. -/
 lemma cochainsMap_one_apply
@@ -1481,6 +1485,7 @@ lemma cochainsMap_one_apply
   exact ContRepresentation.coind₁ResMap_apply phi f.hom (sigma.1 1) h
 
 set_option maxHeartbeats 800000 in
+-- Comparing the crossed and cocycle maps expands the conjugation and restriction squares.
 /-- The explicit conjugation/restriction map on crossed homomorphisms agrees
 with the map induced on degree-one cocycles. -/
 lemma cocyclesOneCrossedIso_mackey (H K : OpenSubgroup G) (x : G)
@@ -1541,6 +1546,7 @@ lemma mackeyConjugateCrossed_comp_mkQL (H K : OpenSubgroup G) (x : G)
   rfl
 
 set_option maxHeartbeats 3000000 in
+-- The native and crossed quotient maps are compared through homology transport.
 set_option backward.isDefEq.respectTransparency false in
 /-- The native cohomology map induced by conjugation and coefficient transport
 agrees with the conjugation map on crossed-homomorphism quotients. -/
@@ -1636,6 +1642,7 @@ lemma homologyQuotientIso_mackey (H K : OpenSubgroup G) (x : G)
       Category.assoc _ _ _
 
 set_option maxHeartbeats 3000000 in
+-- Degree-one naturality reassociates the cohomology and crossed-quotient isomorphisms.
 set_option backward.isDefEq.respectTransparency false in
 /-- Conjugation and restriction commute with the crossed-quotient-to-degree-one
 cohomology comparison. -/
@@ -1660,6 +1667,7 @@ lemma degreeOneIso_mackey (H K : OpenSubgroup G) (x : G)
     degreeOneIso, Iso.symm_hom, Iso.inv_hom_id, Category.id_comp]
 
 set_option maxHeartbeats 800000 in
+-- Moving the inverse degree-one comparison across the composite requires reassociation.
 /-- A reassociated inverse form of `degreeOneIso_mackey`. -/
 lemma map_comp_degreeOneIso_inv_mackey (H K : OpenSubgroup G) (x : G)
     [TopRep.JointlyContinuous X] [LocallyCompactSpace H]
@@ -1711,6 +1719,7 @@ noncomputable def mackeyDoubleCosetOneSummand
       (mackeyOpenStabilizer H K q.out)
 
 set_option maxHeartbeats 2000000 in
+-- Each double-coset component is transported through the degree-one comparison.
 /-- The native double-coset summand agrees with the representative-independent
 crossed-quotient summand transported through the degree-one comparison. -/
 lemma mackeyDoubleCosetOneSummand_eq_quotient
@@ -1785,6 +1794,7 @@ noncomputable def mackeyDoubleCosetOneSum
       (degreeOneIso (TopRep.res K.subtype X)).hom
 
 set_option maxHeartbeats 800000 in
+-- The native sum unfolds the finite double-coset family of summands.
 /-- The native Mackey sum is the finite sum of its double-coset summands. -/
 lemma mackeyDoubleCosetOneSum_eq_sum
     (H K : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
@@ -1836,6 +1846,7 @@ lemma mackeyDoubleCosetOneSum_eq_sum
         (mackeyDoubleCosetOneSummand_eq_quotient X H K q).symm
 
 set_option maxHeartbeats 800000 in
+-- The final Mackey formula combines finite-sum transport with the quotient comparison.
 /-- Restriction to `K` after canonical corestriction from `H` is the finite
 degree-one Mackey sum over `H \\ G / K`. -/
 lemma corestrictionOne_comp_restriction_mackey

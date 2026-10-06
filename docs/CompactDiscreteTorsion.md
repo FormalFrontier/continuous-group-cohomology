@@ -26,15 +26,23 @@ and its native additive cohomology map carries that equation to `a`.
 `ContinuousCohomology.compactDiscrete_isAddTorsion` packages this as
 `IsAddTorsion (continuousCohomology (n + 1) X)`.
 
-The ordinary-import private client tests an arbitrary ring and positive
-degree, degree-zero lifting of a difference, degree-one sums, degree three
-with a genuinely nontrivial sign action, zero coefficients and a zero class.
+The ordinary-import private clients in
+[`ContinuousTorsionNative`](../examples/ContinuousTorsionNative.lean) test an
+arbitrary ring and positive degree, degree-zero lifting of a difference,
+degree-one sums, degree three with a genuinely nontrivial sign action, zero
+coefficients and a zero class.
 Neither the quotient nor its order is uniform across classes. Degree-zero
 classes lift but need not be torsion (e.g. the trivial group with integral
 coefficients). There is no cohomology injectivity, boundary lifting,
 filtered-colimit comparison, inflation-restriction, acyclicity, vanishing,
 or claim concerning a separately modeled explicit H¹.
 
-See the [ordinary-import client](../examples/CompactDiscreteTorsionNative.lean).
+The host also checks degree-one torsion and arbitrary-degree discreteness.
+Its combined imports replace all three former independent proof-import
+environments, including the degree-one torsion client's former Torsion-only
+check; the [compact torsion entrypoint](../examples/CompactDiscreteTorsionNative.lean)
+retains its original public producer and Mathlib imports and imports the host
+ordinarily, without re-exporting it. To use the theorem, import
+`ContinuousGroupCohomology.CompactDiscreteTorsion`, not the example module.
 
 See [attribution](attribution.md) for contributor lineage and rights scope.

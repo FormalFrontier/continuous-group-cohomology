@@ -361,7 +361,7 @@ private def conjugationMulEquiv (U : OpenNormalSubgroup G) (g : G) : U ≃* U wh
     exact Subgroup.Normal.conj_mem (H := U.toSubgroup) (self := inferInstance)
       (u : G) u.2 g⟩
   invFun u := ⟨g⁻¹ * (u : G) * g, by
-    show g⁻¹ * (u : G) * g ∈ U.toSubgroup
+    change g⁻¹ * (u : G) * g ∈ U.toSubgroup
     simpa only [inv_inv] using
       (Subgroup.Normal.conj_mem (H := U.toSubgroup) (self := inferInstance)
         (u : G) u.2 g⁻¹)⟩

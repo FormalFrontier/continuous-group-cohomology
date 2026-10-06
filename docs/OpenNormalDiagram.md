@@ -23,7 +23,11 @@ No compactness of `G`, discreteness or joint continuity of `X`, separation of
 finite in general; compactness of `G` makes the quotients finite. This diagram
 and cocone assert **no colimit property**, finite-stage surjectivity, or
 injectivity at a fixed positive-degree stage. The ordinary-import generic
-client is `examples.OpenNormalDiagramNative`.
+client is `examples.OpenNormalDiagramNative`. Its private proofs elaborate in
+`examples.FiniteStageResolutionNative`. The forwarding root retains its original
+producer import but not its original isolated proof environment: seven current
+client environments, comprising ten original ones, now elaborate together in
+the host.
 
 The original contributors and upstream results are credited in
 [attribution](attribution.md).

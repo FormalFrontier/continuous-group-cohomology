@@ -9,9 +9,9 @@ This module builds on this library's finite-row producer
 published compact-limit and universal-norm APIs, with direct imports of
 `Mathlib.CategoryTheory.Limits.Connected` and
 `Mathlib.CategoryTheory.Filtered.Connected`. This destination pins Lean
-`v4.34.0-rc2`, mathlib `e37d88a26f3791ed5a93daa1f949af1021b8d103`
-and the official finite-group Tate dependency
-`fda003db3d06774f28b47232e8248852ffdbfc0d`.
+`v4.34.0-rc2`, mathlib `83abb3e776bdefcbc447a1e44d0debe4010039e5`
+and the released finite-group Tate dependency
+`d17f93bbc5b934f8b9f3cf077769a706a901608d`.
 
 Fix `{R : Type u} [CommRing R] {G : ProfiniteGrp.{u}}`,
 `A : Rep.{u} R G` and `L : LevelCompact A`. Write `J := OpenNormalSubgroup G`,

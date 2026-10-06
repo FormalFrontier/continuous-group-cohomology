@@ -41,7 +41,7 @@ noncomputable local instance :
     HasLimitsOfShape (OpenNormalSubgroup G) CompHausAddCommGrp.{u} :=
   ⟨fun _ => inferInstance⟩
 
-private theorem fullNorm_map_coe (A : LevelCompactRep.{u,u,u} R G)
+private theorem fullNorm_map_coe (A : LevelCompactRep.{u, u, u} R G)
     (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
     (y : (full A).system.coefficients V) :
     (((restrictedNormDiagram (full A)).map (homOfLE hVU) y :
@@ -64,7 +64,7 @@ private theorem fullNorm_map_coe (A : LevelCompactRep.{u,u,u} R G)
           ((full A).system.relativeNormHom_apply U V hVU y)
     _ = _ := (full A).system.relativeNorm_coe U V hVU y
 
-private theorem fullNorm_range_iff (A : LevelCompactRep.{u,u,u} R G)
+private theorem fullNorm_range_iff (A : LevelCompactRep.{u, u, u} R G)
     (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
     (x : (full A).system.coefficients U) :
     x ∈ Set.range ((restrictedNormDiagram (full A)).map (homOfLE hVU)) ↔
@@ -89,7 +89,7 @@ private theorem fullNorm_range_iff (A : LevelCompactRep.{u,u,u} R G)
 
 /-- A full compact relative-norm limit projects precisely onto the universal
 norms, viewed inside the full invariant coefficient at an open normal level. -/
-theorem fullNormLimit_projection_mem_iff (A : LevelCompactRep.{u,u,u} R G)
+theorem fullNormLimit_projection_mem_iff (A : LevelCompactRep.{u, u, u} R G)
     (U : OpenNormalSubgroup G) (x : (full A).system.coefficients U) :
     x ∈ Set.range (limit.π (restrictedNormDiagram (full A)) U) ↔
       (x.1 : openSubgroupInvariants A.rep U.toOpenSubgroup) ∈
@@ -110,7 +110,7 @@ theorem fullNormLimit_projection_mem_iff (A : LevelCompactRep.{u,u,u} R G)
 
 /-- Every restricted universal norm is the relative norm of another universal
 norm at any prescribed deeper open normal level. -/
-theorem universalNorm_relativeNorm_surjective (A : LevelCompactRep.{u,u,u} R G)
+theorem universalNorm_relativeNorm_surjective (A : LevelCompactRep.{u, u, u} R G)
     (U V : OpenNormalSubgroup G) (hVU : V ≤ U) :
     Function.Surjective ((universalNorm A).system.relativeNorm U V hVU) := by
   intro x
@@ -435,7 +435,7 @@ the required restricted morphism automatically. -/
 /-- Universal norms admit the canonical comparison naturally for *all*
 level-compact coefficient morphisms, via the published preservation functor. -/
 @[reassoc] theorem universalNorm_limitIso_naturality
-    {A C : LevelCompactRep.{u,u,u} R G} (f : A ⟶ C) :
+    {A C : LevelCompactRep.{u, u, u} R G} (f : A ⟶ C) :
     lim.map (restrictedNormDiagramMap (universalNormFunctor.map f)) ≫
         (restrictedNormLimitIso (universalNormFunctor.obj C)).hom =
       (restrictedNormLimitIso (universalNormFunctor.obj A)).hom ≫

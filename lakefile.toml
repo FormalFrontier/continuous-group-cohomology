@@ -1,0 +1,72 @@
+# SPDX-License-Identifier: Apache-2.0
+# Authors: Formal Frontier Agents
+
+name = "continuous-group-cohomology"
+version = "0.1.0"
+defaultTargets = ["ContinuousGroupCohomology", "CGCExamples"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "83abb3e776bdefcbc447a1e44d0debe4010039e5"
+
+[[require]]
+name = "finiteGroupTateCohomology"
+git = "https://github.com/FormalFrontier/finite-group-tate-cohomology.git"
+rev = "d17f93bbc5b934f8b9f3cf077769a706a901608d"
+
+[[lean_lib]]
+name = "ContinuousGroupCohomology"
+
+[[lean_lib]]
+name = "CGCExamples"
+roots = [
+  "examples.CompactFoundationNative",
+  "examples.CompactExceptionalTateCoefficientMapsNative",
+  "examples.CompactExceptionalTateLimitFunctorialityNative",
+  "examples.CompactNegativeBarNative",
+  "examples.CompactExceptionalTateNative",
+  "examples.CompactFiniteTateNormSequenceNative",
+  "examples.CompactTateNormLimitSequenceNative",
+  "examples.CompactTateNormNaturalityNative",
+  "examples.CompactUniversalNormLimitsNative",
+  "examples.ContinuousTorsionNative",
+  "examples.ExceptionalDeflationNative",
+  "examples.ExceptionalTateDeflationTopologyNative",
+  "examples.FiniteCoinvariantDeflationNative",
+  "examples.FiniteCoinvariantsNative",
+  "examples.FiniteDeflationTransitivityNative",
+  "examples.FiniteNegativeNative",
+  "examples.FiniteTateTopologyNative",
+  "examples.LevelCompactNative",
+  "examples.LevelCompactNormNative",
+  "examples.NestedInvariantsNative",
+  "examples.NativeCore",
+  "examples.NonpositiveTateDiagramsNative",
+  "examples.RestrictedLevelNative",
+  "examples.RestrictedLevelCompactFunctorialityNative",
+  "examples.CompactDiscreteFactorNative",
+  "examples.QuotientInvariantsNative",
+  "examples.CochainInjectivityNative",
+  "examples.ResolutionImageNative",
+  "examples.FiniteStageResolutionNative",
+  "examples.FiniteStageCochainsNative",
+  "examples.FiniteAveragingNative",
+  "examples.CompactDiscreteTorsionNative",
+  "examples.HomologyBoundaryNative",
+  "examples.SeededCochainsNative",
+  "examples.QuotientTransitionsNative",
+  "examples.FiniteStageBoundaryNative",
+  "examples.DiscreteCohomologyNative",
+  "examples.OpenNormalDiagramNative",
+  "examples.FiniteStageColimitNative",
+  "ContinuousGroupCohomologyExamples.DiscreteHom",
+  "ContinuousGroupCohomologyExamples.DiscreteProduct",
+  "CGCExamples.TopRepDiscrete",
+]

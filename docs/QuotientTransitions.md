@@ -24,7 +24,11 @@ for the ring, group and representation are retained (`u`, `v`, `w`).
 The ordinary-import generic client is
 `examples.QuotientTransitionsNative`:
 arbitrary nested `N ≤ M ≤ L`, degree, cochain and class exercise both triangles
-and both composite transition laws.
+and both composite transition laws. These private proofs elaborate in
+`examples.FiniteStageResolutionNative`. The forwarding root retains its
+original producer import but not its original isolated proof environment:
+seven current client environments, comprising ten original ones, now elaborate
+together in the host.
 
 The original contributors and upstream results are credited in
 [attribution](attribution.md).

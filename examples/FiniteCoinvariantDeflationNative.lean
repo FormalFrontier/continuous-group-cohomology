@@ -130,8 +130,7 @@ private lemma cyclicTwoSmall_le_big : cyclicTwoSmall ≤ cyclicTwoBig := by
 private def cyclicTwoGenerator :
     openSubgroupInvariants cyclicTwoFiniteRep cyclicTwoSmall.toOpenSubgroup := by
   refine ⟨(1 : ZMod 3), ?_⟩
-  ·
-    intro g
+  · intro g
     change (1 : ZMod 3) = 1
     rfl
 

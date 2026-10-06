@@ -190,12 +190,12 @@ private lemma algebraicBoundaryRange_map (n : ℕ) :
           (ModuleCat.hom_ext_iff.1
             (groupHomology.inhomogeneousChains.d_comp_d B n))⟩
     refine ⟨z, ?_, ?_⟩
-    refine ⟨x, ?_⟩
-    apply Subtype.ext
-    change (groupHomology.inhomogeneousChains B).d
-      (n + 2) (n + 1) x = z.1
-    rw [groupHomology.inhomogeneousChains.d_def]
-    rfl
+    · refine ⟨x, ?_⟩
+      apply Subtype.ext
+      change (groupHomology.inhomogeneousChains B).d
+        (n + 2) (n + 1) x = z.1
+      rw [groupHomology.inhomogeneousChains.d_def]
+    · rfl
 
 /-- The underlying additive group of compact bar homology agrees with
 mathlib's algebraic group homology. -/

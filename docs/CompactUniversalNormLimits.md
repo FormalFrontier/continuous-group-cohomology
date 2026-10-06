@@ -64,9 +64,8 @@ follows.
 ## Reproducibility
 
 This library pins Lean `v4.34.0-rc2`, mathlib
-`e37d88a26f3791ed5a93daa1f949af1021b8d103` and finite-group Tate
-`fda003db3d06774f28b47232e8248852ffdbfc0d`. With access to the pinned
-private dependency, from the repository root run:
+`83abb3e776bdefcbc447a1e44d0debe4010039e5` and finite-group Tate
+`d17f93bbc5b934f8b9f3cf077769a706a901608d`. From the repository root run:
 
 ```sh
 elan toolchain install "$(cat lean-toolchain)"
@@ -78,5 +77,4 @@ The matching mathlib cache must be fetched successfully before any build.
 The [direct client](../examples/CompactUniversalNormLimitsNative.lean)
 exercises the full projection range, norm surjectivity, compact-group
 isomorphism and both projection/naturality equations. See
-[attribution](attribution.md) for contributor origins. This is build guidance,
-not a claim that this candidate has passed release checks.
+[attribution](attribution.md) for contributor origins.

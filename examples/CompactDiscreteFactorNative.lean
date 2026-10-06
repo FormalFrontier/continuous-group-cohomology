@@ -14,6 +14,8 @@ The examples use only production imports and do not introduce a Hausdorff,
 profinite or algebraic codomain hypothesis into the general statements.
 -/
 
+universe u v
+
 private theorem generic_compact_map_space_client
     {X : Type u} {Y : Type v} [TopologicalSpace X] [TopologicalSpace Y]
     [CompactSpace X] [DiscreteTopology Y] : DiscreteTopology C(X, Y) :=

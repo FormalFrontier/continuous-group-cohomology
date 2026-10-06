@@ -91,7 +91,8 @@ between the canonical compact finite coinvariants for `S ≤ T`. -/
       simp only [Representation.norm, LinearMap.sum_apply, Submodule.coe_sum]
       rfl
     apply
-      (inclusion_isClosedEmbedding A L T.toOpenSubgroup S.toOpenSubgroup hST).isInducing.continuous_iff.mpr
+      (inclusion_isClosedEmbedding A L T.toOpenSubgroup S.toOpenSubgroup
+        hST).isInducing.continuous_iff.mpr
     rw [hcomp]
     exact hsum
   apply continuous_coinduced_dom.2
