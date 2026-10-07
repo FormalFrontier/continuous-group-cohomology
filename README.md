@@ -51,6 +51,22 @@ vanishes there. Degree-zero vanishing is false even for the two-element group
 acting trivially on nonzero integers (see the
 [two-element-group client](CGCExamples/CoinducedAcyclic.lean)).
 
+The [coinduction short-row theorem](ContinuousGroupCohomology/CoinductionExactness.lean)
+identifies the maps of Mathlib's existing twisted `TopRep.coind₁Functor` with
+coefficient postcomposition. An injective, exact and surjective coefficient row
+`A → B → D` with discrete `B` and `D` induces an injective, exact and
+surjective row of **underlying maps** on continuous functions `C(G, ·)` for any
+topological group `G`; no discrete topology on `A`, local compactness or joint
+action-continuity assumption is needed. More generally, for any topological
+domain `X`, [postcomposition exactness](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean)
+requires only exact coefficient maps and discrete `B`, while postcomposition
+surjectivity requires only a surjective coefficient map and discrete `D`.
+The [signed two-point example](CGCExamples/CoinductionExactness.lean) supplies
+an independently verified nonsplit coefficient row, nonconstant quotient and
+kernel lifts, a twisted action and an empty-domain injectivity boundary.
+These are not claims of categorical exactness of `TopRep` or of a
+source-category equivalence.
+
 The [cochain exactness guide](docs/CochainExactness.md) states the distinct
 hypotheses for injectivity, exactness in the middle, and surjectivity on every
 homogeneous cochain degree. Its nonsplit `ℤ --×2→ ℤ → ZMod 2` client uses a
@@ -200,6 +216,7 @@ ingredients and their individual hypotheses.
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
+| Coinduction short rows | [`Topology.ContinuousMap.Exact`](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean), [`CoinductionExactness`](ContinuousGroupCohomology/CoinductionExactness.lean) | On `C(X, ·)`, exactness needs discrete middle `B` and exact coefficient maps, while surjectivity needs discrete target `D` and a surjective coefficient map; `X` is arbitrary. For `TopRep.coind₁Functor`, discrete `B, D` and an injective/exact/surjective coefficient row give the three underlying-map properties over any topological group, without local compactness or an added joint-action hypothesis. A [signed nonsplit example](CGCExamples/CoinductionExactness.lean) verifies independent coefficient and nonconstant-function witnesses. No unrestricted categorical exactness is asserted. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
 | Algebraic connecting maps | [`CohomologyExactSequence`](ContinuousGroupCohomology/CohomologyExactSequence.lean), [`ConnectingNaturality`](ContinuousGroupCohomology/ConnectingNaturality.lean) | For short exact coefficient rows over locally compact groups with discrete middle/quotient coefficients and jointly continuous middle action: all-natural-degree underlying-module connector, positive representative formula and three exactness positions. Vanishing of middle cohomology in degree `n` (respectively `n + 1`) makes it mono (respectively epi); both yield a connecting isomorphism with the same forward map, also for `n = 0`. Morphisms of two such rows commute with the connector in every degree. No general connector continuity or topological delta-functor is asserted. |
 | Initial invariant segment | [`InitialInvariantsExactSequence`](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean) | Under the algebraic connector's short-exact-row and topological hypotheses, the six-arrow underlying-module segment is exact at its five internal positions. Degree-zero coefficient naturality and generic invariant injection and left exactness have weaker hypotheses; the invariant lemmas live in `TopRep`, with deprecated `ContinuousCohomology` aliases. No terminal degree-one surjectivity or connector continuity. |
@@ -310,8 +327,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 71 imports;
-`CGCExamples` compiles precisely these forty-eight native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its imports;
+`CGCExamples` compiles these registered native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -356,6 +373,8 @@ the default build:
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
 - [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
 - [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
+- [`CoinductionExactness`](CGCExamples/CoinductionExactness.lean), the signed
+  two-point coinduction short-row client;
 - [`CohomologyExactSequence`](CGCExamples/CohomologyExactSequence.lean), the sign-action
   invariant, boundary-defect and nonzero-connector client;
 - [`ConnectingIsomorphism`](CGCExamples/ConnectingIsomorphism.lean), the coinduced
