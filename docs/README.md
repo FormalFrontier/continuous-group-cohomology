@@ -18,6 +18,7 @@ import graph. Consult the
 [quotient-invariants guide](QuotientInvariants.md),
 [cochain injectivity guide](CochainInjectivity.md),
 [cochain exactness guide](CochainExactness.md),
+[algebraic connecting-map guide](CohomologyExactSequence.md),
 [resolution image guide](ResolutionImage.md),
 [finite-stage resolution guide](FiniteStageResolution.md),
 [finite-stage cochain guide](FiniteStageCochains.md),

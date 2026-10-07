@@ -70,6 +70,17 @@ do not establish continuity of this new map. For the integer sign action on
 `ℤ --×2→ ℤ → ZMod 2`, the quotient invariant `1` has a nonzero connecting
 class; its lack of an invariant integer lift is independently verified.
 
+The [coefficient-naturality theorem](ContinuousGroupCohomology/ConnectingNaturality.lean)
+proves that, for two short exact coefficient sequences over the
+same locally compact `G`, with the preceding discreteness and joint-continuity
+hypotheses in each row, commuting coefficient maps `(α, β, γ)`
+give `δ ≫ Hⁿ⁺¹(α) = Hⁿ(γ) ≫ δ′` for every natural degree. This is an equality
+of underlying-module maps, not continuity of `δ`, change-of-group naturality,
+or a topological delta-functor. The
+[nonidentity sign-sequence client](CGCExamples/ConnectingNaturality.lean)
+independently verifies the coefficient squares and a nonzero boundary, then
+applies the naturality theorem.
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -162,6 +173,7 @@ ingredients and their individual hypotheses.
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
+| Algebraic connecting maps | [`CohomologyExactSequence`](ContinuousGroupCohomology/CohomologyExactSequence.lean), [`ConnectingNaturality`](ContinuousGroupCohomology/ConnectingNaturality.lean) | For short exact coefficient rows over locally compact groups with discrete middle/quotient coefficients and jointly continuous middle action: all-natural-degree underlying-module connector, positive representative formula and three exactness positions. Morphisms of two such rows commute with the connector in every degree, including zero. No general connector continuity or topological delta-functor is asserted. |
 | Native finite-stage colimit | `Algebra.Category.ModuleCat.Topology.HomologyBoundary`, `SeededCochains`, `QuotientTransitions`, `FiniteStageBoundary`, `DiscreteCohomology`, `OpenNormalDiagram`, `FiniteStageColimit` | Actual `TopModuleCat` filtered colimit in every degree, including zero, from class-dependent dual-index refinements; arbitrary target cocones. Compact/discrete/joint-continuity hypotheses apply to the colimit, but not to the generic boundary or transition diagram; no closed-range quotient, fixed-stage injectivity or uniform refinement. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
@@ -269,8 +281,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 69 imports;
-`CGCExamples` compiles precisely these forty-five native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 70 imports;
+`CGCExamples` compiles precisely these forty-six native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -317,6 +329,8 @@ the default build:
 - [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
 - [`CohomologyExactSequence`](CGCExamples/CohomologyExactSequence.lean), the sign-action
   invariant, boundary-defect and nonzero-connector client;
+- [`ConnectingNaturality`](CGCExamples/ConnectingNaturality.lean), the nonidentity
+  coefficient-sequence endomorphism client of the proved naturality theorem;
 - [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.
