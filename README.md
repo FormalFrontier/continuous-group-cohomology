@@ -58,6 +58,18 @@ nontrivial finite group and checks both induced arrows in degrees zero and one.
 These cochain-level statements make no claim that cocycles, invariant
 coefficients or cohomology preserve arbitrary coefficient surjections.
 
+The [algebraic connecting-map guide](docs/CohomologyExactSequence.md) describes
+a connecting `k`-linear map in each natural degree and proves the three
+recurring exactness assertions for the underlying modules of continuous cohomology.
+They use locally compact `G`, discrete `B` and `C`, jointly continuous action
+on `B`, injective `i`, exact `A → B → C`, and surjective `p`. The connecting
+construction uses the cochain short exact sequence and Mathlib's homology
+boundary; its representative formula and comparison with the
+topologically split degree-zero map specify its sign. The algebraic assertions
+do not establish continuity of this new map. For the integer sign action on
+`ℤ --×2→ ℤ → ZMod 2`, the quotient invariant `1` has a nonzero connecting
+class; its lack of an invariant integer lift is independently verified.
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -257,8 +269,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 68 imports;
-`CGCExamples` compiles precisely these forty-four native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 69 imports;
+`CGCExamples` compiles precisely these forty-five native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -303,6 +315,8 @@ the default build:
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
 - [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
 - [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
+- [`CohomologyExactSequence`](CGCExamples/CohomologyExactSequence.lean), the sign-action
+  invariant, boundary-defect and nonzero-connector client;
 - [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.

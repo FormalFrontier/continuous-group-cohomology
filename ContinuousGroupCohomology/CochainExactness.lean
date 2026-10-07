@@ -131,6 +131,24 @@ private theorem resolutionEval_zero_term (Y : TopRep.{max v w} k G) :
     intro hs
     simpa only [resolutionEval_succ, ContinuousMap.zero_apply] using ih (Fin.tail hs)
 
+/-- Composing the two induced cochain maps is zero whenever the coefficient
+sequence is exact, without any discreteness hypothesis. -/
+theorem cochainsMap_comp_zero (i : A ⟶ B) (p : B ⟶ C)
+    (hexact : Function.Exact i.hom p.hom) (n : ℕ) :
+    (cochainsMap (ContinuousMonoidHom.id G) i).f n ≫
+      (cochainsMap (ContinuousMonoidHom.id G) p).f n = 0 := by
+  ext τ
+  change ((cochainsMap (ContinuousMonoidHom.id G) p).f n)
+    (((cochainsMap (ContinuousMonoidHom.id G) i).f n) τ) = 0
+  apply Subtype.ext
+  apply resolutionEval_ext C (n + 1)
+  intro hs
+  rw [cochainsMap_resolutionEval, cochainsMap_resolutionEval]
+  change p.hom (i.hom (resolutionEval A (n + 1) τ.1 hs)) =
+    resolutionEval C (n + 1) (0 : resolutionX C (n + 1)) hs
+  rw [resolutionEval_zero_term]
+  exact (hexact _).mpr ⟨_, rfl⟩
+
 /-- Exactness in the middle at every cochain degree for discrete middle
 coefficients. No group compactness or joint-action continuity is required.
 Compare Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter I, §3. -/
@@ -163,16 +181,8 @@ theorem cochainsMap_exact [DiscreteTopology B]
     refine ⟨⟨a, hainv⟩, ?_⟩
     exact Subtype.ext ha
   · rintro ⟨τ, rfl⟩
-    apply Subtype.ext
-    apply resolutionEval_ext C (n + 1)
-    intro hs
-    rw [cochainsMap_resolutionEval, cochainsMap_resolutionEval]
-    change p.hom (i.hom (resolutionEval A (n + 1) τ.1 hs)) =
-      resolutionEval C (n + 1) (0 : resolutionX C (n + 1)) hs
-    rw [resolutionEval_zero_term]
-    have hzero : p.hom (i.hom (resolutionEval A (n + 1) τ.1 hs)) = 0 :=
-      (hexact _).mpr ⟨_, rfl⟩
-    exact hzero
+    have hzero := congrArg (fun f => f τ) (cochainsMap_comp_zero i p hexact n)
+    simpa only [CategoryTheory.comp_apply, TopModuleCat.hom_zero_apply] using hzero
 
 /-- A surjection onto discrete coefficients induces a surjection on every
 homogeneous cochain degree for locally compact groups. The middle action must be jointly

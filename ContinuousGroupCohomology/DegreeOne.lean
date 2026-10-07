@@ -389,6 +389,17 @@ noncomputable def cochainsZeroIso [TopRep.JointlyContinuous X] :
     (TopRep.homogeneousCochains X).X 0 ≅ TopModuleCat.of k X :=
   TopModuleCat.ofIso (cochainsZeroEquiv X)
 
+@[simp]
+theorem cochainsZeroIso_hom_apply [TopRep.JointlyContinuous X]
+    (σ : (TopRep.homogeneousCochains X).X 0) :
+    (cochainsZeroIso X).hom.hom σ = σ.1 1 :=
+  cochainsZeroEquiv_apply X σ
+
+@[simp]
+theorem cochainsZeroIso_inv_apply [TopRep.JointlyContinuous X]
+    (x : X) (g : G) : ((cochainsZeroIso X).inv.hom x).1 g = X.ρ g x :=
+  cochainsZeroEquiv_symm_apply X x g
+
 noncomputable def oneKerCrossedIso [TopRep.JointlyContinuous X]
     [LocallyCompactSpace G] :
     TopModuleCat.of k ((TopRep.homogeneousCochains X).d 1 2).hom.ker ≅
