@@ -22,6 +22,9 @@ exactness statements are formulated for the *underlying modules* of the existing
 `continuousCohomology` objects. No continuity of the connecting homomorphism is
 asserted: continuous cochains and a continuous map on their cohomology are
 distinct requirements.
+Vanishing of middle-coefficient cohomology in adjacent degrees makes this
+underlying-module connector an isomorphism, with its forward arrow fixed by
+the existing connecting map.
 
 ## References
 
@@ -113,6 +116,11 @@ theorem moduleCochainsSequence_X₁ (i : A ⟶ B) (p : B ⟶ C)
     (moduleCochainsSequence i p hexact).X₁ = moduleCochains A := rfl
 
 @[simp]
+theorem moduleCochainsSequence_X₂ (i : A ⟶ B) (p : B ⟶ C)
+    (hexact : Function.Exact i.hom p.hom) :
+    (moduleCochainsSequence i p hexact).X₂ = moduleCochains B := rfl
+
+@[simp]
 theorem moduleCochainsSequence_X₃ (i : A ⟶ B) (p : B ⟶ C)
     (hexact : Function.Exact i.hom p.hom) :
     (moduleCochainsSequence i p hexact).X₃ = moduleCochains C := rfl
@@ -153,6 +161,116 @@ noncomputable def connecting [LocallyCompactSpace G]
   (moduleCohomologyIso C n).inv ≫
     (moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl ≫
       (moduleCohomologyIso A (n + 1)).hom
+
+/-- Vanishing in the middle at degree `n` makes the algebraic connector injective. -/
+theorem connecting_mono_of_isZero [LocallyCompactSpace G]
+    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
+    (hp : Function.Surjective p.hom) (n : ℕ)
+    (hBn : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology n B))) :
+    Mono (connecting i p hi hexact hp n) := by
+  have hMiddle : IsZero ((moduleCochainsSequence i p hexact).X₂.homology n) := by
+    simpa only [moduleCochainsSequence_X₂] using
+      (moduleCohomologyIso B n).isZero_iff.mpr hBn
+  have hBoundary : Mono ((moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl) :=
+    (moduleCochainsSequence_shortExact i p hi hexact hp).mono_δ n (n + 1) rfl hMiddle
+  change Mono ((moduleCohomologyIso C n).inv ≫
+    (moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl ≫
+      (moduleCohomologyIso A (n + 1)).hom)
+  have hSource : Mono (moduleCohomologyIso C n).inv := by
+    letI : IsIso (moduleCohomologyIso C n).inv :=
+      (moduleCohomologyIso C n).isIso_inv
+    infer_instance
+  have hTarget : Mono (moduleCohomologyIso A (n + 1)).hom := by
+    letI : IsIso (moduleCohomologyIso A (n + 1)).hom :=
+      (moduleCohomologyIso A (n + 1)).isIso_hom
+    infer_instance
+  exact mono_comp' hSource (mono_comp' hBoundary hTarget)
+
+/-- Vanishing in the middle at degree `n + 1` makes the algebraic connector surjective. -/
+theorem connecting_epi_of_isZero [LocallyCompactSpace G]
+    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
+    (hp : Function.Surjective p.hom) (n : ℕ)
+    (hBnext : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology (n + 1) B))) :
+    Epi (connecting i p hi hexact hp n) := by
+  have hMiddle : IsZero ((moduleCochainsSequence i p hexact).X₂.homology (n + 1)) := by
+    simpa only [moduleCochainsSequence_X₂] using
+      (moduleCohomologyIso B (n + 1)).isZero_iff.mpr hBnext
+  have hBoundary : Epi ((moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl) :=
+    (moduleCochainsSequence_shortExact i p hi hexact hp).epi_δ n (n + 1) rfl hMiddle
+  change Epi ((moduleCohomologyIso C n).inv ≫
+    (moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl ≫
+      (moduleCohomologyIso A (n + 1)).hom)
+  have hSource : Epi (moduleCohomologyIso C n).inv := by
+    letI : IsIso (moduleCohomologyIso C n).inv :=
+      (moduleCohomologyIso C n).isIso_inv
+    infer_instance
+  have hTarget : Epi (moduleCohomologyIso A (n + 1)).hom := by
+    letI : IsIso (moduleCohomologyIso A (n + 1)).hom :=
+      (moduleCohomologyIso A (n + 1)).isIso_hom
+    infer_instance
+  exact epi_comp' hSource (epi_comp' hBoundary hTarget)
+
+/-- Vanishing in adjacent degrees of the middle coefficient yields an isomorphism
+whose forward map is the existing algebraic connector. This is the underlying-
+module version of the connecting-isomorphism observation in
+Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter I, §3,
+before Definition (1.3.5); no isomorphism of topological modules is asserted. -/
+noncomputable def connectingIso [LocallyCompactSpace G]
+    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
+    (hp : Function.Surjective p.hom) (n : ℕ)
+    (hBn : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology n B)))
+    (hBnext : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology (n + 1) B))) :
+    (forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology n C) ≅
+    (forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology (n + 1) A) := by
+  letI : Mono (connecting i p hi hexact hp n) :=
+    connecting_mono_of_isZero i p hi hexact hp n hBn
+  letI : Epi (connecting i p hi hexact hp n) :=
+    connecting_epi_of_isZero i p hi hexact hp n hBnext
+  letI : IsIso (connecting i p hi hexact hp n) := isIso_of_mono_of_epi _
+  exact asIso (connecting i p hi hexact hp n)
+
+/-- The chosen isomorphism has the previously defined connecting map as its forward arrow. -/
+@[simp]
+theorem connectingIso_hom [LocallyCompactSpace G]
+    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
+    (hp : Function.Surjective p.hom) (n : ℕ)
+    (hBn : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology n B)))
+    (hBnext : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology (n + 1) B))) :
+    (connectingIso i p hi hexact hp n hBn hBnext).hom =
+      connecting i p hi hexact hp n := by
+  rfl
+
+/-- Evaluation of the chosen forward arrow agrees with evaluation of the connector. -/
+@[simp]
+theorem connectingIso_hom_apply [LocallyCompactSpace G]
+    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
+    (hp : Function.Surjective p.hom) (n : ℕ)
+    (hBn : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology n B)))
+    (hBnext : IsZero ((forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).obj
+      (continuousCohomology (n + 1) B)))
+    (x : continuousCohomology n C) :
+    (connectingIso i p hi hexact hp n hBn hBnext).hom.hom x =
+      (connecting i p hi hexact hp n).hom x := by
+  rw [connectingIso_hom]
 
 set_option backward.isDefEq.respectTransparency false in
 /-- Computing the new connector through the canonical comparison with the

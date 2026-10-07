@@ -95,6 +95,11 @@ coefficient maps and the degree-zero connector transported through Mathlib's
 cohomology/invariants isomorphism. This comparison is natural for coefficient
 maps, and the six-arrow sequence is exact at its five internal positions
 without requiring a splitting.
+Under the short-exact-row and locally compact/discrete/joint-action hypotheses,
+vanishing of the middle coefficient's underlying cohomology in adjacent
+degrees gives an underlying-module connecting isomorphism in every natural
+degree, with forward arrow the existing connector, without asserting its
+continuity.
 Separately, projections of the full invariant relative-norm limit detect
 universal norms, restricted universal norms have surjective relative norms,
 and every chosen closed restricted system containing them has an inclusion-induced

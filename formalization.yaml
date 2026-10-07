@@ -52,8 +52,16 @@ status:
     finite-level Tate deflation, compact finite-bar homology, compact exceptional
     Tate stages and diagrams, coefficient naturality, norm rows, compact
     full-system limits and restricted universal-norm comparisons under the
-    hypotheses of their respective declarations. There is no fixed-stage
-    positive-degree injectivity, uniform refinement or bound, closed boundary
+    hypotheses of their respective declarations. The algebraic connecting
+    sequence has a two-point integer coinduction/sign example with a nonzero
+    degree-one connector and separate split degree-zero boundaries. Vanishing
+    of middle-coefficient cohomology in adjacent degrees gives a connecting
+    isomorphism on the underlying modules in every natural degree, including
+    zero, with the existing connector as forward map; vanishing in either
+    degree alone gives the corresponding mono or epi conclusion. No continuity
+    or topological isomorphism of this general connector is asserted. There is
+    no fixed-stage positive-degree injectivity, uniform
+    refinement or bound, closed boundary
     range requirement for the native colimit, arbitrary-system inverse-limit
     exactness, general completed continuous Tate theory or source-coverage
     assertion. The initial invariant-coefficient sequence has a natural

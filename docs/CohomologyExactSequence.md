@@ -25,6 +25,15 @@ Mathlib's short-exact-complex homology sequence and the homology comparison:
 2. `Hⁿ(G,B) ⟶ Hⁿ(G,C) ⟶ Hⁿ⁺¹(G,A)` (`exact_map_connecting`);
 3. `Hⁿ(G,C) ⟶ Hⁿ⁺¹(G,A) ⟶ Hⁿ⁺¹(G,B)` (`exact_connecting_map`).
 
+If the underlying module `Hⁿ(G,B)` vanishes, `connecting_mono_of_isZero`
+makes the connector `δₙ : Hⁿ(G,C) ⟶ Hⁿ⁺¹(G,A)` a monomorphism. If instead
+`Hⁿ⁺¹(G,B)` vanishes, `connecting_epi_of_isZero` makes it an epimorphism.
+When both vanish, `connectingIso` identifies the two underlying modules;
+`connectingIso_hom` and `connectingIso_hom_apply` identify its forward arrow
+and its action on each class with the original `connecting`. This applies to
+every `n : ℕ`, including zero. No continuity of `δₙ` or isomorphism of
+topological modules is claimed.
+
 `connecting_apply` computes the sign convention: if `z` is a cocycle
 and `b` is any lift of `z` to the middle cochains, choose `a` in the left
 cochains such that `i(a) = d(b)`; then `δ[z] = [a]`, without an added negative
@@ -43,6 +52,34 @@ long exact sequence. Exactness at the quotient term implies that the
 degree-zero connector sends the quotient invariant `1` to a nonzero
 cohomology class. An independently proved parity obstruction also excludes
 the expected boundary from the principal integer cocycles.
+
+## A two-point coinduced row
+
+The [coefficient example](../CGCExamples/ConnectingIsomorphism.lean) over
+`G = ℤˣ` uses trivial integral coefficients `A`, the **twisted** coinduced
+representation `B = TopRep.coind₁ A`, and the integer sign representation `C`.
+Constant functions give `i : A ⟶ B`; the map `p : B ⟶ C` sends a function
+`f` to `f(1) - f(-1)`. The maps are equivariant and continuous, `i` is
+injective, its image is the kernel of `p`, and `p` is onto. The
+coinduced contraction gives `H¹(G,B) = H²(G,B) = 0` but supplies no such
+vanishing at degree zero.
+
+The *different* signed multiplication-by-two row above provides a nonzero
+class in `H¹(G,C)`, not an acyclic middle coefficient. For the coinduced row,
+`exact_map_connecting` shows that its degree-one connector does not kill this
+class; `exact_connecting_map` and `H²(G,B) = 0` show the same connector is
+surjective. These conclusions use the established exactness statements, not
+the adjacent-vanishing connecting-isomorphism theorems. Separate clients use
+the mono, epi and isomorphism APIs for this row. Neither the example nor the
+general theorems assert continuity of the connector.
+
+The same example module checks two split rows at degree zero using *different*
+two-element group types. Over `Multiplicative (ZMod 2)`, the row
+`0 → 0 → B → B → 0` for coinduced `B` has `H¹(G,B) = 0`, while its
+degree-zero connector kills nonzero `H⁰(G,B)` and is not mono. Over `ℤˣ`,
+the row `0 → C → C → 0 → 0` for signed `C` has `H⁰(G,C) = 0`, while its
+degree-zero connector cannot reach a nonzero class in `H¹(G,C)` and is not
+epi. These are boundary tests, not identifications of the two group types.
 
 ## Initial invariant segment
 

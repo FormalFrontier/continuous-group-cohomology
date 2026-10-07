@@ -66,17 +66,32 @@ on `B`, injective `i`, exact `A → B → C`, and surjective `p`. The connecting
 construction uses the cochain short exact sequence and Mathlib's homology
 boundary; its representative formula and comparison with the
 topologically split degree-zero map specify its sign. The algebraic assertions
-do not establish continuity of this new map. For the integer sign action on
+also show that vanishing of the underlying `Hⁿ(G,B)` makes the connector mono,
+vanishing of `Hⁿ⁺¹(G,B)` makes it epi, and both together give an isomorphism
+whose forward arrow is the existing connector, for every natural `n`, including
+zero. They do not establish continuity of this new map. For the integer sign action on
 `ℤ --×2→ ℤ → ZMod 2`, the quotient invariant `1` has a nonzero connecting
 class; its lack of an invariant integer lift is independently verified.
+The [coinduced two-point row](CGCExamples/ConnectingIsomorphism.lean)
+embeds trivial integers as constant functions and projects to signed integers
+by subtracting the values at the two units. Its middle cohomology vanishes in
+degrees one and two; the existing exactness statements show that its degree-one
+connector has nonzero image and is surjective, without using a general
+connecting-isomorphism result in these independent witness proofs. Separate
+private clients apply the general mono, epi and isomorphism APIs to this row.
+Two split rows give complementary degree-zero boundaries: for
+`Multiplicative (ZMod 2)`, coinduced `B` has `H¹(G,B) = 0` but its degree-zero
+connector is not mono; for the distinct group `ℤˣ`, the signed coefficient
+`C` has `H⁰(G,C) = 0` but its degree-zero connector is not epi.
 
-The [initial-invariants module](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean)
+Under the same short-exact-row and topological hypotheses, the
+[initial-invariants module](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean)
 proves exactness of the underlying-module segment
 `0 → Aᴳ → Bᴳ → Cᴳ → H¹(G,A) → H¹(G,B) → H¹(G,C)` at its five internal positions.
 It uses Mathlib's invariant functor and natural degree-zero isomorphism and the
-existing algebraic connector. Generic invariant injection and left exactness
-are `TopRep.mapInvariants_injective` and `TopRep.exact_mapInvariants`; their
-earlier `ContinuousCohomology` names remain deprecated aliases. The
+existing algebraic connector. The coefficient-level lemmas
+`TopRep.mapInvariants_injective` and `TopRep.exact_mapInvariants` have weaker
+hypotheses. Their earlier `ContinuousCohomology` names remain deprecated aliases. The
 [example](CGCExamples/InitialInvariantsExactSequence.lean) checks a nonzero
 displayed invariant inclusion and a nonsplit sign-action boundary. Its
 coefficient-level obstruction and existing nonzero connector are independent
@@ -186,8 +201,8 @@ ingredients and their individual hypotheses.
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
-| Algebraic connecting maps | [`CohomologyExactSequence`](ContinuousGroupCohomology/CohomologyExactSequence.lean), [`ConnectingNaturality`](ContinuousGroupCohomology/ConnectingNaturality.lean) | For short exact coefficient rows over locally compact groups with discrete middle/quotient coefficients and jointly continuous middle action: all-natural-degree underlying-module connector, positive representative formula and three exactness positions. Morphisms of two such rows commute with the connector in every degree, including zero. No general connector continuity or topological delta-functor is asserted. |
-| Initial invariant segment | [`InitialInvariantsExactSequence`](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean) | Degree-zero coefficient naturality and exactness at the five internal positions of the six-arrow underlying-module segment. Generic invariant injection and left exactness live in `TopRep`, with deprecated `ContinuousCohomology` aliases. No terminal degree-one surjectivity or connector continuity. |
+| Algebraic connecting maps | [`CohomologyExactSequence`](ContinuousGroupCohomology/CohomologyExactSequence.lean), [`ConnectingNaturality`](ContinuousGroupCohomology/ConnectingNaturality.lean) | For short exact coefficient rows over locally compact groups with discrete middle/quotient coefficients and jointly continuous middle action: all-natural-degree underlying-module connector, positive representative formula and three exactness positions. Vanishing of middle cohomology in degree `n` (respectively `n + 1`) makes it mono (respectively epi); both yield a connecting isomorphism with the same forward map, also for `n = 0`. Morphisms of two such rows commute with the connector in every degree. No general connector continuity or topological delta-functor is asserted. |
+| Initial invariant segment | [`InitialInvariantsExactSequence`](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean) | Under the algebraic connector's short-exact-row and topological hypotheses, the six-arrow underlying-module segment is exact at its five internal positions. Degree-zero coefficient naturality and generic invariant injection and left exactness have weaker hypotheses; the invariant lemmas live in `TopRep`, with deprecated `ContinuousCohomology` aliases. No terminal degree-one surjectivity or connector continuity. |
 | Native finite-stage colimit | `Algebra.Category.ModuleCat.Topology.HomologyBoundary`, `SeededCochains`, `QuotientTransitions`, `FiniteStageBoundary`, `DiscreteCohomology`, `OpenNormalDiagram`, `FiniteStageColimit` | Actual `TopModuleCat` filtered colimit in every degree, including zero, from class-dependent dual-index refinements; arbitrary target cocones. Compact/discrete/joint-continuity hypotheses apply to the colimit, but not to the generic boundary or transition diagram; no closed-range quotient, fixed-stage injectivity or uniform refinement. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
@@ -296,7 +311,7 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 ### Build targets and clients
 
 `ContinuousGroupCohomology` compiles the public root and its 71 imports;
-`CGCExamples` compiles precisely these forty-seven native clients, also selected by
+`CGCExamples` compiles precisely these forty-eight native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -343,6 +358,9 @@ the default build:
 - [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
 - [`CohomologyExactSequence`](CGCExamples/CohomologyExactSequence.lean), the sign-action
   invariant, boundary-defect and nonzero-connector client;
+- [`ConnectingIsomorphism`](CGCExamples/ConnectingIsomorphism.lean), the coinduced
+  two-point coefficient row, independent nonzero degree-one connector, clients
+  of the general isomorphism API, and two split-row degree-zero boundaries;
 - [`ConnectingNaturality`](CGCExamples/ConnectingNaturality.lean), the nonidentity
   coefficient-sequence endomorphism client of the proved naturality theorem;
 - [`InitialInvariantsExactSequence`](CGCExamples/InitialInvariantsExactSequence.lean),
