@@ -180,6 +180,29 @@ end TopRep
 
 namespace TopRep
 
+open scoped Topology
+
+variable {k : Type u} [Ring k] [TopologicalSpace k]
+variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+
+/-- Joint continuity of a representation's action extends to its coinduced action
+when the group is locally compact. -/
+theorem jointlyContinuous_coind₁ [LocallyCompactSpace G]
+    (X : TopRep.{w} k G) [JointlyContinuous X] : JointlyContinuous (coind₁ X) := by
+  refine ⟨?_⟩
+  apply ContinuousMap.continuous_of_continuous_uncurry
+  have hargs : Continuous (fun q : (G × C(G, X)) × G =>
+      (q.1.2, q.1.1⁻¹ * q.2)) := by fun_prop
+  have hresult : Continuous (fun q : (G × C(G, X)) × G =>
+      X.ρ q.1.1 (q.1.2 (q.1.1⁻¹ * q.2))) :=
+    JointlyContinuous.continuous_action.comp
+      ((continuous_fst.comp continuous_fst).prodMk (continuous_eval.comp hargs))
+  exact hresult
+
+end TopRep
+
+namespace TopRep
+
 variable {k : Type u} [CommRing k] [TopologicalSpace k]
 variable {G : Type v} [Monoid G]
 

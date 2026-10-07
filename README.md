@@ -51,6 +51,13 @@ vanishes there. Degree-zero vanishing is false even for the two-element group
 acting trivially on nonzero integers (see the
 [two-element-group client](CGCExamples/CoinducedAcyclic.lean)).
 
+The [cochain exactness guide](docs/CochainExactness.md) states the distinct
+hypotheses for injectivity, exactness in the middle, and surjectivity on every
+homogeneous cochain degree. Its nonsplit `ℤ --×2→ ℤ → ZMod 2` client uses a
+nontrivial finite group and checks both induced arrows in degrees zero and one.
+These cochain-level statements make no claim that cocycles, invariant
+coefficients or cohomology preserve arbitrary coefficient surjections.
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -142,6 +149,7 @@ ingredients and their individual hypotheses.
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
+| Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
 | Native finite-stage colimit | `Algebra.Category.ModuleCat.Topology.HomologyBoundary`, `SeededCochains`, `QuotientTransitions`, `FiniteStageBoundary`, `DiscreteCohomology`, `OpenNormalDiagram`, `FiniteStageColimit` | Actual `TopModuleCat` filtered colimit in every degree, including zero, from class-dependent dual-index refinements; arbitrary target cocones. Compact/discrete/joint-continuity hypotheses apply to the colimit, but not to the generic boundary or transition diagram; no closed-range quotient, fixed-stage injectivity or uniform refinement. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
@@ -249,8 +257,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 67 imports;
-`CGCExamples` compiles precisely these forty-three native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 68 imports;
+`CGCExamples` compiles precisely these forty-four native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -294,6 +302,7 @@ the default build:
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
 - [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
+- [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
 - [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.

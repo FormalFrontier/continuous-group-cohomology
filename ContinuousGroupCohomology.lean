@@ -71,6 +71,7 @@ public import ContinuousGroupCohomology.DiscreteCohomology
 public import ContinuousGroupCohomology.DiscreteProduct
 public import ContinuousGroupCohomology.OpenNormalDiagram
 public import ContinuousGroupCohomology.FiniteStageColimit
+public import ContinuousGroupCohomology.CochainExactness
 
 /-!
 # Continuous group cohomology: native core

@@ -17,6 +17,7 @@ import graph. Consult the
 [compact/discrete factor guide](CompactDiscreteFactor.md),
 [quotient-invariants guide](QuotientInvariants.md),
 [cochain injectivity guide](CochainInjectivity.md),
+[cochain exactness guide](CochainExactness.md),
 [resolution image guide](ResolutionImage.md),
 [finite-stage resolution guide](FiniteStageResolution.md),
 [finite-stage cochain guide](FiniteStageCochains.md),

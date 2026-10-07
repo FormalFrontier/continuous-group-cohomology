@@ -70,4 +70,5 @@ roots = [
   "ContinuousGroupCohomologyExamples.DiscreteProduct",
   "CGCExamples.TopRepDiscrete",
   "CGCExamples.CoinducedAcyclic",
+  "CGCExamples.CochainExactness",
 ]

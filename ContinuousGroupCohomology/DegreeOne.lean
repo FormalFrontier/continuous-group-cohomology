@@ -196,6 +196,7 @@ def orbitMap [TopRep.JointlyContinuous X] : X →L[k] C(G, X) where
 /-- Evaluation at the identity identifies homogeneous degree-zero cochains
 with their coefficient representation when the represented action is jointly
 continuous. -/
+@[expose]
 def cochainsZeroEquiv [TopRep.JointlyContinuous X] :
     (TopRep.homogeneousCochains X).X 0 ≃L[k] X where
   toFun σ := σ.1 1
@@ -225,6 +226,16 @@ def cochainsZeroEquiv [TopRep.JointlyContinuous X] :
     simp
   continuous_toFun := (continuous_eval_const 1).comp continuous_subtype_val
   continuous_invFun := continuous_induced_rng.2 (orbitMap X).continuous
+
+@[simp]
+theorem cochainsZeroEquiv_apply [TopRep.JointlyContinuous X]
+    (σ : (TopRep.homogeneousCochains X).X 0) :
+    cochainsZeroEquiv X σ = σ.1 1 := rfl
+
+@[simp]
+theorem cochainsZeroEquiv_symm_apply [TopRep.JointlyContinuous X]
+    (x : X) (g : G) :
+    ((cochainsZeroEquiv X).symm x).1 g = X.ρ g x := rfl
 
 /-- The homogeneous degree-one cochain associated to a continuous crossed
 homomorphism. -/
