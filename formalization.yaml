@@ -56,7 +56,15 @@ status:
     positive-degree injectivity, uniform refinement or bound, closed boundary
     range requirement for the native colimit, arbitrary-system inverse-limit
     exactness, general completed continuous Tate theory or source-coverage
-    assertion. See README.md and individual guides for precise boundaries.
+    assertion. The initial invariant-coefficient sequence has a natural
+    degree-zero cohomology comparison and is exact at its five internal
+    underlying-module positions, with no surjectivity claim at the final
+    degree-one term or continuity claim for the boundary. Generic invariant
+    injection and left exactness live in TopRep with deprecated
+    ContinuousCohomology aliases. The examples include a nonzero displayed
+    inclusion, a nonsplit boundary and independent coefficient-level
+    obstruction witnesses. See README.md and individual guides for precise
+    boundaries.
   main_results:
     - declaration: ContinuousCohomology.openNormalInflationCoconeIsColimit_type
       file: ContinuousGroupCohomology/FiniteStageColimit.lean

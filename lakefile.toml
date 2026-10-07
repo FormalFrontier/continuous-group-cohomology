@@ -73,4 +73,5 @@ roots = [
   "CGCExamples.CochainExactness",
   "CGCExamples.CohomologyExactSequence",
   "CGCExamples.ConnectingNaturality",
+  "CGCExamples.InitialInvariantsExactSequence",
 ]

@@ -44,6 +44,39 @@ degree-zero connector sends the quotient invariant `1` to a nonzero
 cohomology class. An independently proved parity obstruction also excludes
 the expected boundary from the principal integer cocycles.
 
+## Initial invariant segment
+
+[`InitialInvariantsExactSequence`](../ContinuousGroupCohomology/InitialInvariantsExactSequence.lean)
+defines six composable underlying-`ModuleCat` arrows, with seven terms
+`0 → Aᴳ → Bᴳ → Cᴳ → H¹(G,A) → H¹(G,B) → H¹(G,C)`.
+The first two nonzero maps are the maps of Mathlib's `TopRep.invariantsFunctor`
+after forgetting topology. The third is precisely `zeroIso C` (in the inverse
+direction), followed by the existing algebraic `connecting i p hi hexact hp 0`.
+The last two are the existing degree-one coefficient maps. Characteristic
+equations identify the invariant and connecting arrows without unfolding the
+constructed sequence. The hypotheses for the full sequence are those stated
+at the start of this guide; it does not assert exactness beyond `H¹(G,B)`.
+
+`TopRep.mapInvariants_injective` and `TopRep.exact_mapInvariants` establish
+coefficient-level injection and left exactness without local compactness,
+discreteness, a section or surjectivity of the quotient map. Their former
+`ContinuousCohomology` names remain deprecated aliases. The proved
+`ContinuousCohomology.zeroIso_naturality` commutes the degree-zero
+cohomology/invariants isomorphism with any fixed-group coefficient map.
+`ContinuousCohomology.initialInvariantsSequence_exact` combines these facts
+with the all-degree cohomology exactness results to prove the five internal
+positions: `Aᴳ`, `Bᴳ`, `Cᴳ`, `H¹(G,A)` and `H¹(G,B)`.
+
+The [example](../CGCExamples/InitialInvariantsExactSequence.lean) checks a
+nonzero invariant under multiplication by two both at coefficient level and
+through the displayed `map' 1 2` inclusion via
+`initialInvariantsSequence_inclusion_apply`. Independently of the general
+segment theorem and naturality bridge, the sign-action quotient invariant
+`1` is nonzero, cannot lift to an invariant integer, and has nonzero image
+under the pre-existing algebraic connector. The displayed boundary applies
+that connector by `initialInvariantsSequence_boundary_apply`; the examples
+also instantiate the exact-segment theorem to obtain `IsComplex`.
+
 ## Coefficient naturality
 
 The theorem

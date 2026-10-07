@@ -19,6 +19,7 @@ import graph. Consult the
 [cochain injectivity guide](CochainInjectivity.md),
 [cochain exactness guide](CochainExactness.md),
 [algebraic connecting-map guide](CohomologyExactSequence.md),
+[initial-invariants exact segment](CohomologyExactSequence.md#initial-invariant-segment),
 [resolution image guide](ResolutionImage.md),
 [finite-stage resolution guide](FiniteStageResolution.md),
 [finite-stage cochain guide](FiniteStageCochains.md),
