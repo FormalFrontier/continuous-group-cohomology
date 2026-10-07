@@ -69,4 +69,5 @@ roots = [
   "ContinuousGroupCohomologyExamples.DiscreteHom",
   "ContinuousGroupCohomologyExamples.DiscreteProduct",
   "CGCExamples.TopRepDiscrete",
+  "CGCExamples.CoinducedAcyclic",
 ]

@@ -34,7 +34,11 @@ contributors Edison Xie and Richard Hill.
   provide the categorical, group-cohomological and topological foundations,
   including [native continuous cohomology](https://github.com/leanprover-community/mathlib4/blob/83abb3e776bdefcbc447a1e44d0debe4010039e5/Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean).
   Using these APIs does not make their upstream proof expression a project
-  contribution.
+  contribution. An earlier Formal Frontier formalization developed the swap,
+  diagonal and recursive insertion for coinduced cochains. The constructions
+  here adapt that approach to this library's `TopRep` resolution and API,
+  using Mathlib's `ContRepresentation.coind₁` action. The contraction and
+  vanishing proofs adapt the earlier diagonal-insertion argument.
 - The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d)
   supplies finite Tate definitions and norm maps used here. Authorized access
   to this private dependency is required for building from the current pins.

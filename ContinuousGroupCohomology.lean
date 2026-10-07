@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.ClosedTopologicalCoinvariants
+public import ContinuousGroupCohomology.CoinducedAcyclic
 public import ContinuousGroupCohomology.CompactAddCommGroup
 public import ContinuousGroupCohomology.CompactAddCommGroupLimits
 public import ContinuousGroupCohomology.CompactExceptionalTateCoefficientMaps

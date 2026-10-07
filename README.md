@@ -42,6 +42,15 @@ with discrete jointly continuous inputs, or a finite possibly non-`T₁` group
 with such inputs. Scalar continuity is separate: it follows from discrete
 scalars, or from finite generation with a discrete continuously-scaled target.
 
+For compact topological groups and discrete coefficients,
+[diagonal insertion](ContinuousGroupCohomology/CoinducedAcyclic.lean)
+gives a map on the recursively iterated coinduced homogeneous cochains with an
+explicit evaluation law. This insertion contracts the cochain complex in every
+positive degree, so continuous cohomology with coinduced discrete coefficients
+vanishes there. Degree-zero vanishing is false even for the two-element group
+acting trivially on nonzero integers (see the
+[two-element-group client](CGCExamples/CoinducedAcyclic.lean)).
+
 Import `ContinuousGroupCohomology` for the complete public native core, or import a
 `ContinuousGroupCohomology.*` leaf to limit dependencies. The
 [`NativeCore` client](examples/NativeCore.lean) imports only the public root.
@@ -132,6 +141,7 @@ ingredients and their individual hypotheses.
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
+| Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
 | Native finite-stage colimit | `Algebra.Category.ModuleCat.Topology.HomologyBoundary`, `SeededCochains`, `QuotientTransitions`, `FiniteStageBoundary`, `DiscreteCohomology`, `OpenNormalDiagram`, `FiniteStageColimit` | Actual `TopModuleCat` filtered colimit in every degree, including zero, from class-dependent dual-index refinements; arbitrary target cocones. Compact/discrete/joint-continuity hypotheses apply to the colimit, but not to the generic boundary or transition diagram; no closed-range quotient, fixed-stage injectivity or uniform refinement. |
 | Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
 | Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
@@ -239,8 +249,8 @@ and include toolchain, dependency and cache-download time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its 66 imports;
-`CGCExamples` compiles precisely these forty-two native clients, also selected by
+`ContinuousGroupCohomology` compiles the public root and its 67 imports;
+`CGCExamples` compiles precisely these forty-three native clients, also selected by
 the default build:
 
 - [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
@@ -283,6 +293,7 @@ the default build:
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
+- [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
 - [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.
@@ -351,6 +362,9 @@ the mathematical API in this library.
   topological-action formalizations include conjugation and invariants
   (Antoine Labelle), intertwining maps (Stepan Nesterov and Edison Xie),
   and the open-stabilizer criterion (Yury Kudryashov).
+- Formal Frontier's earlier diagonal-insertion formalization developed the swap,
+  diagonal and recursive insertion for coinduced cochains. The constructions
+  here adapt that approach to this library's `TopRep` resolution and API.
 - [Finite group Tate cohomology](https://github.com/FormalFrontier/finite-group-tate-cohomology),
   the formal library providing finite Tate definitions and norm maps; see
   [attribution](docs/attribution.md).
