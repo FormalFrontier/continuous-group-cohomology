@@ -13,6 +13,10 @@ project:
     zero, with the actual cohomology topology and arbitrary topological-module
     targets. Its equality refinements depend on the classes; no fixed-stage
     injection, uniform bound or closed-boundary-range hypothesis is claimed.
+    For arbitrary finite index types, finite functions are naturally equivalent
+    to coefficient-left tensors over a commutative semiring; for finite groups,
+    the twisted action agrees with the diagonal left-regular tensor action.
+    This algebraic result gives no continuous or topological-representation equivalence.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
