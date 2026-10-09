@@ -279,7 +279,7 @@ theorem topologicalAbelianization_conjAct_eq_of_rightHom_eq
     h]
 
 /-- The canonical map from algebraic to topological abelianization
-intertwines the accepted algebraic quotient action with the topological one. -/
+intertwines the algebraic quotient action with the topological one. -/
 theorem fromAbelianization_quotientConjAct (S : ContinuousGroupExtension N E Q)
     (q : Q) (x : Abelianization N) :
     TopologicalAbelianization.fromAbelianization N

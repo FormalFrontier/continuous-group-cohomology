@@ -11,11 +11,11 @@ import examples.FiniteStageResolutionNative
 # Ordinary-import client for seeded cochain descent
 
 The cochain, its degree and the prescribed open normal subgroup are all arbitrary.
-The descent proof elaborates in `examples.FiniteStageResolutionNative`; this root
-retains its public producer import. Seven current client proof environments,
-comprising ten original ones, elaborate together in the host. Importing this
-forwarding root does not repeat the original isolated proof elaboration. Import
-`ContinuousGroupCohomology.SeededCochains` for the production API.
+The descent client resides in `examples.FiniteStageResolutionNative`. This
+entrypoint publicly imports `ContinuousGroupCohomology.SeededCochains` and
+imports that client module. For compact `G` and discrete, jointly continuous
+coefficients, the production result finds a suitable refinement below any
+prescribed open-normal subgroup for each native homogeneous cochain.
 -/
 
 @[expose] public section

@@ -30,11 +30,9 @@ The ordinary-import client
 `examples.FiniteStageCochainsNative`
 tests generic degrees zero and two, differential-zero descent and a nonzero,
 nonconstant sign-action invariant degree-zero cochain over discrete integers.
-Its sign example does not assert the cochain is closed. These private proofs
-elaborate in `examples.FiniteStageResolutionNative`. The forwarding root
-retains its original producer imports but not its original isolated proof
-environment: seven current client environments, comprising ten original ones,
-now elaborate together in the host.
+Its sign example does not assert the cochain is closed. These clients reside
+in `examples.FiniteStageResolutionNative`; the entrypoint imports that module
+and the finite-stage cochain production API.
 
 Neither result supplies a uniform stage for all cochains, boundary lifting,
 injectivity or surjectivity on cohomology classes, torsion, a filtered colimit

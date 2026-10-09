@@ -644,7 +644,7 @@ variable {N : Type uN} {E : Type uE} {Q : Type uQ}
   [TopologicalSpace N] [TopologicalSpace E] [TopologicalSpace Q]
   [IsTopologicalGroup N] [IsTopologicalGroup E] [IsTopologicalGroup Q]
 
-/-- Reduce the accepted quotient-conjugation action before forming closed
+/-- Reduce the quotient-conjugation action before forming closed
 coinvariants. -/
 abbrev quotientConjActTopologicalAbelianizationModNAction
     (S : ContinuousGroupExtension N E Q) (n : ℕ) :=
@@ -664,7 +664,7 @@ variable {E' : Type uE'} [Group E'] [TopologicalSpace E']
   {S : ContinuousGroupExtension N E Q}
   {S' : ContinuousGroupExtension N E' Q}
 
-/-- Accepted fixed-kernel/fixed-quotient extension equivalences preserve the
+/-- Fixed-kernel/fixed-quotient extension equivalences preserve the
 descended action after closed topological reduction. -/
 theorem quotientConjActTopologicalAbelianizationModNAction
     (equiv : S.Equiv S') (n : ℕ) :

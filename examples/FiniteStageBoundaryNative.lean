@@ -13,12 +13,11 @@ import examples.FiniteStageResolutionNative
 All representations and classes are arbitrary; in particular the degree-two
 client does not assume that either cohomology group vanishes.
 
-This entrypoint retains its public producer import and forwards its proofs to
-the finite-stage client host. Boundary, finite-stage boundary, colimit,
-resolution/sign, quotient-invariants, resolution-image, cochain, seeded descent,
-transition and diagram proofs elaborate together there: seven current
-environments comprise ten originally isolated proof environments. Importing
-this module does not repeat the former isolated boundary-proof elaboration.
+The eventual-zero and eventual-equality clients reside in
+`examples.FiniteStageResolutionNative`. This entrypoint publicly imports
+`ContinuousGroupCohomology.FiniteStageBoundary` and imports that client
+module. The witnesses are found at a suitable open-normal refinement;
+neither client assumes vanishing of a cohomology group.
 -/
 
 set_option autoImplicit false

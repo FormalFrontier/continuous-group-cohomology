@@ -575,14 +575,14 @@ variable {E' : Type uE'} [Group E'] [TopologicalSpace E'] [IsTopologicalGroup E'
   {S' : ContinuousGroupExtension N E' Q}
 
 /-- A continuous equivalence of extensions preserves the packaged quotient
-action with the accepted fixed-kernel/fixed-quotient orientation. -/
+action with the fixed-kernel/fixed-quotient orientation. -/
 theorem quotientConjActTopologicalAbelianizationAction (equiv : S.Equiv S') :
     S'.quotientConjActTopologicalAbelianizationAction =
       S.quotientConjActTopologicalAbelianizationAction := by
   apply PointwiseContinuousMulAction.ext
   exact equiv.quotientConjActTopologicalAbelianization
 
-/-- The induced equivalence on closed coinvariants, in the accepted
+/-- The induced equivalence on closed coinvariants, in the
 source-to-target orientation of an extension equivalence. -/
 def quotientConjActTopologicalAbelianizationCoinvariantsEquiv
     (equiv : S.Equiv S') :

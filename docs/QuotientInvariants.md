@@ -40,11 +40,9 @@ quotient homomorphism; this module does not construct cochains, descent or an
 inflation equivalence. Private client proofs cover the generic
 noncommutative-ring signature, coefficient functor and naturality, the two
 joint-continuity hypotheses, degenerate cases and a concrete open subgroup
-with real (nondiscrete) coefficients. They elaborate in
-`examples.FiniteStageResolutionNative`. The ordinary-import forwarding root
-retains its original producer and Mathlib imports but no longer checks these
-proofs in isolation: seven current client proof environments, comprising ten
-original environments, now elaborate together in the host.
+with real (nondiscrete) coefficients. These clients reside in
+`examples.FiniteStageResolutionNative`; the linked entrypoint imports this
+module alongside the quotient-invariants production API and Mathlib modules.
 
 See the [ordinary-import client](../examples/QuotientInvariantsNative.lean).
 

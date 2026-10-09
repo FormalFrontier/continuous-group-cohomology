@@ -17,8 +17,9 @@ set_option warningAsError true
 
 The compact finite-quotient and positive-degree torsion clients reside in
 `examples.ContinuousTorsionNative`, alongside degree-one torsion and
-arbitrary-degree discreteness clients. This entrypoint retains its original
-public producer and Mathlib imports and imports the host ordinarily, without
-re-exporting it. None of the three former client proof-import environments,
-including the original Torsion-only host, is checked in isolation.
+arbitrary-degree discreteness clients. This entrypoint publicly imports
+`ContinuousGroupCohomology.CompactDiscreteTorsion` and the Mathlib modules
+used by its sign examples; it imports `examples.ContinuousTorsionNative` for
+the clients. Import the production module directly to use classwise finite
+quotient descent and positive-degree torsion.
 -/

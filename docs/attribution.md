@@ -8,10 +8,10 @@ seeded cochains, quotient transitions, eventual boundary equality, cohomology
 discreteness, open-normal diagrams and the colimit) have distinct original
 contributors; adapting their imports, clients and documentation did not transfer
 authorship of the proofs. The same distinction applies to the compact exceptional
-Tate, norm and universal-norm modules. Original contributor, adaptation and
-review roles are preserved in this repository's immutable Git history. This
-summary distinguishes original proofs from later adaptations and editorial
-changes.
+Tate, norm and universal-norm modules. The public Git history records release
+commits, not the authorship of each original proof. Mathematical authorship is
+credited here separately from those commits; this summary distinguishes original
+proofs from later adaptations and editorial changes.
 
 Original Formal Frontier contributions are offered under the root
 [Apache-2.0 license](../LICENSE). The collective author credit does not assert

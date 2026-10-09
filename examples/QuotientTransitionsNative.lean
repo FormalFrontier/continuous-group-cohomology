@@ -12,12 +12,11 @@ import examples.FiniteStageResolutionNative
 
 The stages, cochain, cohomology class and degree are arbitrary. No zero-class,
 finite-coefficient, compactness or joint-continuity hypothesis is used.
-The transition proofs elaborate in `examples.FiniteStageResolutionNative`;
-this root retains its public producer import. Seven current client proof
-environments, comprising ten original ones, elaborate together in that host.
-Importing this forwarding root does not repeat the original isolated proof
-elaboration. Import `ContinuousGroupCohomology.QuotientTransitions` for the
-production API.
+The transition clients reside in `examples.FiniteStageResolutionNative`;
+this entrypoint publicly imports `ContinuousGroupCohomology.QuotientTransitions`
+and imports the client module. Import the production module for transition
+maps and their composition and inflation laws. Refinement maps cochains and
+classes contravariantly, from a coarser stage to a finer one.
 -/
 
 @[expose] public section

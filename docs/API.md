@@ -1,7 +1,7 @@
 # Native API reference (historical analyzed snapshot)
 
-This index covers the earlier 27-leaf/eight-client graph, not the current
-63-leaf/thirty-nine-client graph or its aggregate root. The linked source is
+This index covers the earlier 27-leaf/eight-client graph; it does not index
+later modules and clients or the current root's import graph. The linked source is
 the [published initial native-core release](https://github.com/FormalFrontier/continuous-group-cohomology/tree/be74358d7b1140e76ab6b2ad72f6aa068138e687), whose 39 analyzed source and pin input bytes
 match the original private analysis at `afd0296d5138cc87f365aebe1d6d6d33c5546ba9` exactly. This
 public display revision is not the raw extraction revision. For later APIs,

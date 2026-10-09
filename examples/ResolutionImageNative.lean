@@ -12,11 +12,11 @@ import examples.FiniteStageResolutionNative
 # Resolution-image client entrypoint
 
 The level-zero, level-one, level-three, refinement and non-liftability proofs
-elaborate in `examples.FiniteStageResolutionNative`. This module retains its
-public producer and Mathlib imports; import `ContinuousGroupCohomology.ResolutionImage`
-for the production API. Seven current client proof environments, comprising
-ten original environments, now elaborate together in the host. Importing this
-forwarding root does not repeat the original isolated proof elaboration.
+reside in `examples.FiniteStageResolutionNative`. This entrypoint publicly
+imports `ContinuousGroupCohomology.ResolutionImage`, imports the Mathlib sign
+modules and imports the client module. Import the production module for the
+image criterion over an open normal quotient. Right constancy alone does not
+guarantee a lift without invariant values at the bottom level.
 -/
 
 set_option warningAsError true

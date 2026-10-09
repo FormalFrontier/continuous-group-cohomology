@@ -326,7 +326,7 @@ compact quotient by closed universal norms. -/
   map_id A := compactUniversalNormQuotientMap_id A
   map_comp f g := compactUniversalNormQuotientMap_comp f g
 
-/-- The accepted universal-norm quotient identification respects the
+/-- The universal-norm quotient identification respects the
 independently descended coefficient action. -/
 @[reassoc] theorem compactTateUniversalNormQuotientIso_naturality
     {A B : LevelCompactRep.{u, u, u} R G} (f : A ⟶ B) :
@@ -348,8 +348,8 @@ independently descended coefficient action. -/
       LevelCompact.compactTateUniversalNormQuotientIso_mk]
     exact CategoryTheory.congr_fun (compactTateLimitProjection_naturality f) x
 
-/-- The accepted objectwise quotient isomorphisms form a natural isomorphism
-to the published compact degree-zero Tate limit functor. -/
+/-- The objectwise quotient isomorphisms form a natural isomorphism
+to the compact degree-zero Tate limit functor. -/
 @[expose] def compactTateUniversalNormQuotientNatIso :
     compactUniversalNormQuotientFunctor (R := R) (G := G) ≅
       compactZeroTateLimitFunctor :=

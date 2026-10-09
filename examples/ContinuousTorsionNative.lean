@@ -16,10 +16,10 @@ import Mathlib.Data.Int.Order.Units
 The integral representation is arbitrary: the client does not assume its
 coefficients are torsion, finite, finitely generated, or acted on trivially.
 The compact finite-quotient, positive-degree torsion, and arbitrary-degree
-discreteness clients below retain their own hypotheses. These checks now use
-the union of the original degree-one torsion, compact finite-quotient, and
-discreteness import environments; none of the three has a separate proof-import
-check. Import the respective production modules for their mathematical APIs.
+discreteness clients below retain their own hypotheses. This module publicly
+imports `ContinuousGroupCohomology.Torsion`, with the compact discrete torsion
+and discreteness production modules imported for the clients. Import each
+production module directly to use its mathematical API.
 -/
 
 set_option autoImplicit false

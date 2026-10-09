@@ -15,8 +15,8 @@ set_option warningAsError true
 
 The arbitrary-degree and arbitrary-coefficient discreteness clients reside in
 `examples.ContinuousTorsionNative`, alongside degree-one torsion and compact
-finite-quotient clients. This entrypoint retains its original public producer
-import and imports the host ordinarily, without re-exporting it. None of the
-three former client proof-import environments, including the original
-Torsion-only host, is checked in isolation.
+finite-quotient clients. This entrypoint publicly imports the production
+`ContinuousGroupCohomology.DiscreteCohomology` module and imports the client
+module ordinarily. Import the production module directly for discreteness
+of native continuous cohomology in every degree, including degree zero.
 -/

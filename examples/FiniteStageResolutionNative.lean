@@ -34,14 +34,13 @@ The sign representation is `CGCExamples.signedIntegers`; its action uses
 Mathlib's `Representation.ofDistribMulAction`. The finite-stage lift uses
 `ContinuousCohomology.exists_openNormal_resolution_lift`.
 
-The resolution/sign, topological-module boundary, finite-stage boundary,
-colimit, quotient-invariants, resolution-image, cochain, seeded descent,
-transition, and open-normal diagram client proofs elaborate together in this
-module's combined import environment. Their forwarding modules retain their
-original producer imports, but importing the forwarding modules does not
-reproduce the ten original isolated proof-elaboration environments. Seven
-previously distinct client environments, including this already grouped host,
-are one environment here.
+This module contains resolution/sign, topological-module boundary, finite-stage
+boundary, colimit, quotient-invariants, resolution-image, cochain, seeded
+descent, transition and open-normal diagram clients. The example entrypoints
+import this module alongside their respective production modules. The sign
+example uses an open-normal quotient, and the boundary clients use actual
+homology boundaries rather than closure of the boundary range. Import the
+corresponding `ContinuousGroupCohomology` modules to use their APIs.
 -/
 
 @[expose] public section

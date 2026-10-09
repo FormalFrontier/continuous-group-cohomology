@@ -51,6 +51,21 @@ vanishes there. Degree-zero vanishing is false even for the two-element group
 acting trivially on nonzero integers (see the
 [two-element-group client](CGCExamples/CoinducedAcyclic.lean)).
 
+For `[Ring k] [TopologicalSpace k]`, a compact topological group `G`, any
+normal subgroup `N` and a discrete, jointly continuous `B : TopRep k G`, the
+[normal-quotient coinduction equivalence](ContinuousGroupCohomology/CoinducedInvariants.lean)
+identifies `TopRep.quotientInvariants N (TopRep.coind₁ B)` with
+`TopRep.coind₁ (TopRep.of (ContRepresentation.trivial k (G ⧸ N) B))`
+as representations of `G ⧸ N`. This is universe-polymorphic and requires no
+closedness or openness of `N`, Hausdorff condition or choice of section. Its
+forward and inverse maps satisfy `(P f)(mk N t) = B.ρ t⁻¹ (f t)` and
+`(J F)(t) = B.ρ t (F (mk N t))`. The right-hand coefficient is the **whole**
+`B`, not `B^N`, and has trivial quotient action. The
+[sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean)
+exhibit `B^N = 0` with nonzero `B`, a quotient function moved by the residual
+quotient action, and an invariant function whose value at the identity is
+moved by `N`. No general restriction-to-closed-subgroups result is asserted.
+
 The [coinduction short-row theorem](ContinuousGroupCohomology/CoinductionExactness.lean)
 identifies the maps of Mathlib's existing twisted `TopRep.coind₁Functor` with
 coefficient postcomposition. An injective, exact and surjective coefficient row
@@ -192,15 +207,13 @@ The [compact/discrete factor guide](docs/CompactDiscreteFactor.md),
 [cochain-injectivity guide](docs/CochainInjectivity.md) describe reusable
 prerequisites and their limitations. All eight guides describe ordinary-import
 clients under `examples/*Native.lean`.
-The compact finite-quotient and native discreteness checks share
-[`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) with the
-degree-one torsion clients. This union replaces all three separately checked
-proof-import environments, including the former Torsion-only host;
+[`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) contains
+compact finite-quotient, positive-degree torsion, degree-one torsion and
+arbitrary-degree discreteness clients. The
 [`CompactDiscreteTorsionNative`](examples/CompactDiscreteTorsionNative.lean) and
-[`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean) are now
-declaration-free entrypoints retaining their original public producer imports;
-both import the host ordinarily rather than re-exporting it. The recommended
-production imports above are unchanged.
+[`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean) entrypoints
+import this client and their respective production modules. To use the
+theorems, import the production modules above.
 
 The quotient and its order may depend on the class. This does **not** prove
 degree-zero torsion, a uniform bound or quotient, injectivity on cohomology
@@ -227,6 +240,7 @@ ingredients and their individual hypotheses.
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
+| Normal-quotient coinduction | [`CoinducedInvariants`](ContinuousGroupCohomology/CoinducedInvariants.lean) | For compact `G`, arbitrary normal `N` and discrete jointly continuous `B` over `[Ring k] [TopologicalSpace k]`, the `N`-invariants of twisted coinduction are equivalent to coinduction over `G ⧸ N` from the whole `B` with trivial coefficient action. The [sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean) distinguish this from coinduction on `B^N` and exhibit nontrivial residual quotient action. |
 | Coinduction short rows | [`Topology.ContinuousMap.Exact`](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean), [`CoinductionExactness`](ContinuousGroupCohomology/CoinductionExactness.lean) | On `C(X, ·)`, exactness needs discrete middle `B` and exact coefficient maps, while surjectivity needs discrete target `D` and a surjective coefficient map; `X` is arbitrary. For `TopRep.coind₁Functor`, discrete `B, D` and an injective/exact/surjective coefficient row give the three underlying-map properties over any topological group, without local compactness or an added joint-action hypothesis. A [signed nonsplit example](CGCExamples/CoinductionExactness.lean) verifies independent coefficient and nonconstant-function witnesses. No unrestricted categorical exactness is asserted. |
 | Finite-function tensors | [`FiniteFunctionTensor`](ContinuousGroupCohomology/FiniteFunctionTensor.lean) | For any finite index type and commutative semiring, the coefficient-left tensor equivalence is natural in coefficient linear maps and has coefficient, delta and finite-sum formulas. For finite groups its twisted action matches the diagonal action with the left-regular basis. The [`S₄` client](CGCExamples/FiniteFunctionTensor.lean) separates this from ordinary right precomposition; no continuous or topological-representation equivalence is asserted. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
@@ -301,9 +315,14 @@ finite generation, a trivial action, or a common group-wide exponent. Transfer
 follows restriction in the classwise index argument; no higher-degree claim is
 made. [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) checks
 both the integral-representation specialization and restriction to an arbitrary
-open subgroup of `G`, without imposing a trivial action there. Its proof-import
-environment also contains compact finite-quotient and discreteness clients, so
-these checks no longer test the Torsion-only import environment in isolation.
+open subgroup of `G`, without imposing a trivial action there. Its finite-quotient
+and positive-degree torsion clients use discrete jointly continuous representations
+over a topologized ring of a compact topological group. Its arbitrary-degree
+discreteness clients require discrete representations over a topologized ring
+of a compact topological group, without an additional joint-action hypothesis.
+Import `ContinuousGroupCohomology.Torsion`,
+`ContinuousGroupCohomology.CompactDiscreteTorsion` or
+`ContinuousGroupCohomology.DiscreteCohomology` for the respective production APIs.
 
 ## Dependencies and builds
 
@@ -326,16 +345,8 @@ LEAN_NUM_THREADS=2 lake -KmaxJobs=2 --wfail build
 Fetching the **matching mathlib cache must succeed before any build**; diagnose
 a failed cache fetch rather than silently rebuilding mathlib from source.
 
-### Build-time and memory baseline
-
-A previous 56-leaf/thirty-two-client combined root/client CI build at the then-pinned
-Lean, mathlib and Tate revisions took about **6.6 minutes** after fetching the
-matching mathlib cache. This is an indicative observation, **not** a benchmark
-of the current production/client graph or a guaranteed build time.
-An earlier, smaller graph had a shared 15 GiB memory limit and a lifetime
-high-water reading of about 14.2 GiB after its client build; this is neither
-peak RSS for a command nor a measured minimum. Allow headroom for other jobs,
-and include toolchain, dependency and cache-download time in fresh setup plans.
+Allow headroom for other jobs, and include toolchain, dependency and cache-download
+time in fresh setup plans.
 
 ### Build targets and clients
 
@@ -383,6 +394,10 @@ the default build:
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
+- [`CoinducedInvariants`](CGCExamples/CoinducedInvariants.lean), the sign-product
+  quotient-coinduction and full-group invariants clients: a normal subgroup
+  moves a nonzero value of a coinduced invariant, so the quotient-side
+  coefficient is the whole module, not its fixed submodule;
 - [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
 - [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
 - [`CoinductionExactness`](CGCExamples/CoinductionExactness.lean), the signed
@@ -404,13 +419,11 @@ the default build:
 - [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
   coordinatewise sign-product boundary client.
 
-The finite-stage resolution, boundary, colimit, quotient-invariants,
-resolution-image, cochain, seeded descent, transition and diagram client proofs
-elaborate together in `examples.FiniteStageResolutionNative`: seven current
-environments combine ten original isolated environments. Their forwarding roots
-retain their original producer imports and visibility for importers, but
-building those roots does not repeat the original isolated proof elaborations.
-Import the corresponding `ContinuousGroupCohomology` production leaves for their APIs.
+`examples.FiniteStageResolutionNative` contains finite-stage resolution,
+boundary, colimit, quotient-invariants, resolution-image, cochain, seeded
+descent, transition and diagram clients. Their entrypoints import the
+corresponding production modules; import those `ContinuousGroupCohomology`
+modules directly to use their APIs.
 
 For an explicit fresh source elaboration of the aggregate-root client:
 
@@ -420,13 +433,7 @@ lake env lean examples/NativeCore.lean
 
 The other client paths above can likewise be given to `lake env lean`.
 Representative `#print axioms` commands in the client files report selected
-proof dependencies. Release verification uses an applicable successful build and
-a complete actual transitive-axiom audit of repository declarations, including
-private declarations. Only `propext`, `Classical.choice` and `Quot.sound` are
-permitted. The ordinary Lean build checks proofs; separate exhaustive stored-proof
-rechecking is not a release prerequisite. Documentation, API claims, metadata,
-rights and release history still need independent review. A successful build alone
-is not a complete axiom or rights check.
+proof dependencies, not an exhaustive inventory of all declarations.
 
 ## Scope and migration
 
@@ -462,6 +469,16 @@ the mathematical API in this library.
   second edition, Chapter I, §1.1 (the correction to its finite-generation
   hypothesis credits Siyan Daniel Li). The discrete direct-sum, tensor and
   linear-Hom results extend its profinite, integer-module setting.
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §3 (integral finite-group function–tensor formula
+  with twisted action). The underlying equivalence extends to arbitrary finite
+  index types over commutative semirings; the left-regular factor action for
+  finite groups is inferred from the formula and twisted action.
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §3, Proposition (1.3.6)(ii) (normal-invariants
+  clause). The coinduction equivalence extends this clause from closed normal
+  subgroups of profinite groups to arbitrary normal subgroups of compact
+  topological groups with discrete, jointly continuous coefficients.
 - Mathlib, especially `Representation.directSum`, `Representation.tprod` and
   `TopRep` for representation constructions, and its continuous-cohomology,
   topological and categorical foundations. Its representation-theory and

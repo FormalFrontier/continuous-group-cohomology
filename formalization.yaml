@@ -483,6 +483,12 @@ status:
       file: ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean
     - declaration: TopRep.coind₁Functor_shortExact
       file: ContinuousGroupCohomology/CoinductionExactness.lean
+    - declaration: MonoidAlgebra.finiteFunctionTensorLinearEquiv
+      file: ContinuousGroupCohomology/FiniteFunctionTensor.lean
+    - declaration: MonoidAlgebra.finiteFunctionTensorLinearEquiv_naturality
+      file: ContinuousGroupCohomology/FiniteFunctionTensor.lean
+    - declaration: Representation.finiteFunctionTensorLinearEquiv_twisted
+      file: ContinuousGroupCohomology/FiniteFunctionTensor.lean
 review:
   status: other
   notes: >-

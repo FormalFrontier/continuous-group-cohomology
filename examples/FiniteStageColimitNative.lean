@@ -10,12 +10,11 @@ import examples.FiniteStageResolutionNative
 /-!
 # Colimit clients at arbitrary degree and target
 
-This entrypoint retains its public producer import and forwards its proofs to
-the finite-stage client host. Boundary, finite-stage boundary, colimit,
-resolution/sign, quotient-invariants, resolution-image, cochain, seeded descent,
-transition and diagram proofs elaborate together there: seven current
-environments comprise ten originally isolated proof environments. Importing
-this module does not repeat the former isolated colimit-proof elaboration.
+The arbitrary-degree comparison and arbitrary-target cocone clients reside in
+`examples.FiniteStageResolutionNative`. This entrypoint publicly imports
+`ContinuousGroupCohomology.FiniteStageColimit` and imports that client module.
+Import the production module for the finite-stage comparison and nonuniform
+equality detection; the result does not choose one stage for every class.
 -/
 
 set_option autoImplicit false

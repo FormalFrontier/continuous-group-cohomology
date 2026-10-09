@@ -37,12 +37,10 @@ coefficients). There is no cohomology injectivity, boundary lifting,
 filtered-colimit comparison, inflation-restriction, acyclicity, vanishing,
 or claim concerning a separately modeled explicit H¹.
 
-The host also checks degree-one torsion and arbitrary-degree discreteness.
-Its combined imports replace all three former independent proof-import
-environments, including the degree-one torsion client's former Torsion-only
-check; the [compact torsion entrypoint](../examples/CompactDiscreteTorsionNative.lean)
-retains its original public producer and Mathlib imports and imports the host
-ordinarily, without re-exporting it. To use the theorem, import
-`ContinuousGroupCohomology.CompactDiscreteTorsion`, not the example module.
+[`ContinuousTorsionNative`](../examples/ContinuousTorsionNative.lean) also
+contains degree-one torsion and arbitrary-degree discreteness clients. The
+[compact torsion entrypoint](../examples/CompactDiscreteTorsionNative.lean)
+imports it along with the production and Mathlib modules. To use the theorem,
+import `ContinuousGroupCohomology.CompactDiscreteTorsion` directly.
 
 See [attribution](attribution.md) for contributor lineage and rights scope.

@@ -21,9 +21,9 @@ orientation: a lift `e : E` of `q : Q` sends the class of `n : N` to the class
 of `S.conjAct e n`, where mathlib's `conjAct` is conjugation by `e` on the left.
 The public lift-independence lemmas make the quotient descent inspectable.
 
-This is the source-independent algebraic action precursor selected by the
-repository's reviewed low-degree extension design.  It introduces no topology,
-coinvariants, or (co)homology.  Pinned mathlib's `GroupExtension.Equiv` fixes
+This algebraic quotient action is the precursor to the topological
+quotient-conjugation action. It introduces no topology, coinvariants,
+or (co)homology. Pinned mathlib's `GroupExtension.Equiv` fixes
 the kernel and quotient while varying the middle group, so the final lemmas
 give naturality under exactly that strongest existing small structured notion.
 A kernel- or quotient-changing compatibility theorem awaits a corresponding

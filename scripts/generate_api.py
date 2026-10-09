@@ -1011,8 +1011,8 @@ def render(records, raw_records, sources, revision):
     sections = validate(records, raw_records, sources, revision)
     production, clients, instance_rows, module_counts = [], [], [], {}
     lines = ["# Native API reference (historical analyzed snapshot)", "",
-             "This index covers the earlier 27-leaf/eight-client graph, not the current",
-             "63-leaf/thirty-nine-client graph or its aggregate root. The linked source is",
+             "This index covers the earlier 27-leaf/eight-client graph; it does not index",
+             "later modules and clients or the current root's import graph. The linked source is",
              "the [published initial native-core release](" + PUBLISHED_SOURCE_REPOSITORY +
              "/tree/" + PUBLISHED_SOURCE + "), whose 39 analyzed source and pin input bytes",
              "match the original private analysis at `" + SOURCE + "` exactly. This",

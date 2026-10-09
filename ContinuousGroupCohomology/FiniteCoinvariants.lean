@@ -447,7 +447,7 @@ private lemma topQuotientInvariantRepresentation_mk_apply
   apply Subtype.ext
   rfl
 
-/-- The accepted continuous relative norm from `A^S` to `A^G` is invariant
+/-- The continuous relative norm from `A^S` to `A^G` is invariant
 under the residual finite quotient action on its source. -/
 lemma relativeNorm_quotientToInvariants_action (S : OpenNormalSubgroup G)
     (q : G ⧸ S.toSubgroup) (x : openSubgroupInvariants A S.toOpenSubgroup) :
@@ -516,7 +516,7 @@ lemma finiteCoinvariantsMk_apply (S : OpenNormalSubgroup G)
         (A.quotientToInvariants S.toSubgroup).ρ x :=
   rfl
 
-/-- The accepted continuous relative norm `A^S → A^G`, descended to the
+/-- The continuous relative norm `A^S → A^G`, descended to the
 compact Hausdorff coinvariants `(A^S)_{G/S}`. -/
 @[expose] def normFromFiniteCoinvariants (S : OpenNormalSubgroup G) :
     finiteCoinvariants A (L := L) S ⟶ group A L (⊤ : OpenSubgroup G) := by

@@ -13,12 +13,11 @@ import examples.FiniteStageResolutionNative
 # Finite-stage cochain client entrypoint
 
 The degree-zero and degree-two cochain lifts, differential-zero descent and
-nonzero sign-orbit cochain proof elaborate in `examples.FiniteStageResolutionNative`.
-This module retains its public producer and Mathlib imports; import
-`ContinuousGroupCohomology.FiniteStageCochains` for the production API. Seven
-current client proof environments, comprising ten original environments, now
-elaborate together in the host. Importing this forwarding root does not repeat
-the original isolated proof elaboration.
+nonzero sign-orbit cochain client reside in `examples.FiniteStageResolutionNative`.
+This entrypoint publicly imports `ContinuousGroupCohomology.FiniteStageCochains`
+and the Mathlib modules for its sign action, and imports the client module.
+Import the production module for finite-stage lifts of homogeneous cochains
+and closed cochains. The sign-orbit cochain does not assert closedness.
 -/
 
 set_option warningAsError true

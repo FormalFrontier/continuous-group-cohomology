@@ -58,6 +58,7 @@ public import ContinuousGroupCohomology.Torsion
 public import ContinuousGroupCohomology.Topology.ContinuousMap.CompactDiscrete
 public import ContinuousGroupCohomology.Topology.Algebra.CompactGroup.DiscreteFactor
 public import ContinuousGroupCohomology.QuotientInvariants
+public import ContinuousGroupCohomology.CoinducedInvariants
 public import ContinuousGroupCohomology.CochainInjectivity
 public import ContinuousGroupCohomology.ResolutionImage
 public import ContinuousGroupCohomology.FiniteStageResolution

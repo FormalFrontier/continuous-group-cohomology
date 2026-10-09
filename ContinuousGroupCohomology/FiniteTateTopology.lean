@@ -14,7 +14,7 @@ public import ContinuousGroupCohomology.FiniteCoinvariants
 For a level-compact coefficient representation, this file packages Tate
 degrees `-1` and `0` at an open normal level as compact Hausdorff additive
 commutative groups.  They are respectively the closed kernel and the quotient
-by the compact, hence closed, range of the accepted continuous norm from
+by the compact, hence closed, range of the continuous norm from
 finite coinvariants to total invariants.
 
 The comparison with algebraic Tate cohomology is only an additive equivalence.
@@ -125,7 +125,7 @@ lemma finiteNormTargetEquiv_apply_val (S : OpenNormalSubgroup G)
     (finiteNormTargetEquiv A S x : A) = x.1.1 :=
   rfl
 
-/-- The carrier of the compact finite coinvariants is the accepted algebraic
+/-- The carrier of the compact finite coinvariants is the algebraic
 coinvariant quotient.  This additive equivalence records that identification
 without identifying any topology. -/
 def algebraicCoinvariantsAddEquivFiniteCoinvariants
@@ -150,7 +150,7 @@ the canonical quotient representative. -/
       finiteCoinvariantsMk A L S x := by
   rfl
 
-/-- The compact group at an open level has the accepted invariant submodule
+/-- The compact group at an open level has the corresponding invariant submodule
 as its underlying additive group. -/
 def openSubgroupInvariantsAddEquivGroup (U : OpenSubgroup G) :
     openSubgroupInvariants A U ≃+ group A L U := by
@@ -181,7 +181,7 @@ coefficient vector, independently of the residual quotient level. -/
   exact finiteNormTargetEquiv_apply_val A S x
 
 /-- After the explicit target equivalence, the algebraic finite-group norm is
-the underlying additive map of the accepted continuous norm. -/
+the underlying additive map of the continuous norm. -/
 lemma finiteNormTargetEquiv_normFromCoinvariants
     (S : OpenNormalSubgroup G)
     [Fintype (G ⧸ S.toSubgroup)]
