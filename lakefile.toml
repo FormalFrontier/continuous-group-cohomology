@@ -21,6 +21,11 @@ name = "finiteGroupTateCohomology"
 git = "https://github.com/FormalFrontier/finite-group-tate-cohomology.git"
 rev = "d17f93bbc5b934f8b9f3cf077769a706a901608d"
 
+[[require]]
+name = "profinite-groups"
+git = "https://github.com/FormalFrontier/profinite-groups.git"
+rev = "5f11ef67fb23396b63a644a3713391e2b9300546"
+
 [[lean_lib]]
 name = "ContinuousGroupCohomology"
 
@@ -69,6 +74,7 @@ roots = [
   "ContinuousGroupCohomologyExamples.DiscreteHom",
   "ContinuousGroupCohomologyExamples.DiscreteProduct",
   "CGCExamples.TopRepDiscrete",
+  "CGCExamples.CoinducedRestriction",
   "CGCExamples.CoinducedInvariants",
   "CGCExamples.FiniteFunctionTensor",
   "CGCExamples.CoinducedAcyclic",

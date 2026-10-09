@@ -64,7 +64,35 @@ forward and inverse maps satisfy `(P f)(mk N t) = B.ρ t⁻¹ (f t)` and
 [sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean)
 exhibit `B^N = 0` with nonzero `B`, a quotient function moved by the residual
 quotient action, and an invariant function whose value at the identity is
-moved by `N`. No general restriction-to-closed-subgroups result is asserted.
+moved by `N`.
+
+For `[Ring k] [TopologicalSpace k]`, any topological group `G`, subgroup `H`
+with locally compact `H` and `G ⧸ H`, and a chosen continuous section
+`s : C(G ⧸ H, G)` of the coset projection `q`, the
+[restriction isomorphism](ContinuousGroupCohomology/CoinducedRestriction.lean)
+identifies `res H.subtype (TopRep.coind₁ B)` with coinduction from the
+[pointwise representation](ContinuousGroupCohomology/PointwiseContinuousMap.lean)
+on the **whole** `C(G ⧸ H, B)`. Its forward and inverse evaluations are
+`(T f)(h)(c) = f(h * (s c)⁻¹)` and
+`(T⁻¹ u)(t) = u(t * s(q(t⁻¹)))(q(t⁻¹))`; the first inverse coordinate belongs
+to `H`. The coefficient action is `(h · w)(c) = B.ρ h (w c)`, which need not be
+trivial. The isomorphism is natural in equivariant coefficient maps for a fixed
+section and has explicit inverse, action and section-change laws; it is not a
+canonical splitting. No normality, openness, discreteness or separation
+hypothesis is imposed on this generic isomorphism. For compact Hausdorff
+totally disconnected `G` and **any closed** `H`, the
+[all-closed specialization](ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean)
+uses the continuous representative supplied by `ProfiniteGroups` without
+assuming `H` open, normal or countable; discreteness and joint continuity are
+separate conclusions under their stated coefficient hypotheses. The
+[nonnormal `S₃` client](CGCExamples/CoinducedRestriction.lean) independently
+checks the inverted coset, nontrivial sign action and bottom/top boundaries,
+but being finite does not give a closed nonopen subgroup. The construction uses
+Mathlib's twisted coinduction and compact-open currying and the released
+profinite-group section; compare Neukirch–Schmidt–Wingberg, *Cohomology of
+Number Fields*, I §3, Proposition 1.3.6(ii) and I §1, Exercise 4. Unlike the
+normal-quotient invariant equivalence above, it does not trivialize the
+coefficient action.
 
 The [coinduction short-row theorem](ContinuousGroupCohomology/CoinductionExactness.lean)
 identifies the maps of Mathlib's existing twisted `TopRep.coind₁Functor` with
@@ -241,6 +269,7 @@ ingredients and their individual hypotheses.
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
 | Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
 | Normal-quotient coinduction | [`CoinducedInvariants`](ContinuousGroupCohomology/CoinducedInvariants.lean) | For compact `G`, arbitrary normal `N` and discrete jointly continuous `B` over `[Ring k] [TopologicalSpace k]`, the `N`-invariants of twisted coinduction are equivalent to coinduction over `G ⧸ N` from the whole `B` with trivial coefficient action. The [sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean) distinguish this from coinduction on `B^N` and exhibit nontrivial residual quotient action. |
+| Closed-subgroup restriction of coinduction | [`PointwiseContinuousMap`](ContinuousGroupCohomology/PointwiseContinuousMap.lean), [`CoinducedRestriction`](ContinuousGroupCohomology/CoinducedRestriction.lean), [`ProfiniteCoinducedRestriction`](ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean) | A chosen continuous section and locally compact `H` and `G ⧸ H` yield a section-dependent restriction isomorphism over `[Ring k] [TopologicalSpace k]` on the whole `C(G ⧸ H, B)` with possibly nontrivial pointwise `H`-action. The released profinite-group section gives this for every closed `H` in compact Hausdorff totally disconnected `G`, with no normality or openness assumption. The [nonnormal `S₃` client](CGCExamples/CoinducedRestriction.lean) tests the coset orientation and signed action but not a closed nonopen case. |
 | Coinduction short rows | [`Topology.ContinuousMap.Exact`](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean), [`CoinductionExactness`](ContinuousGroupCohomology/CoinductionExactness.lean) | On `C(X, ·)`, exactness needs discrete middle `B` and exact coefficient maps, while surjectivity needs discrete target `D` and a surjective coefficient map; `X` is arbitrary. For `TopRep.coind₁Functor`, discrete `B, D` and an injective/exact/surjective coefficient row give the three underlying-map properties over any topological group, without local compactness or an added joint-action hypothesis. A [signed nonsplit example](CGCExamples/CoinductionExactness.lean) verifies independent coefficient and nonconstant-function witnesses. No unrestricted categorical exactness is asserted. |
 | Finite-function tensors | [`FiniteFunctionTensor`](ContinuousGroupCohomology/FiniteFunctionTensor.lean) | For any finite index type and commutative semiring, the coefficient-left tensor equivalence is natural in coefficient linear maps and has coefficient, delta and finite-sum formulas. For finite groups its twisted action matches the diagonal action with the left-regular basis. The [`S₄` client](CGCExamples/FiniteFunctionTensor.lean) separates this from ordinary right precomposition; no continuous or topological-representation equivalence is asserted. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
@@ -332,6 +361,10 @@ mathlib at `83abb3e776bdefcbc447a1e44d0debe4010039e5` and the released
 `finite-group-tate-cohomology` dependency at
 `d17f93bbc5b934f8b9f3cf077769a706a901608d` from
 `https://github.com/FormalFrontier/finite-group-tate-cohomology.git`.
+The closed-subgroup restriction module additionally uses
+`profinite-groups` at `5f11ef67fb23396b63a644a3713391e2b9300546`,
+with its resolved `group-theory` dependency at
+`01047a79bed13ee795d40b61b777566f2160e5cc`.
 Authorized access to this private dependency and network access to the pinned
 mathlib/transitive dependencies and their cache are required. No source-research
 checkout is needed. Do not update the manifest when reproducing these pins.
@@ -394,6 +427,8 @@ the default build:
   [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
 - [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
+- [`CoinducedRestriction`](CGCExamples/CoinducedRestriction.lean), the nonnormal
+  integer sign-action boundary for the closed-subgroup restriction statement;
 - [`CoinducedInvariants`](CGCExamples/CoinducedInvariants.lean), the sign-product
   quotient-coinduction and full-group invariants clients: a normal subgroup
   moves a nonzero value of a coinduced invariant, so the quotient-side
@@ -479,6 +514,16 @@ the mathematical API in this library.
   clause). The coinduction equivalence extends this clause from closed normal
   subgroups of profinite groups to arbitrary normal subgroups of compact
   topological groups with discrete, jointly continuous coefficients.
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §3, Proposition 1.3.6(ii) (closed-subgroup
+  restriction clause). The restriction isomorphism allows an arbitrary
+  topological group when the subgroup and coset space are locally compact and
+  a continuous coset section is chosen. It uses the whole continuous-function
+  coefficient space with its generally nontrivial pointwise subgroup action;
+  its profinite specialization covers every closed subgroup.
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §1, Exercise 4 (continuous sections of profinite
+  coset projections). The chosen section is not a canonical group splitting.
 - Mathlib, especially `Representation.directSum`, `Representation.tprod` and
   `TopRep` for representation constructions, and its continuous-cohomology,
   topological and categorical foundations. Its representation-theory and
@@ -491,3 +536,9 @@ the mathematical API in this library.
 - [Finite group Tate cohomology](https://github.com/FormalFrontier/finite-group-tate-cohomology),
   the formal library providing finite Tate definitions and norm maps; see
   [attribution](docs/attribution.md).
+- [Profinite Groups](https://github.com/FormalFrontier/profinite-groups/tree/5f11ef67fb23396b63a644a3713391e2b9300546),
+  the formal library providing the continuous coset-section theorem and chosen
+  representatives for closed subgroups used in the profinite restriction
+  isomorphism. Its section proof uses the
+  [Group Theory open-quotient theorem](https://github.com/FormalFrontier/group-theory/tree/01047a79bed13ee795d40b61b777566f2160e5cc);
+  see [attribution](docs/attribution.md).

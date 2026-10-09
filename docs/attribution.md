@@ -42,9 +42,26 @@ contributors Edison Xie and Richard Hill.
 - The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d)
   supplies finite Tate definitions and norm maps used here. Authorized access
   to this private dependency is required for building from the current pins.
+- [Profinite Groups at the pinned revision](https://github.com/FormalFrontier/profinite-groups/tree/5f11ef67fb23396b63a644a3713391e2b9300546)
+  supplies `Subgroup.continuousCosetRepresentative` and its right-inverse law
+  for every closed subgroup of a profinite group. Its
+  [`ContinuousSection`](https://github.com/FormalFrontier/profinite-groups/blob/5f11ef67fb23396b63a644a3713391e2b9300546/ProfiniteGroups/ContinuousSection.lean)
+  module develops the continuous-section theorem of
+  Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, corrected second
+  edition, Chapter I, §1, Exercise 4. That proof uses the transitive
+  [Group Theory open-quotient theorem](https://github.com/FormalFrontier/group-theory/blob/01047a79bed13ee795d40b61b777566f2160e5cc/GroupTheory/Topology/OpenQuotient.lean)
+  to establish total disconnectedness of closed coset spaces; the theorem was
+  first formalized in Profinite Groups. The generic restriction isomorphism
+  assumes a chosen continuous section, while the all-closed profinite
+  specialization uses Profinite Groups' chosen representative. The restriction
+  comparison is with Chapter I, §3, Proposition 1.3.6(ii), not the separate
+  normal-quotient invariants clause. Importing these formal libraries uses
+  their results without copying their Lean expression or transferring their
+  proof authorship to this library.
 - [`scripts/generate_api.py`](../scripts/generate_api.py) and
   [`scripts/test_generate_api.py`](../scripts/test_generate_api.py) adapt
-  Apache-2.0 documentation-generator designs from Formal Frontier's
+  Apache-2.0 documentation-generator designs, separately from the mathematical
+  section API above, from Formal Frontier's
   profinite-groups and finite-group Tate libraries. The checked-in
    [API index](API.md) and [manifest](api-manifest.json) describe a historical
    graph, not all current modules. Their public display links use an exact
