@@ -6,6 +6,7 @@ Original development: Beacon
 module
 
 public import ContinuousGroupCohomology.ContinuousCohomologyUlift
+import ContinuousGroupCohomology.ContinuousCohomologyFunctor
 
 /-!
 # Common-universe normalization for continuous cohomology
@@ -81,17 +82,6 @@ lemma normalizedContinuousCohomologyMap_id
     exact normalizedFunctor.map_id X]
   exact ContinuousCohomology.map_id (normalized X) n
 
-private lemma continuousCohomology_map_id_comp
-    {H : Type v} [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
-    {X Y Z : TopRep.{v} k H} (f : X ⟶ Y) (g : Y ⟶ Z) (n : ℕ) :
-    ContinuousCohomology.map (ContinuousMonoidHom.id H) (f ≫ g) n =
-      ContinuousCohomology.map (ContinuousMonoidHom.id H) f n ≫
-        ContinuousCohomology.map (ContinuousMonoidHom.id H) g n := by
-  have h := ContinuousCohomology.map_comp
-    (ContinuousMonoidHom.id H) (ContinuousMonoidHom.id H) f g n
-  convert h using 1
-  all_goals rfl
-
 @[reassoc]
 lemma normalizedContinuousCohomologyMap_comp
     {X Y Z : TopRep.{w} k G} (f : X ⟶ Y) (g : Y ⟶ Z) (n : ℕ) :
@@ -101,6 +91,10 @@ lemma normalizedContinuousCohomologyMap_comp
   unfold normalizedContinuousCohomologyMap
   rw [show normalizedMap (f ≫ g) = normalizedMap f ≫ normalizedMap g by
     exact normalizedFunctor.map_comp f g]
-  exact continuousCohomology_map_id_comp (normalizedMap f) (normalizedMap g) n
+  simpa only [ContinuousCohomology.coefficientFunctor,
+    normalizedContinuousCohomology] using
+    (ContinuousCohomology.coefficientFunctor
+      (k := k) (G := ULift.{max v w} G) n).map_comp
+        (normalizedMap f) (normalizedMap g)
 
 end TopRep

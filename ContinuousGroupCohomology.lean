@@ -6,6 +6,8 @@ module
 
 public import ContinuousGroupCohomology.ClosedTopologicalCoinvariants
 public import ContinuousGroupCohomology.CoinducedAcyclic
+public import ContinuousGroupCohomology.ContinuousCohomologyFunctor
+public import ContinuousGroupCohomology.ProfiniteCoinducedAcyclic
 public import ContinuousGroupCohomology.FiniteFunctionTensor
 public import ContinuousGroupCohomology.CompactAddCommGroup
 public import ContinuousGroupCohomology.CompactAddCommGroupLimits

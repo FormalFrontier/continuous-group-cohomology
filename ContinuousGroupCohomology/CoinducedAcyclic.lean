@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.FiniteStageResolution
+public import ContinuousGroupCohomology.ContinuousCohomologyFunctor
 public import Mathlib.RepresentationTheory.Homological.ContCohomology.Functoriality
 import ContinuousGroupCohomology.FiniteAveraging
 
@@ -20,6 +21,8 @@ of a Cartesian power is used.
 The pointwise alternating-sum formula for the differential proves that diagonal
 insertion contracts coinduced homogeneous cochains in positive degree. The
 resulting boundaries represent every positive-degree cohomology class.
+The coefficient functor transports this vanishing across representation
+isomorphisms.
 
 ## References
 
@@ -408,5 +411,17 @@ theorem coind₁_positive_eq_zero (X : TopRep.{max v w} k G)
   change (C.homologyπ (m + 1)).hom z = 0
   rw [hπzero]
   rfl
+
+/-- Positive continuous cohomology vanishes for any representation isomorphic
+to coinduction from a discrete representation of a compact group. -/
+theorem coind₁_isomorphic_positive_eq_zero
+    (X : TopRep.{max v w} k G) [DiscreteTopology X]
+    {Y : TopRep.{max v w} k G} (e : Y ≅ TopRep.coind₁ X)
+    (m : ℕ) (a : continuousCohomology (m + 1) Y) : a = 0 := by
+  let e' := (coefficientFunctor (k := k) (G := G) (m + 1)).mapIso e
+  have hz : e'.hom.hom a = 0 := coind₁_positive_eq_zero X m (e'.hom.hom a)
+  apply e'.toContinuousLinearEquiv.injective
+  change e'.hom.hom a = e'.hom.hom 0
+  simpa only [map_zero] using hz
 
 end ContinuousCohomology

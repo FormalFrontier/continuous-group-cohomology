@@ -4,7 +4,7 @@ Authors: Formal Frontier Agents
 -/
 module
 
-public import ContinuousGroupCohomology.ProfiniteCoinducedRestriction
+public import ContinuousGroupCohomology.ProfiniteCoinducedAcyclic
 public import CGCExamples.TopRepDiscrete.SignAction
 public import Mathlib.GroupTheory.Perm.Sign
 
@@ -18,6 +18,10 @@ These witness facts are proved independently of the section-dependent restrictio
 a downstream calculation applies the iso to the same point mass.
 The finite example tests the nonnormal orientation and coefficient action;
 finite groups alone cannot establish the theorem for closed nonopen subgroups.
+For this signed representation, positive cohomology of its coinduction also
+vanishes after restriction to the nonnormal subgroup.
+The coefficient isomorphism also transports cohomology at the common maximum
+of independent group and carrier universes without lifting the acting group.
 -/
 
 set_option autoImplicit false
@@ -25,6 +29,10 @@ set_option relaxedAutoImplicit false
 set_option warningAsError true
 
 @[expose] public section
+
+universe u v w
+
+open CategoryTheory
 
 namespace CGCExamples
 
@@ -195,6 +203,63 @@ theorem top_pointwise_constant_neg_one
         C(ThreePerm ⧸ (⊤ : Subgroup ThreePerm), ℤ)) c = -1 := by
   rw [TopRep.pointwiseContinuousMap_ρ_const]
   exact signedThreePerm_transposition_one
+
+/-- First positive-degree vanishing after restriction to the nonnormal
+transposition subgroup, with nontrivial integral sign coefficients. -/
+theorem transposition_coind₁_restriction_degree_one
+    (a : continuousCohomology 1
+      (TopRep.res transpositionSubgroup.subtype (TopRep.coind₁ signedThreePerm))) :
+    a = 0 := by
+  exact ContinuousCohomology.res_coind₁_positive_eq_zero
+    transpositionSubgroup signedThreePerm 0 a
+
+/-- Every strictly positive degree vanishes for the same nonnormal subgroup
+and full pointwise coefficient representation. -/
+theorem transposition_coind₁_restriction_positive (m : ℕ)
+    (a : continuousCohomology (m + 1)
+      (TopRep.res transpositionSubgroup.subtype (TopRep.coind₁ signedThreePerm))) :
+    a = 0 := by
+  exact ContinuousCohomology.res_coind₁_positive_eq_zero
+    transpositionSubgroup signedThreePerm m a
+
+/-- An isomorphic copy of twisted sign coinduction has vanishing first
+continuous cohomology over the entire permutation group. -/
+theorem signedThreePerm_isomorphic_coind₁_degree_one
+    {Y : TopRep ℤ ThreePerm} (e : Y ≅ TopRep.coind₁ signedThreePerm)
+    (a : continuousCohomology 1 Y) : a = 0 := by
+  exact ContinuousCohomology.coind₁_isomorphic_positive_eq_zero
+    signedThreePerm e 0 a
+
+/-- The fixed-permutation-group coefficient functor transports this
+representation isomorphism in every degree. -/
+noncomputable def signedThreePerm_coind₁_cohomologyIso
+    {Y : TopRep ℤ ThreePerm} (e : Y ≅ TopRep.coind₁ signedThreePerm)
+    (n : ℕ) :
+    continuousCohomology n Y ≅
+      continuousCohomology n (TopRep.coind₁ signedThreePerm) :=
+  (ContinuousCohomology.coefficientFunctor (k := ℤ) (G := ThreePerm) n).mapIso e
+
+/-- Transporting an isomorphism of coinduced coefficients uses Mathlib's
+continuous-cohomology map for the same acting group. -/
+private theorem coind₁_coefficientMapIso_hom
+    {k : Type u} [Ring k] [TopologicalSpace k]
+    {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (B : TopRep.{max v w} k G) {M : TopRep.{max v w} k G}
+    (e : M ≅ TopRep.coind₁ B) (n : ℕ) :
+    ((ContinuousCohomology.coefficientFunctor.{u, v, w}
+      (k := k) (G := G) n).mapIso e).hom =
+      ContinuousCohomology.map (ContinuousMonoidHom.id G) e.hom n := by
+  simp only [Functor.mapIso_hom, ContinuousCohomology.coefficientFunctor_obj,
+    ContinuousCohomology.coefficientFunctor_map]
+
+/-- Restricting an isomorphic copy to the nonnormal transposition subgroup
+preserves first positive-degree vanishing. -/
+theorem transposition_isomorphic_coind₁_restriction_degree_one
+    {M : TopRep ℤ ThreePerm} (e : M ≅ TopRep.coind₁ signedThreePerm)
+    (a : continuousCohomology 1 (TopRep.res transpositionSubgroup.subtype M)) :
+    a = 0 := by
+  exact ContinuousCohomology.res_isomorphic_coind₁_positive_eq_zero
+    transpositionSubgroup signedThreePerm e 0 a
 
 /-- On the nonnormal signed example, the restriction iso sends a point mass to
 distinct values at the identity and transposition, and sends its twisted

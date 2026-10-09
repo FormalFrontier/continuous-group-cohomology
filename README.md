@@ -50,6 +50,21 @@ positive degree, so continuous cohomology with coinduced discrete coefficients
 vanishes there. Degree-zero vanishing is false even for the two-element group
 acting trivially on nonzero integers (see the
 [two-element-group client](CGCExamples/CoinducedAcyclic.lean)).
+The [coefficient functor](ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean)
+for a fixed acting group and degree uses Mathlib's continuous-cohomology maps;
+its object and morphism laws transport positive vanishing across coefficient
+isomorphisms in the same group. For compact Hausdorff totally disconnected
+`G`, the [closed-subgroup positive-vanishing theorem](ContinuousGroupCohomology/ProfiniteCoinducedAcyclic.lean)
+then applies to every closed `H`, and also to restrictions of representations
+isomorphic to `TopRep.coind₁ B`. Its coefficient over `H` is all of
+`C(G ⧸ H, B)` with the generally nontrivial pointwise action. Only discrete
+`B` is needed; neither openness or normality of `H` nor joint continuity of
+the coefficient action is required. The finite signed
+[`S₃` clients](CGCExamples/CoinducedRestriction.lean) instantiate positive
+vanishing at a nonnormal subgroup, not at a closed nonopen subgroup. These
+are strictly positive-degree conclusions, corresponding to the closed-subgroup
+clause of Neukirch–Schmidt–Wingberg, I §3, Proposition 1.3.7; they do not
+assert degree-zero vanishing or all-integer Tate acyclicity.
 
 For `[Ring k] [TopologicalSpace k]`, a compact topological group `G`, any
 normal subgroup `N` and a discrete, jointly continuous `B : TopRep k G`, the
@@ -267,9 +282,10 @@ ingredients and their individual hypotheses.
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
-| Coinduced insertion | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, insertion contracts homogeneous cochains and coinduced-coefficient cohomology vanishes; the degree-zero analogue is false. |
+| Coinduced insertion and coefficient functor | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean), [`ContinuousCohomologyFunctor`](ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, coinduced-coefficient cohomology vanishes and the fixed-group coefficient functor transports vanishing across isomorphisms; the degree-zero analogue is false. |
 | Normal-quotient coinduction | [`CoinducedInvariants`](ContinuousGroupCohomology/CoinducedInvariants.lean) | For compact `G`, arbitrary normal `N` and discrete jointly continuous `B` over `[Ring k] [TopologicalSpace k]`, the `N`-invariants of twisted coinduction are equivalent to coinduction over `G ⧸ N` from the whole `B` with trivial coefficient action. The [sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean) distinguish this from coinduction on `B^N` and exhibit nontrivial residual quotient action. |
 | Closed-subgroup restriction of coinduction | [`PointwiseContinuousMap`](ContinuousGroupCohomology/PointwiseContinuousMap.lean), [`CoinducedRestriction`](ContinuousGroupCohomology/CoinducedRestriction.lean), [`ProfiniteCoinducedRestriction`](ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean) | A chosen continuous section and locally compact `H` and `G ⧸ H` yield a section-dependent restriction isomorphism over `[Ring k] [TopologicalSpace k]` on the whole `C(G ⧸ H, B)` with possibly nontrivial pointwise `H`-action. The released profinite-group section gives this for every closed `H` in compact Hausdorff totally disconnected `G`, with no normality or openness assumption. The [nonnormal `S₃` client](CGCExamples/CoinducedRestriction.lean) tests the coset orientation and signed action but not a closed nonopen case. |
+| Positive cohomology after closed restriction | [`ProfiniteCoinducedAcyclic`](ContinuousGroupCohomology/ProfiniteCoinducedAcyclic.lean), [`CoinducedRestriction`](CGCExamples/CoinducedRestriction.lean) | For every closed `H` in compact Hausdorff totally disconnected `G` and discrete `B`, positive cohomology of `res H.subtype (TopRep.coind₁ B)` and of restrictions of isomorphic ambient coefficients vanishes. The full pointwise `C(G ⧸ H, B)` coefficient need not have trivial action; joint continuity is not assumed. No degree-zero or all-integer Tate vanishing is claimed. |
 | Coinduction short rows | [`Topology.ContinuousMap.Exact`](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean), [`CoinductionExactness`](ContinuousGroupCohomology/CoinductionExactness.lean) | On `C(X, ·)`, exactness needs discrete middle `B` and exact coefficient maps, while surjectivity needs discrete target `D` and a surjective coefficient map; `X` is arbitrary. For `TopRep.coind₁Functor`, discrete `B, D` and an injective/exact/surjective coefficient row give the three underlying-map properties over any topological group, without local compactness or an added joint-action hypothesis. A [signed nonsplit example](CGCExamples/CoinductionExactness.lean) verifies independent coefficient and nonconstant-function witnesses. No unrestricted categorical exactness is asserted. |
 | Finite-function tensors | [`FiniteFunctionTensor`](ContinuousGroupCohomology/FiniteFunctionTensor.lean) | For any finite index type and commutative semiring, the coefficient-left tensor equivalence is natural in coefficient linear maps and has coefficient, delta and finite-sum formulas. For finite groups its twisted action matches the diagonal action with the left-regular basis. The [`S₄` client](CGCExamples/FiniteFunctionTensor.lean) separates this from ordinary right precomposition; no continuous or topological-representation equivalence is asserted. |
 | Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
@@ -521,6 +537,11 @@ the mathematical API in this library.
   a continuous coset section is chosen. It uses the whole continuous-function
   coefficient space with its generally nontrivial pointwise subgroup action;
   its profinite specialization covers every closed subgroup.
+- Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
+  second edition, Chapter I, §3, Proposition 1.3.7 (positive-degree
+  closed-subgroup clause). The coinduced contraction and Mathlib's
+  coefficient maps give positive vanishing after all closed restrictions;
+  the whole-group isomorphic-coefficient theorem is a further consequence.
 - Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, corrected
   second edition, Chapter I, §1, Exercise 4 (continuous sections of profinite
   coset projections). The chosen section is not a canonical group splitting.
