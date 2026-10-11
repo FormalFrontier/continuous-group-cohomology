@@ -1,7 +1,6 @@
 /-
 SPDX-License-Identifier: Apache-2.0
 Authors: Formal Frontier Agents
-Original development: Beacon
 -/
 module
 
@@ -20,6 +19,15 @@ honest compact Hausdorff topology.
 
 Continuity of finite deflation between different open-normal levels, inverse
 limits, cup products and exactness are separate later layers.
+
+## References
+
+The compact construction uses this library's `CompactFiniteHomology` and
+`FiniteCoinvariants` finite-bar and invariant-coefficient approach. The
+algebraic Tate-to-homology comparison is
+`Mathlib.RepresentationTheory.Homological.TateCohomology.Basic`, by Yunzhou Xie
+and Yaël Dillies. The original compact finite-bar and negative-Tate development
+is credited in `docs/attribution.md`.
 -/
 
 public section
@@ -346,7 +354,7 @@ with coefficients in `A^S`.
 
 This is a topology on the underlying additive group only.  In particular, it
 does not assert a topological-module structure over `R`. -/
-noncomputable def finiteTateNegative (S : OpenNormalSubgroup G) (n : ℕ) :
+@[expose] noncomputable def finiteTateNegative (S : OpenNormalSubgroup G) (n : ℕ) :
     CompHausAddCommGrp.{u} := by
   letI : Fintype (G ⧸ S.toSubgroup) := Fintype.ofFinite _
   letI : TopologicalSpace (A.quotientToInvariants S.toSubgroup) :=
@@ -360,6 +368,67 @@ noncomputable def finiteTateNegative (S : OpenNormalSubgroup G) (n : ℕ) :
   exact CompHausAddCommGrp.FiniteBar.positiveHomology
     (A.quotientToInvariants S.toSubgroup)
     (continuous_quotientToInvariants_action A L S) n
+
+/-- The compact negative Tate stage is the positive homology of the finite
+bar complex with its levelwise compact coefficient topology. -/
+lemma finiteTateNegative_eq_positiveHomology (S : OpenNormalSubgroup G) (n : ℕ) :
+    finiteTateNegative A L S n =
+      @CompHausAddCommGrp.FiniteBar.positiveHomology
+        R (G ⧸ S.toSubgroup) _ _ (Fintype.ofFinite _)
+        (A.quotientToInvariants S.toSubgroup)
+        (L.topology S.toOpenSubgroup) (L.compact S.toOpenSubgroup)
+        (L.t2 S.toOpenSubgroup) (L.topologicalAddGroup S.toOpenSubgroup)
+        (continuous_quotientToInvariants_action A L S) n := rfl
+
+/-- The canonical compact additive isomorphism from a negative Tate stage
+to its finite-bar presentation. It transports continuous morphisms without
+rewriting their source and target objects. -/
+noncomputable def finiteTateNegativeIsoPositiveHomology
+    (S : OpenNormalSubgroup G) (n : ℕ) :
+    finiteTateNegative A L S n ≅
+      @CompHausAddCommGrp.FiniteBar.positiveHomology
+        R (G ⧸ S.toSubgroup) _ _ (Fintype.ofFinite _)
+        (A.quotientToInvariants S.toSubgroup)
+        (L.topology S.toOpenSubgroup) (L.compact S.toOpenSubgroup)
+        (L.t2 S.toOpenSubgroup) (L.topologicalAddGroup S.toOpenSubgroup)
+        (continuous_quotientToInvariants_action A L S) n :=
+  eqToIso (finiteTateNegative_eq_positiveHomology A L S n)
+
+/-- The algebraic finite-bar homology group and its compact finite-level model
+have the same underlying additive group. -/
+@[expose] noncomputable def groupHomologyAddEquivFiniteTateNegative
+    (S : OpenNormalSubgroup G) (n : ℕ) :
+    groupHomology (A.quotientToInvariants S.toSubgroup) (n + 1) ≃+
+      finiteTateNegative A L S n := by
+  letI : Fintype (G ⧸ S.toSubgroup) := Fintype.ofFinite _
+  letI : TopologicalSpace (A.quotientToInvariants S.toSubgroup) :=
+    L.topology S.toOpenSubgroup
+  letI : CompactSpace (A.quotientToInvariants S.toSubgroup) :=
+    L.compact S.toOpenSubgroup
+  letI : T2Space (A.quotientToInvariants S.toSubgroup) :=
+    L.t2 S.toOpenSubgroup
+  letI : IsTopologicalAddGroup (A.quotientToInvariants S.toSubgroup) :=
+    L.topologicalAddGroup S.toOpenSubgroup
+  exact (CompHausAddCommGrp.FiniteBar.groupHomologyAddEquivPositive
+    (A.quotientToInvariants S.toSubgroup)
+    (continuous_quotientToInvariants_action A L S) n).trans
+      (((forget₂ CompHausAddCommGrp AddCommGrpCat).mapIso
+        (finiteTateNegativeIsoPositiveHomology A L S n).symm).addCommGroupIsoToAddEquiv)
+
+/-- The finite-level comparison is the finite-bar comparison followed by
+the inverse of the canonical presentation isomorphism. -/
+@[simp]
+lemma groupHomologyAddEquivFiniteTateNegative_apply
+    (S : OpenNormalSubgroup G) (n : ℕ)
+    (x : groupHomology (A.quotientToInvariants S.toSubgroup) (n + 1)) :
+    groupHomologyAddEquivFiniteTateNegative A L S n x =
+      (finiteTateNegativeIsoPositiveHomology A L S n).inv
+        (@CompHausAddCommGrp.FiniteBar.groupHomologyAddEquivPositive
+          R (G ⧸ S.toSubgroup) _ _ (Fintype.ofFinite _)
+          (A.quotientToInvariants S.toSubgroup)
+          (L.topology S.toOpenSubgroup) (L.compact S.toOpenSubgroup)
+          (L.t2 S.toOpenSubgroup) (L.topologicalAddGroup S.toOpenSubgroup)
+          (continuous_quotientToInvariants_action A L S) n x) := rfl
 
 /-- Algebraic Tate cohomology in degree `-(n + 2)` is additively equivalent
 to its compact bar-homology presentation at the open normal level `S`.
@@ -386,5 +455,32 @@ noncomputable def tateCohomologyNegativeAddEquivFiniteTate
       (CompHausAddCommGrp.FiniteBar.groupHomologyAddEquivPositive
         (A.quotientToInvariants S.toSubgroup)
         (continuous_quotientToInvariants_action A L S) n)
+
+/-- Mathlib's Tate-to-homology equivalence followed by the compact finite-level
+comparison agrees with the Tate-to-compact comparison. The supplied quotient
+`Fintype` in the Tate group is reconciled with the canonical finite-bar one. -/
+lemma tateCohomologyNegativeAddEquivFiniteTate_coherence
+    (S : OpenNormalSubgroup G) [fp : Fintype (G ⧸ S.toSubgroup)] (n : ℕ) :
+    (((TateCohomology.isoGroupHomology (R := R) (G := G ⧸ S.toSubgroup)
+      (-(n + 2 : ℤ)) (n + 1) (by omega)).app
+        (A.quotientToInvariants S.toSubgroup)).toLinearEquiv.toAddEquiv).trans
+          (groupHomologyAddEquivFiniteTateNegative A L S n) =
+      tateCohomologyNegativeAddEquivFiniteTate A L S n := by
+  have hfp : fp = Fintype.ofFinite (G ⧸ S.toSubgroup) := Subsingleton.elim _ _
+  cases hfp
+  rfl
+
+/-- A Tate class transported through mathlib's homology comparison has the
+same compact value as under the Tate-to-compact equivalence. -/
+@[simp]
+lemma groupHomologyAddEquivFiniteTateNegative_isoGroupHomology_apply
+    (S : OpenNormalSubgroup G) [Fintype (G ⧸ S.toSubgroup)] (n : ℕ)
+    (x : tateCohomology (A.quotientToInvariants S.toSubgroup) (-(n + 2 : ℤ))) :
+    groupHomologyAddEquivFiniteTateNegative A L S n
+        (((TateCohomology.isoGroupHomology (R := R) (G := G ⧸ S.toSubgroup)
+          (-(n + 2 : ℤ)) (n + 1) (by omega)).app
+            (A.quotientToInvariants S.toSubgroup)).hom x) =
+      tateCohomologyNegativeAddEquivFiniteTate A L S n x :=
+  congrArg (fun e ↦ e x) (tateCohomologyNegativeAddEquivFiniteTate_coherence A L S n)
 
 end ContinuousGroupCohomology.LevelCompact

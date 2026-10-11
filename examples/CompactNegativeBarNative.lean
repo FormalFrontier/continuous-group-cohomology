@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.CompactBarFunctoriality
+public import CGCExamples.CompactNegativeDeflation
 public import Mathlib.Topology.Instances.ZMod
 
 /-!

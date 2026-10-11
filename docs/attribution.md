@@ -1,17 +1,20 @@
 # Attribution and mathematical sources
 
 **Authors: Formal Frontier Agents.** Beacon developed the original low-degree,
-transfer, compact additive-group and level-system mathematics. Formal Frontier
-Agents contributed the other original proofs, native examples, documentation
-and adaptations. The seven native finite-stage families (algebraic boundaries,
-seeded cochains, quotient transitions, eventual boundary equality, cohomology
-discreteness, open-normal diagrams and the colimit) have distinct original
-contributors; adapting their imports, clients and documentation did not transfer
+transfer, compact additive-group and level-system mathematics, including the
+compact finite-bar homology, negative-Tate stages and their original algebraic
+comparisons. Formal Frontier Agents contributed the other original proofs,
+native examples, documentation and adaptations. The seven native finite-stage
+families (algebraic boundaries, seeded cochains, quotient transitions, eventual
+boundary equality, cohomology discreteness, open-normal diagrams and the colimit)
+have distinct original contributors; adapting their imports, clients and
+documentation did not transfer
 authorship of the proofs. The same distinction applies to the compact exceptional
 Tate, norm and universal-norm modules. The public Git history records release
 commits, not the authorship of each original proof. Mathematical authorship is
 credited here separately from those commits; this summary distinguishes original
-proofs from later adaptations and editorial changes.
+proofs from later adaptations and editorial changes. The collective author
+name records AI-assisted formalization.
 
 Original Formal Frontier contributions are offered under the root
 [Apache-2.0 license](../LICENSE). The collective author credit does not assert
@@ -39,6 +42,16 @@ contributors Edison Xie and Richard Hill.
   here adapt that approach to this library's `TopRep` resolution and API,
   using Mathlib's `ContRepresentation.coind₁` action. The contraction and
   vanishing proofs adapt the earlier diagonal-insertion argument.
+- At the pinned mathlib revision, the negative-Tate comparisons reuse
+  `Mathlib.RepresentationTheory.Homological.TateCohomology.Basic`
+  by **Yunzhou Xie and Yaël Dillies**, including `TateCohomology.isoGroupHomology`.
+  The finite-bar maps reuse
+  `Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality`
+  by **Amelia Livingston**. The cyclic two-element example uses her
+  `Mathlib.RepresentationTheory.Homological.GroupHomology.FiniteCyclic`
+  odd-degree kernel/norm-range quotient description. This library's compact
+  comparisons and continuous deflation build on its existing finite-bar,
+  invariant-coefficient and finite norm constructions.
 - The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d)
   supplies finite Tate definitions and norm maps used here. Authorized access
   to this private dependency is required for building from the current pins.

@@ -9,6 +9,18 @@ Tate stages and diagrams, coefficient naturality, actual finite and full-system
 Tate norm rows, and restricted universal-norm comparisons. The guides and table
 below distinguish these constructions and their hypotheses.
 
+The [compact negative-deflation API](ContinuousGroupCohomology/CompactNegativeDeflation.lean)
+models finite Tate degree `-(n + 2)` by positive finite-bar homology in degree
+`n + 1`. For a commutative ring and a compact topological group with chosen
+`LevelCompact` coefficients, its maps follow nested open normal subgroups in
+the deflation direction. For a
+profinite group the [compact diagrams](ContinuousGroupCohomology/CompactNegativeTateDiagrams.lean)
+compare naturally with the underlying additive algebraic deflation diagrams.
+These finite-stage constructions impose no topology on the coefficient ring
+and assert neither inverse-limit exactness nor a topological-module comparison.
+The [two-element-group example](CGCExamples/CompactNegativeDeflation.lean) uses
+`ZMod 2` coefficients and a nonzero degree-`-2` class.
+
 For a compact topological group `G` and discrete jointly continuous
 `X : TopRep k G` with `[Ring k] [TopologicalSpace k]`, every native continuous
 cohomology class lifts from an open-normal finite quotient with its actual
@@ -301,6 +313,7 @@ ingredients and their individual hypotheses.
 | Compact coefficient and norm functoriality | `CompactExceptionalTateCoefficientMaps`, `CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality` | Level-compact morphisms give continuous compact coefficient/exceptional-Tate stage maps, natural maps of their compact limit diagrams and limits, and morphisms of selected restricted relative-norm diagrams. Arbitrarily chosen restricted systems require preservation; full and universal-norm systems are canonically functorial. No extra ring/ambient-coefficient topology or surjectivity is assumed. |
 | Finite Tate diagrams | `FiniteTateDiagrams`, `NonpositiveTateLimits`, `NonpositiveTateFunctoriality` | Covariant deflation along open normal inclusions of a profinite group, `TopModuleCat` limits and coefficient-morphism functoriality for the homological model of degrees below `-1` and exceptional degrees `-1` and `0`. No identification with completed continuous Tate theory. |
 | Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
+| Compact negative Tate deflation | [`CompactNegativeDeflation`](ContinuousGroupCohomology/CompactNegativeDeflation.lean), [`CompactNegativeTateDiagrams`](ContinuousGroupCohomology/CompactNegativeTateDiagrams.lean) | Finite-stage continuous deflation in degree `-(n + 2)`, identity and composition laws, and additive natural comparison with homological degree `n + 1`. Uses a commutative ring, a compact topological group, nested open normal levels and chosen common-universe `LevelCompact`; the diagram assumes a profinite group. No coefficient-ring topology, topological-module comparison or inverse-limit statement. |
 | Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
 | Compact groups and limits | `CompactAddCommGroup`, `CompactAddCommGroupLimits`, `CompactFiniteHomology`, `CompactTopModuleLimits` | Compact Hausdorff additive groups, finite products, inverse limits and finite-stage homology constructions; cofiltered limit statements include empty indexing categories where stated. |
 | Compact levels | `LevelCompact`, `LevelCompactFunctoriality`, `LevelCompactNorm`, `RestrictedLevelCompact` | Compact level systems, functoriality, relative norms and restricted systems with explicit finite-stage hypotheses. |
