@@ -120,17 +120,4 @@ theorem finite_identity_map_on_single (i : Fin 1 → G₂) (x : ZMod 3) :
     (MonoidHom.id G₂) (𝟙 finiteCoefficients)
     (by exact continuous_of_discreteTopology) 1 i x
 
-#print axioms differential_on_chains
-#print axioms cycle_class_comparison
-#print axioms map_on_chains
-#print axioms map_on_single
-#print axioms map_commutes_with_differential
-#print axioms comparison_natural
-#print axioms degree_negative_two
-#print axioms group_is_nontrivial
-#print axioms coefficient_is_nonzero
-#print axioms finite_action_continuous
-#print axioms finite_differential_on_single
-#print axioms finite_identity_map_on_single
-
 end CompactNegativeBarNative

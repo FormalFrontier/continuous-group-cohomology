@@ -143,14 +143,14 @@ lemma continuous_factor (H : OpenSubgroup G)
   have hg : g ∈ s := by simp [s]
   apply ((continuous_const.mul continuous_id).mul_const
     ((next T t g : G)⁻¹)).continuousAt.congr_of_eventuallyEq
-  filter_upwards [hs.mem_nhds hg] with x hx
-  have hnext : next T t x = next T t g := by
-    apply T.2.equiv_snd_eq_iff_rightCosetEquivalence.2
-    rw [RightCosetEquivalence, rightCoset_eq_iff H.toSubgroup]
-    exact hx
-  have hdecomp := factor_mul_next T t x
-  rw [hnext] at hdecomp
-  exact eq_mul_inv_of_mul_eq hdecomp
+  · filter_upwards [hs.mem_nhds hg] with x hx
+    have hnext : next T t x = next T t g := by
+      apply T.2.equiv_snd_eq_iff_rightCosetEquivalence.2
+      rw [RightCosetEquivalence, rightCoset_eq_iff H.toSubgroup]
+      exact hx
+    have hdecomp := factor_mul_next T t x
+    rw [hnext] at hdecomp
+    exact eq_mul_inv_of_mul_eq hdecomp
 
 /-- The subgroup correction matching a representative in `T` with one in `S`. -/
 def changeFactor (S : H.RightTransversal) (t : ↥(T : Set G)) : H :=
@@ -601,13 +601,13 @@ lemma transfer_mkQL_change (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
     (principalCocycles X).mkQL (transferCrossed X H T f) =
       (principalCocycles X).mkQL (transferCrossed X H S f) := by
   rw [transferCrossed_change]
-  rw [map_sub]
-  have hp :
-      (principalCocycles X).mkQL
-          (principalToCrossed X (changeCoefficient X H T S f)) = 0 :=
-    (Submodule.Quotient.mk_eq_zero (principalCocycles X)).2
-      ⟨changeCoefficient X H T S f, rfl⟩
-  rw [hp, sub_zero]
+  · rw [map_sub]
+    have hp :
+        (principalCocycles X).mkQL
+            (principalToCrossed X (changeCoefficient X H T S f)) = 0 :=
+      (Submodule.Quotient.mk_eq_zero (principalCocycles X)).2
+        ⟨changeCoefficient X H T S f, rfl⟩
+    rw [hp, sub_zero]
 
 /-- Transfer on the quotient is independent of the chosen right transversal. -/
 lemma transferQuotient_eq (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
@@ -797,6 +797,8 @@ instance openSubgroupIsTopologicalGroup (H : OpenSubgroup G) :
   infer_instance
 
 set_option maxHeartbeats 800000 in
+-- Allow additional elaboration budget for the nested cycle-map and
+-- crossed-homomorphism comparison on a restricted representation.
 lemma cocyclesOneCrossedIso_restrict (H : OpenSubgroup G)
     [TopRep.JointlyContinuous X] [LocallyCompactSpace G]
     [LocallyCompactSpace H] :
@@ -818,6 +820,8 @@ lemma cocyclesOneCrossedIso_restrict (H : OpenSubgroup G)
   exact congrArg (fun τ => τ.1 1 h) hh
 
 set_option maxHeartbeats 800000 in
+-- Allow additional elaboration budget when transporting the cycle-map
+-- comparison through the cohomology epimorphisms and quotient isomorphisms.
 set_option backward.isDefEq.respectTransparency false in
 @[reassoc]
 lemma homologyQuotientIso_restrict (H : OpenSubgroup G)
@@ -835,8 +839,10 @@ lemma homologyQuotientIso_restrict (H : OpenSubgroup G)
     ← π_comp_homologyQuotientIso, Category.assoc]
 
 set_option maxHeartbeats 800000 in
+-- Allow additional elaboration budget for composing the quotient comparison
+-- with the degree-one cohomology isomorphism.
 set_option backward.isDefEq.respectTransparency false in
-/-- The crossed-homomorphism restriction map agrees with mathlib's native
+/-- The crossed-homomorphism restriction map agrees with Mathlib's
 continuous-cohomology restriction in degree one. -/
 lemma degreeOneIso_restrict (H : OpenSubgroup G)
     [TopRep.JointlyContinuous X] [LocallyCompactSpace G]
@@ -975,6 +981,8 @@ lemma transferQuotient_comp_restrict_hom (H : OpenSubgroup G)
   exact DFunLike.congr_fun (transferQuotient_comp_restrict X H T) z
 
 set_option maxHeartbeats 800000 in
+-- Allow additional elaboration budget for the restriction and transfer
+-- comparisons through the degree-one cohomology isomorphism.
 set_option backward.isDefEq.respectTransparency false in
 /-- Restriction followed by degree-one corestriction is multiplication by the
 subgroup index. -/

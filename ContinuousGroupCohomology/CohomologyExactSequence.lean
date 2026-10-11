@@ -180,11 +180,11 @@ theorem connecting_mono_of_isZero [LocallyCompactSpace G]
     (moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl ≫
       (moduleCohomologyIso A (n + 1)).hom)
   have hSource : Mono (moduleCohomologyIso C n).inv := by
-    letI : IsIso (moduleCohomologyIso C n).inv :=
+    let : IsIso (moduleCohomologyIso C n).inv :=
       (moduleCohomologyIso C n).isIso_inv
     infer_instance
   have hTarget : Mono (moduleCohomologyIso A (n + 1)).hom := by
-    letI : IsIso (moduleCohomologyIso A (n + 1)).hom :=
+    let : IsIso (moduleCohomologyIso A (n + 1)).hom :=
       (moduleCohomologyIso A (n + 1)).isIso_hom
     infer_instance
   exact mono_comp' hSource (mono_comp' hBoundary hTarget)
@@ -207,11 +207,11 @@ theorem connecting_epi_of_isZero [LocallyCompactSpace G]
     (moduleCochainsSequence_shortExact i p hi hexact hp).δ n (n + 1) rfl ≫
       (moduleCohomologyIso A (n + 1)).hom)
   have hSource : Epi (moduleCohomologyIso C n).inv := by
-    letI : IsIso (moduleCohomologyIso C n).inv :=
+    let : IsIso (moduleCohomologyIso C n).inv :=
       (moduleCohomologyIso C n).isIso_inv
     infer_instance
   have hTarget : Epi (moduleCohomologyIso A (n + 1)).hom := by
-    letI : IsIso (moduleCohomologyIso A (n + 1)).hom :=
+    let : IsIso (moduleCohomologyIso A (n + 1)).hom :=
       (moduleCohomologyIso A (n + 1)).isIso_hom
     infer_instance
   exact epi_comp' hSource (epi_comp' hBoundary hTarget)
@@ -536,7 +536,7 @@ private theorem zeroIso_inv_homologyπ
         (homogeneousCochains X).homologyπ 0 = (zeroIso X).inv := by
   change (zeroIso X).inv ≫ (homogeneousCochains X).isoHomologyπ₀.inv ≫
     (homogeneousCochains X).isoHomologyπ₀.hom = (zeroIso X).inv
-  simp only [← Category.assoc, Iso.inv_hom_id, Category.id_comp, Category.comp_id]
+  simp only [Iso.inv_hom_id, Category.comp_id]
 
 set_option backward.isDefEq.respectTransparency false in
 private theorem splitConnecting_cochain_lift [LocallyCompactSpace G]
@@ -547,7 +547,7 @@ private theorem splitConnecting_cochain_lift [LocallyCompactSpace G]
         (cochainsMap (ContinuousMonoidHom.id G) S.p).f 0 =
       ((zeroIso C).inv ≫ (homogeneousCochains C).isoHomologyπ₀.inv) ≫
         (homogeneousCochains C).iCycles 0 := by
-  letI : TopRep.JointlyContinuous C :=
+  let : TopRep.JointlyContinuous C :=
     jointlyContinuous_of_surjective_discrete S.p S.surjective_p
   simp only [Category.assoc, zeroIso_inv_iCycles_eq_zeroCochain C,
     cochainsZeroIso_inv_naturality S.p]
@@ -666,7 +666,7 @@ private theorem splitConnecting_map_eq [LocallyCompactSpace G]
       connecting S.i S.p S.injective_i S.exact S.surjective_p 0 =
         (forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)).map
           S.connectingMap := by
-  letI : TopRep.JointlyContinuous C :=
+  let : TopRep.JointlyContinuous C :=
     jointlyContinuous_of_surjective_discrete S.p S.surjective_p
   let F := forget₂ (TopModuleCat.{max v w} k) (ModuleCat.{max v w} k)
   let Q : TopModuleCat.{max v w} k := TopModuleCat.of k C.ρ.invariants
@@ -748,7 +748,7 @@ theorem connecting_zero_eq_split [LocallyCompactSpace G]
     (S : TopologicallySplitShortExact A B C) (c : C.ρ.invariants) :
     (connecting S.i S.p S.injective_i S.exact S.surjective_p 0).hom
       ((zeroIso C).inv.hom c) = S.connectingMap.hom c := by
-  letI : TopRep.JointlyContinuous C :=
+  let : TopRep.JointlyContinuous C :=
     jointlyContinuous_of_surjective_discrete S.p S.surjective_p
   have h := congrArg (fun f => ModuleCat.Hom.hom f c) (splitConnecting_map_eq S)
   simpa only [ModuleCat.comp_apply, forgetModule_map_apply] using h

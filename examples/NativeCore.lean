@@ -84,9 +84,3 @@ theorem compact_limit_projection
   CompHausAddCommGrp.limit_π_surjective_of_maps_surjective diagram index surjective
 
 end NativeCore
-
-#print axioms NativeCore.split_connecting_exact
-#print axioms NativeCore.transfer_from_full_group
-#print axioms NativeCore.finite_orbit_relations
-#print axioms NativeCore.compact_mod_n_representative
-#print axioms NativeCore.compact_limit_projection

@@ -124,16 +124,4 @@ theorem norm_twoElement_proper_level (A : Rep.{uA} R G₂)
       ∑ t : ↥(T : Set (⊤ : OpenSubgroup G₂)), A.ρ (((t : (⊤ : OpenSubgroup G₂)) : G₂)⁻¹) x :=
   norm_with_choice_coe A ⊤ twoElementBottom le_top T x
 
-#print axioms relativeNormSubgroup_comap
-#print axioms norm_with_choice
-#print axioms norm_two_choices
-#print axioms norm_with_choice_coe
-#print axioms norm_tower
-#print axioms norm_same_level
-#print axioms norm_residual_action
-#print axioms norm_range_residual_stable
-#print axioms norm_continuous
-#print axioms twoElementBottom_lt_top
-#print axioms norm_twoElement_proper_level
-
 end LevelCompactNormNative

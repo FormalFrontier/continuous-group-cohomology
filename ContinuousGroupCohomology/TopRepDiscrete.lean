@@ -33,7 +33,6 @@ universe u v w z
 namespace TopRep
 
 open DirectSum TensorProduct
-open scoped Classical
 
 section DirectSum
 
@@ -45,8 +44,9 @@ variable {k : Type u} [Ring k] [TopologicalSpace k]
 output is given the discrete topology. -/
 theorem continuousSMul_discreteDirectSum :
     @ContinuousSMul k (⨁ i, X i) _ _ (⊥ : TopologicalSpace (⨁ i, X i)) := by
-  letI : TopologicalSpace (⨁ i, X i) := ⊥
-  letI : DiscreteTopology (⨁ i, X i) := discreteTopology_bot _
+  classical
+  let : TopologicalSpace (⨁ i, X i) := ⊥
+  let : DiscreteTopology (⨁ i, X i) := discreteTopology_bot _
   constructor
   rw [continuous_prod_of_discrete_right]
   intro x
@@ -100,6 +100,7 @@ instance instDiscreteTopologyDiscreteDirectSum : DiscreteTopology (discreteDirec
       (X i).ρ g (x i) := by
   rfl
 
+open scoped Classical in
 /-- Acting on a direct-sum injection commutes with that injection. -/
 @[simp] theorem discreteDirectSum_ρ_of (g : G) (i : ι) (a : X i) :
     (discreteDirectSum X).ρ g (DirectSum.of (fun i => X i) i a) =
@@ -130,7 +131,8 @@ This extends the direct-sum closure in Neukirch–Schmidt–Wingberg,
 integer modules to topologized monoids and topologized rings. -/
 theorem discreteDirectSum_jointlyContinuous [TopologicalSpace G]
     [∀ i, JointlyContinuous (X i)] : JointlyContinuous (discreteDirectSum X) := by
-  letI : TopologicalSpace (⨁ i, X i) := (discreteDirectSum X).hV3
+  classical
+  let : TopologicalSpace (⨁ i, X i) := (discreteDirectSum X).hV3
   constructor
   rw [continuous_prod_of_discrete_right]
   intro x
@@ -167,8 +169,8 @@ variable {k : Type u} [CommRing k] [TopologicalSpace k]
 output is given the discrete topology. -/
 theorem continuousSMul_discreteTensor :
     @ContinuousSMul k (X ⊗[k] Y) _ _ (⊥ : TopologicalSpace (X ⊗[k] Y)) := by
-  letI : TopologicalSpace (X ⊗[k] Y) := ⊥
-  letI : DiscreteTopology (X ⊗[k] Y) := discreteTopology_bot _
+  let : TopologicalSpace (X ⊗[k] Y) := ⊥
+  let : DiscreteTopology (X ⊗[k] Y) := discreteTopology_bot _
   constructor
   rw [continuous_prod_of_discrete_right]
   intro x
@@ -241,7 +243,7 @@ topologized commutative rings. -/
 theorem discreteTensor_jointlyContinuous [TopologicalSpace G]
     [JointlyContinuous X] [JointlyContinuous Y] :
     JointlyContinuous (discreteTensor X Y) := by
-  letI : TopologicalSpace (X ⊗[k] Y) := (discreteTensor X Y).hV3
+  let : TopologicalSpace (X ⊗[k] Y) := (discreteTensor X Y).hV3
   constructor
   rw [continuous_prod_of_discrete_right]
   intro x

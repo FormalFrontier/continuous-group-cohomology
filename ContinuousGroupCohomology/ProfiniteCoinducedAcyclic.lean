@@ -60,7 +60,7 @@ theorem res_coind₁_positive_eq_zero
     (m : ℕ)
     (a : continuousCohomology (m + 1)
       (TopRep.res H.subtype (TopRep.coind₁ B))) : a = 0 := by
-  letI : CompactSpace H :=
+  let : CompactSpace H :=
     isCompact_iff_compactSpace.mp
       (IsClosed.isCompact (inferInstance : IsClosed (H : Set G)))
   exact coind₁_isomorphic_positive_eq_zero
@@ -79,7 +79,7 @@ theorem res_isomorphic_coind₁_positive_eq_zero
     {M : TopRep.{max v w} k G} (e : M ≅ TopRep.coind₁ B)
     (m : ℕ)
     (a : continuousCohomology (m + 1) (TopRep.res H.subtype M)) : a = 0 := by
-  letI : CompactSpace H :=
+  let : CompactSpace H :=
     isCompact_iff_compactSpace.mp
       (IsClosed.isCompact (inferInstance : IsClosed (H : Set G)))
   exact coind₁_isomorphic_positive_eq_zero

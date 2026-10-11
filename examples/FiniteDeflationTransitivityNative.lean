@@ -8,10 +8,10 @@ public import ContinuousGroupCohomology.FiniteDeflationTransitivity
 import Mathlib.Data.ZMod.Basic
 
 /-!
-# Native finite-deflation transitivity client
+# Finite-deflation transitivity examples
 
 The direct coefficient formula and the composition and identity laws below
-use only the public native module. For three levels the quotient-image
+use only the public deflation module. For three levels the quotient-image
 finiteness hypotheses are all present; the self-map cases require the
 corresponding self-image hypothesis. The final specialization uses a proper
 intermediate subgroup of a four-element finite group, with a representation

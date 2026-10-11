@@ -8,7 +8,7 @@ import ContinuousGroupCohomology.NonpositiveTateFunctoriality
 import Mathlib.Data.ZMod.Basic
 
 /-!
-# Native client for finite deflation diagrams and nonpositive limits
+# Finite deflation diagrams and nonpositive limits
 
 These checks use the public categorical API for an algebraic coefficient
 representation. The homological degree `n + 1` models Tate degree `-n-2`;

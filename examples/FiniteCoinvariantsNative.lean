@@ -152,18 +152,4 @@ theorem descended_norm_proper_level (A : Rep.{uA} R G₂) (L : LevelCompact A)
         properNormalLevel.toOpenSubgroup le_top x :=
   descended_norm_on_generators A L properNormalLevel x
 
-#print axioms orbit_single
-#print axioms orbit_range
-#print axioms orbit_range_closed
-#print axioms quotient_projection
-#print axioms invariant_descends_on_generators
-#print axioms invariant_descent_continuous
-#print axioms intertwining_map_on_generators
-#print axioms residual_action_continuous
-#print axioms full_level_norm_comparison
-#print axioms descended_norm_on_generators
-#print axioms descended_norm_continuous
-#print axioms properNormalLevel_lt_top
-#print axioms descended_norm_proper_level
-
 end FiniteCoinvariantsNative

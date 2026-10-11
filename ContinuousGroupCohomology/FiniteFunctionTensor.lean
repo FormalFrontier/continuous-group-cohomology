@@ -115,7 +115,7 @@ theorem finiteFunctionTensorLinearEquiv_naturality
       TensorProduct.map v (LinearMap.id : R[G] →ₗ[R] R[G])
         (finiteFunctionTensorLinearEquiv R G M f) := by
   classical
-  letI : Fintype G := Fintype.ofFinite G
+  let : Fintype G := Fintype.ofFinite G
   rw [finiteFunctionTensorLinearEquiv_apply R G N,
     finiteFunctionTensorLinearEquiv_apply R G M]
   simp only [Function.comp_apply, map_sum, TensorProduct.map_tmul, LinearMap.id_apply]
@@ -142,7 +142,7 @@ theorem finiteFunctionTensorLinearEquiv_twisted (ρ : Representation R G M)
       (ρ.tprod (Representation.leftRegular R G)) g
         (MonoidAlgebra.finiteFunctionTensorLinearEquiv R G M f) := by
   classical
-  letI : Fintype G := Fintype.ofFinite G
+  let : Fintype G := Fintype.ofFinite G
   calc
     _ = ∑ t : G, ρ g (f (g⁻¹ * t)) ⊗ₜ[R] MonoidAlgebra.single t 1 :=
       MonoidAlgebra.finiteFunctionTensorLinearEquiv_apply R G M _
