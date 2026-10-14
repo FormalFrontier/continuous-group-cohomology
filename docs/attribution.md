@@ -53,8 +53,8 @@ contributors Edison Xie and Richard Hill.
   comparisons and continuous deflation build on its existing finite-bar,
   invariant-coefficient and finite norm constructions.
 - The [finite-group Tate dependency at its official pinned commit](https://github.com/FormalFrontier/finite-group-tate-cohomology/commit/d17f93bbc5b934f8b9f3cf077769a706a901608d)
-  supplies finite Tate definitions and norm maps used here. Authorized access
-  to this private dependency is required for building from the current pins.
+  supplies finite Tate definitions and norm maps used here, pinned for building
+  the library.
 - [Profinite Groups at the pinned revision](https://github.com/FormalFrontier/profinite-groups/tree/5f11ef67fb23396b63a644a3713391e2b9300546)
   supplies `Subgroup.continuousCosetRepresentative` and its right-inverse law
   for every closed subgroup of a profinite group. Its

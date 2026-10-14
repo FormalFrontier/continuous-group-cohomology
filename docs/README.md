@@ -95,12 +95,10 @@ cp "$CURRENT/scripts/generate_api.py" "$CURRENT/scripts/test_generate_api.py" sc
 cp "$CURRENT/docs/API.md" "$CURRENT/docs/api-manifest.json" docs/
 ```
 
-The current library checkout supplies the adapter and outputs; the
-published GitHub repository and its historical finite-group Tate dependency
-may require authorized access while private. The adapter requires the original
-external native evidence packet, not fabricated or freshly relabeled records.
-After obtaining authorized access to the private historical Tate dependency,
-use the historical checkout's pinned Lean/Lake toolchain and fetch the mathlib cache
+The current library checkout supplies the adapter and outputs. The adapter
+requires the original external native evidence packet, not fabricated or
+freshly relabeled records. Use the historical checkout's pinned Lean/Lake
+toolchain and fetch the mathlib cache
 **successfully before any project build**. Build the root and the renewed
 `examples.NativeCore` client for its `.olean` files. Keep builds
 sequential and monitor actual memory and process use rather than assuming

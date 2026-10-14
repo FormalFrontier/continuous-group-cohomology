@@ -1,25 +1,21 @@
-# Continuous group cohomology: native finite-stage colimits and compact finite quotients
+<a id="continuous-group-cohomology-native-finite-stage-colimits-and-compact-finite-quotients"></a>
+# Continuous group cohomology
+
+This Lean library develops continuous cohomology of topological groups,
+finite-index transfer, and finite-quotient Tate and compact finite-bar
+constructions. The [Results guide](docs/Results.md) gives the complete
+mathematical inventory, examples and limitations.
 
 ## Headline results
 
-This Lean library develops low-degree continuous group cohomology and
-finite-index transfer, compact-group degree-one torsion, finite-level Tate
-deflation and compact finite-bar homology. It also develops compact exceptional
-Tate stages and diagrams, coefficient naturality, actual finite and full-system
-Tate norm rows, and restricted universal-norm comparisons. The guides and table
-below distinguish these constructions and their hypotheses.
+These cohomological results are proved here for representations over a ring
+`k` equipped with a topology. The group, discreteness and action-continuity
+hypotheses are specified separately below; foundations come from Mathlib.
 
-The [compact negative-deflation API](ContinuousGroupCohomology/CompactNegativeDeflation.lean)
-models finite Tate degree `-(n + 2)` by positive finite-bar homology in degree
-`n + 1`. For a commutative ring and a compact topological group with chosen
-`LevelCompact` coefficients, its maps follow nested open normal subgroups in
-the deflation direction. For a
-profinite group the [compact diagrams](ContinuousGroupCohomology/CompactNegativeTateDiagrams.lean)
-compare naturally with the underlying additive algebraic deflation diagrams.
-These finite-stage constructions impose no topology on the coefficient ring
-and assert neither inverse-limit exactness nor a topological-module comparison.
-The [two-element-group example](CGCExamples/CompactNegativeDeflation.lean) uses
-`ZMod 2` coefficients and a nonzero degree-`-2` class.
+### Finite-quotient descent, torsion and the topological colimit
+
+See [`CompactDiscreteTorsion`](ContinuousGroupCohomology/CompactDiscreteTorsion.lean)
+and [`FiniteStageColimit`](ContinuousGroupCohomology/FiniteStageColimit.lean) for these APIs.
 
 For a compact topological group `G` and discrete jointly continuous
 `X : TopRep k G` with `[Ring k] [TopologicalSpace k]`, every native continuous
@@ -32,27 +28,7 @@ targets. It uses the actual cohomology topology, genuine algebraic boundaries
 and class-dependent eventual refinements, not fixed-stage positive-degree
 injectivity, a uniform refinement or a closed-boundary-range assumption.
 
-Arbitrary algebraic direct sums of discrete representations and tensors of two
-discrete representations inherit a chosen discrete topology. Their actions are
-jointly continuous when the input actions are, for a topologized monoid without
-a continuity assumption on its multiplication. Direct sums work over a
-topologized ring, and tensors over a topologized commutative ring.
-
-The [sign-product example](ContinuousGroupCohomology/DiscreteProduct.lean)
-shows an existential boundary: the countable product of finite-discrete integer
-unit groups acts coordinatewise on integer sequences. The ordinary product
-action is jointly continuous but its carrier is not discrete; on a separate
-chosen-discrete copy of the algebraic product, each sign acts continuously but
-the action is not jointly continuous. Its nonzero constant-one vector has
-nonopen singleton stabilizer. This does not concern every infinite product or
-assert a categorical product construction.
-
-Discrete linear Hom carries all linear maps with the chosen discrete topology
-and inverse-oriented conjugation. Its action is jointly continuous for a
-discrete acting group, a finite `T₁` acting group, a finitely generated source
-with discrete jointly continuous inputs, or a finite possibly non-`T₁` group
-with such inputs. Scalar continuity is separate: it follows from discrete
-scalars, or from finite generation with a discrete continuously-scaled target.
+### Positive coinduced cohomology after closed restriction
 
 For compact topological groups and discrete coefficients,
 [diagonal insertion](ContinuousGroupCohomology/CoinducedAcyclic.lean)
@@ -68,15 +44,17 @@ its object and morphism laws transport positive vanishing across coefficient
 isomorphisms in the same group. For compact Hausdorff totally disconnected
 `G`, the [closed-subgroup positive-vanishing theorem](ContinuousGroupCohomology/ProfiniteCoinducedAcyclic.lean)
 then applies to every closed `H`, and also to restrictions of representations
-isomorphic to `TopRep.coind₁ B`. Its coefficient over `H` is all of
-`C(G ⧸ H, B)` with the generally nontrivial pointwise action. Only discrete
-`B` is needed; neither openness or normality of `H` nor joint continuity of
-the coefficient action is required. The finite signed
+isomorphic to `TopRep.coind₁ B`. The restricted representation is `H`-coinduced
+from all of `C(G ⧸ H, B)` with its generally nontrivial pointwise `H`-action.
+Only discrete `B` is needed; neither openness or normality of `H` nor joint
+continuity of the coefficient action is required. The finite signed
 [`S₃` clients](CGCExamples/CoinducedRestriction.lean) instantiate positive
 vanishing at a nonnormal subgroup, not at a closed nonopen subgroup. These
 are strictly positive-degree conclusions, corresponding to the closed-subgroup
 clause of Neukirch–Schmidt–Wingberg, I §3, Proposition 1.3.7; they do not
 assert degree-zero vanishing or all-integer Tate acyclicity.
+
+### Normal-quotient coinduction
 
 For `[Ring k] [TopologicalSpace k]`, a compact topological group `G`, any
 normal subgroup `N` and a discrete, jointly continuous `B : TopRep k G`, the
@@ -93,67 +71,7 @@ exhibit `B^N = 0` with nonzero `B`, a quotient function moved by the residual
 quotient action, and an invariant function whose value at the identity is
 moved by `N`.
 
-For `[Ring k] [TopologicalSpace k]`, any topological group `G`, subgroup `H`
-with locally compact `H` and `G ⧸ H`, and a chosen continuous section
-`s : C(G ⧸ H, G)` of the coset projection `q`, the
-[restriction isomorphism](ContinuousGroupCohomology/CoinducedRestriction.lean)
-identifies `res H.subtype (TopRep.coind₁ B)` with coinduction from the
-[pointwise representation](ContinuousGroupCohomology/PointwiseContinuousMap.lean)
-on the **whole** `C(G ⧸ H, B)`. Its forward and inverse evaluations are
-`(T f)(h)(c) = f(h * (s c)⁻¹)` and
-`(T⁻¹ u)(t) = u(t * s(q(t⁻¹)))(q(t⁻¹))`; the first inverse coordinate belongs
-to `H`. The coefficient action is `(h · w)(c) = B.ρ h (w c)`, which need not be
-trivial. The isomorphism is natural in equivariant coefficient maps for a fixed
-section and has explicit inverse, action and section-change laws; it is not a
-canonical splitting. No normality, openness, discreteness or separation
-hypothesis is imposed on this generic isomorphism. For compact Hausdorff
-totally disconnected `G` and **any closed** `H`, the
-[all-closed specialization](ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean)
-uses the continuous representative supplied by `ProfiniteGroups` without
-assuming `H` open, normal or countable; discreteness and joint continuity are
-separate conclusions under their stated coefficient hypotheses. The
-[nonnormal `S₃` client](CGCExamples/CoinducedRestriction.lean) independently
-checks the inverted coset, nontrivial sign action and bottom/top boundaries,
-but being finite does not give a closed nonopen subgroup. The construction uses
-Mathlib's twisted coinduction and compact-open currying and the released
-profinite-group section; compare Neukirch–Schmidt–Wingberg, *Cohomology of
-Number Fields*, I §3, Proposition 1.3.6(ii) and I §1, Exercise 4. Unlike the
-normal-quotient invariant equivalence above, it does not trivialize the
-coefficient action.
-
-The [coinduction short-row theorem](ContinuousGroupCohomology/CoinductionExactness.lean)
-identifies the maps of Mathlib's existing twisted `TopRep.coind₁Functor` with
-coefficient postcomposition. An injective, exact and surjective coefficient row
-`A → B → D` with discrete `B` and `D` induces an injective, exact and
-surjective row of **underlying maps** on continuous functions `C(G, ·)` for any
-topological group `G`; no discrete topology on `A`, local compactness or joint
-action-continuity assumption is needed. More generally, for any topological
-domain `X`, [postcomposition exactness](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean)
-requires only exact coefficient maps and discrete `B`, while postcomposition
-surjectivity requires only a surjective coefficient map and discrete `D`.
-The [signed two-point example](CGCExamples/CoinductionExactness.lean) supplies
-an independently verified nonsplit coefficient row, nonconstant quotient and
-kernel lifts, a twisted action and an empty-domain injectivity boundary.
-These are not claims of categorical exactness of `TopRep` or of a
-source-category equivalence.
-
-For any finite index type over a commutative semiring, the
-[finite-function tensor equivalence](ContinuousGroupCohomology/FiniteFunctionTensor.lean)
-identifies coefficient functions with tensors against the free algebraic basis,
-with inverse coefficient evaluation, delta and finite-sum formulas, and
-naturality in linear coefficient maps. For a finite group, the twisted action
-`f(t) ↦ ρ(g)(f(g⁻¹t))` corresponds to the diagonal tensor action using the
-**left** regular representation. The
-[`S₄` example](CGCExamples/FiniteFunctionTensor.lean) distinguishes this from
-ordinary right-precomposition coinduction by nonzero signed basis witnesses.
-This is an algebraic equivalence, not a continuous-map or `TopRep` equivalence.
-
-The [cochain exactness guide](docs/CochainExactness.md) states the distinct
-hypotheses for injectivity, exactness in the middle, and surjectivity on every
-homogeneous cochain degree. Its nonsplit `ℤ --×2→ ℤ → ZMod 2` client uses a
-nontrivial finite group and checks both induced arrows in degrees zero and one.
-These cochain-level statements make no claim that cocycles, invariant
-coefficients or cohomology preserve arbitrary coefficient surjections.
+### Algebraic connecting maps, naturality and initial invariants
 
 The [algebraic connecting-map guide](docs/CohomologyExactSequence.md) describes
 a connecting `k`-linear map in each natural degree and proves the three
@@ -178,8 +96,9 @@ connecting-isomorphism result in these independent witness proofs. Separate
 private clients apply the general mono, epi and isomorphism APIs to this row.
 Two split rows give complementary degree-zero boundaries: for
 `Multiplicative (ZMod 2)`, coinduced `B` has `H¹(G,B) = 0` but its degree-zero
-connector is not mono; for the distinct group `ℤˣ`, the signed coefficient
-`C` has `H⁰(G,C) = 0` but its degree-zero connector is not epi.
+connector is not mono; for the distinct group `ℤˣ`, the middle signed
+coefficient `B` has `H⁰(G,B) = 0` but its degree-zero connector is not epi.
+In that second row, the final coefficient `C` is the zero representation on `PUnit`.
 
 Under the same short-exact-row and topological hypotheses, the
 [initial-invariants module](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean)
@@ -192,7 +111,7 @@ hypotheses. Their earlier `ContinuousCohomology` names remain deprecated aliases
 [example](CGCExamples/InitialInvariantsExactSequence.lean) checks a nonzero
 displayed invariant inclusion and a nonsplit sign-action boundary. Its
 coefficient-level obstruction and existing nonzero connector are independent
-of the new segment theorem. Neither surjectivity at `H¹(G,C)` nor continuity
+of the segment theorem. Neither surjectivity at `H¹(G,C)` nor continuity
 of the connector is claimed.
 
 The [coefficient-naturality theorem](ContinuousGroupCohomology/ConnectingNaturality.lean)
@@ -206,181 +125,34 @@ or a topological delta-functor. The
 independently verifies the coefficient squares and a nonzero boundary, then
 applies the naturality theorem.
 
-Import `ContinuousGroupCohomology` for the complete public native core, or import a
-`ContinuousGroupCohomology.*` leaf to limit dependencies. The
-[`NativeCore` client](examples/NativeCore.lean) imports only the public root.
+See [Results and use](docs/Results.md) for the other constructions, full
+module boundaries, conventions and client map.
 
-**Authors: Formal Frontier Agents.** Original project contributions are
-offered under [Apache-2.0](LICENSE). Actual contributors, reused expression
-and authentic notices are documented in [attribution](docs/attribution.md).
+## Using the library
 
-The [finite-deflation guide](docs/FiniteDeflation.md) covers finite-level maps;
-the [compact exceptional Tate guide](docs/FiniteTateTopology.md) covers the
-compact kernel/quotient, continuous finite coinvariant deflation, compact
-diagrams, additive comparisons and compact limits;
-the [compact coefficient and norm functoriality guide](docs/CompactCoefficientFunctoriality.md)
-covers the continuous stage/limit maps and restricted norm diagrams;
-the [finite Tate diagrams guide](docs/FiniteTateDiagrams.md) covers the newly
-restored diagrams, limits and coefficient functoriality.
-The [finite norm-row guide](docs/CompactFiniteTateNormSequence.md) and
-[full-system norm-limit guide](docs/CompactTateNormLimitSequence.md) describe
-the distinct finite-stage and inverse-limit results.
-The [compact norm-row naturality guide](docs/CompactTateNormNaturality.md)
-describes their actual coefficient-map squares and natural quotient isomorphism.
-The [compact universal-norm limit guide](docs/CompactUniversalNormLimits.md)
-describes the distinct restricted relative-norm comparison and its naturality.
-The [degree-one torsion guide](#degree-one-torsion)
-covers the compact-group result. For compact finite-bar homology, comparison
-and functoriality, see the [manual compact-bar API guide](docs/CompactBar.md).
-The [historical native API reference](docs/API.md), its [reproduction guide](docs/README.md)
-and [machine-readable manifest](docs/api-manifest.json) describe a **historical
-analyzed snapshot**: they do not index later-added modules and clients or the
-current root's import graph. Their source
-links resolve to the matching [published historical release](https://github.com/FormalFrontier/continuous-group-cohomology/tree/be74358d7b1140e76ab6b2ad72f6aa068138e687),
-not mutable line numbers in the current modules; the API digest and renderer
-agree on the checked-in historical index.
+Add the dependency to your `lakefile.toml`:
 
-## Classwise compact/discrete cohomology
+```toml
+[[require]]
+name = "continuous-group-cohomology"
+git = "https://github.com/FormalFrontier/continuous-group-cohomology.git"
+rev = "main"
+```
 
-For a topologized ring `k`, compact topological group `G`, and discrete
-`X : TopRep k G` with a jointly continuous action, import
-`ContinuousGroupCohomology.CompactDiscreteTorsion` or the public root.
-`ContinuousCohomology.exists_openNormal_quotient_class_lift` expresses each
-class in any degree as the image of a class on a finite open-normal quotient
-with coefficients in `TopRep.quotientInvariants N.toSubgroup X`.
-`ContinuousCohomology.exists_openNormal_quotient_card_nsmul_eq_zero` gives,
-in positive degree, an annihilating quotient order for each class, and
-`ContinuousCohomology.compactDiscrete_isAddTorsion` packages the resulting
-`IsAddTorsion (continuousCohomology (n + 1) X)`. See the
-[classwise descent and torsion guide](docs/CompactDiscreteTorsion.md),
-[quotient-invariants guide](docs/QuotientInvariants.md),
-[finite-stage cochain guide](docs/FiniteStageCochains.md), and
-[finite-averaging guide](docs/FiniteAveraging.md) for hypotheses and proofs.
-The [compact/discrete factor guide](docs/CompactDiscreteFactor.md),
-[resolution-image guide](docs/ResolutionImage.md),
-[finite-stage resolution guide](docs/FiniteStageResolution.md), and
-[cochain-injectivity guide](docs/CochainInjectivity.md) describe reusable
-prerequisites and their limitations. All eight guides describe ordinary-import
-clients under `examples/*Native.lean`.
-[`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) contains
-compact finite-quotient, positive-degree torsion, degree-one torsion and
-arbitrary-degree discreteness clients. The
-[`CompactDiscreteTorsionNative`](examples/CompactDiscreteTorsionNative.lean) and
-[`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean) entrypoints
-import this client and their respective production modules. To use the
-theorems, import the production modules above.
+GitHub `main` contains reviewed releases. Lake resolves the latest release
+when you first add or update the dependency; `lake-manifest.json` records that
+commit until the next update. To pin a particular release, replace `main`
+with its full commit SHA from the published history and retain the manifest.
+Use mutually compatible dependency releases and one common Mathlib revision;
+adding the library does not establish compatibility with arbitrary other pins.
 
-The quotient and its order may depend on the class. This does **not** prove
-degree-zero torsion, a uniform bound or quotient, injectivity on cohomology
-at a fixed stage, acyclicity,
-vanishing or source-specific coverage. The older degree-one torsion and
-comparison API below remains available unchanged.
+```lean
+import ContinuousGroupCohomology
+```
 
-The new [native finite-stage colimit guide](docs/FiniteStageColimit.md) explains
-the all-degree comparison, nonuniform equality detection and arbitrary target
-cocones. Its [algebraic-boundary](docs/HomologyBoundary.md),
-[seeded cochain](docs/SeededCochains.md),
-[transition](docs/QuotientTransitions.md),
-[eventual equality](docs/FiniteStageBoundary.md),
-[discreteness](docs/DiscreteCohomology.md) and
-[diagram](docs/OpenNormalDiagram.md) guides describe the separate reusable
-ingredients and their individual hypotheses.
-
-## What is available
-
-| Area | Native modules | Mathematical boundary |
-| --- | --- | --- |
-| Continuous low-degree cohomology | `DegreeOne`, `LowDegreeExact`, `NormalizedCohomology`, `NestedInvariants` | Crossed cocycles modulo principal cocycles compute degree one with locally compact groups and jointly continuous actions; the degree-zero/one connecting sequence uses a continuous, not necessarily equivariant, splitting. |
-| Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
-| Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
-| Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
-| Coinduced insertion and coefficient functor | [`CoinducedAcyclic`](ContinuousGroupCohomology/CoinducedAcyclic.lean), [`ContinuousCohomologyFunctor`](ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](CGCExamples/CoinducedAcyclic.lean). In positive degree, coinduced-coefficient cohomology vanishes and the fixed-group coefficient functor transports vanishing across isomorphisms; the degree-zero analogue is false. |
-| Normal-quotient coinduction | [`CoinducedInvariants`](ContinuousGroupCohomology/CoinducedInvariants.lean) | For compact `G`, arbitrary normal `N` and discrete jointly continuous `B` over `[Ring k] [TopologicalSpace k]`, the `N`-invariants of twisted coinduction are equivalent to coinduction over `G ⧸ N` from the whole `B` with trivial coefficient action. The [sign-product and full-group clients](CGCExamples/CoinducedInvariants.lean) distinguish this from coinduction on `B^N` and exhibit nontrivial residual quotient action. |
-| Closed-subgroup restriction of coinduction | [`PointwiseContinuousMap`](ContinuousGroupCohomology/PointwiseContinuousMap.lean), [`CoinducedRestriction`](ContinuousGroupCohomology/CoinducedRestriction.lean), [`ProfiniteCoinducedRestriction`](ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean) | A chosen continuous section and locally compact `H` and `G ⧸ H` yield a section-dependent restriction isomorphism over `[Ring k] [TopologicalSpace k]` on the whole `C(G ⧸ H, B)` with possibly nontrivial pointwise `H`-action. The released profinite-group section gives this for every closed `H` in compact Hausdorff totally disconnected `G`, with no normality or openness assumption. The [nonnormal `S₃` client](CGCExamples/CoinducedRestriction.lean) tests the coset orientation and signed action but not a closed nonopen case. |
-| Positive cohomology after closed restriction | [`ProfiniteCoinducedAcyclic`](ContinuousGroupCohomology/ProfiniteCoinducedAcyclic.lean), [`CoinducedRestriction`](CGCExamples/CoinducedRestriction.lean) | For every closed `H` in compact Hausdorff totally disconnected `G` and discrete `B`, positive cohomology of `res H.subtype (TopRep.coind₁ B)` and of restrictions of isomorphic ambient coefficients vanishes. The full pointwise `C(G ⧸ H, B)` coefficient need not have trivial action; joint continuity is not assumed. No degree-zero or all-integer Tate vanishing is claimed. |
-| Coinduction short rows | [`Topology.ContinuousMap.Exact`](ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean), [`CoinductionExactness`](ContinuousGroupCohomology/CoinductionExactness.lean) | On `C(X, ·)`, exactness needs discrete middle `B` and exact coefficient maps, while surjectivity needs discrete target `D` and a surjective coefficient map; `X` is arbitrary. For `TopRep.coind₁Functor`, discrete `B, D` and an injective/exact/surjective coefficient row give the three underlying-map properties over any topological group, without local compactness or an added joint-action hypothesis. A [signed nonsplit example](CGCExamples/CoinductionExactness.lean) verifies independent coefficient and nonconstant-function witnesses. No unrestricted categorical exactness is asserted. |
-| Finite-function tensors | [`FiniteFunctionTensor`](ContinuousGroupCohomology/FiniteFunctionTensor.lean) | For any finite index type and commutative semiring, the coefficient-left tensor equivalence is natural in coefficient linear maps and has coefficient, delta and finite-sum formulas. For finite groups its twisted action matches the diagonal action with the left-regular basis. The [`S₄` client](CGCExamples/FiniteFunctionTensor.lean) separates this from ordinary right precomposition; no continuous or topological-representation equivalence is asserted. |
-| Coefficient cochain exactness | [`CochainExactness`](ContinuousGroupCohomology/CochainExactness.lean) | For identity-group cochain maps in every degree, injectivity requires only coefficient injectivity; middle exactness holds for discrete middle coefficients with injective, exact coefficient arrows; surjectivity holds for locally compact groups, discrete quotient coefficients, jointly continuous middle action and a surjective coefficient arrow. No cocycle, invariant-coefficient or cohomology epimorphism is asserted. |
-| Algebraic connecting maps | [`CohomologyExactSequence`](ContinuousGroupCohomology/CohomologyExactSequence.lean), [`ConnectingNaturality`](ContinuousGroupCohomology/ConnectingNaturality.lean) | For short exact coefficient rows over locally compact groups with discrete middle/quotient coefficients and jointly continuous middle action: all-natural-degree underlying-module connector, positive representative formula and three exactness positions. Vanishing of middle cohomology in degree `n` (respectively `n + 1`) makes it mono (respectively epi); both yield a connecting isomorphism with the same forward map, also for `n = 0`. Morphisms of two such rows commute with the connector in every degree. No general connector continuity or topological delta-functor is asserted. |
-| Initial invariant segment | [`InitialInvariantsExactSequence`](ContinuousGroupCohomology/InitialInvariantsExactSequence.lean) | Under the algebraic connector's short-exact-row and topological hypotheses, the six-arrow underlying-module segment is exact at its five internal positions. Degree-zero coefficient naturality and generic invariant injection and left exactness have weaker hypotheses; the invariant lemmas live in `TopRep`, with deprecated `ContinuousCohomology` aliases. No terminal degree-one surjectivity or connector continuity. |
-| Native finite-stage colimit | `Algebra.Category.ModuleCat.Topology.HomologyBoundary`, `SeededCochains`, `QuotientTransitions`, `FiniteStageBoundary`, `DiscreteCohomology`, `OpenNormalDiagram`, `FiniteStageColimit` | Actual `TopModuleCat` filtered colimit in every degree, including zero, from class-dependent dual-index refinements; arbitrary target cocones. Compact/discrete/joint-continuity hypotheses apply to the colimit, but not to the generic boundary or transition diagram; no closed-range quotient, fixed-stage injectivity or uniform refinement. |
-| Finite constructions | `FiniteCoinvariants`, `FiniteNegativeDeflation`, `ExceptionalDeflation`, `FiniteDeflationTransitivity` | Finite acting groups, orbit-difference relations, closed quotient under compact Hausdorff coefficients, and finite-level deflation in Tate degrees `-1` and `0` with nested-normal-subgroup transitivity via the pinned finite-group Tate library. No general nonpositive Tate theory for arbitrary topological groups is constructed. |
-| Compact exceptional Tate stages | `FiniteTateTopology`, `FiniteCoinvariantDeflation`, `ExceptionalTateDeflationTopology` | Compact Hausdorff additive closed-kernel/quotient models in degrees `-1` and `0`, continuous coinvariant and induced Tate deflation with identity/composition and additive comparison to algebraic Tate deflation; finite residual-kernel hypotheses apply. No ring topology or topology on algebraic Tate groups is asserted. |
-| Compact exceptional Tate diagrams and limits | `CompactExceptionalTateDiagrams`, `CompactExceptionalTateLimits` | Continuous compact deflation diagrams in degrees `-1` and `0`, natural isomorphisms of underlying additive diagrams with algebraic Tate diagrams, compact Hausdorff additive limits, projection equations and eventual-range images. Requires chosen `LevelCompact A` in a common universe; these two leaves alone do not supply coefficient maps, surjectivity or inverse-limit exactness. |
-| Compact finite and full-system norm rows | `CompactFiniteTateNormSequence`, `CompactTateNormLimitSequence` | Actual finite coinvariant/kernel/invariant/quotient maps form two exact middle pairs; the full open-normal compact limits yield the corresponding exact row, injective/onto endpoints, universal-norm kernel/range and compact quotient iso. Requires common-universe `R`, `G`, `Rep` and chosen `LevelCompact`; these two modules alone do not supply coefficient naturality. No coefficient-ring topology, onto coinvariant/kernel transitions, arbitrary restricted-system identification, arithmetic or all-degree Tate result. |
-| Full norm-row coefficient naturality | `CompactTateNormNaturality` | For arbitrary level-compact coefficient morphisms, the actual finite-coinvariant diagram/limit and the three full norm-row arrows are natural. The coefficient action descends continuously to the actual closed-universal-norm quotient, and the existing quotient-to-degree-zero-limit iso is natural for that independently descended action. No ring or ambient-representation topology, extra preservation/surjectivity, arbitrary restricted-system identification, arithmetic or all-degree Tate result. |
-| Compact relative-norm limits | `CompactUniversalNormLimits` | For chosen compact invariant topologies with common-universe level-compact data, full-limit projection range equals universal norms, restricted universal-norm transitions are onto, and the genuine inclusion of any closed restricted system containing universal norms induces an isomorphism of actual compact additive limits with both projection equations. A specified restricted morphism must preserve its chosen coefficients (`map_mem`); universal norms are functorial for every level-compact coefficient map. No full/arbitrary transition surjectivity, ambient coefficient topology, identification with the Tate norm row, arithmetic or all-degree Tate result. |
-| Compact coefficient and norm functoriality | `CompactExceptionalTateCoefficientMaps`, `CompactExceptionalTateLimitFunctoriality`, `RestrictedLevelCompactFunctoriality` | Level-compact morphisms give continuous compact coefficient/exceptional-Tate stage maps, natural maps of their compact limit diagrams and limits, and morphisms of selected restricted relative-norm diagrams. Arbitrarily chosen restricted systems require preservation; full and universal-norm systems are canonically functorial. No extra ring/ambient-coefficient topology or surjectivity is assumed. |
-| Finite Tate diagrams | `FiniteTateDiagrams`, `NonpositiveTateLimits`, `NonpositiveTateFunctoriality` | Covariant deflation along open normal inclusions of a profinite group, `TopModuleCat` limits and coefficient-morphism functoriality for the homological model of degrees below `-1` and exceptional degrees `-1` and `0`. No identification with completed continuous Tate theory. |
-| Compact finite bars | `CompactNegativeTate`, `CompactBarFunctoriality` | Finite-group bar chains with compact Hausdorff additive coefficients and individually continuous action maps; closed-boundary homology, additive comparison with finite Tate degrees `-(n + 2)`, and continuous functoriality for equivariant continuous coefficient maps. |
-| Compact negative Tate deflation | [`CompactNegativeDeflation`](ContinuousGroupCohomology/CompactNegativeDeflation.lean), [`CompactNegativeTateDiagrams`](ContinuousGroupCohomology/CompactNegativeTateDiagrams.lean) | Finite-stage continuous deflation in degree `-(n + 2)`, identity and composition laws, and additive natural comparison with homological degree `n + 1`. Uses a commutative ring, a compact topological group, nested open normal levels and chosen common-universe `LevelCompact`; the diagram assumes a profinite group. No coefficient-ring topology, topological-module comparison or inverse-limit statement. |
-| Quotients and actions | `ClosedTopologicalCoinvariants`, `QuotientConjugationAction`, `TopologicalQuotientConjugationAction`, `TopologicalModN`, `ContinuousGroupExtension` | Closed versus algebraic coinvariants, quotient conjugation, continuous group extensions, and closed reduction modulo `n`; pointwise continuous actions do not imply jointly continuous actions. |
-| Compact groups and limits | `CompactAddCommGroup`, `CompactAddCommGroupLimits`, `CompactFiniteHomology`, `CompactTopModuleLimits` | Compact Hausdorff additive groups, finite products, inverse limits and finite-stage homology constructions; cofiltered limit statements include empty indexing categories where stated. |
-| Compact levels | `LevelCompact`, `LevelCompactFunctoriality`, `LevelCompactNorm`, `RestrictedLevelCompact` | Compact level systems, functoriality, relative norms and restricted systems with explicit finite-stage hypotheses. |
-| Universe and representation interfaces | `TopModuleCatUlift`, `TopRepUlift`, `GroupExtensionUlift`, `HomogeneousCochainsUlift`, `ContinuousCohomologyUlift` | Universe transport and compatibility for the named continuous cohomology and extension constructions. |
-| Discrete representation sums and tensors | `TopRepDiscrete` | Arbitrary varying-index algebraic sums and two-factor tensors with discrete output topology, canonical Mathlib actions, coordinate/pure-tensor equations and jointly continuous actions when the inputs have them. |
-| Discrete linear Hom | `TopRepDiscreteHom` | All linear maps with the discrete carrier topology and inverse-oriented conjugation, separate scalar-continuity criteria and four joint-action continuity criteria. |
-| Sign-product boundary | `DiscreteProduct` | The countable integer-unit sign product acts jointly continuously on integer sequences with their nondiscrete product topology; a separately discrete copy has continuous fixed-sign operators but no jointly continuous action. |
-
-The [`ContinuousGroupCohomology.lean`](ContinuousGroupCohomology.lean) root
-collects the production API. The production leaves and clients
-use Lean's native `module` system. A compact additive-group limit or finite-stage
-homology *model* is not a construction of general completed continuous homology.
-Finite quotients require their actual finite-index/finite-group hypotheses;
-topological and compact results require the relevant continuity, compactness and
-separation assumptions, not merely algebraic group structure. Consult theorem
-statements and individual module documentation for precise universes and instances.
-
-### Discrete linear Hom
-
-`ContinuousGroupCohomology.TopRepDiscreteHom` equips all `k`-linear maps with
-a discrete carrier and Mathlib's inverse-oriented conjugation action. Its
-action formula and fixed-map criterion compare with Mathlib's invariant and
-intertwining-map API. Scalar continuity is automatic for discrete scalars,
-including `k = ℤ`; finite generation of the source gives a separate route
-when the target has discrete, continuous scalar multiplication.
-
-Finite-source scalar continuity and four group-action joint-continuity routes
-hold under their separate hypotheses. The four group conditions are:
-discrete `G`; finite `T₁` `G`; a finitely generated source with discrete,
-jointly continuous inputs; and finite possibly non-`T₁` `G` with discrete,
-jointly continuous inputs. A finite acting group alone does not ensure
-scalar continuity for arbitrary `k`. The
-[`DiscreteHom` client](ContinuousGroupCohomologyExamples/DiscreteHom.lean)
-instantiates the action and statements on sign representations, including
-an infinite-rank source and an infinite acting group.
-
-### Degree-one torsion
-
-Import `ContinuousGroupCohomology.Torsion` for the five declarations in namespace
-`ContinuousCohomology` (or import the public root). For a `TopRep.{max v w} k G`
-over a ring `k` with a topology and a topological group `G`, the statements
-provide:
-
-- `continuousCrossedHom_apply_one X f`: a crossed cocycle vanishes at `1`;
-- `zeroOpenSubgroup X f`: its zero fibre is an open subgroup, not necessarily normal,
-  when the representation carries the discrete topology;
-- `zeroOpenSubgroup_finiteIndex X f`: compactness of `G` makes that subgroup's
-  index finite;
-- `zeroOpenSubgroup_index_nsmul X f`: for a jointly continuous action, its
-  finite index annihilates the image of `f` in the quotient by principal cocycles;
-- `isAddTorsion_degreeOne X`: `IsAddTorsion (continuousCohomology 1 X)`.
-
-The final theorem assumes `[IsTopologicalGroup G] [DiscreteTopology X]`,
-`[TopRep.JointlyContinuous X]` and `[CompactSpace G]`. It derives local compactness
-inside its proof; it assumes neither `T2Space G` nor coefficient torsion,
-finite generation, a trivial action, or a common group-wide exponent. Transfer
-follows restriction in the classwise index argument; no higher-degree claim is
-made. [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean) checks
-both the integral-representation specialization and restriction to an arbitrary
-open subgroup of `G`, without imposing a trivial action there. Its finite-quotient
-and positive-degree torsion clients use discrete jointly continuous representations
-over a topologized ring of a compact topological group. Its arbitrary-degree
-discreteness clients require discrete representations over a topologized ring
-of a compact topological group, without an additional joint-action hypothesis.
-Import `ContinuousGroupCohomology.Torsion`,
-`ContinuousGroupCohomology.CompactDiscreteTorsion` or
-`ContinuousGroupCohomology.DiscreteCohomology` for the respective production APIs.
+Import a `ContinuousGroupCohomology.*` leaf to limit dependencies. The
+[`NativeCore` client](examples/NativeCore.lean) imports only the public root;
+the [Results guide](docs/Results.md) links the specialized clients and APIs.
 
 ## Dependencies and builds
 
@@ -394,9 +166,8 @@ The closed-subgroup restriction module additionally uses
 `profinite-groups` at `5f11ef67fb23396b63a644a3713391e2b9300546`,
 with its resolved `group-theory` dependency at
 `01047a79bed13ee795d40b61b777566f2160e5cc`.
-Authorized access to this private dependency and network access to the pinned
-mathlib/transitive dependencies and their cache are required. No source-research
-checkout is needed. Do not update the manifest when reproducing these pins.
+Network access to the pinned dependencies and their matching cache is required.
+Do not update the manifest when reproducing these pins.
 
 ```sh
 elan toolchain install leanprover/lean4:v4.34.0-rc2
@@ -412,120 +183,63 @@ time in fresh setup plans.
 
 ### Build targets and clients
 
-`ContinuousGroupCohomology` compiles the public root and its imports;
-`CGCExamples` compiles these registered native clients, also selected by
-the default build:
+The default build selects `ContinuousGroupCohomology` and `CGCExamples`.
+The [complete registered client map](docs/Results.md#build-targets-and-clients)
+explains each example and its mathematical boundary. The root collects the
+public production API; clients import production modules to use their results.
 
-- [`CompactFoundationNative`](examples/CompactFoundationNative.lean),
-  [`CompactExceptionalTateCoefficientMapsNative`](examples/CompactExceptionalTateCoefficientMapsNative.lean),
-  [`CompactExceptionalTateLimitFunctorialityNative`](examples/CompactExceptionalTateLimitFunctorialityNative.lean),
-  [`CompactExceptionalTateNative`](examples/CompactExceptionalTateNative.lean),
-  [`CompactFiniteTateNormSequenceNative`](examples/CompactFiniteTateNormSequenceNative.lean),
-  [`CompactTateNormLimitSequenceNative`](examples/CompactTateNormLimitSequenceNative.lean),
-  [`CompactTateNormNaturalityNative`](examples/CompactTateNormNaturalityNative.lean),
-  [`CompactUniversalNormLimitsNative`](examples/CompactUniversalNormLimitsNative.lean),
-  [`CompactNegativeBarNative`](examples/CompactNegativeBarNative.lean),
-  [`ContinuousTorsionNative`](examples/ContinuousTorsionNative.lean),
-  [`ExceptionalDeflationNative`](examples/ExceptionalDeflationNative.lean),
-  [`ExceptionalTateDeflationTopologyNative`](examples/ExceptionalTateDeflationTopologyNative.lean),
-  [`FiniteCoinvariantDeflationNative`](examples/FiniteCoinvariantDeflationNative.lean),
-  [`FiniteCoinvariantsNative`](examples/FiniteCoinvariantsNative.lean),
-  [`FiniteDeflationTransitivityNative`](examples/FiniteDeflationTransitivityNative.lean),
-  [`FiniteNegativeNative`](examples/FiniteNegativeNative.lean),
-  [`FiniteTateTopologyNative`](examples/FiniteTateTopologyNative.lean),
-  [`LevelCompactNative`](examples/LevelCompactNative.lean);
-- [`LevelCompactNormNative`](examples/LevelCompactNormNative.lean),
-  [`NestedInvariantsNative`](examples/NestedInvariantsNative.lean),
-  [`NonpositiveTateDiagramsNative`](examples/NonpositiveTateDiagramsNative.lean),
-  [`RestrictedLevelNative`](examples/RestrictedLevelNative.lean),
-  [`RestrictedLevelCompactFunctorialityNative`](examples/RestrictedLevelCompactFunctorialityNative.lean), and
-  [`NativeCore`](examples/NativeCore.lean);
-- [`CompactDiscreteFactorNative`](examples/CompactDiscreteFactorNative.lean),
-  [`QuotientInvariantsNative`](examples/QuotientInvariantsNative.lean),
-  [`CochainInjectivityNative`](examples/CochainInjectivityNative.lean),
-  [`ResolutionImageNative`](examples/ResolutionImageNative.lean),
-  [`FiniteStageResolutionNative`](examples/FiniteStageResolutionNative.lean),
-  [`FiniteStageCochainsNative`](examples/FiniteStageCochainsNative.lean),
-  [`FiniteAveragingNative`](examples/FiniteAveragingNative.lean), and
-  [`CompactDiscreteTorsionNative`](examples/CompactDiscreteTorsionNative.lean);
-- [`HomologyBoundaryNative`](examples/HomologyBoundaryNative.lean),
-  [`SeededCochainsNative`](examples/SeededCochainsNative.lean),
-  [`QuotientTransitionsNative`](examples/QuotientTransitionsNative.lean),
-  [`FiniteStageBoundaryNative`](examples/FiniteStageBoundaryNative.lean),
-  [`DiscreteCohomologyNative`](examples/DiscreteCohomologyNative.lean),
-  [`OpenNormalDiagramNative`](examples/OpenNormalDiagramNative.lean), and
-  [`FiniteStageColimitNative`](examples/FiniteStageColimitNative.lean);
-- [`TopRepDiscrete`](CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
-- [`CoinducedRestriction`](CGCExamples/CoinducedRestriction.lean), the nonnormal
-  integer sign-action boundary for the closed-subgroup restriction statement;
-- [`CoinducedInvariants`](CGCExamples/CoinducedInvariants.lean), the sign-product
-  quotient-coinduction and full-group invariants clients: a normal subgroup
-  moves a nonzero value of a coinduced invariant, so the quotient-side
-  coefficient is the whole module, not its fixed submodule;
-- [`CoinducedAcyclic`](CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
-- [`CochainExactness`](CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
-- [`CoinductionExactness`](CGCExamples/CoinductionExactness.lean), the signed
-  two-point coinduction short-row client;
-- [`FiniteFunctionTensor`](CGCExamples/FiniteFunctionTensor.lean), finite-index
-  coefficient clients and signed four-permutation tensor witnesses;
-- [`CohomologyExactSequence`](CGCExamples/CohomologyExactSequence.lean), the sign-action
-  invariant, boundary-defect and nonzero-connector client;
-- [`ConnectingIsomorphism`](CGCExamples/ConnectingIsomorphism.lean), the coinduced
-  two-point coefficient row, independent nonzero degree-one connector, clients
-  of the general isomorphism API, and two split-row degree-zero boundaries;
-- [`ConnectingNaturality`](CGCExamples/ConnectingNaturality.lean), the nonidentity
-  coefficient-sequence endomorphism client of the proved naturality theorem;
-- [`InitialInvariantsExactSequence`](CGCExamples/InitialInvariantsExactSequence.lean),
-  independent nonzero invariant inclusion, nonlift and existing-boundary
-  witnesses, a nonzero displayed inclusion and boundary, and a client of the
-  proved full-segment exactness statement;
-- [`DiscreteHom`](ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
-- [`DiscreteProduct`](ContinuousGroupCohomologyExamples/DiscreteProduct.lean), the
-  coordinatewise sign-product boundary client.
-
-`examples.FiniteStageResolutionNative` contains finite-stage resolution,
-boundary, colimit, quotient-invariants, resolution-image, cochain, seeded
-descent, transition and diagram clients. Their entrypoints import the
-corresponding production modules; import those `ContinuousGroupCohomology`
-modules directly to use their APIs.
-
-For an explicit fresh source elaboration of the aggregate-root client:
+For source elaboration of the aggregate-root client, from the repository root:
 
 ```sh
 lake env lean examples/NativeCore.lean
 ```
 
-The other client paths above can likewise be given to `lake env lean`.
-Representative `#print axioms` commands in the client files report selected
-proof dependencies, not an exhaustive inventory of all declarations.
+## What is available
+
+The [full module table](docs/Results.md#what-is-available) records all areas and
+their material hypotheses: low-degree cohomology and transfer; finite-quotient
+descent and colimits; coinduction, tensors and exact sequences; compact finite
+Tate stages, norm rows and restricted limits; and representation interfaces.
+The [manual guides](docs/README.md) and linked Lean declarations give usage
+and exact universes. The generated API index covers only its stated historical
+snapshot, not the complete current import graph.
+
+## Classwise compact/discrete cohomology
+
+For theorem names, class-dependent quotient coefficients, positive-degree
+torsion, all-degree colimits and their distinct limitations, see the
+[classwise guide](docs/Results.md#classwise-compactdiscrete-cohomology).
+
+### Discrete linear Hom
+
+See [the Hom interface](docs/Results.md#discrete-linear-hom) for the separate
+scalar-continuity and four joint-action continuity criteria, inverse-oriented
+conjugation and sign-representation examples.
+
+### Degree-one torsion
+
+See [degree-one torsion](docs/Results.md#degree-one-torsion) for the five public
+declarations, their compact/discrete/joint-continuity hypotheses, the
+class-dependent open-subgroup index and production-module imports.
 
 ## Scope and migration
 
-This native core does **not** ship earlier scalar-extension experiments,
-other finite Tate comparison diagrams, general inverse-limit exactness for
-arbitrary systems, or the broader completed continuous Tate and topology layers.
-The named full-open-normal compact Tate norm limit sequence *does* supply its
-two exact middle pairs and compact universal-norm quotient. The compact finite-bar
-construction supplies neither a
-topological-module comparison over an unspecified scalar topology nor a general
-completed continuous homology construction. Earlier `design/`
-notes and eight legacy clients are also excluded. Historical development is
-retained in project history but not imported, installed or required by this
-library. Migrate code importing an excluded module to the named retained API
-where its mathematics matches; otherwise retain an earlier development
-revision separately until the missing functionality is reviewed and added.
-Removing a legacy import alone does not recreate a deferred theorem. The compact
-exceptional Tate modules supply continuous deflation for their stated finite
-levels and compact inverse limits with eventual-range images, not general
-completed continuous Tate cohomology or unconditional surjectivity.
+The library is not a construction of general completed continuous Tate
+cohomology or continuous homology. Finite-stage and compact-limit results
+have their stated finite, continuity, separation and chosen `LevelCompact`
+hypotheses; they do not imply general inverse-limit exactness or unconditional
+transition surjectivity. The full-open-normal norm limit sequence supplies its
+two exact middle pairs and compact universal-norm quotient under its own
+hypotheses. Coefficient-ring topology and topological-module comparison are
+separate obligations, not implicit in compact additive-group models.
 
-This is an explicitly scoped library, not a formalization of general
-completed continuous Tate cohomology or general continuous homology. The
-classwise finite-stage lift does not assert degree-zero torsion, acyclicity,
-vanishing or uniform finite-quotient bounds. The all-degree colimit is a
-separate result with class-dependent equality refinements and no fixed-stage
-injectivity claim. A source-specific coverage determination is separate from
-the mathematical API in this library.
+Classwise finite-quotient lifts do not assert degree-zero torsion, acyclicity,
+vanishing or uniform quotient bounds. The all-degree topological colimit uses
+class-dependent refinements, not fixed-stage positive-degree injectivity.
+The [full scope and migration notes](docs/Results.md#scope) distinguish the
+provided APIs from excluded constructions; removing an unavailable import
+does not supply its missing mathematics. Source-specific coverage is separate
+from the mathematical API.
 
 ## References
 
@@ -576,3 +290,11 @@ the mathematical API in this library.
   isomorphism. Its section proof uses the
   [Group Theory open-quotient theorem](https://github.com/FormalFrontier/group-theory/tree/01047a79bed13ee795d40b61b777566f2160e5cc);
   see [attribution](docs/attribution.md).
+
+## Credits and license
+
+**Authors: Formal Frontier Agents.** Original project contributions are
+licensed under [Apache-2.0](LICENSE). The collective author name records
+AI-assisted formalization. [Attribution](docs/attribution.md) distinguishes
+original contributors, mathematical sources and reused expression, and
+preserves authentic third-party notices without asserting copyright ownership.
