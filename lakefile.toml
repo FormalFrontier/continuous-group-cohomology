@@ -84,5 +84,6 @@ roots = [
   "CGCExamples.ConnectingIsomorphism",
   "CGCExamples.ConnectingNaturality",
   "CGCExamples.InitialInvariantsExactSequence",
+  "CGCExamples.SignedScalar",
   "CGCExamples.CompactNegativeDeflation",
 ]
