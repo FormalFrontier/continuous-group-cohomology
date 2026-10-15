@@ -73,6 +73,7 @@ roots = [
   "examples.FiniteStageColimitNative",
   "ContinuousGroupCohomologyExamples.DiscreteHom",
   "ContinuousGroupCohomologyExamples.DiscreteProduct",
+  "ContinuousGroupCohomologyExamples.CoefficientMonicity",
   "CGCExamples.TopRepDiscrete",
   "CGCExamples.CoinducedRestriction",
   "CGCExamples.CoinducedInvariants",
@@ -85,5 +86,6 @@ roots = [
   "CGCExamples.ConnectingNaturality",
   "CGCExamples.InitialInvariantsExactSequence",
   "CGCExamples.SignedScalar",
+  "CGCExamples.CoefficientAdditivity",
   "CGCExamples.CompactNegativeDeflation",
 ]

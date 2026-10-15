@@ -422,6 +422,6 @@ theorem coind₁_isomorphic_positive_eq_zero
   have hz : e'.hom.hom a = 0 := coind₁_positive_eq_zero X m (e'.hom.hom a)
   apply e'.toContinuousLinearEquiv.injective
   change e'.hom.hom a = e'.hom.hom 0
-  simpa only [map_zero] using hz
+  simpa only [_root_.map_zero e'.hom.hom] using hz
 
 end ContinuousCohomology

@@ -7,12 +7,35 @@ commands, see [Dependencies and builds](../README.md#dependencies-and-builds).
 
 ## Results
 
-This Lean library develops low-degree continuous group cohomology and
-finite-index transfer, compact-group degree-one torsion, finite-level Tate
-deflation and compact finite-bar homology. It also develops compact exceptional
+This Lean library develops continuous group cohomology with additive coefficient
+maps in every natural degree, low-degree formulas and finite-index transfer,
+compact-group degree-one torsion, finite-level Tate deflation and compact
+finite-bar homology. It also develops compact exceptional
 Tate stages and diagrams, coefficient naturality, actual finite and full-system
 Tate norm rows, and restricted universal-norm comparisons. The guides and table
 below distinguish these constructions and their hypotheses.
+
+For `[Ring k] [TopologicalSpace k]`, topological groups `H` and `G`, and a
+continuous homomorphism `φ : H →ₜ* G`, the
+[coefficient-map API](../ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean)
+is additive in **every natural degree, including zero**. Given
+`X : TopRep k G`, `Y : TopRep k H` and `f g : TopRep.res φ X ⟶ Y`,
+`ContinuousCohomology.map_add` states
+`map φ (f + g) n = map φ f n + map φ g n`.
+In the same namespace, `map_zero` gives the zero law and `map_add_apply` the
+pointwise evaluation formula; `resolutionMap_add` and `cochainsMap_add` give
+the corresponding laws on standard resolutions and homogeneous cochains.
+For a fixed `G`, `coefficientFunctor n` has a `CategoryTheory.Functor.Additive`
+instance. Its `coefficientFunctor_obj` and `coefficientFunctor_map` laws identify
+its objects with the existing continuous cohomology and its morphisms with
+Mathlib's maps for the identity group homomorphism.
+No commutativity or continuity of the ring operations, local compactness,
+compactness or coefficient discreteness is assumed.
+The [integer model](../CGCExamples/CoefficientAdditivity.lean) has the one-element
+group `PUnit` acting trivially on `ℤ`. It uses the additive functor to show that
+the sum of two identity coefficient morphisms doubles every class in every
+degree. In degree zero, the class corresponding to the invariant integer `1`
+is nonzero, and its image corresponds to `2`, also nonzero.
 
 The [compact negative-deflation API](../ContinuousGroupCohomology/CompactNegativeDeflation.lean)
 models finite Tate degree `-(n + 2)` by positive finite-bar homology in degree
@@ -299,6 +322,7 @@ ingredients and their individual hypotheses.
 | Transfer | `Corestriction`, `Composition`, `Mackey` | Open finite-index subgroup transfer and degree-one functoriality, composition and Mackey relations with the hypotheses in each declaration. |
 | Degree-one torsion | `Torsion` | Compact topological group, discrete jointly continuous representation over a topologized ring; each continuous `H¹` class has finite additive order. The index is class-dependent. |
 | Classwise finite-quotient cohomology | `QuotientInvariants`, `CochainInjectivity`, `ResolutionImage`, `FiniteStageResolution`, `FiniteStageCochains`, `FiniteAveraging`, `CompactDiscreteTorsion`, `Topology.ContinuousMap.CompactDiscrete`, `Topology.Algebra.CompactGroup.DiscreteFactor` | Native all-degree classwise lifting with genuine quotient-invariant coefficients; positive-degree class-dependent annihilation and additive torsion. No uniform stage/order or degree-zero torsion. |
+| Additive coefficient maps | [`ContinuousCohomologyFunctor`](../ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean) | Over `[Ring k] [TopologicalSpace k]`, any continuous homomorphism of topological groups induces maps additive in the restricted coefficient morphism in every natural degree. Resolution and cochain additivity, zero and evaluation laws, and the fixed-group additive coefficient functor require no compactness or discreteness. The [trivial integer model](../CGCExamples/CoefficientAdditivity.lean) doubles a nonzero degree-zero class from invariant value `1` to `2`. |
 | Coinduced insertion and coefficient functor | [`CoinducedAcyclic`](../ContinuousGroupCohomology/CoinducedAcyclic.lean), [`ContinuousCohomologyFunctor`](../ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean) | Diagonal insertion on the actual iterated coinduced resolution, with evaluation laws and a nonzero [two-element-group client](../CGCExamples/CoinducedAcyclic.lean). In positive degree, coinduced-coefficient cohomology vanishes and the fixed-group coefficient functor transports vanishing across isomorphisms; the degree-zero analogue is false. |
 | Normal-quotient coinduction | [`CoinducedInvariants`](../ContinuousGroupCohomology/CoinducedInvariants.lean) | For compact `G`, arbitrary normal `N` and discrete jointly continuous `B` over `[Ring k] [TopologicalSpace k]`, the `N`-invariants of twisted coinduction are equivalent to coinduction over `G ⧸ N` from the whole `B` with trivial coefficient action. The [sign-product and full-group clients](../CGCExamples/CoinducedInvariants.lean) distinguish this from coinduction on `B^N` and exhibit nontrivial residual quotient action. |
 | Closed-subgroup restriction of coinduction | [`PointwiseContinuousMap`](../ContinuousGroupCohomology/PointwiseContinuousMap.lean), [`CoinducedRestriction`](../ContinuousGroupCohomology/CoinducedRestriction.lean), [`ProfiniteCoinducedRestriction`](../ContinuousGroupCohomology/ProfiniteCoinducedRestriction.lean) | A chosen continuous section and locally compact `H` and `G ⧸ H` yield a section-dependent restriction isomorphism over `[Ring k] [TopologicalSpace k]` on the whole `C(G ⧸ H, B)` with possibly nontrivial pointwise `H`-action. The released profinite-group section gives this for every closed `H` in compact Hausdorff totally disconnected `G`, with no normality or openness assumption. The [nonnormal `S₃` client](../CGCExamples/CoinducedRestriction.lean) tests the coset orientation and signed action but not a closed nonopen case. |
@@ -433,6 +457,10 @@ the default build:
   [`OpenNormalDiagramNative`](../examples/OpenNormalDiagramNative.lean), and
   [`FiniteStageColimitNative`](../examples/FiniteStageColimitNative.lean);
 - [`TopRepDiscrete`](../CGCExamples/TopRepDiscrete.lean), the discrete sum and tensor client;
+- [`SignedScalar`](../CGCExamples/SignedScalar.lean), scalar-sign representations
+  of `ℤˣ` on `ZMod 4` and its square, with nonzero, nonidentity doubling that
+  kills the nonzero residue `2` and an equivariant diagonal taking `2` to the
+  nonzero pair `(2, 2)`; no cohomology comparison;
 - [`CoinducedRestriction`](../CGCExamples/CoinducedRestriction.lean), the nonnormal
   integer sign-action boundary for the closed-subgroup restriction statement;
 - [`CoinducedInvariants`](../CGCExamples/CoinducedInvariants.lean), the sign-product
@@ -440,6 +468,10 @@ the default build:
   moves a nonzero value of a coinduced invariant, so the quotient-side
   coefficient is the whole module, not its fixed submodule;
 - [`CoinducedAcyclic`](../CGCExamples/CoinducedAcyclic.lean), the coinduced-coefficient client;
+- [`CoefficientAdditivity`](../CGCExamples/CoefficientAdditivity.lean), all-degree
+  doubling by the sum of two identity coefficient maps for `PUnit` acting
+  trivially on `ℤ`, with a nonzero degree-zero class of invariant value `1`
+  sent to a nonzero class of invariant value `2`;
 - [`CochainExactness`](../CGCExamples/CochainExactness.lean), the nonsplit coefficient-cochain client;
 - [`CoinductionExactness`](../CGCExamples/CoinductionExactness.lean), the signed
   two-point coinduction short-row client;
@@ -456,6 +488,10 @@ the default build:
   independent nonzero invariant inclusion, nonlift and existing-boundary
   witnesses, a nonzero displayed inclusion and boundary, and a client of the
   proved full-segment exactness statement;
+- [`CoefficientMonicity`](../ContinuousGroupCohomologyExamples/CoefficientMonicity.lean),
+  injective degree-zero integer doubling after restriction along the nonsurjective
+  constant-one endomorphism of `Multiplicative (ZMod 2)`, taking a nonzero class
+  of invariant value `1` to a nonzero class of invariant value `2`;
 - [`CompactNegativeDeflation`](../CGCExamples/CompactNegativeDeflation.lean), the
   two-element-group example with `ZMod 2` coefficients and a nonzero degree-`-2` class;
 - [`DiscreteHom`](../ContinuousGroupCohomologyExamples/DiscreteHom.lean); and
@@ -475,8 +511,8 @@ lake env lean examples/NativeCore.lean
 ```
 
 The other client paths above can likewise be given to `lake env lean`.
-Representative `#print axioms` commands in the client files report selected
-proof dependencies, not an exhaustive inventory of all declarations.
+The CI axiom audit checks the transitive axiom dependencies of declaration
+roots, allowing only `propext`, `Classical.choice` and `Quot.sound`.
 
 ## Scope
 

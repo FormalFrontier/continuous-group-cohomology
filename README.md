@@ -28,6 +28,22 @@ targets. It uses the actual cohomology topology, genuine algebraic boundaries
 and class-dependent eventual refinements, not fixed-stage positive-degree
 injectivity, a uniform refinement or a closed-boundary-range assumption.
 
+### Additivity in coefficient maps in every degree
+
+For `[Ring k] [TopologicalSpace k]`, topological groups `H` and `G`, and a
+continuous homomorphism `φ : H →ₜ* G`, the
+[coefficient-map API](ContinuousGroupCohomology/ContinuousCohomologyFunctor.lean)
+proves additivity and preservation of zero in the coefficient morphism in
+**every natural degree, including zero**. For a fixed acting group,
+`ContinuousCohomology.coefficientFunctor n` is an additive functor on topological
+representations, using the existing continuous-cohomology objects and maps.
+Neither commutativity nor continuity of the ring operations, compactness of the
+groups or discreteness of the coefficients is required.
+The [integer model](CGCExamples/CoefficientAdditivity.lean) uses the one-element
+group `PUnit` acting trivially on `ℤ`: the sum of two identity coefficient
+morphisms doubles every class in every degree. In degree zero it sends the
+class with invariant value `1` to a nonzero class with invariant value `2`.
+
 ### Positive coinduced cohomology after closed restriction
 
 For compact topological groups and discrete coefficients,
@@ -198,8 +214,9 @@ lake env lean examples/NativeCore.lean
 
 The [full module table](docs/Results.md#what-is-available) records all areas and
 their material hypotheses: low-degree cohomology and transfer; finite-quotient
-descent and colimits; coinduction, tensors and exact sequences; compact finite
-Tate stages, norm rows and restricted limits; and representation interfaces.
+descent and colimits; additive coefficient maps; coinduction, tensors and exact
+sequences; compact finite Tate stages, norm rows and restricted limits; and
+representation interfaces.
 The [manual guides](docs/README.md) and linked Lean declarations give usage
 and exact universes. The generated API index covers only its stated historical
 snapshot, not the complete current import graph.

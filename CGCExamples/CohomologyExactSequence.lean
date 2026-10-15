@@ -123,7 +123,7 @@ theorem signedQuotientInvariantOne_not_lifted :
       (signedProjection.hom.mapInvariants x : signedQuotient.ρ.invariants) =
         signedQuotientInvariantOne := by
   rintro ⟨x, hx⟩
-  rw [signedIntegers_invariant_eq_zero x, map_zero] at hx
+  rw [signedIntegers_invariant_eq_zero x, _root_.map_zero] at hx
   exact signedQuotientInvariantOne_ne_zero hx.symm
 
 /-- At the negative unit, the differential of the integer lift `1` is
@@ -161,7 +161,7 @@ theorem signedConnecting_one_ne_zero :
   have hmiddle (x : continuousCohomology 0 signedIntegers) : x = 0 := by
     have hz := signedIntegers_invariant_eq_zero ((zeroIso signedIntegers).hom x)
     have hz' := congrArg (fun y => (zeroIso signedIntegers).inv y) hz
-    simpa only [Iso.hom_inv_id_apply, map_zero] using hz'
+    simpa only [Iso.hom_inv_id_apply, _root_.map_zero] using hz'
   obtain ⟨x, hx⟩ := ((exact_map_connecting signedInclusion signedProjection
     signedInclusion_injective signedSequence_exact signedProjection_surjective 0)
     ((zeroIso signedQuotient).inv.hom signedQuotientInvariantOne)).mp hzero

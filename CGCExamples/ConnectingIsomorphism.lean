@@ -286,7 +286,7 @@ private theorem twoGroup_connecting_zero_boundary :
         coinducedIdentity_surjective 0) y).mpr ⟨y, hmap⟩
     have hinj := (ModuleCat.mono_iff_injective _).mp hmono
     apply hy
-    exact hinj (hδ.trans (map_zero _).symm)
+    exact hinj (hδ.trans (_root_.map_zero _).symm)
 
 private abbrev zeroSignedCoefficients : TopRep ℤ ℤˣ :=
   TopRep.of (ContRepresentation.trivial ℤ ℤˣ PUnit)
@@ -319,13 +319,13 @@ private theorem zeroSigned_degree_zero_eq_zero
     (x : continuousCohomology 0 zeroSignedCoefficients) : x = 0 := by
   have hz : (zeroIso zeroSignedCoefficients).hom.hom x = 0 := Subsingleton.elim _ _
   have h := congrArg (fun y => (zeroIso zeroSignedCoefficients).inv.hom y) hz
-  simpa only [Iso.hom_inv_id_apply, map_zero] using h
+  simpa only [Iso.hom_inv_id_apply, _root_.map_zero] using h
 
 private theorem signed_degree_zero_eq_zero
     (x : continuousCohomology 0 signedIntegers) : x = 0 := by
   have hz := signedIntegers_invariant_eq_zero ((zeroIso signedIntegers).hom x)
   have h := congrArg (fun y => (zeroIso signedIntegers).inv.hom y) hz
-  simpa only [Iso.hom_inv_id_apply, map_zero] using h
+  simpa only [Iso.hom_inv_id_apply, _root_.map_zero] using h
 
 /-- Over `ℤˣ`, a split row with signed middle coefficients has vanishing
 degree-zero middle-coefficient cohomology but its degree-zero connector is not surjective. -/
@@ -346,6 +346,6 @@ private theorem signed_connecting_zero_boundary :
     obtain ⟨x, hx⟩ := (ModuleCat.epi_iff_surjective _).mp hepi y
     apply hy
     have hz := zeroSigned_degree_zero_eq_zero x
-    simpa only [hz, map_zero] using hx.symm
+    simpa only [hz, _root_.map_zero] using hx.symm
 
 end CGCExamples

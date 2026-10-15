@@ -22,9 +22,13 @@ The intended long exact sequence extends the initial display for profinite group
 and discrete integral modules to the stated locally compact, discrete-coefficient
 setting and an arbitrary topologized coefficient ring.
 
-The degree-zero invariant identification is natural in coefficient maps.
-Exactness at all five internal positions follows from invariant injection,
-invariant left exactness, and the algebraic cohomology exact sequence.
+The degree-zero invariant identification is natural in continuous group
+homomorphisms and equivariant coefficient maps, extending fixed-group
+coefficient-map naturality. An injective coefficient map induces an injection
+in degree zero without surjectivity of the group homomorphism; no analogous
+all-degree injectivity is asserted. Exactness at all five internal positions
+follows from invariant injection, invariant left exactness, and the algebraic
+cohomology exact sequence.
 
 ## References
 
@@ -32,6 +36,10 @@ invariant left exactness, and the algebraic cohomology exact sequence.
   edition, electronic version 2.3, Chapter I, §3, Theorem (1.3.2).
 * Mathlib's `TopRep.invariantsFunctor`, `ContinuousCohomology.zeroIso` and
   `ComposableArrows.Exact`; the existing algebraic continuous-cohomology connector.
+* Mathlib's continuous representations and continuous cohomology, by Richard Hill,
+  Andrew Yang and Edison Xie, and Beacon's surrounding continuous-cohomology API.
+
+The degree-zero extension was developed with AI assistance.
 -/
 
 @[expose] public section
@@ -92,39 +100,112 @@ alias exact_mapInvariants := TopRep.exact_mapInvariants
 
 variable [TopologicalSpace G] [IsTopologicalGroup G]
 
-set_option backward.isDefEq.respectTransparency false in
-/-- Naturality of Mathlib's degree-zero cohomology/invariants isomorphism
-with respect to a fixed-group coefficient map. -/
-theorem zeroIso_naturality (f : A ⟶ B) :
-    (zeroIso A).hom ≫ (invariantsFunctor k G).map f =
-      map (ContinuousMonoidHom.id G) f 0 ≫ (zeroIso B).hom := by
-  apply (cancel_epi (π A 0)).1
-  conv_rhs => rw [← Category.assoc]
-  erw [π_map]
+/-- On a degree-zero cocycle, the cohomology/invariants identification is the
+kernel/invariants identification after the canonical cocycle/kernel comparison. -/
+@[simp] theorem π_zeroIso_hom (X : TopRep.{max v w} k G) :
+    π X 0 ≫ (zeroIso X).hom =
+      (cocycles₀Iso X).hom ≫ (TopModuleCat.ofIso (d₀kerIso X)).hom := by
   simp only [zeroIso, Iso.trans_hom, Iso.symm_hom, π, CochainComplex.isoHomologyπ₀,
-    Category.assoc, HomologicalComplex.isoHomologyπ_hom_inv_id_assoc]
-  have hker (X : TopRep.{max v w} k G) :
-      (cocycles₀Iso X).hom ≫ TopModuleCat.kerι _ =
+    HomologicalComplex.isoHomologyπ_hom_inv_id_assoc]
+
+/-- The invariant coefficient of a degree-zero cocycle class is the value at the
+unit of its image under the canonical inclusion into homogeneous cochains. -/
+@[simp] theorem π_zeroIso_hom_apply (X : TopRep.{max v w} k G) (z : cocycles X 0) :
+    ((zeroIso X).hom.hom ((π X 0).hom z) : X) =
+      (((homogeneousCochains X).iCycles 0).hom z).1 1 := by
+  change ((π X 0 ≫ (zeroIso X).hom).hom z : X) = _
+  rw [π_zeroIso_hom]
+  have hι : (cocycles₀Iso X).hom ≫
+      TopModuleCat.kerι ((homogeneousCochains X).d 0 1) =
         (homogeneousCochains X).iCycles 0 := by
     simpa [cocycles₀Iso] using
       (Limits.KernelFork.mapOfIsLimit_ι
         (Limits.KernelFork.ofι ((homogeneousCochains X).iCycles 0)
           ((homogeneousCochains X).iCycles_d 0 1))
         (TopModuleCat.isLimitKer _) (Iso.refl _).hom)
-  ext x
-  have hA := congrArg (fun morphism => morphism.hom x) (hker A)
-  have hB := congrArg (fun morphism => morphism.hom (cocyclesMap
-    (ContinuousMonoidHom.id G) f 0 x)) (hker B)
-  simp only [TopModuleCat.hom_comp, ContinuousLinearMap.comp_apply] at hA hB
-  change f.hom (((TopModuleCat.kerι _).hom ((cocycles₀Iso A).hom x)).1 1) =
-    ((TopModuleCat.kerι _).hom ((cocycles₀Iso B).hom
-      (cocyclesMap (ContinuousMonoidHom.id G) f 0 x))).1 1
-  rw [hA, hB]
-  have hmap := congrArg (fun morphism => morphism.hom x)
-    (HomologicalComplex.cyclesMap_i (cochainsMap (ContinuousMonoidHom.id G) f) 0)
+  have hz := congrArg (fun morphism => morphism.hom z) hι
+  simp only [TopModuleCat.hom_comp, ContinuousLinearMap.comp_apply] at hz
+  change (((TopModuleCat.kerι _).hom ((cocycles₀Iso X).hom z)).1 1) = _
+  exact congrArg (fun σ : (homogeneousCochains X).X 0 => σ.1 1) hz
+
+section GroupMaps
+
+variable {H : Type v} [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
+variable {X : TopRep.{max v w} k G} {Y : TopRep.{max v w} k H}
+
+/-- Naturality of Mathlib's degree-zero cohomology/invariants isomorphism under
+an arbitrary continuous group homomorphism and an equivariant coefficient map.
+This extends fixed-group coefficient-map naturality; no surjectivity of the
+group homomorphism is required. It extends the invariant interpretation of
+degree zero used in Neukirch–Schmidt–Wingberg, Chapter I, §3. -/
+theorem zeroIso_naturality_res (φ : H →ₜ* G) (f : res φ X ⟶ Y) :
+    (zeroIso X).hom ≫ invariantsResMap φ f =
+      map φ f 0 ≫ (zeroIso Y).hom := by
+  apply (cancel_epi (π X 0)).1
+  simp only [← Category.assoc, π_map (X := X) (Y := Y) φ f 0]
+  apply ConcreteCategory.ext_apply
+  intro z
+  apply Subtype.ext
+  change f.hom ((zeroIso X).hom.hom ((π X 0).hom z) : X) =
+    ((zeroIso Y).hom.hom ((π Y 0).hom
+      ((cocyclesMap (X := X) (Y := Y) φ f 0).hom z)) : Y)
+  have hX := π_zeroIso_hom_apply X z
+  have hY := π_zeroIso_hom_apply Y
+    ((cocyclesMap (X := X) (Y := Y) φ f 0).hom z)
+  rw [hX, hY]
+  have hmap := congrArg
+    (fun morphism : cocycles X 0 ⟶ (homogeneousCochains Y).X 0 =>
+      morphism.hom z)
+    (HomologicalComplex.cyclesMap_i
+      (cochainsMap (X := X) (Y := Y) φ f) 0)
   simp only [TopModuleCat.hom_comp, ContinuousLinearMap.comp_apply] at hmap
   rw [hmap]
-  rfl
+  change f.hom ((((homogeneousCochains X).iCycles 0).hom z).1 1) =
+    f.hom ((((homogeneousCochains X).iCycles 0).hom z).1 (φ 1))
+  rw [_root_.map_one φ]
+
+/-- An injective coefficient map induces an injection on degree-zero continuous
+cohomology under any continuous group homomorphism, without surjectivity of that
+homomorphism. The conclusion concerns degree zero only and uses the invariant
+interpretation of degree zero in Neukirch–Schmidt–Wingberg, Chapter I, §3. -/
+theorem map_zero_injective (φ : H →ₜ* G) (f : res φ X ⟶ Y)
+    (hf : Function.Injective f.hom) :
+    Function.Injective (map φ f 0).hom := by
+  have hInv : Function.Injective
+      (invariantsResMap (k := k) (G := G) (H := H)
+        (X := X) (Y := Y) (φ : H →* G) f).hom := by
+    intro x y hxy
+    have hxy' :
+        f.hom.mapInvariants
+            (⟨x.1, ContRepresentation.invariants_le_invariants_restrict
+              X.ρ (φ : H →* G) x.2⟩ : (res (φ : H →* G) X).ρ.invariants) =
+          f.hom.mapInvariants
+            (⟨y.1, ContRepresentation.invariants_le_invariants_restrict
+              X.ρ (φ : H →* G) y.2⟩ : (res (φ : H →* G) X).ρ.invariants) := by
+      apply Subtype.ext
+      exact congrArg Subtype.val hxy
+    exact Subtype.ext (congrArg
+      (fun z : (res (φ : H →* G) X).ρ.invariants => z.1)
+      ((TopRep.mapInvariants_injective (k := k) (G := H)
+        (A := res (φ : H →* G) X) (B := Y) f hf) hxy'))
+  intro a b hab
+  apply (zeroIso X).toContinuousLinearEquiv.injective
+  apply hInv
+  have ha := congrArg (fun morphism => morphism.hom a)
+    (zeroIso_naturality_res (k := k) (G := G) (H := H) (X := X) (Y := Y) φ f)
+  have hb := congrArg (fun morphism => morphism.hom b)
+    (zeroIso_naturality_res (k := k) (G := G) (H := H) (X := X) (Y := Y) φ f)
+  simp only [TopModuleCat.hom_comp, ContinuousLinearMap.comp_apply] at ha hb
+  exact ha.trans ((congrArg (zeroIso Y).hom.hom hab).trans hb.symm)
+
+end GroupMaps
+
+/-- Naturality of Mathlib's degree-zero cohomology/invariants isomorphism
+with respect to a fixed-group coefficient map. -/
+theorem zeroIso_naturality (f : A ⟶ B) :
+    (zeroIso A).hom ≫ (invariantsFunctor k G).map f =
+      map (ContinuousMonoidHom.id G) f 0 ≫ (zeroIso B).hom := by
+  exact zeroIso_naturality_res (ContinuousMonoidHom.id G) f
 
 /-- The first seven objects and six maps of the algebraic long exact sequence:
 `0 → Aᴳ → Bᴳ → Cᴳ → H¹(G,A) → H¹(G,B) → H¹(G,C)`.
