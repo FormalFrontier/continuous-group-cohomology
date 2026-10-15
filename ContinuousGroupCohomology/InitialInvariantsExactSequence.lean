@@ -5,6 +5,8 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.CohomologyExactSequence
+public import ContinuousGroupCohomology.ContinuousCohomologyFunctor
+public import ContinuousGroupCohomology.TopRepMonomorphisms
 public import Mathlib.Algebra.Homology.ExactSequence
 
 /-!
@@ -25,7 +27,9 @@ setting and an arbitrary topologized coefficient ring.
 The degree-zero invariant identification is natural in continuous group
 homomorphisms and equivariant coefficient maps, extending fixed-group
 coefficient-map naturality. An injective coefficient map induces an injection
-in degree zero without surjectivity of the group homomorphism; no analogous
+in degree zero without surjectivity of the group homomorphism. Consequently,
+monomorphisms of restricted coefficients induce monomorphisms in degree zero,
+and the degree-zero coefficient functor preserves monomorphisms. No analogous
 all-degree injectivity is asserted. Exactness at all five internal positions
 follows from invariant injection, invariant left exactness, and the algebraic
 cohomology exact sequence.
@@ -198,7 +202,24 @@ theorem map_zero_injective (φ : H →ₜ* G) (f : res φ X ⟶ Y)
   simp only [TopModuleCat.hom_comp, ContinuousLinearMap.comp_apply] at ha hb
   exact ha.trans ((congrArg (zeroIso Y).hom.hom hab).trans hb.symm)
 
+/-- A monomorphism of restricted coefficients induces a monomorphism on
+degree-zero continuous cohomology for any continuous group homomorphism.
+No surjectivity of the group homomorphism is required. -/
+theorem map_zero_mono (φ : H →ₜ* G) (f : res φ X ⟶ Y) [Mono f] :
+    Mono (map φ f 0) :=
+  ConcreteCategory.mono_of_injective _
+    (map_zero_injective φ f ((TopRep.mono_iff_injective f).1 inferInstance))
+
 end GroupMaps
+
+/-- Degree-zero continuous cohomology preserves monomorphisms in the
+coefficient representation. -/
+instance coefficientFunctor_zero_preservesMonomorphisms :
+    (coefficientFunctor (k := k) (G := G) 0 :
+      TopRep.{max v w} k G ⥤ TopModuleCat.{max v w} k).PreservesMonomorphisms where
+  preserves {X Y} f hf := by
+    exact @map_zero_mono.{u, v, w} k _ _ G _ _ _ G _ _ _ X Y
+      (ContinuousMonoidHom.id G) f hf
 
 /-- Naturality of Mathlib's degree-zero cohomology/invariants isomorphism
 with respect to a fixed-group coefficient map. -/

@@ -130,6 +130,17 @@ coefficient-level obstruction and existing nonzero connector are independent
 of the segment theorem. Neither surjectivity at `H¹(G,C)` nor continuity
 of the connector is claimed.
 
+For a ring with a supplied topology and any monoid,
+[`TopRep.mono_iff_injective`](ContinuousGroupCohomology/TopRepMonomorphisms.lean)
+characterizes monomorphisms by injectivity, with independent ring, monoid and
+carrier universes. The action operators are individually continuous; no jointly
+continuous action or topology on the monoid is assumed. For topological groups,
+`ContinuousCohomology.map_zero_mono` preserves monicity under any continuous
+group homomorphism, and the existing `coefficientFunctor 0` preserves
+monomorphisms. No group-map surjectivity or all-degree preservation is asserted.
+The [integer-doubling example](ContinuousGroupCohomologyExamples/CoefficientMonicity.lean)
+uses a nonsurjective map of the two-element group and nonzero degree-zero classes.
+
 The [coefficient-naturality theorem](ContinuousGroupCohomology/ConnectingNaturality.lean)
 proves that, for two short exact coefficient sequences over the
 same locally compact `G`, with the preceding discreteness and joint-continuity

@@ -224,6 +224,22 @@ coefficient-level obstruction and existing nonzero connector are independent
 of the segment theorem. Neither surjectivity at `H¹(G,C)` nor continuity
 of the connector is claimed.
 
+The [topological-representation monomorphism criterion](../ContinuousGroupCohomology/TopRepMonomorphisms.lean)
+`TopRep.mono_iff_injective` requires only `[Ring k] [TopologicalSpace k]`
+and `[Monoid G]`, with independent ring, monoid and carrier universes.
+It uses finite-limit preservation of the concrete forgetful functor via actions
+on topological modules. It concerns individually continuous action operators,
+not a jointly continuous action. In the initial-invariants module,
+`ContinuousCohomology.map_zero_mono` takes `φ : H →ₜ* G` and a monomorphism
+`f : TopRep.res φ X ⟶ Y` to a monomorphism in degree zero. Here `G,H : Type v`
+and both coefficient carriers are in `Type (max v w)`, as in the cohomology API.
+There is no surjectivity hypothesis on `φ`. The stock
+`coefficientFunctor_zero_preservesMonomorphisms` instance specializes this to the
+existing fixed-group `coefficientFunctor 0`; no all-degree claim is made.
+The [integer-doubling client](../ContinuousGroupCohomologyExamples/CoefficientMonicity.lean)
+uses all three APIs with the nonsurjective constant-one map of the two-element
+group, and retains the independent nonzero class and image calculations.
+
 The [coefficient-naturality theorem](../ContinuousGroupCohomology/ConnectingNaturality.lean)
 proves that, for two short exact coefficient sequences over the
 same locally compact `G`, with the preceding discreteness and joint-continuity

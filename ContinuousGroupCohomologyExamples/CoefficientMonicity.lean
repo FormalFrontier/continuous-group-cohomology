@@ -65,6 +65,23 @@ def restrictedDoubling : restrictedIntegers ⟶ restrictedIntegers :=
 theorem restrictedDoubling_injective : Function.Injective restrictedDoubling.hom :=
   CGCExamples.evenSequenceInclusion_injective
 
+/-- Restricted doubling is a monomorphism of coefficient representations. -/
+instance restrictedDoubling_mono : Mono restrictedDoubling :=
+  (TopRep.mono_iff_injective restrictedDoubling).2 restrictedDoubling_injective
+
+/-- The nonsurjective group map still gives a monomorphism in degree zero. -/
+theorem doubling_degreeZero_mono :
+    Mono (map (X := CGCExamples.evenSequenceIntegers)
+      collapseTwoGroup restrictedDoubling 0) :=
+  map_zero_mono collapseTwoGroup restrictedDoubling
+
+/-- The degree-zero coefficient functor preserves the nonidentity doubling
+monomorphism on the restricted representation. -/
+theorem restrictedDoubling_coefficientFunctor_zero_mono :
+    Mono ((coefficientFunctor (k := ℤ) (G := CGCExamples.TwoGroup) 0).map
+      restrictedDoubling) := by
+  infer_instance
+
 /-- The invariant integer `1` in the source coefficient representation. -/
 def invariantOne : CGCExamples.evenSequenceIntegers.ρ.invariants :=
   ⟨1, by intro g; exact ContRepresentation.trivial_apply g 1⟩
