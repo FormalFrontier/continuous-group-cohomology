@@ -5,6 +5,7 @@ Authors: Formal Frontier Agents
 module
 
 public import ContinuousGroupCohomology.ContinuousCohomologyFunctor
+public import ContinuousGroupCohomology.InitialInvariantsExactSequence
 public import Mathlib.Algebra.Group.PUnit
 public import Mathlib.RepresentationTheory.Homological.ContCohomology.LowDegree
 public import Mathlib.Topology.Instances.Int
@@ -97,18 +98,28 @@ theorem integerOneClass_twice_identity_value :
     ((ContinuousCohomology.zeroIso trivialIntegers).hom.hom
       (((ContinuousCohomology.coefficientFunctor (k := ℤ) (G := PUnit) 0).map
         (𝟙 trivialIntegers + 𝟙 trivialIntegers)).hom integerOneClass) : ℤ) = 2 := by
-  have htwice := trivialIntegers_map_twice_identity 0 integerOneClass
-  dsimp only [ContinuousCohomology.coefficientFunctor_obj,
-    ContinuousCohomology.coefficientFunctor_map] at htwice ⊢
-  rw [htwice]
-  let z := (ContinuousCohomology.zeroIso trivialIntegers).hom.hom
-  change (z (integerOneClass + integerOneClass) : ℤ) = 2
+  have hnat :=
+    (ContinuousCohomology.zeroNatIso.{0,0,0} (k := ℤ) (G := PUnit)).hom.naturality
+      (𝟙 trivialIntegers.{0} + 𝟙 trivialIntegers.{0})
+  simp only [ContinuousCohomology.zeroNatIso_hom_app] at hnat
+  have hval := congrArg
+    (fun f : continuousCohomology 0 trivialIntegers.{0} ⟶
+        (TopRep.invariantsFunctor ℤ PUnit).obj trivialIntegers.{0} =>
+      (f.hom integerOneClass : ℤ)) hnat
   calc
-    (z (integerOneClass + integerOneClass) : ℤ) =
-        (z integerOneClass : ℤ) + (z integerOneClass : ℤ) := by
-      rw [_root_.map_add, Submodule.coe_add]
-    _ = 1 + 1 := congrArg₂ (fun a b : ℤ => a + b)
-      zeroIso_integerOneClass_val zeroIso_integerOneClass_val
+    _ = ((𝟙 trivialIntegers.{0} + 𝟙 trivialIntegers.{0}).hom.mapInvariants
+        ((ContinuousCohomology.zeroIso trivialIntegers.{0}).hom.hom integerOneClass) : ℤ) :=
+      hval
+    _ = (𝟙 trivialIntegers.{0} + 𝟙 trivialIntegers.{0}).hom
+        ((ContinuousCohomology.zeroIso trivialIntegers.{0}).hom.hom integerOneClass : ℤ) :=
+      ContIntertwiningMap.mapInvariants_apply _ _
+    _ = 1 + 1 := by
+      change
+        ((ContinuousCohomology.zeroIso trivialIntegers.{0}).hom.hom integerOneClass : ℤ) +
+          ((ContinuousCohomology.zeroIso trivialIntegers.{0}).hom.hom integerOneClass : ℤ) =
+            1 + 1
+      exact congrArg₂ (fun a b : ℤ => a + b)
+        zeroIso_integerOneClass_val zeroIso_integerOneClass_val
     _ = 2 := rfl
 
 /-- The sum of two identity coefficient morphisms acts nontrivially on degree-zero cohomology. -/

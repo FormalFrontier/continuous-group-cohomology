@@ -228,6 +228,27 @@ theorem zeroIso_naturality (f : A ⟶ B) :
       map (ContinuousMonoidHom.id G) f 0 ≫ (zeroIso B).hom := by
   exact zeroIso_naturality_res (ContinuousMonoidHom.id G) f
 
+/-- Degree-zero continuous cohomology is naturally isomorphic to the functor
+of invariant coefficients. -/
+noncomputable def zeroNatIso :
+    coefficientFunctor.{u, v, w} (k := k) (G := G) 0 ≅
+      (TopRep.invariantsFunctor k G :
+        TopRep.{max v w} k G ⥤ TopModuleCat.{max v w} k) := by
+  refine NatIso.ofComponents (fun X => zeroIso X) ?_
+  intro X Y f
+  dsimp only [coefficientFunctor_obj, coefficientFunctor_map]
+  exact (zeroIso_naturality f).symm
+
+/-- The forward component of the natural degree-zero identification is `zeroIso`. -/
+@[simp] theorem zeroNatIso_hom_app (X : TopRep.{max v w} k G) :
+    (zeroNatIso (k := k) (G := G)).hom.app X = (zeroIso X).hom := by
+  rfl
+
+/-- The inverse component of the natural degree-zero identification is `zeroIso` inverse. -/
+@[simp] theorem zeroNatIso_inv_app (X : TopRep.{max v w} k G) :
+    (zeroNatIso (k := k) (G := G)).inv.app X = (zeroIso X).inv := by
+  rfl
+
 /-- The first seven objects and six maps of the algebraic long exact sequence:
 `0 → Aᴳ → Bᴳ → Cᴳ → H¹(G,A) → H¹(G,B) → H¹(G,C)`.
 The invariant maps come from Mathlib's functor, and the boundary is precisely

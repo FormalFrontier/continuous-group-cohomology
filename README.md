@@ -37,12 +37,16 @@ proves additivity and preservation of zero in the coefficient morphism in
 **every natural degree, including zero**. For a fixed acting group,
 `ContinuousCohomology.coefficientFunctor n` is an additive functor on topological
 representations, using the existing continuous-cohomology objects and maps.
-Neither commutativity nor continuity of the ring operations, compactness of the
-groups or discreteness of the coefficients is required.
+In degree zero, `ContinuousCohomology.zeroNatIso` naturally identifies this
+fixed-group functor with invariants; its forward and inverse components are
+the canonical `ContinuousCohomology.zeroIso` maps. The same ring with its supplied
+topology suffices: neither commutativity nor continuity of the ring operations,
+compactness of the groups nor discreteness of the coefficients is required.
 The [integer model](CGCExamples/CoefficientAdditivity.lean) uses the one-element
 group `PUnit` acting trivially on `ℤ`: the sum of two identity coefficient
-morphisms doubles every class in every degree. In degree zero it sends the
-class with invariant value `1` to a nonzero class with invariant value `2`.
+morphisms doubles every class in every degree. Its degree-zero calculation uses
+`zeroNatIso` naturality to send the class with invariant value `1` to a nonzero
+class with invariant value `2`.
 
 ### Positive coinduced cohomology after closed restriction
 

@@ -17,6 +17,7 @@ project:
     to coefficient-left tensors over a commutative semiring; for finite groups,
     the twisted action agrees with the diagonal left-regular tensor action.
     This algebraic result gives no continuous or topological-representation equivalence.
+    At each fixed acting group, the degree-zero coefficient functor is naturally isomorphic to invariants over a ring with its supplied topology.
   authors:
     - Formal Frontier Agents
   license: Apache-2.0
