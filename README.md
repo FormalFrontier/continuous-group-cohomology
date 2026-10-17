@@ -105,6 +105,19 @@ exhibit `B^N = 0` with nonzero `B`, a quotient function moved by the residual
 quotient action, and an invariant function whose value at the identity is
 moved by `N`.
 
+### Degreewise exactness under coefficient embeddings
+
+For any topological group `G` and `A B C : TopRep.{max v w} k G`,
+[`cochainsMap_exact_of_isEmbedding`](ContinuousGroupCohomology/CochainExactness.lean)
+proves that an exact underlying coefficient row `A → B → C` whose first map is a
+topological embedding induces an exact row of homogeneous invariant cochains in
+every natural degree. No local compactness, coefficient discreteness or extra
+joint-action continuity is required. The original `cochainsMap_exact` is the
+discrete-middle, injective-first-map corollary. This is underlying algebraic
+exactness, not topological strictness or an exactness assertion on cohomology.
+The separate cochain-surjectivity theorem still assumes locally compact `G`,
+a discrete target and jointly continuous source coefficients.
+
 ### Algebraic connecting maps, naturality and initial invariants
 
 The [algebraic connecting-map guide](docs/CohomologyExactSequence.md) describes

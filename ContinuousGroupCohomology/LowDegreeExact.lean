@@ -533,12 +533,12 @@ lemma connectingQuotient_natural
   rw [map_sub]
   abel
 
-section Native
+section Cohomology
 
 variable [LocallyCompactSpace G]
 
 /-- The connecting map from invariant quotient coefficients to mathlib's
-native first continuous cohomology object. Its application factors through
+first continuous cohomology object. Its application factors through
 the crossed-homomorphism quotient. -/
 @[expose]
 noncomputable def connectingMap [TopRep.JointlyContinuous A]
@@ -546,13 +546,15 @@ noncomputable def connectingMap [TopRep.JointlyContinuous A]
     TopModuleCat.of k C.ρ.invariants ⟶ continuousCohomology 1 A :=
   TopModuleCat.ofHom S.connectingQuotient ≫ (degreeOneIso A).hom
 
+omit [LocallyCompactSpace G] in
 @[simp]
 lemma connectingMap_apply [TopRep.JointlyContinuous A]
     [TopRep.JointlyContinuous B] (c : C.ρ.invariants) :
     S.connectingMap.hom c = (degreeOneIso A).hom.hom (S.connectingQuotient c) :=
   rfl
 
-/-- The native connecting map is natural for morphisms of topologically split
+omit [LocallyCompactSpace G] in
+/-- The connecting map is natural for morphisms of topologically split
 short exact sequences. -/
 lemma connectingMap_natural
     {A' B' C' : TopRep.{max v w} k G}
@@ -576,8 +578,9 @@ lemma connectingMap_natural
   exact ConcreteCategory.congr_hom (degreeOneIso_natural F.a)
     (S.connectingQuotient c)
 
+omit [LocallyCompactSpace G] in
 /-- Exactness at the quotient-invariant term, with the connecting map valued
-in mathlib's native first continuous cohomology object. -/
+in mathlib's first continuous cohomology object. -/
 lemma exact_invariantsProjection_connectingMap
     [TopRep.JointlyContinuous A] [TopRep.JointlyContinuous B] :
     Function.Exact S.invariantsProjection S.connectingMap.hom := by
@@ -595,7 +598,8 @@ lemma exact_invariantsProjection_connectingMap
     rfl
   · exact S.exact_invariantsProjection_connectingQuotient
 
-/-- Exactness at the first native continuous-cohomology term. -/
+omit [LocallyCompactSpace G] in
+/-- Exactness at the first continuous-cohomology term. -/
 lemma exact_connectingMap_map_i
     [TopRep.JointlyContinuous A] [TopRep.JointlyContinuous B] :
     Function.Exact S.connectingMap.hom
@@ -615,7 +619,8 @@ lemma exact_connectingMap_map_i
       ((principalCocycles A).mkQ z)
   · exact S.exact_connectingQuotient_crossedQuotientMap_i
 
-/-- Exactness at the second native continuous-cohomology term. -/
+omit [LocallyCompactSpace G] in
+/-- Exactness at the second continuous-cohomology term. -/
 lemma exact_map_i_map_p
     [TopRep.JointlyContinuous A] [TopRep.JointlyContinuous B]
     [TopRep.JointlyContinuous C] :
@@ -637,7 +642,7 @@ lemma exact_map_i_map_p
       ((principalCocycles B).mkQ z)
   · exact S.exact_crossedQuotientMap_i_crossedQuotientMap_p
 
-end Native
+end Cohomology
 
 end Connecting
 

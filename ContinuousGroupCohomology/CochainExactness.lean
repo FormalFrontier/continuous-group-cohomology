@@ -7,17 +7,18 @@ module
 public import ContinuousGroupCohomology.CochainInjectivity
 public import ContinuousGroupCohomology.CoinducedAcyclic
 public import ContinuousGroupCohomology.DegreeOne
+public import ContinuousGroupCohomology.Topology.ContinuousMap.Exact
 public import Mathlib.Topology.Algebra.Group.Pointwise
 
 /-!
-# Exactness of continuous homogeneous cochains with discrete coefficients
+# Exactness of continuous homogeneous cochains under coefficient embeddings
 
 The maps are the existing `ContinuousCohomology.cochainsMap` for the identity group map.
 The coefficient sequence is exact on underlying modules; no splitting, projectivity or
 cohomological vanishing is part of the contract. Injectivity needs only injectivity of
-the coefficient map. Exactness in the middle needs a discrete middle coefficient
-space (the injective left-hand coefficient is then discrete as well). Surjectivity
-uses a locally compact acting group, a discrete target and
+the coefficient map. Exactness in the middle holds when the first coefficient
+map is a topological embedding; the discrete-middle, injective case is a
+corollary. Surjectivity uses a locally compact acting group, a discrete target and
 joint continuity of the action on the middle coefficient space. In particular the
 joint continuity of the action does not follow merely from membership in `TopRep`.
 
@@ -29,7 +30,8 @@ cohomology: none of those generally preserve surjections.
 * Neukirch, Schmidt and Wingberg, *Cohomology of Number Fields*, Chapter I, §3
   (cochain exactness preceding Theorem 1.3.2).
 * Mathlib's `ContRepresentation.coind₁`, `TopRep.homogeneousCochains`,
-  `ContinuousCohomology.cochainsMap` and the compact-open mapping-space API.
+  `ContinuousCohomology.cochainsMap` and the compact-open mapping-space API,
+  especially `ContinuousMap.isEmbedding_postcomp`.
 * Formal Frontier's `ContinuousCohomology.cochainsMap_injective`,
   `TopRep.resolutionEval_map` and `ContinuousCohomology.cochainsZeroEquiv`.
 -/
@@ -87,25 +89,25 @@ private def resolutionLift (X Y : TopRep.{max v w} k G) (lift : C(X, Y)) :
   | n + 1 => ⟨fun f => (resolutionLift X Y lift n).comp f,
       ContinuousMap.continuous_postcomp (resolutionLift X Y lift n)⟩
 
-private theorem resolutionLift_left_inverse
-    (i : A ⟶ B) (p : B ⟶ C) (lift : C(B, A))
-    (hlift : ∀ b, p.hom b = 0 → i.hom (lift b) = b) :
-    ∀ (n : ℕ) (b : resolutionX B n),
-      (resolutionMap (ContinuousMonoidHom.id G) p n).hom b = 0 →
-        (resolutionMap (ContinuousMonoidHom.id G) i n).hom
-          (resolutionLift B A lift n b) = b := by
-  intro n
+private theorem resolutionMap_id_exact_of_isEmbedding (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Topology.IsEmbedding i.hom) (hexact : Function.Exact i.hom p.hom)
+    (n : ℕ) :
+    Function.Exact (resolutionMap (ContinuousMonoidHom.id G) i n).hom
+      (resolutionMap (ContinuousMonoidHom.id G) p n).hom := by
   induction n with
-  | zero =>
-    intro b hb
-    exact hlift b hb
+  | zero => exact hexact
   | succ n ih =>
-    intro b hb
-    ext g
-    apply ih
-    have h := congrArg (fun f : resolutionX C (n + 1) => f g) hb
-    change (resolutionMap (ContinuousMonoidHom.id G) p n).hom (b g) = 0 at h
-    exact h
+    change Function.Exact
+      (ContinuousMap.comp
+        ((resolutionMap (ContinuousMonoidHom.id G) i n).hom :
+          C(resolutionX A n, resolutionX B n)) :
+        C(G, resolutionX A n) → C(G, resolutionX B n))
+      (ContinuousMap.comp
+        ((resolutionMap (ContinuousMonoidHom.id G) p n).hom :
+          C(resolutionX B n, resolutionX C n)) :
+        C(G, resolutionX B n) → C(G, resolutionX C n))
+    exact ContinuousMap.postcomp_exact_of_isInducing _ _
+      (resolutionMap_id_isInducing i hi.isInducing n) ih
 
 private theorem resolutionLift_right_inverse
     (p : B ⟶ C) (lift : C(C, B))
@@ -149,6 +151,36 @@ theorem cochainsMap_comp_zero (i : A ⟶ B) (p : B ⟶ C)
   rw [resolutionEval_zero_term]
   exact (hexact _).mpr ⟨_, rfl⟩
 
+/-- A coefficient embedding and an exact coefficient row induce an exact row
+in every degree of homogeneous cochains. No group compactness, coefficient
+discreteness or joint-action continuity is required. Recursive postcomposition
+provides continuous kernel lifts; injectivity forces their invariance.
+This extends the discrete-coefficient cochain exactness discussed in
+Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter I, §3. -/
+theorem cochainsMap_exact_of_isEmbedding
+    (i : A ⟶ B) (p : B ⟶ C)
+    (hi : Topology.IsEmbedding i.hom) (hexact : Function.Exact i.hom p.hom)
+    (n : ℕ) :
+    Function.Exact ((cochainsMap (ContinuousMonoidHom.id G) i).f n)
+      ((cochainsMap (ContinuousMonoidHom.id G) p).f n) := by
+  intro σ
+  constructor
+  · intro hz
+    have hzval : (resolutionMap (ContinuousMonoidHom.id G) p (n + 1)).hom σ.1 = 0 :=
+      congrArg Subtype.val hz
+    obtain ⟨a, ha⟩ :=
+      (resolutionMap_id_exact_of_isEmbedding i p hi hexact (n + 1) σ.1).mp hzval
+    have hainv : ∀ g : G, (resolutionX A (n + 1)).ρ g a = a := by
+      intro g
+      apply resolutionMap_injective (ContinuousMonoidHom.id G) i (fun t => ⟨t, rfl⟩)
+        hi.injective (n + 1)
+      rw [resolutionMap_id_apply_action i (n + 1) g a, ha, σ.2 g]
+    refine ⟨⟨a, hainv⟩, ?_⟩
+    exact Subtype.ext ha
+  · rintro ⟨τ, rfl⟩
+    have hzero := congrArg (fun f => f τ) (cochainsMap_comp_zero i p hexact n)
+    simpa only [CategoryTheory.comp_apply, TopModuleCat.hom_zero_apply] using hzero
+
 /-- Exactness in the middle at every cochain degree for discrete middle
 coefficients. No group compactness or joint-action continuity is required.
 Compare Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Chapter I, §3. -/
@@ -159,30 +191,15 @@ theorem cochainsMap_exact [DiscreteTopology B]
     Function.Exact ((cochainsMap (ContinuousMonoidHom.id G) i).f n)
       ((cochainsMap (ContinuousMonoidHom.id G) p).f n) := by
   classical
-  let lift : C(B, A) := ⟨fun b =>
-    if hb : p.hom b = 0 then Classical.choose ((hexact b).mp hb) else 0,
-    continuous_of_discreteTopology⟩
-  have hlift (b : B) (hb : p.hom b = 0) : i.hom (lift b) = b := by
-    simpa only [lift, ContinuousMap.coe_mk, dite_eq_left hb] using
-      Classical.choose_spec ((hexact b).mp hb)
-  intro σ
-  constructor
-  · intro hz
-    have hzval : (resolutionMap (ContinuousMonoidHom.id G) p (n + 1)).hom σ.1 = 0 :=
-      congrArg Subtype.val hz
-    let a : resolutionX A (n + 1) := resolutionLift B A lift (n + 1) σ.1
-    have ha : (resolutionMap (ContinuousMonoidHom.id G) i (n + 1)).hom a = σ.1 :=
-      resolutionLift_left_inverse i p lift hlift (n + 1) σ.1 hzval
-    have hainv : ∀ g : G, (resolutionX A (n + 1)).ρ g a = a := by
-      intro g
-      apply resolutionMap_injective (ContinuousMonoidHom.id G) i (fun t => ⟨t, rfl⟩)
-        hi (n + 1)
-      rw [resolutionMap_id_apply_action i (n + 1) g a, ha, σ.2 g]
-    refine ⟨⟨a, hainv⟩, ?_⟩
-    exact Subtype.ext ha
-  · rintro ⟨τ, rfl⟩
-    have hzero := congrArg (fun f => f τ) (cochainsMap_comp_zero i p hexact n)
-    simpa only [CategoryTheory.comp_apply, TopModuleCat.hom_zero_apply] using hzero
+  let retract : B → A := fun b =>
+    if hb : ∃ a, i.hom a = b then Classical.choose hb else 0
+  have hretract : Function.LeftInverse retract i.hom := by
+    intro a
+    have ha : ∃ a', i.hom a' = i.hom a := ⟨a, rfl⟩
+    apply hi
+    simpa only [retract, dif_pos ha] using Classical.choose_spec ha
+  exact cochainsMap_exact_of_isEmbedding i p
+    (hretract.isEmbedding continuous_of_discreteTopology i.hom.continuous) hexact n
 
 /-- A surjection onto discrete coefficients induces a surjection on every
 homogeneous cochain degree for locally compact groups. The middle action must be jointly

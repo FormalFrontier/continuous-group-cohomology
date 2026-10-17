@@ -11,13 +11,16 @@ public import Mathlib.Algebra.Exact.Basic
 /-!
 # Exactness of coefficient postcomposition on continuous maps
 
-For an arbitrary topological domain, the middle exactness of coefficient
-postcomposition only needs a discrete middle coefficient space; surjectivity
+For an arbitrary topological domain, coefficient postcomposition preserves
+middle exactness if the first coefficient map induces the topology on its
+source, or if the middle coefficient space is discrete. The latter criterion
+does not require injectivity or a topology-inducing first map. Surjectivity
 only needs a discrete target coefficient space.
 
 ## References
 
-* Mathlib's compact-open postcomposition and `postcomp_injective`.
+* Mathlib's compact-open postcomposition, `isInducing_postcomp` and
+  `postcomp_injective`, and the topology-inducing continuity criterion.
 -/
 
 public section
@@ -29,6 +32,35 @@ universe u v w z
 variable {X : Type u} {A : Type v} {B : Type w} {D : Type z}
   [TopologicalSpace X] [TopologicalSpace A] [TopologicalSpace B]
   [TopologicalSpace D]
+
+/-- Postcomposition preserves middle exactness when the first coefficient map
+induces the topology on its source. Pointwise kernel lifts are continuous by
+the inducing property; they need not be linear, equivariant or unique. -/
+theorem postcomp_exact_of_isInducing [Zero D]
+    (i : C(A, B)) (p : C(B, D)) (hi : Topology.IsInducing i)
+    (h : Function.Exact i p) :
+    Function.Exact (ContinuousMap.comp i : C(X, A) → C(X, B))
+      (ContinuousMap.comp p : C(X, B) → C(X, D)) := by
+  classical
+  intro F
+  constructor
+  · intro hF
+    have hFx (x : X) : p (F x) = 0 := by
+      have hx := congrArg (fun f : C(X, D) => f x) hF
+      simpa using hx
+    let lift : X → A := fun x => Classical.choose ((h (F x)).mp (hFx x))
+    have hlift (x : X) : i (lift x) = F x :=
+      Classical.choose_spec ((h (F x)).mp (hFx x))
+    have hcontinuous : Continuous lift := hi.continuous_iff.mpr (by
+      have heq : (i ∘ lift) = F := funext hlift
+      rw [heq]
+      exact F.continuous)
+    refine ⟨⟨lift, hcontinuous⟩, ?_⟩
+    ext x
+    exact hlift x
+  · rintro ⟨lift, rfl⟩
+    ext x
+    exact (h (i (lift x))).mpr ⟨lift x, rfl⟩
 
 /-- Postcomposition preserves middle exactness if the middle coefficient space
 is discrete. No injectivity or discreteness of the source is required. -/

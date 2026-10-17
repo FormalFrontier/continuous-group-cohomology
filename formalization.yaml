@@ -101,8 +101,16 @@ status:
     ContinuousCohomology aliases. The examples include a nonzero displayed
     inclusion, a nonsplit boundary and independent coefficient-level
     obstruction witnesses. For an arbitrary topological domain, continuous-map
-    postcomposition preserves exactness of coefficient maps when the middle
-    space is discrete, and surjectivity when the target space is discrete.
+    postcomposition preserves exactness of coefficient maps when the first
+    map induces the source topology or when the middle space is discrete,
+    and surjectivity when the target space is discrete. An exact coefficient
+    row with a topological embedding as its first map induces an exact row
+    of homogeneous invariant cochains in every natural degree, for any
+    topological group, without coefficient discreteness or extra joint-action
+    continuity. The discrete-middle injective case remains a corollary. This
+    is underlying algebraic exactness, not topological strictness or exactness
+    on cohomology; cochain surjectivity retains its locally compact group,
+    discrete target and jointly continuous source hypotheses.
     Over any topological group, coinduction takes an injective, exact and
     surjective coefficient row with discrete middle and target to injective,
     exact and surjective underlying maps, not categorical TopRep exactness.
@@ -502,6 +510,10 @@ status:
       file: ContinuousGroupCohomology/CompactDiscreteTorsion.lean
     - declaration: ContinuousCohomology.compactDiscrete_isAddTorsion
       file: ContinuousGroupCohomology/CompactDiscreteTorsion.lean
+    - declaration: ContinuousCohomology.cochainsMap_exact_of_isEmbedding
+      file: ContinuousGroupCohomology/CochainExactness.lean
+    - declaration: ContinuousMap.postcomp_exact_of_isInducing
+      file: ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean
     - declaration: ContinuousMap.postcomp_exact
       file: ContinuousGroupCohomology/Topology/ContinuousMap/Exact.lean
     - declaration: ContinuousMap.postcomp_surjective
