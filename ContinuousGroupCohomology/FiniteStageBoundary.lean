@@ -138,7 +138,6 @@ theorem class_eq_zero_of_inflation_zero_degree_zero (M : OpenNormalSubgroup G)
   rw [hzM, map_zero]
 
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
-    [TopRep.JointlyContinuous X]
 
 /-- A class which becomes zero on the full compact group is already zero at a
 possibly finer open-normal quotient stage. The refinement depends on the class. -/

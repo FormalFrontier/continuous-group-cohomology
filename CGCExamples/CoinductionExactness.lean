@@ -25,6 +25,9 @@ the middle kernel without using coinduction exactness.
 * Mathlib's continuous coinduction and the integer-unit sign action.
 -/
 
+-- This private signed-row verification does not add a public coinduction API.
+set_option linter.privateModule false
+
 @[expose] public section
 
 open CategoryTheory TopRep ContRepresentation

@@ -61,7 +61,6 @@ namespace IncubatorTest.RepresentationTheory.ContinuousCohomology.CompactDiscret
 variable {k : Type u} [Ring k] [TopologicalSpace k]
 variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
-  [TopRep.JointlyContinuous X]
 
 private theorem arbitrary_degree_difference (n : ℕ) (a b : continuousCohomology n X) :
     ∃ (N : OpenNormalSubgroup G)

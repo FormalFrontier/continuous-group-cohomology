@@ -117,7 +117,9 @@ theorem quotientTransitionIncl_inflate {N M : OpenNormalSubgroup G} (hNM : N ≤
   ext x
   rfl
 
-private theorem cochainsMap_congr {H : Type v} [Group H] [TopologicalSpace H]
+/-- Cochain maps agree when their group homomorphisms agree and their
+coefficient morphisms agree on underlying values. -/
+theorem cochainsMap_congr {H : Type v} [Group H] [TopologicalSpace H]
     [IsTopologicalGroup H] {A : TopRep.{max v w} k G} {B : TopRep.{max v w} k H}
     {φ ψ : H →ₜ* G} (f : TopRep.res φ A ⟶ B) (g : TopRep.res ψ A ⟶ B)
     (hφ : φ = ψ) (hfg : ∀ x : A, f.hom x = g.hom x) :

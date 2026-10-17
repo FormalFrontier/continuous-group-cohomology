@@ -8,7 +8,7 @@ mathematical inventory, examples and limitations.
 
 ## Headline results
 
-These cohomological results are proved here for representations over a ring
+These results are proved here for representations over a ring
 `k` equipped with a topology. The group, discreteness and action-continuity
 hypotheses are specified separately below; foundations come from Mathlib.
 
@@ -17,16 +17,30 @@ hypotheses are specified separately below; foundations come from Mathlib.
 See [`CompactDiscreteTorsion`](ContinuousGroupCohomology/CompactDiscreteTorsion.lean)
 and [`FiniteStageColimit`](ContinuousGroupCohomology/FiniteStageColimit.lean) for these APIs.
 
-For a compact topological group `G` and discrete jointly continuous
-`X : TopRep k G` with `[Ring k] [TopologicalSpace k]`, every native continuous
-cohomology class lifts from an open-normal finite quotient with its actual
+For a compact topological group `G` and discrete `X : TopRep k G` over a
+ring with a supplied topology, the homogeneous cochain complex is the colimit
+of its open-normal finite-quotient cochain complexes, with coefficients in
+`X^U` at a stage `U`. This is a colimit in complexes of topological modules
+and separately in every degree. Joint continuity of the action is not needed.
+The [quotient-stage diagram](ContinuousGroupCohomology/OpenNormalDiagram.lean)
+and inflation cocone also have coefficient naturality without compactness or
+discreteness assumptions. The [integer sign example](examples/FiniteStageColimitNative.lean)
+uses a nonconstant cochain and checks the descendant equation, uniqueness of
+its lift at a chosen stage, and compatibility with every refinement.
+
+Separately, for a compact topological group `G` and discrete
+`X : TopRep k G` with `[Ring k] [TopologicalSpace k]`, every continuous
+cohomology class lifts from an open-normal finite quotient with its
 quotient-invariant coefficients. In positive degrees a class-dependent quotient
 order annihilates the class; this gives additive torsion, not a uniform bound.
-The native open-normal inflation cocone is a filtered colimit in topological
-modules in **every degree, including zero**, with arbitrary topological-module
-targets. It uses the actual cohomology topology, genuine algebraic boundaries
-and class-dependent eventual refinements, not fixed-stage positive-degree
-injectivity, a uniform refinement or a closed-boundary-range assumption.
+Joint continuity of the action is not needed for these class-lift and torsion
+statements, nor for the cohomology colimit. The open-normal cohomology inflation
+cocone is a filtered colimit in topological modules in **every degree, including
+zero**, with arbitrary topological-module targets.
+It uses the cohomology topology, algebraic boundaries and class-dependent
+eventual refinements, not fixed-stage positive-degree injectivity, a uniform
+refinement or a closed-boundary-range assumption. The concrete sign-orbit
+cochain construction still uses joint continuity.
 
 ### Additivity in coefficient maps in every degree
 

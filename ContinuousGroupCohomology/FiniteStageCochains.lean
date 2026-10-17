@@ -12,10 +12,11 @@ set_option warningAsError true
 /-!
 # Finite stages for homogeneous continuous cochains
 
-Every native homogeneous cochain with discrete, jointly continuous coefficients over a
-compact group comes from a cochain on one open-normal quotient with its genuine
-quotient-invariant coefficients. If its differential vanishes, the same lift has
-vanishing differential. These results do not assert descent of cohomology classes.
+Every homogeneous cochain with discrete coefficients over a compact group comes
+from a cochain on one open-normal quotient with its genuine quotient-invariant
+coefficients. Joint continuity of the action is not required. If its differential
+vanishes, the same lift has vanishing differential. These results do not assert
+descent of cohomology classes.
 -/
 
 @[expose] public section
@@ -33,13 +34,14 @@ variable (X : TopRep.{max v w} k G)
 /-- An invariant homogeneous cochain descends from the invariant coefficients of
 one open-normal quotient. Degree `n` cochains use resolution level `n + 1`. -/
 theorem exists_openNormal_quotient_cochain_lift [CompactSpace G] [DiscreteTopology X]
-    [TopRep.JointlyContinuous X] (n : ℕ) (σ : (TopRep.homogeneousCochains X).X n) :
+    (n : ℕ) (σ : (TopRep.homogeneousCochains X).X n) :
     ∃ (N : OpenNormalSubgroup G)
       (τ : (TopRep.homogeneousCochains
         (TopRep.quotientInvariants N.toSubgroup X)).X n),
         ((cochainsMap (openNormalQuotientHom N)
           (TopRep.quotientInvariantsIncl N.toSubgroup X)).f n) τ = σ := by
-  obtain ⟨N, b, hb⟩ := exists_openNormal_resolution_lift X (n + 1) σ.1
+  obtain ⟨N, hN⟩ := exists_openNormal_stage_descends_of_invariant X (n + 1) σ.1 σ.2
+  obtain ⟨b, hb⟩ := (stageDescends_iff_exists_lift X N (n + 1) σ.1).mp hN
   have hsurj : Function.Surjective (openNormalQuotientHom N) :=
     QuotientGroup.mk'_surjective N.toSubgroup
   have hincl : Function.Injective
@@ -68,10 +70,10 @@ theorem exists_openNormal_quotient_cochain_lift [CompactSpace G] [DiscreteTopolo
         exact σ.2 g
   exact ⟨N, ⟨b, hbinv⟩, Subtype.ext hb⟩
 
-/-- A closed native homogeneous cochain admits a closed lift at the same open-normal
+/-- A closed homogeneous cochain admits a closed lift at the same open-normal
 quotient stage. The vanishing differential lies in degree `n + 1`. -/
 theorem exists_openNormal_quotient_closed_cochain_lift [CompactSpace G]
-    [DiscreteTopology X] [TopRep.JointlyContinuous X] (n : ℕ)
+    [DiscreteTopology X] (n : ℕ)
     (σ : (TopRep.homogeneousCochains X).X n)
     (hσ : (TopRep.homogeneousCochains X).d n (n + 1) σ = 0) :
     ∃ (N : OpenNormalSubgroup G)

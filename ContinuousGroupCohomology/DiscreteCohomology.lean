@@ -28,7 +28,9 @@ variable {k : Type u} [Ring k] [TopologicalSpace k]
 variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
 
-private theorem discreteTopology_homogeneousCochains (n : ℕ) :
+/-- Every degree of homogeneous cochains of a compact topological group with
+discrete coefficients has the discrete topology. -/
+theorem discreteTopology_homogeneousCochains (n : ℕ) :
     DiscreteTopology ((TopRep.homogeneousCochains X).X n) := by
   have : DiscreteTopology (TopRep.resolutionX X (n + 1)) :=
     discreteTopology_resolutionX X (n + 1)

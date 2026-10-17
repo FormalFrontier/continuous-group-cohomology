@@ -12,11 +12,14 @@ set_option warningAsError true
 /-!
 # Finite-stage classes and positive-degree torsion
 
-Every native continuous-cohomology class of a compact topological group with a
-discrete, jointly continuous representation descends from an open-normal quotient
-with its genuine invariant coefficient representation. In positive degree, each
-class is annihilated by the order of one such finite quotient. The quotient and
-its order may depend on the class.
+Every continuous-cohomology class of a compact topological group with a
+discrete representation descends from an open-normal quotient with its genuine
+invariant coefficient representation. In positive degree, each class is
+annihilated by the order of one such finite quotient. The quotient and its order
+may depend on the class. These class-lift and torsion statements require
+compactness of the group and discreteness of the coefficients, but not joint
+continuity of the action, extending the usual jointly continuous coefficient
+setting.
 -/
 
 @[expose] public section
@@ -32,7 +35,8 @@ variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
   [TopRep.JointlyContinuous X]
 
-/-- Every native cohomology class comes from the actual quotient-invariant
+omit [TopRep.JointlyContinuous X] in
+/-- Every continuous-cohomology class comes from the quotient-invariant
 representation at some open-normal stage. The group quotient map goes from `G`
 to `G ⧸ N`, while its cohomology map goes from the quotient back to `G`. -/
 theorem exists_openNormal_quotient_class_lift (n : ℕ) (a : continuousCohomology n X) :
@@ -92,6 +96,7 @@ theorem exists_openNormal_quotient_class_lift (n : ℕ) (a : continuousCohomolog
       (TopRep.quotientInvariantsIncl N.toSubgroup X) n)
   simpa only [ConcreteCategory.comp_apply, hz] using h
 
+omit [TopRep.JointlyContinuous X] in
 /-- Every positive-degree class is killed by the order of a class-dependent
 finite open-normal quotient, with arbitrary ring and discrete coefficients. -/
 theorem exists_openNormal_quotient_card_nsmul_eq_zero (n : ℕ)
@@ -104,8 +109,11 @@ theorem exists_openNormal_quotient_card_nsmul_eq_zero (n : ℕ)
   rw [← hb, ← map_nsmul, finiteGroup_card_nsmul
     (TopRep.quotientInvariants N.toSubgroup X) n b, map_zero]
 
-/-- Positive-degree continuous cohomology with discrete jointly continuous
-coefficients over a compact group is additively torsion. -/
+omit [TopRep.JointlyContinuous X] in
+/-- Positive-degree continuous cohomology with discrete coefficients over a
+compact group is additively torsion. Unlike the usual jointly continuous
+coefficient setting, this statement does not assume joint continuity of the
+action. -/
 theorem compactDiscrete_isAddTorsion (n : ℕ) :
     IsAddTorsion (continuousCohomology (n + 1) X) := by
   intro a

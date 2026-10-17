@@ -11,9 +11,10 @@ set_option warningAsError true
 /-!
 # Seeded finite-stage lifts of homogeneous cochains
 
-A homogeneous cochain over a compact group with discrete, jointly continuous
-coefficients descends to a quotient by an open normal subgroup contained in any
-prescribed open normal subgroup. The subgroup may depend on the cochain and its degree.
+A homogeneous cochain over a compact group with discrete coefficients descends to
+a quotient by an open normal subgroup contained in any prescribed open normal
+subgroup, without joint continuity of the action. The subgroup may depend on the
+cochain and its degree.
 
 The reflection of invariance through the resolution map adapts
 `ContinuousGroupCohomology/FiniteStageCochains.lean` at the official
@@ -33,17 +34,17 @@ variable {k : Type u} [Ring k] [TopologicalSpace k]
 variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 variable (X : TopRep.{max v w} k G)
 
-/-- A native homogeneous cochain lifts from an open-normal quotient refining the
+/-- A homogeneous cochain lifts from an open-normal quotient refining the
 prescribed subgroup, with the genuine quotient-invariant coefficients. -/
 theorem exists_quotient_cochain_lift_below [CompactSpace G] [DiscreteTopology X]
-    [TopRep.JointlyContinuous X] (M : OpenNormalSubgroup G) (n : ℕ)
+    (M : OpenNormalSubgroup G) (n : ℕ)
     (σ : (TopRep.homogeneousCochains X).X n) :
     ∃ (N : OpenNormalSubgroup G), N ≤ M ∧
       ∃ (τ : (TopRep.homogeneousCochains
         (TopRep.quotientInvariants N.toSubgroup X)).X n),
         ((cochainsMap (openNormalQuotientHom N)
           (TopRep.quotientInvariantsIncl N.toSubgroup X)).f n) τ = σ := by
-  obtain ⟨P, hP⟩ := exists_openNormal_stage_descends X (n + 1) σ.1
+  obtain ⟨P, hP⟩ := exists_openNormal_stage_descends_of_invariant X (n + 1) σ.1 σ.2
   let N := M ⊓ P
   have hN : N ≤ M := inf_le_left
   have hdesc : StageDescends X N (n + 1) σ.1 :=

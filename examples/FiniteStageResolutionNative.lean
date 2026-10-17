@@ -228,7 +228,6 @@ end DegreeZero
 section DegreeTwo
 
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
-    [TopRep.JointlyContinuous X]
 
 private theorem degree_two_eventual_equality (M : OpenNormalSubgroup G)
     (a b : continuousCohomology 2 (TopRep.quotientInvariants M.toSubgroup X))
@@ -262,8 +261,7 @@ section FiniteStageColimit
 variable {k : Type u} [Ring k] [TopologicalSpace k]
 variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 
-variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
-  [TopRep.JointlyContinuous X] (n : ℕ)
+variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X] (n : ℕ)
 
 private noncomputable def descendant
     (s : Cocone (ContinuousCohomology.openNormalCohomologyDiagram X n)) :
@@ -487,7 +485,7 @@ variable (X : TopRep.{max v w} k G)
 
 section CompactCoefficients
 
-variable [CompactSpace G] [DiscreteTopology X] [TopRep.JointlyContinuous X]
+variable [CompactSpace G] [DiscreteTopology X]
 
 private theorem degree_zero (σ : (TopRep.homogeneousCochains X).X 0) :
     ∃ (N : OpenNormalSubgroup G)
@@ -591,7 +589,6 @@ open CategoryTheory TopRep
 variable {k : Type u} [Ring k] [TopologicalSpace k]
 variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 variable (X : TopRep.{max v w} k G) [CompactSpace G] [DiscreteTopology X]
-    [TopRep.JointlyContinuous X]
 
 /-- Refine any stage while preserving the exact native inflation equation. -/
 private theorem cochain_descends_below (M : OpenNormalSubgroup G) (n : ℕ)

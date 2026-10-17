@@ -21,6 +21,9 @@ These finite-stage laws do not construct inverse limits, prove topological
 exactness, or compute Tate groups.
 -/
 
+-- These private clients check finite-deflation laws, not a re-exported API.
+set_option linter.privateModule false
+
 open CategoryTheory CategoryTheory.Limits ContinuousGroupCohomology
 
 universe u

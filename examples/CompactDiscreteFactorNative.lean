@@ -14,6 +14,9 @@ The examples use only production imports and do not introduce a Hausdorff,
 profinite or algebraic codomain hypothesis into the general statements.
 -/
 
+-- These private clients check compact/discrete factorization and boundary cases.
+set_option linter.privateModule false
+
 universe u v
 
 private theorem generic_compact_map_space_client

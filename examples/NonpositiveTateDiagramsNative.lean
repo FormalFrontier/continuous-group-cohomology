@@ -17,6 +17,9 @@ canonical module topologies, with no claim that stages are discrete or that
 these limits compute a separately defined continuous Tate cohomology.
 -/
 
+-- These private clients check diagram and limit laws without exporting new API.
+set_option linter.privateModule false
+
 open CategoryTheory CategoryTheory.Limits ContinuousGroupCohomology
 
 universe u
