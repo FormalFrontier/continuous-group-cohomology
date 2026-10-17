@@ -12,12 +12,13 @@ public import ContinuousGroupCohomology.TopRepUlift
 /-!
 # Continuous cohomology in degree one
 
-This file packages continuous crossed homomorphisms and principal cocycles for
-a topological representation whose represented action is jointly continuous.
-It also gives the functorial continuous maps on crossed homomorphisms and their
-quotients induced by coefficient morphisms.
-The comparison `degreeOneIso` requires joint continuity of the action and
-local compactness of the group.
+This file identifies homogeneous degree-one cocycles with continuous crossed
+homomorphisms for a topological representation, without joint continuity of
+the represented action or local compactness of the group. Reconstruction uses
+the stock resolution differential, whose value is a difference of evaluations.
+It also packages principal cocycles and the functorial continuous maps induced
+by coefficient morphisms. The principal map and the comparison `degreeOneIso`
+require joint continuity of the action, but not local compactness.
 -/
 
 set_option autoImplicit false
@@ -238,17 +239,28 @@ theorem cochainsZeroEquiv_symm_apply [TopRep.JointlyContinuous X]
     ((cochainsZeroEquiv X).symm x).1 g = X.ρ g x := rfl
 
 /-- The homogeneous degree-one cochain associated to a continuous crossed
-homomorphism. -/
-def homogeneousOne [TopRep.JointlyContinuous X] (f : continuousCrossedHom X) :
-    C(G, C(G, X)) where
+homomorphism. Its action formula equals `f h - f g`, so the stock resolution
+differential supplies continuity without joint continuity of the action. -/
+def homogeneousOne (f : continuousCrossedHom X) : C(G, C(G, X)) where
   toFun g := ⟨fun h => X.ρ g (f.1 (g⁻¹ * h)),
     (X.ρ g).continuous.comp (f.1.continuous.comp (continuous_const.inv.mul continuous_id))⟩
-  continuous_toFun := ContinuousMap.continuous_of_continuous_uncurry _ <|
-    (TopRep.JointlyContinuous.continuous_action (X := X)).comp <|
-      continuous_fst.prodMk <| f.1.continuous.comp (continuous_fst.inv.mul continuous_snd)
+  continuous_toFun := by
+    refine ((TopRep.d X 1).hom.toContinuousLinearMap f.1).continuous.congr ?_
+    intro g
+    ext h
+    change f.1 h - f.1 g = X.ρ g (f.1 (g⁻¹ * h))
+    symm
+    apply eq_sub_iff_add_eq.mpr
+    simpa using (f.2 g (g⁻¹ * h)).symm
 
-lemma homogeneousOne_mem_invariants [TopRep.JointlyContinuous X]
-    (f : continuousCrossedHom X) :
+/-- Reconstruction of a crossed homomorphism is the stock difference formula. -/
+lemma homogeneousOne_apply_eq_sub (f : continuousCrossedHom X) (g h : G) :
+    homogeneousOne X f g h = f.1 h - f.1 g := by
+  change X.ρ g (f.1 (g⁻¹ * h)) = f.1 h - f.1 g
+  apply eq_sub_iff_add_eq.mpr
+  simpa using (f.2 g (g⁻¹ * h)).symm
+
+lemma homogeneousOne_mem_invariants (f : continuousCrossedHom X) :
     homogeneousOne X f ∈ ((TopRep.resolution' X).X 1).ρ.invariants := by
   intro a
   apply ContinuousMap.ext
@@ -265,8 +277,7 @@ lemma homogeneousOne_mem_invariants [TopRep.JointlyContinuous X]
       rw [← map_mul X.ρ]
     _ = _ := by simp
 
-lemma homogeneousOne_mem_ker [TopRep.JointlyContinuous X]
-    (f : continuousCrossedHom X) :
+lemma homogeneousOne_mem_ker (f : continuousCrossedHom X) :
     ⟨homogeneousOne X f, homogeneousOne_mem_invariants X f⟩ ∈
       ((TopRep.homogeneousCochains X).d 1 2).hom.ker := by
   rw [LinearMap.mem_ker, Subtype.ext_iff, ContinuousLinearMap.coe_coe,
@@ -318,7 +329,7 @@ def oneKerToCrossed :
 
 /-- A continuous crossed homomorphism, regarded as a homogeneous degree-one
 cocycle. -/
-def crossedToOneKer [TopRep.JointlyContinuous X] :
+def crossedToOneKer :
     continuousCrossedHom X →ₗ[k]
       ((TopRep.homogeneousCochains X).d 1 2).hom.ker where
   toFun f := ⟨⟨homogeneousOne X f, homogeneousOne_mem_invariants X f⟩,
@@ -342,7 +353,7 @@ def crossedToOneKer [TopRep.JointlyContinuous X] :
 
 /-- Algebraically, homogeneous degree-one cocycles are continuous crossed
 homomorphisms. -/
-def oneKerLinearEquiv [TopRep.JointlyContinuous X] :
+def oneKerLinearEquiv :
     ((TopRep.homogeneousCochains X).d 1 2).hom.ker ≃ₗ[k] continuousCrossedHom X where
   __ := oneKerToCrossed X
   invFun := crossedToOneKer X
@@ -363,21 +374,20 @@ def oneKerLinearEquiv [TopRep.JointlyContinuous X] :
     intro g
     simp [oneKerToCrossed, crossedToOneKer, homogeneousOne]
 
-lemma continuous_homogeneousOne [TopRep.JointlyContinuous X] [LocallyCompactSpace G] :
+lemma continuous_homogeneousOne :
     Continuous fun f : continuousCrossedHom X => homogeneousOne X f := by
-  apply ContinuousMap.continuous_of_continuous_uncurry
-  apply ContinuousMap.continuous_of_continuous_uncurry
-  change Continuous fun p : (continuousCrossedHom X × G) × G =>
-    X.ρ p.1.2 (p.1.1.1 (p.1.2⁻¹ * p.2))
-  exact (TopRep.JointlyContinuous.continuous_action (X := X)).comp <|
-    (continuous_snd.comp continuous_fst).prodMk <|
-      continuous_eval.comp <|
-        (continuous_subtype_val.comp (continuous_fst.comp continuous_fst)).prodMk <|
-          (continuous_snd.comp continuous_fst).inv.mul continuous_snd
+  have heq : (fun f : continuousCrossedHom X => homogeneousOne X f) =
+      (fun f => (TopRep.d X 1).hom.toContinuousLinearMap f.1) := by
+    funext f
+    ext g h
+    change homogeneousOne X f g h = f.1 h - f.1 g
+    exact homogeneousOne_apply_eq_sub X f g h
+  rw [heq]
+  exact (TopRep.d X 1).hom.toContinuousLinearMap.continuous.comp continuous_subtype_val
 
-/-- For a locally compact group, homogeneous degree-one cocycles and continuous
-crossed homomorphisms are continuously linearly equivalent. -/
-def oneKerEquiv [TopRep.JointlyContinuous X] [LocallyCompactSpace G] :
+/-- Homogeneous degree-one cocycles and continuous crossed homomorphisms are
+continuously linearly equivalent. -/
+def oneKerEquiv :
     ((TopRep.homogeneousCochains X).d 1 2).hom.ker ≃L[k] continuousCrossedHom X where
   __ := oneKerLinearEquiv X
   continuous_toFun := continuous_induced_rng.2 <| (continuous_eval_const 1).comp <|
@@ -400,8 +410,7 @@ theorem cochainsZeroIso_inv_apply [TopRep.JointlyContinuous X]
     (x : X) (g : G) : ((cochainsZeroIso X).inv.hom x).1 g = X.ρ g x :=
   cochainsZeroEquiv_symm_apply X x g
 
-noncomputable def oneKerCrossedIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] :
+noncomputable def oneKerCrossedIso :
     TopModuleCat.of k ((TopRep.homogeneousCochains X).d 1 2).hom.ker ≅
       TopModuleCat.of k (continuousCrossedHom X) :=
   TopModuleCat.ofIso (oneKerEquiv X)
@@ -439,8 +448,7 @@ noncomputable abbrev cocyclesOneIso : cocycles X 1 ≅
 
 /-- Degree-one homogeneous cocycles and continuous crossed homomorphisms as
 topological modules. -/
-noncomputable def cocyclesOneCrossedIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] : cocycles X 1 ≅ ↧(continuousCrossedHom X) :=
+noncomputable def cocyclesOneCrossedIso : cocycles X 1 ≅ ↧(continuousCrossedHom X) :=
   cocyclesOneIso X ≪≫ oneKerCrossedIso X
 
 /-- The degree-zero differential, with codomain restricted to the explicit
@@ -461,8 +469,7 @@ lemma cocyclesOneIso_hom_comp_kerι :
   ext σ
   rfl
 
-lemma cocyclesOneCrossedIso_hom_apply [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] (σ : cocycles X 1) (g : G) :
+lemma cocyclesOneCrossedIso_hom_apply (σ : cocycles X 1) (g : G) :
     ((cocyclesOneCrossedIso X).hom σ).1 g =
       ((TopRep.homogeneousCochains X).iCycles 1 σ).1 1 g := by
   change (((cocyclesOneIso X).hom σ).1.1 1 g) = _
@@ -471,8 +478,7 @@ lemma cocyclesOneCrossedIso_hom_apply [TopRep.JointlyContinuous X]
 
 /-- The identification of homogeneous one-cocycles with continuous crossed
 homomorphisms commutes with coefficient morphisms. -/
-lemma cocyclesOneCrossedIso_natural (q : A ⟶ B) [TopRep.JointlyContinuous A]
-    [TopRep.JointlyContinuous B] [LocallyCompactSpace G] :
+lemma cocyclesOneCrossedIso_natural (q : A ⟶ B) :
     cocyclesMap (ContinuousMonoidHom.id G) q 1 ≫
         (cocyclesOneCrossedIso B).hom =
       (cocyclesOneCrossedIso A).hom ≫ TopModuleCat.ofHom (crossedMap q) := by
@@ -492,7 +498,7 @@ lemma toCycles_comp_cocyclesOneIso :
     HomologicalComplex.toCycles_i]
   rfl
 
-lemma boundaryToOneKer_comm [TopRep.JointlyContinuous X] [LocallyCompactSpace G] :
+lemma boundaryToOneKer_comm [TopRep.JointlyContinuous X] :
     boundaryToOneKer X ≫ (oneKerCrossedIso X).hom =
       (cochainsZeroIso X).hom ≫
         TopModuleCat.ofHom (principalToCrossedL X) := by
@@ -503,15 +509,13 @@ lemma boundaryToOneKer_comm [TopRep.JointlyContinuous X] [LocallyCompactSpace G]
   rw [← hinv]
   simp
 
-lemma toCycles_comp_cocyclesOneCrossedIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] :
+lemma toCycles_comp_cocyclesOneCrossedIso [TopRep.JointlyContinuous X] :
     (TopRep.homogeneousCochains X).toCycles 0 1 ≫ (cocyclesOneCrossedIso X).hom =
       (cochainsZeroIso X).hom ≫ TopModuleCat.ofHom (principalToCrossedL X) := by
   rw [cocyclesOneCrossedIso, Iso.trans_hom, ← Category.assoc,
     toCycles_comp_cocyclesOneIso, boundaryToOneKer_comm]
 
-noncomputable def boundaryArrowIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] :
+noncomputable def boundaryArrowIso [TopRep.JointlyContinuous X] :
     Arrow.mk ((TopRep.homogeneousCochains X).toCycles 0 1) ≅
       Arrow.mk (TopModuleCat.ofHom (principalToCrossedL X)) :=
   Arrow.isoMk (cochainsZeroIso X) (cocyclesOneCrossedIso X)
@@ -521,8 +525,7 @@ noncomputable def boundaryArrowIso [TopRep.JointlyContinuous X]
 continuous crossed homomorphisms by principal cocycles. The canonical inverse
 computes in the corestriction comparison. -/
 @[expose]
-noncomputable def homologyQuotientIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] :
+noncomputable def homologyQuotientIso [TopRep.JointlyContinuous X] :
     continuousCohomology 1 X ≅
       TopModuleCat.of k (continuousCrossedHom X ⧸ principalCocycles X) :=
   Limits.CokernelCofork.mapIsoOfIsColimit
@@ -531,8 +534,7 @@ noncomputable def homologyQuotientIso [TopRep.JointlyContinuous X]
     (boundaryArrowIso X)
 
 set_option backward.isDefEq.respectTransparency false in
-lemma π_comp_homologyQuotientIso [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace G] :
+lemma π_comp_homologyQuotientIso [TopRep.JointlyContinuous X] :
     π X 1 ≫ (homologyQuotientIso X).hom =
       (cocyclesOneCrossedIso X).hom ≫
         TopModuleCat.ofHom (principalCocycles X).mkQL := by
@@ -549,7 +551,7 @@ set_option backward.isDefEq.respectTransparency false in
 mathlib's native coefficient map. -/
 @[reassoc]
 lemma homologyQuotientIso_natural (q : A ⟶ B) [TopRep.JointlyContinuous A]
-    [TopRep.JointlyContinuous B] [LocallyCompactSpace G] :
+    [TopRep.JointlyContinuous B] :
     map (ContinuousMonoidHom.id G) q 1 ≫ (homologyQuotientIso B).hom =
       (homologyQuotientIso A).hom ≫ TopModuleCat.ofHom (crossedQuotientMap q) := by
   apply (cancel_epi (π A 1)).1
@@ -561,12 +563,12 @@ lemma homologyQuotientIso_natural (q : A ⟶ B) [TopRep.JointlyContinuous A]
 /-- Continuous crossed homomorphisms modulo principal cocycles compute first
 continuous cohomology. Its inverse computes as `homologyQuotientIso`. -/
 @[expose]
-noncomputable def degreeOneIso [TopRep.JointlyContinuous X] [LocallyCompactSpace G] :
+noncomputable def degreeOneIso [TopRep.JointlyContinuous X] :
     TopModuleCat.of k (continuousCrossedHom X ⧸ principalCocycles X) ≅
       continuousCohomology 1 X :=
   (homologyQuotientIso X).symm
 
-lemma degreeOneIso_inv [TopRep.JointlyContinuous X] [LocallyCompactSpace G] :
+lemma degreeOneIso_inv [TopRep.JointlyContinuous X] :
     (degreeOneIso X).inv = (homologyQuotientIso X).hom := rfl
 
 set_option backward.isDefEq.respectTransparency false in
@@ -574,7 +576,7 @@ set_option backward.isDefEq.respectTransparency false in
 mathlib's native coefficient map. -/
 @[reassoc]
 lemma degreeOneIso_natural (q : A ⟶ B) [TopRep.JointlyContinuous A]
-    [TopRep.JointlyContinuous B] [LocallyCompactSpace G] :
+    [TopRep.JointlyContinuous B] :
     TopModuleCat.ofHom (crossedQuotientMap q) ≫ (degreeOneIso B).hom =
       (degreeOneIso A).hom ≫ map (ContinuousMonoidHom.id G) q 1 := by
   apply (cancel_mono (homologyQuotientIso B).hom).1
