@@ -155,11 +155,16 @@ def discreteOneVector : DiscreteProduct :=
   discreteProductEquiv.apply_symm_apply oneVector
 
 /-- Transporting the sign action preserves its underlying product action. -/
-@[simp] theorem discrete_action_map (actor : SignGroup) (vector : DiscreteProduct) :
+theorem discrete_action_map (actor : SignGroup) (vector : DiscreteProduct) :
     discreteProductAddEquiv (actor • vector) =
       actor • discreteProductAddEquiv vector := by
   simp only [Equiv.smul_def]
   rfl
+
+/-- The transported action equation in the underlying equivalence normal form. -/
+@[simp] theorem discrete_action_map_equiv (actor : SignGroup) (vector : DiscreteProduct) :
+    discreteProductEquiv (actor • vector) =
+      actor • discreteProductEquiv vector := discrete_action_map actor vector
 
 /-- On the discrete copy, the action remains coordinatewise. -/
 theorem discrete_action_coordinate (actor : SignGroup)

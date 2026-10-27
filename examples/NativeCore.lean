@@ -36,7 +36,7 @@ variable {G : Type v} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
 theorem split_connecting_exact
     {A B C : TopRep.{max v w} k G}
     (sequence : ContinuousCohomology.TopologicallySplitShortExact A B C)
-    [LocallyCompactSpace G] [TopRep.JointlyContinuous A]
+    [TopRep.JointlyContinuous A]
     [TopRep.JointlyContinuous B] :
     Function.Exact sequence.invariantsProjection sequence.connectingMap.hom :=
   sequence.exact_invariantsProjection_connectingMap

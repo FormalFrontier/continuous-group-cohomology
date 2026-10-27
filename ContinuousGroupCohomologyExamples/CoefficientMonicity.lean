@@ -33,7 +33,8 @@ open CategoryTheory TopRep ContinuousCohomology
 
 namespace CoefficientMonicityExamples
 
-local instance : TopologicalSpace CGCExamples.TwoGroup := ⊥
+/-- The discrete topology on `CGCExamples.TwoGroup` for the coefficient-monicity examples. -/
+local instance twoGroupTopology : TopologicalSpace CGCExamples.TwoGroup := ⊥
 local instance : DiscreteTopology CGCExamples.TwoGroup := ⟨rfl⟩
 local instance : IsTopologicalGroup CGCExamples.TwoGroup := inferInstance
 

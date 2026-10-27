@@ -69,10 +69,10 @@ private def signedReduction : signedIntegers ⟶ signedResidues :=
         simp
   }
 
-@[simp] private theorem signedDouble_apply (n : ℤ) : signedDouble n = 2 * n := by
+private theorem signedDouble_apply (n : ℤ) : signedDouble n = 2 * n := by
   rfl
 
-@[simp] private theorem signedReduction_apply (n : ℤ) :
+private theorem signedReduction_apply (n : ℤ) :
     signedReduction n = (n : ZMod 2) := rfl
 
 private theorem double_eq_evenSequenceInclusion :

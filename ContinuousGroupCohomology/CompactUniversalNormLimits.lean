@@ -41,6 +41,28 @@ noncomputable local instance :
     HasLimitsOfShape (OpenNormalSubgroup G) CompHausAddCommGrp.{u} :=
   ⟨fun _ => inferInstance⟩
 
+private theorem normDiagram_map_coe (B : RestrictedLevelCompactRep R G)
+    (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
+    (x : B.system.coefficients V) :
+    (((restrictedNormDiagram B).map (homOfLE hVU) x :
+      B.system.coefficients U).1 :
+        openSubgroupInvariants B.rep U.toOpenSubgroup) =
+      LevelCompact.relativeNorm B.rep U.toOpenSubgroup V.toOpenSubgroup hVU x.1 := by
+  have hmap := ConcreteCategory.congr_hom
+    (restrictedNormDiagram_map B (homOfLE hVU)) x
+  have hp := congrArg (fun t : (restrictedNormDiagram B).obj U =>
+      ((t : B.system.coefficients U).1 :
+        openSubgroupInvariants B.rep U.toOpenSubgroup)) hmap
+  calc
+    _ = (((B.system.relativeNormHom U V hVU x : B.system.coefficients U).1) :
+      openSubgroupInvariants B.rep U.toOpenSubgroup) := hp
+    _ = ((B.system.relativeNorm U V hVU x).1 :
+      openSubgroupInvariants B.rep U.toOpenSubgroup) := by
+      exact congrArg (fun t : B.system.coefficients U =>
+        (t.1 : openSubgroupInvariants B.rep U.toOpenSubgroup))
+          (B.system.relativeNormHom_apply U V hVU x)
+    _ = _ := B.system.relativeNorm_coe U V hVU x
+
 private theorem fullNorm_map_coe (A : LevelCompactRep.{u, u, u} R G)
     (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
     (y : (full A).system.coefficients V) :
@@ -48,21 +70,7 @@ private theorem fullNorm_map_coe (A : LevelCompactRep.{u, u, u} R G)
       (full A).system.coefficients U).1 :
       openSubgroupInvariants A.rep U.toOpenSubgroup) =
         LevelCompact.relativeNorm A.rep U.toOpenSubgroup V.toOpenSubgroup hVU y.1 := by
-  have hmap := ConcreteCategory.congr_hom
-    (restrictedNormDiagram_map (full A) (homOfLE hVU)) y
-  have hp := congrArg (fun t : (restrictedNormDiagram (full A)).obj U =>
-      ((t : (full A).system.coefficients U).1 :
-        openSubgroupInvariants A.rep U.toOpenSubgroup)) hmap
-  calc
-    _ = (((full A).system.relativeNormHom U V hVU y :
-        (full A).system.coefficients U).1 :
-          openSubgroupInvariants A.rep U.toOpenSubgroup) := hp
-    _ = (((full A).system.relativeNorm U V hVU y).1 :
-          openSubgroupInvariants A.rep U.toOpenSubgroup) := by
-      exact congrArg (fun t : (full A).system.coefficients U =>
-        (t.1 : openSubgroupInvariants A.rep U.toOpenSubgroup))
-          ((full A).system.relativeNormHom_apply U V hVU y)
-    _ = _ := (full A).system.relativeNorm_coe U V hVU y
+  exact normDiagram_map_coe (full A) U V hVU y
 
 private theorem fullNorm_range_iff (A : LevelCompactRep.{u, u, u} R G)
     (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
@@ -170,7 +178,7 @@ the full invariant system. -/
     change _ ∈ (⊤ : Submodule R (openSubgroupInvariants B.rep U.toOpenSubgroup))
     exact Submodule.mem_top
 
-@[simp] theorem fullInclusion_apply (B : RestrictedLevelCompactRep R G)
+@[simp↓] theorem fullInclusion_apply (B : RestrictedLevelCompactRep R G)
     (U : OpenNormalSubgroup G) (x : B.system.coefficients U) :
     ((groupMap (fullInclusion B) U x :
         (full B.toLevelCompactRep).system.coefficients U).1 :
@@ -203,28 +211,6 @@ private theorem normLimit_element_ext (B : RestrictedLevelCompactRep R G)
   have hx := ConcreteCategory.congr_hom (limit.isoLimitCone_hom_π t U) x
   have hy := ConcreteCategory.congr_hom (limit.isoLimitCone_hom_π t U) y
   exact hx.trans ((h U).trans hy.symm)
-
-private theorem normDiagram_map_coe (B : RestrictedLevelCompactRep R G)
-    (U V : OpenNormalSubgroup G) (hVU : V ≤ U)
-    (x : B.system.coefficients V) :
-    (((restrictedNormDiagram B).map (homOfLE hVU) x :
-      B.system.coefficients U).1 :
-        openSubgroupInvariants B.rep U.toOpenSubgroup) =
-      LevelCompact.relativeNorm B.rep U.toOpenSubgroup V.toOpenSubgroup hVU x.1 := by
-  have hmap := ConcreteCategory.congr_hom
-    (restrictedNormDiagram_map B (homOfLE hVU)) x
-  have hp := congrArg (fun t : (restrictedNormDiagram B).obj U =>
-      ((t : B.system.coefficients U).1 :
-        openSubgroupInvariants B.rep U.toOpenSubgroup)) hmap
-  calc
-    _ = (((B.system.relativeNormHom U V hVU x : B.system.coefficients U).1) :
-      openSubgroupInvariants B.rep U.toOpenSubgroup) := hp
-    _ = ((B.system.relativeNorm U V hVU x).1 :
-      openSubgroupInvariants B.rep U.toOpenSubgroup) := by
-      exact congrArg (fun t : B.system.coefficients U =>
-        (t.1 : openSubgroupInvariants B.rep U.toOpenSubgroup))
-          (B.system.relativeNormHom_apply U V hVU x)
-    _ = _ := B.system.relativeNorm_coe U V hVU x
 
 private def fullPoint_coefficient (B : RestrictedLevelCompactRep R G)
     (s : (limit (restrictedNormDiagram (full B.toLevelCompactRep)) :

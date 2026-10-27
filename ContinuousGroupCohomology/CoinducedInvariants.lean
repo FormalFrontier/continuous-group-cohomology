@@ -120,9 +120,15 @@ def quotientCoind₁Forward
 
 omit [CompactSpace G] in
 /-- Forward quotient evaluation on a representative. -/
-@[simp] theorem quotientCoind₁Forward_apply_mk
+theorem quotientCoind₁Forward_apply_mk
     (f : quotientInvariants N (coind₁ B)) (t : G) :
     quotientCoind₁Forward N B f (QuotientGroup.mk' N t) = B.ρ t⁻¹ (f.1 t) := rfl
+
+omit [CompactSpace G] in
+/-- Forward evaluation in the canonical quotient-coercion form. -/
+@[simp] theorem quotientCoind₁Forward_apply_quotient_mk
+    (f : quotientInvariants N (coind₁ B)) (t : G) :
+    quotientCoind₁Forward N B f (t : G ⧸ N) = B.ρ t⁻¹ (f.1 t) := rfl
 
 omit [CompactSpace G] in
 /-- Twist a quotient function into a coinduced function fixed by the normal subgroup. -/
@@ -276,12 +282,18 @@ noncomputable def quotientCoind₁Iso [DiscreteTopology B] :
 variable [DiscreteTopology B]
 
 /-- Forward evaluation at a quotient coset untwists the coefficient action. -/
-@[simp] theorem quotientCoind₁Iso_hom_apply_mk
+theorem quotientCoind₁Iso_hom_apply_mk
     (f : quotientInvariants N (coind₁ B)) (t : G) :
     ((quotientCoind₁Iso N B).hom f) (QuotientGroup.mk' N t) =
       B.ρ t⁻¹ (f.1 t) := by
   change quotientCoind₁Forward N B f (QuotientGroup.mk' N t) = B.ρ t⁻¹ (f.1 t)
   exact quotientCoind₁Forward_apply_mk N B f t
+
+/-- Forward isomorphism evaluation in the canonical quotient-coercion form. -/
+@[simp] theorem quotientCoind₁Iso_hom_apply_quotient_mk
+    (f : quotientInvariants N (coind₁ B)) (t : G) :
+    ((quotientCoind₁Iso N B).hom f) (t : G ⧸ N) =
+      B.ρ t⁻¹ (f.1 t) := quotientCoind₁Iso_hom_apply_mk N B f t
 
 /-- The inverse twists a quotient function by the original coefficient action. -/
 @[simp] theorem quotientCoind₁Iso_inv_apply

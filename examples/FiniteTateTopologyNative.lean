@@ -67,6 +67,16 @@ example : tateCohomology (A.quotientToInvariants S.toSubgroup) 0 ≃+
     LevelCompact.finiteTateZero A L S :=
   LevelCompact.tateCohomologyZeroAddEquivFiniteTate A L S
 
+/-- The representative comparison commutes with the continuous finite norm. -/
+example (x : openSubgroupInvariants A S.toOpenSubgroup) :
+    LevelCompact.normFromFiniteCoinvariants A L S
+      (LevelCompact.algebraicCoinvariantsAddEquivFiniteCoinvariants A L S
+        (Representation.Coinvariants.mk
+          (A.quotientToInvariants S.toSubgroup).ρ x)) =
+      LevelCompact.normFromFiniteCoinvariants A L S
+        (LevelCompact.finiteCoinvariantsMk A L S x) := by
+  simp
+
 example (x : (Rep.coinvariantsFunctor R (G ⧸ S.toSubgroup)).obj
     (A.quotientToInvariants S.toSubgroup)) :
     LevelCompact.openSubgroupInvariantsAddEquivGroup A L ⊤
@@ -92,7 +102,13 @@ end AlgebraicComparison
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance twoElementTopology : TopologicalSpace G₂ := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 
 /-- A proper open normal level of a genuinely two-element compact group. -/

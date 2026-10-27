@@ -29,6 +29,7 @@ namespace CGCExamples
 /-- The two-element group acting on the integer coefficient sequence. -/
 abbrev TwoGroup := Multiplicative (ZMod 2)
 
+/-- The two-element group carries the discrete topology. -/
 local instance : TopologicalSpace TwoGroup := ⊥
 local instance : DiscreteTopology TwoGroup := ⟨rfl⟩
 local instance : IsTopologicalGroup TwoGroup := inferInstance

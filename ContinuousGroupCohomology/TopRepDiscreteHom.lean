@@ -212,7 +212,6 @@ theorem discreteLinHom_toRepresentation
   rfl
 
 private theorem mem_discreteLinHom_linearMap_iff
-    [ContinuousSMul k (DiscreteLinHom k X Y)]
     (f : DiscreteLinHom k X Y) :
     f.toLinearMap ∈ ((X.ρ.toRepresentation).linHom Y.ρ.toRepresentation).invariants ↔
       ∀ g : G, ∀ a : X, f (X.ρ g a) = Y.ρ g (f a) := by

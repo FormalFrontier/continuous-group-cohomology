@@ -91,6 +91,7 @@ open subgroup, compatible with transport by the ambient group action.
 This is additional levelwise topology data.  It does not impose a topology on
 the ambient coefficient module or on the coefficient ring. -/
 structure LevelCompact (A : Rep.{uA} R G) where
+  /-- The chosen topology on the submodule of vectors fixed by each open subgroup. -/
   topology : ∀ U : OpenSubgroup G, TopologicalSpace (openSubgroupInvariants A U)
   compact : ∀ U, @CompactSpace (openSubgroupInvariants A U) (topology U)
   t2 : ∀ U, @T2Space (openSubgroupInvariants A U) (topology U)

@@ -91,7 +91,6 @@ def signedCoinducedProjection : TopRep.coind₁ trivialUnitIntegers ⟶ signedIn
         simp [Units.smul_def]
   }
 
-@[simp]
 theorem signedCoinducedProjection_apply (f : TopRep.coind₁ trivialUnitIntegers) :
     signedCoinducedProjection f = f 1 - f (-1) := rfl
 

@@ -26,7 +26,8 @@ open CategoryTheory TopRep
 
 namespace CGCExamples
 
-local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance multiplicativeZModTwoTopology : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
 local instance : DiscreteTopology (Multiplicative (ZMod 2)) := ⟨rfl⟩
 local instance : IsTopologicalGroup (Multiplicative (ZMod 2)) := inferInstance
 local instance : CompactSpace (Multiplicative (ZMod 2)) := inferInstance

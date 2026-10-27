@@ -159,7 +159,7 @@ noncomputable def crossedTrans (H : OpenSubgroup G) (K : OpenSubgroup H) :
         exact f.2 _ _
 
 omit [IsTopologicalGroup G] in
-@[simp]
+@[simp↓]
 lemma crossedTrans_apply (H : OpenSubgroup G) (K : OpenSubgroup H)
     (f : continuousCrossedHom
       (TopRep.res (OpenSubgroup.trans H K).subtype X)) (g : K) :
@@ -275,7 +275,7 @@ noncomputable def transRightRepEquiv (H : OpenSubgroup G) (K : OpenSubgroup H)
         exact hp⟩
 
 omit [IsTopologicalGroup G] in
-@[simp]
+@[simp↓]
 lemma transRightRepEquiv_apply_coe (H : OpenSubgroup G) (K : OpenSubgroup H)
     (U : K.toSubgroup.RightTransversal) (T : H.toSubgroup.RightTransversal)
     (p : ↥(U : Set H) × ↥(T : Set G)) :
@@ -294,6 +294,9 @@ lemma transRightTransversal_equiv (H : OpenSubgroup G) (K : OpenSubgroup H)
   apply (transRightTransversal H K U T).2.equiv.symm.injective
   rw [Equiv.symm_apply_apply]
   rw [(transRightTransversal H K U T).2.equiv_symm_apply]
+  have hrep : (transRightRepEquiv H K U T p : G) = towerRep H K U T p := by
+    simp
+  rw [hrep]
   change ((p.1 : H) : G) * (p.2 : G) * g =
     (((factor U p.1 (factor T p.2 g) : K) : H) : G) *
       (((next U p.1 (factor T p.2 g) : H) : G) * (next T p.2 g : G))
@@ -410,7 +413,7 @@ noncomputable def crossedQuotientTrans (H : OpenSubgroup G) (K : OpenSubgroup H)
             (TopRep.res K.subtype (TopRep.res H.subtype X)))).2 ⟨x, rfl⟩
 
 omit [IsTopologicalGroup G] in
-@[simp]
+@[simp↓]
 lemma crossedQuotientTrans_mk (H : OpenSubgroup G) (K : OpenSubgroup H)
     [TopRep.JointlyContinuous X]
     (f : continuousCrossedHom
@@ -434,7 +437,13 @@ lemma crossedTrans_comp_mkQL (H : OpenSubgroup G) (K : OpenSubgroup H)
             (TopRep.res (OpenSubgroup.trans H K).subtype X)).mkQL ≫
         TopModuleCat.ofHom (crossedQuotientTrans X H K) := by
   ext f
-  rfl
+  change _ = crossedQuotientTrans X H K
+    ((principalCocycles (TopRep.res (OpenSubgroup.trans H K).subtype X)).mkQ f)
+  conv =>
+    lhs
+    simp only [TopModuleCat.hom_comp, TopModuleCat.hom_ofHom,
+      ContinuousLinearMap.comp_apply, Submodule.mkQL_apply]
+  simp
 
 set_option maxHeartbeats 800000 in
 -- The two-stage transversal calculation expands both quotient transfers.
@@ -462,9 +471,7 @@ lemma transferQuotient_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
 
 set_option maxHeartbeats 800000 in
 -- Evaluating the composed cocycle comparisons unfolds both restriction maps.
-lemma cocyclesOneCrossedIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
-    [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
+lemma cocyclesOneCrossedIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H) :
     cocyclesMap (transContinuousHom H K) (transCoeffHom X H K) 1 ≫
         (cocyclesOneCrossedIso
           (TopRep.res K.subtype (TopRep.res H.subtype X))).hom =
@@ -478,10 +485,14 @@ lemma cocyclesOneCrossedIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
     (((cocyclesOneCrossedIso
         (TopRep.res K.subtype (TopRep.res H.subtype X))).hom
       (cocyclesMap (transContinuousHom H K) (transCoeffHom X H K) 1 σ)).1 h) =
-      (((cocyclesOneCrossedIso
-        (TopRep.res (OpenSubgroup.trans H K).subtype X)).hom σ).1
-          (OpenSubgroup.transEquiv H K h))
-  rw [cocyclesOneCrossedIso_hom_apply, cocyclesOneCrossedIso_hom_apply]
+      (crossedTrans X H K
+        ((cocyclesOneCrossedIso
+          (TopRep.res (OpenSubgroup.trans H K).subtype X)).hom σ)).1 h
+  have htrans (f : continuousCrossedHom
+      (TopRep.res (OpenSubgroup.trans H K).subtype X)) :
+      (crossedTrans X H K f).1 h = f.1 (OpenSubgroup.transEquiv H K h) := by
+    simp
+  rw [htrans, cocyclesOneCrossedIso_hom_apply, cocyclesOneCrossedIso_hom_apply]
   have hh := ConcreteCategory.congr_hom
     (HomologicalComplex.cyclesMap_i
       (cochainsMap (transContinuousHom H K) (transCoeffHom X H K)) 1) σ
@@ -492,8 +503,7 @@ set_option maxHeartbeats 3000000 in
 set_option backward.isDefEq.respectTransparency false in
 @[reassoc]
 lemma homologyQuotientIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
-    [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
+    [TopRep.JointlyContinuous X] :
     map (transContinuousHom H K) (transCoeffHom X H K) 1 ≫
         (homologyQuotientIso
           (TopRep.res K.subtype (TopRep.res H.subtype X))).hom =
@@ -512,8 +522,7 @@ set_option maxHeartbeats 3000000 in
 -- The degree-one comparison composes nested crossed and native cohomology isomorphisms.
 set_option backward.isDefEq.respectTransparency false in
 lemma degreeOneIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
-    [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
+    [TopRep.JointlyContinuous X] :
     TopModuleCat.ofHom (crossedQuotientTrans X H K) ≫
         (degreeOneIso
           (TopRep.res K.subtype (TopRep.res H.subtype X))).hom =
@@ -531,8 +540,7 @@ lemma degreeOneIso_trans (H : OpenSubgroup G) (K : OpenSubgroup H)
 /-- Degree-one transport from a flattened subgroup to the corresponding
 nested subgroup, expressed through crossed homomorphisms. -/
 noncomputable def transDegreeOne (H : OpenSubgroup G) (K : OpenSubgroup H)
-    [TopRep.JointlyContinuous X] [LocallyCompactSpace (OpenSubgroup.trans H K)]
-    [LocallyCompactSpace K] :
+    [TopRep.JointlyContinuous X] :
     continuousCohomology 1
         (TopRep.res (OpenSubgroup.trans H K).subtype X) ⟶
       continuousCohomology 1
@@ -546,8 +554,7 @@ noncomputable def transDegreeOne (H : OpenSubgroup G) (K : OpenSubgroup H)
 set_option maxHeartbeats 800000 in
 -- Normalizing the nested degree-one map expands the quotient comparisons.
 lemma transDegreeOne_eq_map (H : OpenSubgroup G) (K : OpenSubgroup H)
-    [TopRep.JointlyContinuous X]
-    [LocallyCompactSpace (OpenSubgroup.trans H K)] [LocallyCompactSpace K] :
+    [TopRep.JointlyContinuous X] :
     transDegreeOne X H K =
       map (transContinuousHom H K) (transCoeffHom X H K) 1 := by
   simp only [transDegreeOne]

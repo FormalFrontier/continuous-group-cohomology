@@ -74,9 +74,17 @@ local notation "G₂" => Multiplicative (ZMod 2)
 
 theorem bottom_lt_top : (⊥ : Subgroup G₂) < ⊤ := bot_lt_top
 
-noncomputable local instance : Fintype
+/-- A finite enumeration of the whole group's image in its quotient by the trivial subgroup. -/
+noncomputable local instance topImageInBottomQuotientFintype : Fintype
     ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂))) :=
   Fintype.ofFinite _
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instFintypeSubtypeQuotientMultiplicativeZModOfNatNatSubgroupBotMemMapMk'Top_examples :=
+  topImageInBottomQuotientFintype
+attribute [nolint defsWithUnderscore]
+  instFintypeSubtypeQuotientMultiplicativeZModOfNatNatSubgroupBotMemMapMk'Top_examples
 
 theorem concrete_degree_zero (A : Rep.{0} ℤ G₂) :
     finiteNegativeDeflation A ⊥ ⊤ bot_le 0 =

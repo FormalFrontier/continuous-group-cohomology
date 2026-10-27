@@ -232,12 +232,17 @@ theorem signedThreePerm_isomorphic_coind₁_degree_one
 
 /-- The fixed-permutation-group coefficient functor transports this
 representation isomorphism in every degree. -/
-noncomputable def signedThreePerm_coind₁_cohomologyIso
+noncomputable def signedThreePermCoind₁CohomologyIso
     {Y : TopRep ℤ ThreePerm} (e : Y ≅ TopRep.coind₁ signedThreePerm)
     (n : ℕ) :
     continuousCohomology n Y ≅
       continuousCohomology n (TopRep.coind₁ signedThreePerm) :=
   (ContinuousCohomology.coefficientFunctor (k := ℤ) (G := ThreePerm) n).mapIso e
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-24")]
+alias signedThreePerm_coind₁_cohomologyIso := signedThreePermCoind₁CohomologyIso
+attribute [nolint defsWithUnderscore] signedThreePerm_coind₁_cohomologyIso
 
 /-- Transporting an isomorphism of coinduced coefficients uses Mathlib's
 continuous-cohomology map for the same acting group. -/

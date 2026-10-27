@@ -131,7 +131,7 @@ def liftOfClosed (n : ℕ) (f : A →ₜ+ B)
     exact f.continuous
 
 omit [IsTopologicalAddGroup B] in
-@[simp]
+@[simp↓]
 theorem liftOfClosed_mk (n : ℕ) (f : A →ₜ+ B)
     (hf : closedMultiples A n ≤ f.ker) (a : A) :
     liftOfClosed n f hf (mkQ n a) = f a := rfl
@@ -152,7 +152,7 @@ def lift [T1Space B] (n : ℕ) (f : A →ₜ+ B)
   liftOfClosed n f (closedMultiples_le_ker n f hf)
 
 omit [IsTopologicalAddGroup B] in
-@[simp]
+@[simp↓]
 theorem lift_mk [T1Space B] (n : ℕ) (f : A →ₜ+ B)
     (hf : KillsMultiples n f) (a : A) :
     lift n f hf (mkQ n a) = f a := rfl
@@ -187,7 +187,7 @@ def map (n : ℕ) (f : A →ₜ+ B) :
     exact (QuotientAddGroup.eq_zero_iff (f x)).mpr
       (map_closedMultiples_le n f hx))
 
-@[simp]
+@[simp↓]
 theorem map_mk (n : ℕ) (f : A →ₜ+ B) (a : A) :
     map n f (mkQ n a) = mkQ n (f a) := rfl
 
@@ -235,7 +235,7 @@ def congr (n : ℕ) (e : A ≃ₜ+ B) :
       continuous_toFun := (map n ef).continuous
       continuous_invFun := (map n einf).continuous }
 
-@[simp]
+@[simp↓]
 theorem congr_mk (n : ℕ) (e : A ≃ₜ+ B) (a : A) :
     congr n e (mkQ n a) = mkQ n (e a) := by
   change map n
@@ -315,7 +315,7 @@ def algebraicToClosed (n : ℕ) : ModN A n →ₜ+ TopologicalModN A n := by
           rfl]
         exact continuous_iff_coinduced_le.mp (mkQ n).continuous }
 
-@[simp]
+@[simp↓]
 theorem algebraicToClosed_mk (n : ℕ) (a : A) :
     algebraicToClosed n (modNMk n a) = mkQ n a := by
   unfold algebraicToClosed modNMk
@@ -372,7 +372,7 @@ def compactToModN (n : ℕ) : TopologicalModN A n →ₜ+ ModN A n :=
       ← closedMultiples_eq (A := A) n]
     exact hx)
 
-@[simp]
+@[simp↓]
 theorem compactToModN_mk (n : ℕ) (a : A) :
     compactToModN (A := A) n (mkQ n a) = modNMk n a :=
   liftOfClosed_mk n (modNMk n) _ a
@@ -403,7 +403,7 @@ def compactModNEquiv (n : ℕ) : TopologicalModN A n ≃ₜ+ ModN A n := by
       continuous_toFun := forward.continuous
       continuous_invFun := inverse.continuous }
 
-@[simp]
+@[simp↓]
 theorem compactModNEquiv_mk (n : ℕ) (a : A) :
     compactModNEquiv (A := A) n (mkQ n a) = ModN.mkQ n a := by
   unfold compactModNEquiv
@@ -499,7 +499,7 @@ def map (n : ℕ) (f : A →ₜ* B) :
       (closedPowers A n)).continuous_iff]
     exact (mkQ n).continuous.comp f.continuous
 
-@[simp]
+@[simp↓]
 theorem map_mk (n : ℕ) (f : A →ₜ* B) (a : A) :
     map n f (mkQ n a) = mkQ n (f a) := rfl
 
@@ -545,7 +545,7 @@ def congr (n : ℕ) (e : A ≃ₜ* B) :
       continuous_toFun := (map n ef).continuous
       continuous_invFun := (map n einf).continuous }
 
-@[simp]
+@[simp↓]
 theorem congr_mk (n : ℕ) (e : A ≃ₜ* B) (a : A) :
     congr n e (mkQ n a) = mkQ n (e a) := by
   change map n
@@ -601,7 +601,7 @@ def topologicalPowerQuotient (rho : PointwiseContinuousMulAction Q A)
     (TopologicalPowerQuotient.congr n (rho.continuousMulEquiv q)).continuous
 
 /-- Exact representative formula for the descended action. -/
-@[simp]
+@[simp↓]
 theorem topologicalPowerQuotient_mk
     (rho : PointwiseContinuousMulAction Q A) (n : ℕ) (q : Q) (a : A) :
     rho.topologicalPowerQuotient n q (TopologicalPowerQuotient.mkQ n a) =

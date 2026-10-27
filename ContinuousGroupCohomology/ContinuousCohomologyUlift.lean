@@ -100,7 +100,8 @@ lemma continuousCohomologyUliftMapSameUniverse_eq_map
       continuousCohomologyUliftIsoSameUniverse_naturality f n
 
 /-- The transported same-universe coefficient map preserves identities. -/
-@[simp]
+-- Simplify identity transport before passing to the underlying cohomology map.
+@[simp↓]
 lemma continuousCohomologyUliftMapSameUniverse_id
     (X : TopRep.{v} k G) (n : ℕ) :
     continuousCohomologyUliftMapSameUniverse (𝟙 X) n = 𝟙 _ := by

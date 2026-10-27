@@ -395,6 +395,7 @@ def oneKerEquiv :
   continuous_invFun := continuous_induced_rng.2 <| continuous_induced_rng.2 <|
     continuous_homogeneousOne X
 
+/-- Identifies degree-zero homogeneous cochains with `X` as a topological `k`-module. -/
 noncomputable def cochainsZeroIso [TopRep.JointlyContinuous X] :
     (TopRep.homogeneousCochains X).X 0 ≅ TopModuleCat.of k X :=
   TopModuleCat.ofIso (cochainsZeroEquiv X)
@@ -410,6 +411,8 @@ theorem cochainsZeroIso_inv_apply [TopRep.JointlyContinuous X]
     (x : X) (g : G) : ((cochainsZeroIso X).inv.hom x).1 g = X.ρ g x :=
   cochainsZeroEquiv_symm_apply X x g
 
+/-- Identifies the kernel of the homogeneous differential from degree one to degree two
+with `continuousCrossedHom X` as topological `k`-modules. -/
 noncomputable def oneKerCrossedIso :
     TopModuleCat.of k ((TopRep.homogeneousCochains X).d 1 2).hom.ker ≅
       TopModuleCat.of k (continuousCrossedHom X) :=
@@ -515,6 +518,8 @@ lemma toCycles_comp_cocyclesOneCrossedIso [TopRep.JointlyContinuous X] :
   rw [cocyclesOneCrossedIso, Iso.trans_hom, ← Category.assoc,
     toCycles_comp_cocyclesOneIso, boundaryToOneKer_comm]
 
+/-- Identifies the arrow `(TopRep.homogeneousCochains X).toCycles 0 1` with the arrow
+induced by `principalToCrossedL X` in `TopModuleCat k`. -/
 noncomputable def boundaryArrowIso [TopRep.JointlyContinuous X] :
     Arrow.mk ((TopRep.homogeneousCochains X).toCycles 0 1) ≅
       Arrow.mk (TopModuleCat.ofHom (principalToCrossedL X)) :=

@@ -141,10 +141,22 @@ def algebraicCoinvariantsAddEquivFiniteCoinvariants
 
 /-- The additive comparison of algebraic and compact coinvariants preserves
 the canonical quotient representative. -/
-@[simp] lemma algebraicCoinvariantsAddEquivFiniteCoinvariants_mk
+lemma algebraicCoinvariantsAddEquivFiniteCoinvariants_mk
     (S : OpenNormalSubgroup G)
     (x : openSubgroupInvariants A S.toOpenSubgroup) :
     algebraicCoinvariantsAddEquivFiniteCoinvariants A L S
+        (Representation.Coinvariants.mk
+          (A.quotientToInvariants S.toSubgroup).ρ x) =
+      finiteCoinvariantsMk A L S x := by
+  rfl
+
+/-- The representative equation with the canonical algebraic quotient domain. -/
+@[simp↓] lemma algebraicCoinvariantsAddEquivFiniteCoinvariants_quotient_mk
+    (S : OpenNormalSubgroup G)
+    (x : openSubgroupInvariants A S.toOpenSubgroup) :
+    (algebraicCoinvariantsAddEquivFiniteCoinvariants A L S :
+        Representation.Coinvariants (A.quotientToInvariants S.toSubgroup).ρ ≃+
+          finiteCoinvariants A (L := L) S)
         (Representation.Coinvariants.mk
           (A.quotientToInvariants S.toSubgroup).ρ x) =
       finiteCoinvariantsMk A L S x := by

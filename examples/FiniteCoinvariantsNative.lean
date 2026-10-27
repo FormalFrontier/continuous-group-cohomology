@@ -129,9 +129,17 @@ end Level
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance twoElementTopology : TopologicalSpace G₂ := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
+
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 
+/-- The proper open normal level given by the trivial subgroup of the two-element group. -/
 def properNormalLevel : OpenNormalSubgroup G₂ where
   toOpenSubgroup := { toSubgroup := ⊥, isOpen' := isOpen_discrete _ }
   isNormal' := by

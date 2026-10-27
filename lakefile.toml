@@ -4,6 +4,7 @@
 name = "continuous-group-cohomology"
 version = "0.1.0"
 defaultTargets = ["ContinuousGroupCohomology", "CGCExamples"]
+lintDriver = "batteries/runLinter"
 
 [leanOptions]
 autoImplicit = false
@@ -88,4 +89,5 @@ roots = [
   "CGCExamples.SignedScalar",
   "CGCExamples.CoefficientAdditivity",
   "CGCExamples.CompactNegativeDeflation",
+  "CGCExamples.Corestriction.CyclicTwo",
 ]

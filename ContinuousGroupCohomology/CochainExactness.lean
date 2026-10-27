@@ -197,7 +197,7 @@ theorem cochainsMap_exact [DiscreteTopology B]
     intro a
     have ha : ∃ a', i.hom a' = i.hom a := ⟨a, rfl⟩
     apply hi
-    simpa only [retract, dif_pos ha] using Classical.choose_spec ha
+    simpa only [retract, dite_eq_left ha] using Classical.choose_spec ha
   exact cochainsMap_exact_of_isEmbedding i p
     (hretract.isEmbedding continuous_of_discreteTopology i.hom.continuous) hexact n
 

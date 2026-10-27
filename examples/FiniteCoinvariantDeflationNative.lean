@@ -103,7 +103,15 @@ private def finiteDiscreteLevelCompact (A : Rep.{u} R G) [Finite A] :
 
 section FiniteExample
 
-local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance coinvariantDeflationTwoElementTopology :
+    TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples :=
+  coinvariantDeflationTwoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 local instance : DiscreteTopology (Multiplicative (ZMod 2)) := ⟨rfl⟩
 local instance : IsTopologicalGroup (Multiplicative (ZMod 2)) := inferInstance
 local instance : CompactSpace (Multiplicative (ZMod 2)) := inferInstance

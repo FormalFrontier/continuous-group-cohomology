@@ -49,6 +49,7 @@ theorem fullProjectionDetectsUniversalNorms
         LevelCompact.universalNormSubmodule A.rep U := by
   exact fullNormLimit_projection_mem_iff A U x
 
+/-- The norm-limit isomorphism from any restricted system to the full level system. -/
 def compactComparisonForAnyRestrictedSystem (B : RestrictedLevelCompactRep R G) :
     CategoryTheory.Limits.limit (restrictedNormDiagram B) ≅
       CategoryTheory.Limits.limit (restrictedNormDiagram (full B.toLevelCompactRep)) := by

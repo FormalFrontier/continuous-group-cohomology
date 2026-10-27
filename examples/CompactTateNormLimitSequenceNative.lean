@@ -82,11 +82,17 @@ theorem range_universal_norm_client :
         (LevelCompact.fullOpenNormalSubgroup G)} :=
   LevelCompact.compactTateLimitNorm_range_eq_universalNormSubmodule A L
 
-noncomputable def quotient_iso_client :
+/-- The compact quotient by universal norms, identified with the degree-zero Tate limit. -/
+noncomputable def quotientIso :
     CompHausAddCommGrp.quotient (LevelCompact.group A L (⊤ : OpenSubgroup G))
       (LevelCompact.compactUniversalNormClosedSubgroup A L) ≅
         LevelCompact.compactZeroTateLimit A L :=
   LevelCompact.compactTateUniversalNormQuotientIso A L
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias quotient_iso_client := quotientIso
+attribute [nolint defsWithUnderscore] quotient_iso_client
 
 theorem quotient_compatibility_client
     (x : LevelCompact.group A L (⊤ : OpenSubgroup G)) :

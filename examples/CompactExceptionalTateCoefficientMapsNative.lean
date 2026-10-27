@@ -105,7 +105,13 @@ example : LevelCompactRep.finiteTateZeroMap f S ≫
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance twoElementTopology : TopologicalSpace G₂ := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 local instance : IsTopologicalGroup G₂ := inferInstance
 local instance : CompactSpace G₂ := inferInstance

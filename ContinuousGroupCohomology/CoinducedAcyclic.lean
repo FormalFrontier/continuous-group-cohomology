@@ -242,7 +242,8 @@ def insertCoind (X : TopRep.{max v w} k G) [DiscreteTopology X] : (m : ℕ) →
 
 /-- The recursive insertion evaluates at `t` after inserting `t` as the first
 homogeneous argument. -/
-@[simp] theorem insertCoind_eval (X : TopRep.{max v w} k G)
+-- Insert the diagonal variable before recursively simplifying iterated evaluation.
+@[simp↓] theorem insertCoind_eval (X : TopRep.{max v w} k G)
     [DiscreteTopology X] :
     ∀ (m : ℕ) (f : TopRep.resolutionX (TopRep.coind₁ X) (m + 2))
       (hs : Fin (m + 1) → G) (t : G),
@@ -286,7 +287,8 @@ def coind₁Insert (X : TopRep.{max v w} k G) [DiscreteTopology X] (m : ℕ) :
   TopModuleCat.ofHom ((insertCoind X m).mapInvariants)
 
 /-- Evaluate a cochain after insertion without unfolding the resolution. -/
-@[simp] theorem coind₁Insert_apply (X : TopRep.{max v w} k G)
+-- Evaluate insertion before descending through the recursive resolution.
+@[simp↓] theorem coind₁Insert_apply (X : TopRep.{max v w} k G)
     [DiscreteTopology X] (m : ℕ)
     (σ : (TopRep.homogeneousCochains (TopRep.coind₁ X)).X (m + 1))
     (hs : Fin (m + 1) → G) (t : G) :

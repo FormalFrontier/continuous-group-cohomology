@@ -83,14 +83,15 @@ def openNormalCochainInflationCocone : Cocone (openNormalCochainDiagram X) where
       cochainsMap (quotientTransitionHom V U (leOfHom f))
         (quotientTransitionIncl X (leOfHom f)) := rfl
 
-@[simp] theorem openNormalCochainDiagram_map_f
+/- Evaluate components before the structural diagram-map simp rule. -/
+@[simp↓] theorem openNormalCochainDiagram_map_f
     {U V : OrderDual (OpenNormalSubgroup G)} (f : U ⟶ V) (n : ℕ) :
     ((openNormalCochainDiagram X).map f).f n =
       TopRep.invariantsResMap (quotientTransitionHom V U (leOfHom f))
         (resolutionMap (quotientTransitionHom V U (leOfHom f))
           (quotientTransitionIncl X (leOfHom f)) (n + 1)) := rfl
 
-@[simp] theorem openNormalCochainDiagram_map_f_apply_val
+@[simp↓] theorem openNormalCochainDiagram_map_f_apply_val
     {U V : OrderDual (OpenNormalSubgroup G)} (f : U ⟶ V) (n : ℕ)
     (τ : ((openNormalCochainDiagram X).obj U).X n) :
     (((openNormalCochainDiagram X).map f).f n τ).1 =
@@ -105,14 +106,15 @@ def openNormalCochainInflationCocone : Cocone (openNormalCochainDiagram X) where
       cochainsMap (openNormalQuotientHom U)
         (TopRep.quotientInvariantsIncl U.toSubgroup X) := rfl
 
-@[simp] theorem openNormalCochainInflationCocone_ι_app_f
+/- Evaluate components before the structural cocone-leg simp rule. -/
+@[simp↓] theorem openNormalCochainInflationCocone_ι_app_f
     (U : OpenNormalSubgroup G) (n : ℕ) :
     ((openNormalCochainInflationCocone X).ι.app U).f n =
       TopRep.invariantsResMap (openNormalQuotientHom U)
         (resolutionMap (openNormalQuotientHom U)
           (TopRep.quotientInvariantsIncl U.toSubgroup X) (n + 1)) := rfl
 
-@[simp] theorem openNormalCochainInflationCocone_ι_app_f_apply_val
+@[simp↓] theorem openNormalCochainInflationCocone_ι_app_f_apply_val
     (U : OpenNormalSubgroup G) (n : ℕ)
     (τ : ((openNormalCochainDiagram X).obj U).X n) :
     (((openNormalCochainInflationCocone X).ι.app U).f n τ).1 =
@@ -148,7 +150,7 @@ theorem openNormalCochainInflationCocone_ι_app_f_injective
   cochainsMap_injective _ _ (QuotientGroup.mk'_surjective U.toSubgroup)
     Subtype.val_injective n
 
-@[simp] theorem openNormalCochainInflationCocone_ι_app_f_eq_iff
+@[simp↓] theorem openNormalCochainInflationCocone_ι_app_f_eq_iff
     (U : OpenNormalSubgroup G) (n : ℕ)
     (τ υ : ((openNormalCochainDiagram X).obj U).X n) :
     ((openNormalCochainInflationCocone X).ι.app U).f n τ =

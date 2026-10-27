@@ -174,7 +174,7 @@ variable (n : ℕ)
 
 /-- The underlying Type-valued cohomology inflation cocone is filtered-colimiting.
 No joint continuity of the action is required. -/
-noncomputable def openNormalInflationCoconeIsColimit_type :
+noncomputable def openNormalInflationCoconeIsColimitType :
     IsColimit ((forget (TopModuleCat.{max v w} k)).mapCocone
       (openNormalInflationCocone X n)) := by
   letI := isFiltered_orderDual_openNormalSubgroup G
@@ -189,6 +189,10 @@ noncomputable def openNormalInflationCoconeIsColimit_type :
       exists_refinement_class_eq_of_inflation_eq X M n a b hab
     exact ⟨N, homOfLE hNM, heq⟩
 
+@[deprecated openNormalInflationCoconeIsColimitType (since := "2026-10-21"),
+  nolint defsWithUnderscore]
+alias openNormalInflationCoconeIsColimit_type := openNormalInflationCoconeIsColimitType
+
 /-- For a compact group and a discrete representation, the continuous-cohomology
 inflation cocone over open-normal quotient stages is a colimit in topological
 modules, in every degree. No joint continuity of the action is required. -/
@@ -200,6 +204,6 @@ noncomputable def openNormalInflationCoconeIsColimit :
     exact IsColimit.existsUnique
       (@isColimitOfUnderlyingTypeOfDiscrete k _ _ _ _ _ _ (openNormalInflationCocone X n)
         (discreteTopology_continuousCohomology X n)
-        (openNormalInflationCoconeIsColimit_type X n)) s)
+        (openNormalInflationCoconeIsColimitType X n)) s)
 
 end ContinuousCohomology

@@ -24,6 +24,7 @@ open CategoryTheory TopRep ContinuousCohomology
 
 namespace CGCExamples
 
+/-- The discrete topology on the two-element group. -/
 local instance : TopologicalSpace TwoGroup := ⊥
 local instance : DiscreteTopology TwoGroup := ⟨rfl⟩
 local instance : IsTopologicalGroup TwoGroup := inferInstance

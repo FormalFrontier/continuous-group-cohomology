@@ -363,7 +363,7 @@ to the compact degree-zero Tate limit functor. -/
       (LevelCompact.compactTateUniversalNormQuotientIso A.rep A.levelCompact).hom := rfl
 
 /-- The natural isomorphism is the original limit projection on representatives. -/
-@[simp] theorem compactTateUniversalNormQuotientNatIso_hom_app_mk
+@[simp↓] theorem compactTateUniversalNormQuotientNatIso_hom_app_mk
     (A : LevelCompactRep.{u, u, u} R G)
     (x : LevelCompact.group A.rep A.levelCompact (⊤ : OpenSubgroup G)) :
     (compactTateUniversalNormQuotientNatIso.hom.app A) (QuotientAddGroup.mk x) =

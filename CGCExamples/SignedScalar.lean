@@ -74,14 +74,14 @@ abbrev signedFourProduct : TopRep.{0} (ZMod 4) ℤˣ :=
 @[simp] theorem signedFourProduct_V : signedFourProduct.V = (ZMod 4 × ZMod 4) := rfl
 
 /-- An integer unit acts by multiplication by its residue modulo four. -/
-@[simp] theorem signedFour_ρ_apply (g : ℤˣ) (x : ZMod 4) :
+theorem signedFour_ρ_apply (g : ℤˣ) (x : ZMod 4) :
     signedFour.ρ g x = ((g : ℤ) : ZMod 4) * x := by
   change algebraMap (ZMod 4) ((ZMod 4) →L[ZMod 4] (ZMod 4))
     (((g : ℤ) : ZMod 4)) x = _
   exact ContinuousLinearMap.algebraMap_apply _ x
 
 /-- The product action is scalar multiplication in both coordinates. -/
-@[simp] theorem signedFourProduct_ρ_apply (g : ℤˣ) (x : ZMod 4 × ZMod 4) :
+theorem signedFourProduct_ρ_apply (g : ℤˣ) (x : ZMod 4 × ZMod 4) :
     signedFourProduct.ρ g x =
       (((g : ℤ) : ZMod 4) * x.1, ((g : ℤ) : ZMod 4) * x.2) := by
   change algebraMap (ZMod 4)
@@ -90,7 +90,7 @@ abbrev signedFourProduct : TopRep.{0} (ZMod 4) ℤˣ :=
   exact ContinuousLinearMap.algebraMap_apply _ x
 
 /-- Every sign operator sends zero to zero. -/
-@[simp] theorem signedFour_ρ_zero (g : ℤˣ) : signedFour.ρ g (0 : ZMod 4) = 0 := by
+theorem signedFour_ρ_zero (g : ℤˣ) : signedFour.ρ g (0 : ZMod 4) = 0 := by
   exact (signedFour_ρ_apply g 0).trans (mul_zero _)
 
 /-- Multiplication by two on `ZMod 4`, as a continuous linear map. -/

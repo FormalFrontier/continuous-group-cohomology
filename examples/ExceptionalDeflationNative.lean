@@ -186,16 +186,39 @@ local notation "G₂" => Multiplicative (ZMod 2)
 
 theorem bottom_lt_top : (⊥ : Subgroup G₂) < ⊤ := bot_lt_top
 
-noncomputable local instance : Fintype (G₂ ⧸ (⊥ : Subgroup G₂)) :=
+/-- A finite enumeration of the quotient of the two-element group by its trivial subgroup. -/
+noncomputable local instance bottomQuotientFintype : Fintype (G₂ ⧸ (⊥ : Subgroup G₂)) :=
   Fintype.ofFinite _
 
-noncomputable local instance : Fintype (G₂ ⧸ (⊤ : Subgroup G₂)) :=
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instFintypeQuotientMultiplicativeZModOfNatNatSubgroupBot_examples := bottomQuotientFintype
+attribute [nolint defsWithUnderscore]
+  instFintypeQuotientMultiplicativeZModOfNatNatSubgroupBot_examples
+
+/-- A finite enumeration of the quotient of the two-element group by the whole group. -/
+noncomputable local instance topQuotientFintype : Fintype (G₂ ⧸ (⊤ : Subgroup G₂)) :=
   Fintype.ofFinite _
 
-noncomputable local instance : Fintype
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instFintypeQuotientMultiplicativeZModOfNatNatSubgroupTop_examples := topQuotientFintype
+attribute [nolint defsWithUnderscore]
+  instFintypeQuotientMultiplicativeZModOfNatNatSubgroupTop_examples
+
+/-- A finite enumeration of the whole group's image in its quotient by the trivial subgroup. -/
+noncomputable local instance topImageInBottomQuotientFintype : Fintype
     ((⊤ : Subgroup G₂).map (QuotientGroup.mk' (⊥ : Subgroup G₂))) :=
   Fintype.ofFinite _
 
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instFintypeSubtypeQuotientMultiplicativeZModOfNatNatSubgroupBotMemMapMk'Top_examples :=
+  topImageInBottomQuotientFintype
+attribute [nolint defsWithUnderscore]
+  instFintypeSubtypeQuotientMultiplicativeZModOfNatNatSubgroupBotMemMapMk'Top_examples
+
+/-- Multiplication by two on the trivial integral representation of the two-element group. -/
 def doubleCoefficient : Rep.trivial ℤ G₂ ℤ ⟶ Rep.trivial ℤ G₂ ℤ :=
   (2 : ℤ) • 𝟙 _
 

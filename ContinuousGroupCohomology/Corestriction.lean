@@ -282,6 +282,7 @@ lemma rho_inv_changeFactor (S : H.RightTransversal) (t : ↥(T : Set G)) (x : X)
   rw [← changeFactor_mul_changeRep T S t]
   simp
 
+/-- The finite type of representatives of a finite-index open subgroup. -/
 noncomputable local instance transversalFintype (H : OpenSubgroup G)
     [H.toSubgroup.FiniteIndex] (T : H.toSubgroup.RightTransversal) :
     Fintype ↥(T : Set G) :=
@@ -655,16 +656,56 @@ lemma transferQuotient_natural_hom {Y : TopRep.{max v w} k G} (q : X ⟶ Y)
   exact DFunLike.congr_fun (transferQuotient_natural X q H T) z
 
 /-- The degree-one corestriction morphism determined by a right transversal.
+This construction requires joint continuity, but no local compactness assumption
+on the group or subgroup. The abbreviation exposes the composite through the
+crossed-quotient objects. -/
+noncomputable abbrev corestrictionOneOfRightTransversal
+    (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
+    (T : H.toSubgroup.RightTransversal) [TopRep.JointlyContinuous X] :
+    continuousCohomology 1 (TopRep.res H.subtype X) ⟶ continuousCohomology 1 X :=
+  (degreeOneIso (TopRep.res H.subtype X)).inv ≫
+    TopModuleCat.ofHom (transferQuotient X H T) ≫
+      (degreeOneIso X).hom
+
+/-- Under the degree-one identifications, corestriction is induced by transfer
+on crossed homomorphisms modulo principal crossed homomorphisms. -/
+lemma corestrictionOneOfRightTransversal_spec
+    (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
+    (T : H.toSubgroup.RightTransversal) [TopRep.JointlyContinuous X] :
+    (degreeOneIso (TopRep.res H.subtype X)).hom ≫
+        corestrictionOneOfRightTransversal X H T =
+      TopModuleCat.ofHom (transferQuotient X H T) ≫ (degreeOneIso X).hom := by
+  simp [corestrictionOneOfRightTransversal]
+
+/-- Degree-one corestriction does not depend on the chosen right transversal,
+without local compactness assumptions. -/
+lemma corestrictionOneOfRightTransversal_eq
+    (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
+    (T S : H.toSubgroup.RightTransversal) [TopRep.JointlyContinuous X] :
+    corestrictionOneOfRightTransversal X H T =
+      corestrictionOneOfRightTransversal X H S := by
+  simp only [corestrictionOneOfRightTransversal]
+  rw [transferQuotient_eq X H T S]
+
+/-- The degree-one corestriction morphism determined by a right transversal.
 Its crossed-quotient formula is used by the composition and Mackey laws. -/
-@[expose]
+-- Retain the original argument telescope for compatibility with existing applications.
+@[expose, nolint unusedArguments]
 noncomputable def corestrictionOneWithTransversal
     (H : OpenSubgroup G) [H.toSubgroup.FiniteIndex]
     (T : H.toSubgroup.RightTransversal) [TopRep.JointlyContinuous X]
     [LocallyCompactSpace G] [LocallyCompactSpace H] :
     continuousCohomology 1 (TopRep.res H.subtype X) ⟶ continuousCohomology 1 X :=
-  (degreeOneIso (TopRep.res H.subtype X)).inv ≫
-    TopModuleCat.ofHom (transferQuotient X H T) ≫
-      (degreeOneIso X).hom
+  corestrictionOneOfRightTransversal X H T
+
+/-- On locally compact groups, the right-transversal construction agrees with
+the corestriction morphism with local compactness assumptions. -/
+lemma corestrictionOneWithTransversal_eq_ofRightTransversal
+    (H : OpenSubgroup G) [hindex : H.toSubgroup.FiniteIndex]
+    (T : H.toSubgroup.RightTransversal) [hcontinuous : TopRep.JointlyContinuous X]
+    [hG : LocallyCompactSpace G] [hH : LocallyCompactSpace H] :
+    @corestrictionOneWithTransversal k _ _ G _ _ _ X H hindex T hcontinuous hG hH =
+      corestrictionOneOfRightTransversal X H T := rfl
 
 /-- Degree-one corestriction is independent of the chosen right transversal. -/
 lemma corestrictionOneWithTransversal_eq
@@ -672,9 +713,8 @@ lemma corestrictionOneWithTransversal_eq
     (T S : H.toSubgroup.RightTransversal) [TopRep.JointlyContinuous X]
     [LocallyCompactSpace G] [LocallyCompactSpace H] :
     corestrictionOneWithTransversal X H T =
-      corestrictionOneWithTransversal X H S := by
-  simp only [corestrictionOneWithTransversal]
-  rw [transferQuotient_eq X H T S]
+      corestrictionOneWithTransversal X H S :=
+  corestrictionOneOfRightTransversal_eq X H T S
 
 /-- Canonical degree-one corestriction for an open finite-index subgroup.
 Its default-transversal formula is used by the Mackey comparison. -/
@@ -703,10 +743,61 @@ lemma corestrictionOne_natural {Y : TopRep.{max v w} k G} (q : X ⟶ Y)
           ((TopRep.resFunctor H.subtype).map q) 1 ≫
         corestrictionOne Y H =
       corestrictionOne X H ≫ map (ContinuousMonoidHom.id G) q 1 := by
-  simp only [corestrictionOne, corestrictionOneWithTransversal, degreeOneIso_inv]
-  rw [homologyQuotientIso_natural_assoc,
-    ← transferQuotient_natural_hom_assoc, degreeOneIso_natural]
-  simp only [Category.assoc]
+  rw [corestrictionOne_eq_withTransversal X H default,
+    corestrictionOne_eq_withTransversal Y H default,
+    corestrictionOneWithTransversal_eq_ofRightTransversal,
+    corestrictionOneWithTransversal_eq_ofRightTransversal]
+  apply (cancel_epi (degreeOneIso (TopRep.res H.subtype X)).hom).1
+  let mapH : continuousCohomology 1 (TopRep.res H.subtype X) ⟶
+      continuousCohomology 1 (TopRep.res H.subtype Y) :=
+    map (ContinuousMonoidHom.id (H : Subgroup G))
+      ((TopRep.resFunctor H.subtype).map q) 1
+  let mapG : continuousCohomology 1 X ⟶ continuousCohomology 1 Y :=
+    map (ContinuousMonoidHom.id G) q 1
+  let crossH := TopModuleCat.ofHom
+    (crossedQuotientMap ((TopRep.resFunctor H.subtype).map q))
+  let crossG := TopModuleCat.ofHom (crossedQuotientMap q)
+  let transferX := TopModuleCat.ofHom (transferQuotient X H default)
+  let transferY := TopModuleCat.ofHom (transferQuotient Y H default)
+  let isoHX := (degreeOneIso (TopRep.res H.subtype X)).hom
+  let isoHY := (degreeOneIso (TopRep.res H.subtype Y)).hom
+  let isoX := (degreeOneIso X).hom
+  let isoY := (degreeOneIso Y).hom
+  let ctorX := corestrictionOneOfRightTransversal X H default
+  let ctorY := corestrictionOneOfRightTransversal Y H default
+  have hNatH : crossH ≫ isoHY = isoHX ≫ mapH := by
+    apply degreeOneIso_natural
+  have hNatG : crossG ≫ isoY = isoX ≫ mapG := by
+    apply degreeOneIso_natural
+  have hTransfer : transferX ≫ crossG = crossH ≫ transferY := by
+    apply transferQuotient_natural_hom
+  have hSpecX : isoHX ≫ ctorX = transferX ≫ isoX :=
+    corestrictionOneOfRightTransversal_spec X H default
+  have hSpecY : isoHY ≫ ctorY = transferY ≫ isoY :=
+    corestrictionOneOfRightTransversal_spec Y H default
+  calc
+    isoHX ≫ (mapH ≫ ctorY) = (isoHX ≫ mapH) ≫ ctorY :=
+      (Category.assoc isoHX mapH ctorY).symm
+    _ = (crossH ≫ isoHY) ≫ ctorY :=
+      congrArg (fun f => f ≫ ctorY) hNatH.symm
+    _ = crossH ≫ (isoHY ≫ ctorY) :=
+      Category.assoc crossH isoHY ctorY
+    _ = crossH ≫ (transferY ≫ isoY) :=
+      congrArg (fun f => crossH ≫ f) hSpecY
+    _ = (crossH ≫ transferY) ≫ isoY :=
+      (Category.assoc crossH transferY isoY).symm
+    _ = (transferX ≫ crossG) ≫ isoY :=
+      congrArg (fun f => f ≫ isoY) hTransfer.symm
+    _ = transferX ≫ (crossG ≫ isoY) :=
+      Category.assoc transferX crossG isoY
+    _ = transferX ≫ (isoX ≫ mapG) :=
+      congrArg (fun f => transferX ≫ f) hNatG
+    _ = (transferX ≫ isoX) ≫ mapG :=
+      (Category.assoc transferX isoX mapG).symm
+    _ = (isoHX ≫ ctorX) ≫ mapG :=
+      congrArg (fun f => f ≫ mapG) hSpecX.symm
+    _ = isoHX ≫ (ctorX ≫ mapG) :=
+      Category.assoc isoHX ctorX mapG
 
 /-- Restriction of continuous crossed homomorphisms to an open subgroup.
 Its value on subgroup elements is computed by evaluation in the ambient group. -/
@@ -757,12 +848,19 @@ def crossedQuotientRestrict (H : OpenSubgroup G)
         (principalCocycles (TopRep.res H.subtype X))).2 ⟨x, rfl⟩
 
 omit [IsTopologicalGroup G] in
-@[simp]
 lemma crossedQuotientRestrict_mk (H : OpenSubgroup G)
     [TopRep.JointlyContinuous X] (f : continuousCrossedHom X) :
     crossedQuotientRestrict X H ((principalCocycles X).mkQ f) =
       (principalCocycles (TopRep.res H.subtype X)).mkQ
         (crossedRestrict X H f) := rfl
+
+omit [IsTopologicalGroup G] in
+/-- Restriction on representatives in the canonical submodule-quotient form. -/
+@[simp]
+lemma crossedQuotientRestrict_quotient_mk (H : OpenSubgroup G)
+    [TopRep.JointlyContinuous X] (f : continuousCrossedHom X) :
+    crossedQuotientRestrict X H (Submodule.Quotient.mk f) =
+      Submodule.Quotient.mk (crossedRestrict X H f) := rfl
 
 /-- The continuous inclusion of an open subgroup. -/
 def openSubgroupInclusion (H : OpenSubgroup G) : H →ₜ* G where
@@ -799,6 +897,8 @@ instance openSubgroupIsTopologicalGroup (H : OpenSubgroup G) :
 set_option maxHeartbeats 800000 in
 -- Allow additional elaboration budget for the nested cycle-map and
 -- crossed-homomorphism comparison on a restricted representation.
+-- Preserve the continuity and local-compactness parameters of the explicit comparison API.
+@[nolint unusedArguments]
 lemma cocyclesOneCrossedIso_restrict (H : OpenSubgroup G)
     [TopRep.JointlyContinuous X] [LocallyCompactSpace G]
     [LocallyCompactSpace H] :
@@ -993,10 +1093,13 @@ lemma restriction_corestrictionOne (H : OpenSubgroup G)
     map (openSubgroupInclusion H) (restrictionCoeffHom X H) 1 ≫
         corestrictionOne X H =
       H.toSubgroup.index • 𝟙 (continuousCohomology 1 X) := by
-  rw [corestrictionOne_eq_withTransversal X H T]
-  simp only [corestrictionOneWithTransversal, degreeOneIso_inv]
-  rw [homologyQuotientIso_restrict_assoc]
-  rw [transferQuotient_comp_restrict_hom_assoc]
+  rw [corestrictionOne_eq_withTransversal X H T,
+    corestrictionOneWithTransversal_eq_ofRightTransversal]
+  rw [← (degreeOneIso (TopRep.res H.subtype X)).inv_hom_id_assoc
+    (corestrictionOneOfRightTransversal X H T)]
+  rw [corestrictionOneOfRightTransversal_spec, degreeOneIso_inv,
+    homologyQuotientIso_restrict_assoc,
+    transferQuotient_comp_restrict_hom_assoc]
   rw [degreeOneIso, Iso.symm_hom, ← Category.assoc,
     Preadditive.comp_nsmul, Category.comp_id, Preadditive.nsmul_comp,
     Iso.hom_inv_id]

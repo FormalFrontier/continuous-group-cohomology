@@ -38,7 +38,7 @@ def quotientTransitionHom (N M : OpenNormalSubgroup G) (hNM : N ≤ M) :
   exact ⟨QuotientGroup.map N.toSubgroup M.toSubgroup (MonoidHom.id G)
     (by intro g hg; exact hNM hg), continuous_of_discreteTopology⟩
 
-@[simp] theorem quotientTransitionHom_mk (N M : OpenNormalSubgroup G) (hNM : N ≤ M)
+theorem quotientTransitionHom_mk (N M : OpenNormalSubgroup G) (hNM : N ≤ M)
     (g : G) :
     quotientTransitionHom N M hNM (QuotientGroup.mk' N.toSubgroup g) =
       QuotientGroup.mk' M.toSubgroup g := rfl

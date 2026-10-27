@@ -162,7 +162,13 @@ example (S : OpenNormalSubgroup G) :
         forget CompHausAddCommGrp.{u}).eventualRange S :=
   LevelCompact.compactZeroTateLimitπ_range_eq_eventualRange A L S
 
-local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+/-- The discrete topology on the two-element group. -/
+local instance twoElementTopology : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 local instance : DiscreteTopology (Multiplicative (ZMod 2)) := ⟨rfl⟩
 
 private abbrev twoElementGroup : ProfiniteGrp :=

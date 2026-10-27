@@ -37,6 +37,8 @@ theorem relativeNormSubgroup_comap (U V : OpenSubgroup G) :
     LevelCompact.relativeNormSubgroup U V =
       V.comap U.subtype continuous_subtype_val := rfl
 
+/-- A finite enumeration of the carrier of a right transversal of
+`LevelCompact.relativeNormSubgroup U V` in `U`. -/
 local instance normClientTransversalFintype (U V : OpenSubgroup G)
     (T : (LevelCompact.relativeNormSubgroup U V).toSubgroup.RightTransversal) :
     Fintype ↥(T : Set U) :=
@@ -105,9 +107,11 @@ theorem norm_continuous (A : Rep.{uA} R G) (L : LevelCompact A)
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The bottom topology on `Multiplicative (ZMod 2)`. -/
+local instance twoElementTopologicalSpace : TopologicalSpace G₂ := ⊥
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 
+/-- The trivial open subgroup of `Multiplicative (ZMod 2)`. -/
 def twoElementBottom : OpenSubgroup G₂ where
   toSubgroup := ⊥
   isOpen' := isOpen_discrete _

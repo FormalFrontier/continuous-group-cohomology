@@ -472,7 +472,7 @@ lemma tateCohomologyNegativeAddEquivFiniteTate_coherence
 
 /-- A Tate class transported through mathlib's homology comparison has the
 same compact value as under the Tate-to-compact equivalence. -/
-@[simp]
+@[simp↓]
 lemma groupHomologyAddEquivFiniteTateNegative_isoGroupHomology_apply
     (S : OpenNormalSubgroup G) [Fintype (G ⧸ S.toSubgroup)] (n : ℕ)
     (x : tateCohomology (A.quotientToInvariants S.toSubgroup) (-(n + 2 : ℤ))) :

@@ -94,7 +94,8 @@ end Diagrams
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The discrete topology on the two-element group `Multiplicative (ZMod 2)`. -/
+local instance instTopologicalSpaceTwoElementGroup : TopologicalSpace G₂ := ⊥
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 
 private abbrev twoElementGroup : ProfiniteGrp := ProfiniteGrp.of G₂

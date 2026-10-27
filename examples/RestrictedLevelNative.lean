@@ -118,18 +118,30 @@ theorem chosen_additive_group (S : LevelCompact.RestrictedLevelSystem A L)
     @IsTopologicalAddGroup (S.coefficients U) (S.topology U) _ := by
   exact S.topologicalAddGroup U
 
-noncomputable def chosen_compact_group (S : LevelCompact.RestrictedLevelSystem A L)
+/-- The compact Hausdorff additive group of chosen restricted coefficients at a level. -/
+noncomputable def chosenCompactGroup (S : LevelCompact.RestrictedLevelSystem A L)
     (U : OpenNormalSubgroup G) : CompHausAddCommGrp.{u} :=
   S.group U
 
-noncomputable def chosen_norm_group_hom (S : LevelCompact.RestrictedLevelSystem A L)
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias chosen_compact_group := chosenCompactGroup
+attribute [nolint defsWithUnderscore] chosen_compact_group
+
+/-- The restricted relative norm as a continuous homomorphism of compact additive groups. -/
+noncomputable def chosenNormGroupHom (S : LevelCompact.RestrictedLevelSystem A L)
     (U V : OpenNormalSubgroup G) (h : V ≤ U) :
     S.group V ⟶ S.group U :=
   S.relativeNormHom U V h
 
-/-- An ordinary importing module can bundle an actual continuous linear map
-between the chosen coefficient carriers, without copying the compact objects. -/
-noncomputable def chosen_continuous_linear_hom
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias chosen_norm_group_hom := chosenNormGroupHom
+attribute [nolint defsWithUnderscore] chosen_norm_group_hom
+
+/-- The continuous additive homomorphism induced by a continuous linear map
+between chosen restricted coefficient carriers. -/
+noncomputable def chosenContinuousLinearHom
     {B : Rep.{u} R G} {M : LevelCompact B}
     (S : LevelCompact.RestrictedLevelSystem A L)
     (T : LevelCompact.RestrictedLevelSystem B M) (U V : OpenNormalSubgroup G)
@@ -139,6 +151,11 @@ noncomputable def chosen_continuous_linear_hom
   apply CategoryTheory.ConcreteCategory.ofHom
   exact { toAddMonoidHom := f.toAddMonoidHom, continuous_toFun := hf }
 
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias chosen_continuous_linear_hom := chosenContinuousLinearHom
+attribute [nolint defsWithUnderscore] chosen_continuous_linear_hom
+
 theorem chosen_continuous_linear_hom_apply
     {B : Rep.{u} R G} {M : LevelCompact B}
     (S : LevelCompact.RestrictedLevelSystem A L)
@@ -146,7 +163,7 @@ theorem chosen_continuous_linear_hom_apply
     (f : S.coefficients U →ₗ[R] T.coefficients V)
     (hf : @Continuous (S.coefficients U) (T.coefficients V)
       (S.topology U) (T.topology V) f) (x : S.coefficients U) :
-    chosen_continuous_linear_hom A L S T U V f hf x = f x :=
+    chosenContinuousLinearHom A L S T U V f hf x = f x :=
   by rfl
 
 theorem chosen_norm_group_apply (S : LevelCompact.RestrictedLevelSystem A L)
@@ -188,15 +205,24 @@ theorem canonical_le_full (U : OpenNormalSubgroup G) :
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
-local instance : TopologicalSpace G₂ := ⊥
+/-- The discrete topology on the two-element group used for restricted levels. -/
+local instance twoElementTopology : TopologicalSpace G₂ := ⊥
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
+
 local instance : DiscreteTopology G₂ := ⟨rfl⟩
 
+/-- The open normal level given by the trivial subgroup of the discrete two-element group. -/
 def twoElementBottom : OpenNormalSubgroup G₂ where
   toOpenSubgroup := { toSubgroup := ⊥, isOpen' := isOpen_discrete _ }
   isNormal' := by
     change (⊥ : Subgroup G₂).Normal
     infer_instance
 
+/-- The open normal level given by the whole discrete two-element group. -/
 def twoElementTop : OpenNormalSubgroup G₂ where
   toOpenSubgroup := ⊤
   isNormal' := by
@@ -207,6 +233,7 @@ theorem twoElementBottom_lt_top : twoElementBottom < twoElementTop := by
   change (⊥ : Subgroup G₂) < ⊤
   exact bot_lt_top
 
+/-- Discrete level-compact topologies for a finite representation of the two-element group. -/
 noncomputable def finiteDiscreteLevelCompact (A : Rep.{0} (ZMod 2) G₂)
     [Finite A] : LevelCompact A where
   topology _ := ⊥

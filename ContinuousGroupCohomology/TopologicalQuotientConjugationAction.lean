@@ -248,7 +248,6 @@ theorem quotientConjActTopologicalAbelianizationContinuous_rightHom
 
 /-- Arbitrary-lift formula for the continuous quotient action on a
 representative of topological abelianization. -/
-@[simp]
 theorem quotientConjActTopologicalAbelianizationContinuous_apply_mk
     (S : ContinuousGroupExtension N E Q) (e : E) (n : N) :
     S.quotientConjActTopologicalAbelianizationContinuous

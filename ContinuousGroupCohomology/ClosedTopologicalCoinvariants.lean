@@ -32,6 +32,17 @@ noncomputable section
 
 universe uG uA uB uC uN uE uQ uE'
 
+/-- The topological closure of the trivial subgroup of a T1 topological group is trivial. -/
+@[simp]
+theorem Subgroup.topologicalClosure_bot {H : Type*} [Group H] [TopologicalSpace H]
+    [IsTopologicalGroup H] [T1Space H] :
+    (⊥ : Subgroup H).topologicalClosure = ⊥ := by
+  apply le_antisymm ?_ bot_le
+  apply Subgroup.topologicalClosure_minimal
+  · exact le_rfl
+  · change IsClosed ({1} : Set H)
+    exact isClosed_singleton
+
 /-- An action by multiplicative automorphisms whose individual values are
 continuous.  The acting group carries no topology, and this structure makes no
 joint-continuity claim. -/
@@ -58,11 +69,9 @@ theorem ext {ρ σ : PointwiseContinuousMulAction G A}
   cases h
   rfl
 
-@[simp]
 theorem map_one (ρ : PointwiseContinuousMulAction G A) (a : A) : ρ 1 a = a := by
   exact DFunLike.congr_fun (_root_.map_one ρ.toMonoidHom) a
 
-@[simp]
 theorem map_mul (ρ : PointwiseContinuousMulAction G A) (g h : G) (a : A) :
     ρ (g * h) a = ρ g (ρ h a) := by
   exact DFunLike.congr_fun (_root_.map_mul ρ.toMonoidHom g h) a
@@ -148,13 +157,18 @@ theorem difference_mem_differenceSubgroup
 
 /-- The projection identifies an element with each of its translates.  This
 also fixes the action-difference orientation used by the construction. -/
-@[simp]
 theorem coinvariantsMk_action (ρ : PointwiseContinuousMulAction G A) (g : G) (a : A) :
     ρ.coinvariantsMk (ρ g a) = ρ.coinvariantsMk a := by
   apply QuotientGroup.eq_iff_div_mem.mpr
   simpa only [closedDifferenceSubgroup, div_eq_mul_inv] using
     Subgroup.le_topologicalClosure ρ.differenceSubgroup
       (ρ.difference_mem_differenceSubgroup g a)
+
+/-- The quotient identifies an element with each of its translates. -/
+@[simp]
+theorem coinvariants_coe_action (ρ : PointwiseContinuousMulAction G A) (g : G) (a : A) :
+    ((ρ.toMonoidHom g) a : ρ.Coinvariants) = (a : ρ.Coinvariants) := by
+  exact ρ.coinvariantsMk_action g a
 
 /-- The algebraic quotient projection. -/
 def algebraicMk (ρ : PointwiseContinuousMulAction G A) :
@@ -252,11 +266,18 @@ def liftOfClosed {B : Type uB} [Group B] [TopologicalSpace B]
     rw [(QuotientGroup.isQuotientMap_mk ρ.closedDifferenceSubgroup).continuous_iff]
     exact f.continuous
 
-@[simp]
 theorem liftOfClosed_mk {B : Type uB} [Group B] [TopologicalSpace B]
     (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
     (hf : ρ.closedDifferenceSubgroup ≤ f.ker) (a : A) :
     ρ.liftOfClosed f hf (ρ.coinvariantsMk a) = f a := rfl
+
+/-- A lift through a closed relation subgroup evaluates on representatives. -/
+@[simp]
+theorem liftOfClosed_coe {B : Type uB} [Group B] [TopologicalSpace B]
+    (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
+    (hf : ρ.closedDifferenceSubgroup ≤ f.ker) (a : A) :
+    ρ.liftOfClosed f hf (a : ρ.Coinvariants) = f a := by
+  exact ρ.liftOfClosed_mk f hf a
 
 /-- A continuous homomorphism to a T1 group which kills every action
 difference kills their closed generated subgroup.  The T1 assumption makes
@@ -277,11 +298,18 @@ def lift {B : Type uB} [Group B] [TopologicalSpace B] [T1Space B]
     (hf : ρ.KillsDifferences f) : ρ.Coinvariants →ₜ* B :=
   ρ.liftOfClosed f (ρ.closedDifferenceSubgroup_le_ker f hf)
 
-@[simp]
 theorem lift_mk {B : Type uB} [Group B] [TopologicalSpace B] [T1Space B]
     (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
     (hf : ρ.KillsDifferences f) (a : A) :
     ρ.lift f hf (ρ.coinvariantsMk a) = f a := rfl
+
+/-- The descended homomorphism evaluates on representatives. -/
+@[simp]
+theorem lift_coe {B : Type uB} [Group B] [TopologicalSpace B] [T1Space B]
+    (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
+    (hf : ρ.KillsDifferences f) (a : A) :
+    ρ.lift f hf (a : ρ.Coinvariants) = f a := by
+  exact ρ.lift_mk f hf a
 
 /-- The algebraic universal factorization agrees with the closed one through
 the canonical algebraic-to-closed comparison whenever the T1 lift is
@@ -341,12 +369,19 @@ def map (ρ : PointwiseContinuousMulAction G A)
     exact σ.differenceSubgroup.isClosed_topologicalClosure.preimage
       f.continuous
 
-@[simp]
 theorem map_mk (ρ : PointwiseContinuousMulAction G A)
     (σ : PointwiseContinuousMulAction G B) (f : A →ₜ* B)
     (hf : IsEquivariant ρ σ f) (a : A) :
     map ρ σ f hf (ρ.coinvariantsMk a) = σ.coinvariantsMk (f a) := by
   exact ρ.liftOfClosed_mk (σ.coinvariantsMk.comp f) _ a
+
+/-- The induced map on coinvariants evaluates on representatives. -/
+@[simp]
+theorem map_coe (ρ : PointwiseContinuousMulAction G A)
+    (σ : PointwiseContinuousMulAction G B) (f : A →ₜ* B)
+    (hf : IsEquivariant ρ σ f) (a : A) :
+    ρ.map σ f hf (a : ρ.Coinvariants) = (f a : σ.Coinvariants) := by
+  exact map_mk ρ σ f hf a
 
 omit [IsTopologicalGroup A] in
 theorem isEquivariant_id (ρ : PointwiseContinuousMulAction G A) :
@@ -440,7 +475,6 @@ def congr (ρ : PointwiseContinuousMulAction G A)
     continuous_toFun := (map ρ σ ef hef).continuous
     continuous_invFun := (map σ ρ einf heinf).continuous }
 
-@[simp]
 theorem congr_mk (ρ : PointwiseContinuousMulAction G A)
     (σ : PointwiseContinuousMulAction G B) (e : A ≃ₜ* B)
     (he : IsEquivariant ρ σ e) (a : A) :
@@ -452,6 +486,14 @@ theorem congr_mk (ρ : PointwiseContinuousMulAction G A)
   change map ρ σ ef hef (ρ.coinvariantsMk a) = σ.coinvariantsMk (e a)
   rw [map_mk]
   rfl
+
+/-- The induced equivalence on coinvariants evaluates on representatives. -/
+@[simp]
+theorem congr_coe (ρ : PointwiseContinuousMulAction G A)
+    (σ : PointwiseContinuousMulAction G B) (e : A ≃ₜ* B)
+    (he : IsEquivariant ρ σ e) (a : A) :
+    ρ.congr σ e he (a : ρ.Coinvariants) = (e a : σ.Coinvariants) := by
+  exact congr_mk ρ σ e he a
 
 end Functoriality
 
@@ -480,7 +522,6 @@ theorem closedDifferenceSubgroup_trivial :
 
 /-- For a T1 coefficient group, the closed relation subgroup of the trivial
 action is trivial. -/
-@[simp]
 theorem closedDifferenceSubgroup_trivial_of_t1 [T1Space A] :
     closedDifferenceSubgroup
       (PointwiseContinuousMulAction.trivial : PointwiseContinuousMulAction G A) = ⊥ := by
@@ -607,3 +648,73 @@ theorem quotientConjActTopologicalAbelianizationCoinvariantsEquiv_mk
 end Equiv
 
 end ContinuousGroupExtension
+
+namespace PointwiseContinuousMulAction
+
+universe vG vA vB
+
+section
+
+variable {G : Type vG} {A : Type vA}
+  [Group G] [Group A] [TopologicalSpace A]
+
+example (ρ : PointwiseContinuousMulAction G A) (g h : G) (a : A) :
+    ρ (g * h) a = ρ g (ρ h a) := by
+  simp
+
+end
+
+section
+
+variable {G : Type vG} {A : Type vA}
+  [Group G] [CommGroup A] [TopologicalSpace A] [IsTopologicalGroup A]
+
+example (ρ : PointwiseContinuousMulAction G A) (g : G) (a : A) :
+    ρ.coinvariantsMk (ρ g a) = ρ.coinvariantsMk a := by
+  simp
+
+example {B : Type vB} [Group B] [TopologicalSpace B]
+    (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
+    (hf : ρ.closedDifferenceSubgroup ≤ f.ker) (a : A) :
+    ρ.liftOfClosed f hf (ρ.coinvariantsMk a) = f a := by
+  simp
+
+example {B : Type vB} [Group B] [TopologicalSpace B] [T1Space B]
+    (ρ : PointwiseContinuousMulAction G A) (f : A →ₜ* B)
+    (hf : ρ.KillsDifferences f) (a : A) :
+    ρ.lift f hf (ρ.coinvariantsMk a) = f a := by
+  simp
+
+example {B : Type vB} [CommGroup B] [TopologicalSpace B] [IsTopologicalGroup B]
+    (ρ : PointwiseContinuousMulAction G A)
+    (σ : PointwiseContinuousMulAction G B) (f : A →ₜ* B)
+    (hf : IsEquivariant ρ σ f) (a : A) :
+    map ρ σ f hf (ρ.coinvariantsMk a) = σ.coinvariantsMk (f a) := by
+  simp
+
+example {B : Type vB} [CommGroup B] [TopologicalSpace B] [IsTopologicalGroup B]
+    (ρ : PointwiseContinuousMulAction G A)
+    (σ : PointwiseContinuousMulAction G B) (e : A ≃ₜ* B)
+    (he : IsEquivariant ρ σ e) (a : A) :
+    congr ρ σ e he (ρ.coinvariantsMk a) = σ.coinvariantsMk (e a) := by
+  simp
+
+example [T1Space A] :
+    closedDifferenceSubgroup
+      (trivial : PointwiseContinuousMulAction G A) = (⊥ : Subgroup A) := by
+  simp
+
+example (P : Prop) [Decidable P]
+    (ρ : PointwiseContinuousMulAction G A) (g : G) (a : A) :
+    ρ.coinvariantsMk (if P then ρ g a else ρ g a) = ρ.coinvariantsMk a := by
+  simp
+
+example [T1Space A] (P : Prop) [Decidable P] :
+    closedDifferenceSubgroup
+      (if P then (trivial : PointwiseContinuousMulAction G A)
+       else (trivial : PointwiseContinuousMulAction G A)) = (⊥ : Subgroup A) := by
+  simp
+
+end
+
+end PointwiseContinuousMulAction

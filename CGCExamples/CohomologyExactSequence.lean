@@ -71,16 +71,17 @@ def signedProjection : signedIntegers ⟶ signedQuotient :=
         simp [Units.smul_def, ZMod.neg_eq_self_mod_two]
   }
 
-@[simp] theorem signedInclusion_apply (x : ℤ) : signedInclusion x = 2 * x := rfl
+@[simp↓] theorem signedInclusion_apply (x : ℤ) : signedInclusion x = 2 * x := rfl
 
-@[simp] theorem signedProjection_apply (x : ℤ) :
+@[simp↓] theorem signedProjection_apply (x : ℤ) :
     signedProjection x = (x : ZMod 2) := rfl
 
 /-- The integer sign coefficient sequence is injective at the left. -/
 theorem signedInclusion_injective : Function.Injective signedInclusion := by
-  change Function.Injective (fun x : ℤ => 2 * x)
+  change Function.Injective (fun x : ℤ => (signedInclusion x : ℤ))
   intro x y h
-  exact mul_left_cancel₀ (by decide : (2 : ℤ) ≠ 0) h
+  simp at h
+  omega
 
 /-- The image of multiplication by two is the kernel of mod-two reduction. -/
 theorem signedSequence_exact : Function.Exact signedInclusion signedProjection := by
@@ -89,8 +90,11 @@ theorem signedSequence_exact : Function.Exact signedInclusion signedProjection :
 
 /-- The quotient map is surjective, although it has no integer-linear section. -/
 theorem signedProjection_surjective : Function.Surjective signedProjection := by
-  change Function.Surjective (fun x : ℤ => (x : ZMod 2))
-  exact evenSequenceProjection_surjective
+  intro y
+  obtain ⟨x, hx⟩ := evenSequenceProjection_surjective y
+  refine ⟨x, ?_⟩
+  conv_lhs => simp
+  exact hx
 
 /-- The only integer fixed by the full sign action is zero. -/
 theorem signedIntegers_invariant_eq_zero (x : signedIntegers.ρ.invariants) : x = 0 := by

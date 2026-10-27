@@ -98,13 +98,11 @@ lemma uliftFunctorObjEquiv_symm_apply (X : TopModuleCat.{v} R)
     (uliftFunctorObjEquiv.{v', v} R X).symm x = x.down :=
   rfl
 
-@[simp]
 lemma uliftFunctorObjEquiv_naturality {X Y : TopModuleCat.{v} R} (f : X ⟶ Y) (x : X) :
     uliftFunctorObjEquiv R Y (f.hom x) =
       ((uliftFunctor.{v', v} R).map f).hom (uliftFunctorObjEquiv R X x) :=
   rfl
 
-@[simp]
 lemma uliftFunctorObjEquiv_symm_naturality {X Y : TopModuleCat.{v} R} (f : X ⟶ Y)
     (x : (uliftFunctor.{v', v} R).obj X) :
     f.hom ((uliftFunctorObjEquiv R X).symm x) =

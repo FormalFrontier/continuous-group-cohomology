@@ -60,7 +60,8 @@ lemma finiteOrbitDifference_apply (ρ : Representation R H M)
       ((ρ ((Fintype.equivFin H).symm i)) (x i) - x i) :=
   rfl
 
-@[simp]
+-- Evaluate a single-supported vector before expanding the finite orbit sum.
+@[simp↓]
 lemma finiteOrbitDifference_single (ρ : Representation R H M) (g : H) (x : M) :
     finiteOrbitDifference ρ (Pi.single (Fintype.equivFin H g) x) = ρ g x - x := by
   classical

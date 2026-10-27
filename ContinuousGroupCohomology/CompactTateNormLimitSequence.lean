@@ -71,16 +71,20 @@ abbrev compactFiniteCoinvariantsLimit : CompHausAddCommGrp.{u} :=
   { pt := group A L (⊤ : OpenSubgroup G)
     π := { app := fun _ => 𝟙 _ } }
 
-@[expose] def compactTotalInvariantsCone_isLimit :
+/-- The compact total invariants cone satisfies the universal property of a limit. -/
+@[expose] def compactTotalInvariantsConeIsLimit :
     IsLimit (compactTotalInvariantsCone A L) := by
   exact isLimitConstCone (OpenNormalSubgroup G) (group A L (⊤ : OpenSubgroup G))
+
+@[deprecated (since := "2026-10-21"), nolint defsWithUnderscore]
+alias compactTotalInvariantsCone_isLimit := compactTotalInvariantsConeIsLimit
 
 /-- The constant limit is canonically isomorphic to total invariants. -/
 @[expose] def compactTotalInvariantsLimitIso :
     limit (compactTotalInvariantsDiagram A L) ≅
       group A L (⊤ : OpenSubgroup G) :=
   (limit.isLimit (compactTotalInvariantsDiagram A L)).conePointUniqueUpToIso
-    (compactTotalInvariantsCone_isLimit A L)
+    (compactTotalInvariantsConeIsLimit A L)
 
 /-- Every projection from the constant invariant limit is the same iso map. -/
 theorem compactTotalInvariantsLimitIso_hom (S : OpenNormalSubgroup G) :
@@ -88,7 +92,7 @@ theorem compactTotalInvariantsLimitIso_hom (S : OpenNormalSubgroup G) :
       (compactTotalInvariantsLimitIso A L).hom := by
   have hh := (IsLimit.conePointUniqueUpToIso_hom_comp
     (limit.isLimit (compactTotalInvariantsDiagram A L))
-    (compactTotalInvariantsCone_isLimit A L) S).symm
+    (compactTotalInvariantsConeIsLimit A L) S).symm
   simpa [compactTotalInvariantsLimitIso, compactTotalInvariantsCone] using hh
 
 /-- Inclusion of the degree-`-1` Tate limit in the coinvariant limit. -/

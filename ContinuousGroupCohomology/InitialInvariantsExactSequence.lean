@@ -338,7 +338,7 @@ end ObjectEquations
         ((invariantsFunctor k G).map p) := rfl
 
 /-- The displayed inclusion applies the coefficient map to invariant elements. -/
-@[simp] theorem initialInvariantsSequence_inclusion_apply [LocallyCompactSpace G]
+@[simp↓] theorem initialInvariantsSequence_inclusion_apply [LocallyCompactSpace G]
     [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
     (i : A ⟶ B) (p : B ⟶ C)
     (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)

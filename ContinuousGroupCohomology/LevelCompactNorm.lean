@@ -49,6 +49,8 @@ local instance relativeNormSubgroup_finiteIndex (U V : OpenSubgroup G) :
     (relativeNormSubgroup U V).toSubgroup.FiniteIndex :=
   Subgroup.finiteIndex_of_finite_quotient
 
+/-- The finite type structure on a right transversal for the pullback of `V` to `U`,
+used to index the sum defining the relative norm. -/
 local instance relativeNormTransversalFintype (U V : OpenSubgroup G)
     (T : (relativeNormSubgroup U V).toSubgroup.RightTransversal) :
     Fintype ↥(T : Set U) :=

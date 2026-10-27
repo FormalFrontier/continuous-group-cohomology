@@ -372,7 +372,7 @@ def mackeyConjugateCrossed (H K : OpenSubgroup G) (x : G) :
     congr 1
     group
 
-@[simp]
+@[simp↓]
 lemma mackeyConjugateCrossed_apply (H K : OpenSubgroup G) (x : G)
     (f : continuousCrossedHom (TopRep.res H.subtype X))
     (l : mackeyOpenStabilizer H K x) :
@@ -426,7 +426,7 @@ def mackeyConjugateQuotient (H K : OpenSubgroup G) (x : G)
       rw [mackeyConjugateCrossed_principal]
       exact (Submodule.Quotient.mk_eq_zero _).2 ⟨X.ρ x⁻¹ c, rfl⟩
 
-@[simp]
+@[simp↓]
 lemma mackeyConjugateQuotient_mk (H K : OpenSubgroup G) (x : G)
     [TopRep.JointlyContinuous X]
     (f : continuousCrossedHom (TopRep.res H.subtype X)) :
@@ -504,7 +504,7 @@ lemma mackeySummandQuotient_eq_withTransversal
     let _ := mackeyOpenStabilizerFiniteIndex H K x
     exact mackeySummandQuotientWithTransversal_eq X H K x default T
 
-@[simp]
+@[simp↓]
 lemma mackeySummandQuotientWithTransversal_mk
     (H K : OpenSubgroup G) [H.toSubgroup.FiniteIndex] (x : G)
     (T : (mackeyOpenStabilizer H K x).toSubgroup.RightTransversal)
@@ -1488,10 +1488,7 @@ set_option maxHeartbeats 800000 in
 -- Comparing the crossed and cocycle maps expands the conjugation and restriction squares.
 /-- The explicit conjugation/restriction map on crossed homomorphisms agrees
 with the map induced on degree-one cocycles. -/
-lemma cocyclesOneCrossedIso_mackey (H K : OpenSubgroup G) (x : G)
-    [TopRep.JointlyContinuous X] [LocallyCompactSpace H]
-    [LocallyCompactSpace K]
-    [LocallyCompactSpace (mackeyOpenStabilizer H K x)] :
+lemma cocyclesOneCrossedIso_mackey (H K : OpenSubgroup G) (x : G) :
     cocyclesMap (mackeyStabilizerToLeft H K x)
           (mackeyCoefficientHom X H K x) 1 ≫
         (cocyclesOneCrossedIso
@@ -1510,8 +1507,11 @@ lemma cocyclesOneCrossedIso_mackey (H K : OpenSubgroup G) (x : G)
         (mackeyCoefficientHom X H K x) 1 σ)).1 l) =
       (mackeyConjugateCrossed X H K x
         ((cocyclesOneCrossedIso (TopRep.res H.subtype X)).hom σ)).1 l
-  rw [cocyclesOneCrossedIso_hom_apply, mackeyConjugateCrossed_apply,
-    cocyclesOneCrossedIso_hom_apply]
+  have hconj (f : continuousCrossedHom (TopRep.res H.subtype X)) :
+      (mackeyConjugateCrossed X H K x f).1 l =
+        X.ρ x⁻¹ (f.1 (mackeyStabilizerToLeft H K x l)) := by
+    simp
+  rw [cocyclesOneCrossedIso_hom_apply, hconj, cocyclesOneCrossedIso_hom_apply]
   have hh := ConcreteCategory.congr_hom
     (HomologicalComplex.cyclesMap_i
       (cochainsMap (mackeyStabilizerToLeft H K x)
@@ -1543,7 +1543,13 @@ lemma mackeyConjugateCrossed_comp_mkQL (H K : OpenSubgroup G) (x : G)
           (principalCocycles (TopRep.res H.subtype X)).mkQL ≫
         TopModuleCat.ofHom (mackeyConjugateQuotient X H K x) := by
   ext f
-  rfl
+  change _ = mackeyConjugateQuotient X H K x
+    ((principalCocycles (TopRep.res H.subtype X)).mkQ f)
+  conv =>
+    lhs
+    simp only [TopModuleCat.hom_comp, TopModuleCat.hom_ofHom,
+      ContinuousLinearMap.comp_apply, Submodule.mkQL_apply]
+  simp
 
 set_option maxHeartbeats 3000000 in
 -- The native and crossed quotient maps are compared through homology transport.
@@ -1551,9 +1557,7 @@ set_option backward.isDefEq.respectTransparency false in
 /-- The native cohomology map induced by conjugation and coefficient transport
 agrees with the conjugation map on crossed-homomorphism quotients. -/
 lemma homologyQuotientIso_mackey (H K : OpenSubgroup G) (x : G)
-    [TopRep.JointlyContinuous X] [LocallyCompactSpace H]
-    [LocallyCompactSpace K]
-    [LocallyCompactSpace (mackeyOpenStabilizer H K x)] :
+    [TopRep.JointlyContinuous X] :
     map (mackeyStabilizerToLeft H K x) (mackeyCoefficientHom X H K x) 1 ≫
         (homologyQuotientIso
           (TopRep.res (mackeyOpenStabilizer H K x).subtype
@@ -1647,9 +1651,7 @@ set_option backward.isDefEq.respectTransparency false in
 /-- Conjugation and restriction commute with the crossed-quotient-to-degree-one
 cohomology comparison. -/
 lemma degreeOneIso_mackey (H K : OpenSubgroup G) (x : G)
-    [TopRep.JointlyContinuous X] [LocallyCompactSpace H]
-    [LocallyCompactSpace K]
-    [LocallyCompactSpace (mackeyOpenStabilizer H K x)] :
+    [TopRep.JointlyContinuous X] :
     TopModuleCat.ofHom (mackeyConjugateQuotient X H K x) ≫
         (degreeOneIso
           (TopRep.res (mackeyOpenStabilizer H K x).subtype
@@ -1670,9 +1672,7 @@ set_option maxHeartbeats 800000 in
 -- Moving the inverse degree-one comparison across the composite requires reassociation.
 /-- A reassociated inverse form of `degreeOneIso_mackey`. -/
 lemma map_comp_degreeOneIso_inv_mackey (H K : OpenSubgroup G) (x : G)
-    [TopRep.JointlyContinuous X] [LocallyCompactSpace H]
-    [LocallyCompactSpace K]
-    [LocallyCompactSpace (mackeyOpenStabilizer H K x)] :
+    [TopRep.JointlyContinuous X] :
     map (mackeyStabilizerToLeft H K x) (mackeyCoefficientHom X H K x) 1 ≫
         (degreeOneIso
           (TopRep.res (mackeyOpenStabilizer H K x).subtype
@@ -1865,6 +1865,7 @@ lemma corestrictionOne_comp_restriction_mackey
     mackeyDoubleCosetOneSum]
   rw [Category.assoc, Category.assoc, ← degreeOneIso_restrict X K]
   rw [transferQuotient_comp_crossedQuotientRestrict_mackey_hom_assoc]
+  simp only [degreeOneIso_inv]
 
 
 end CorestrictionTransversal

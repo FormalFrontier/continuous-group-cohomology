@@ -73,7 +73,7 @@ def quotientInvariants (X : TopRep.{w} k G) : TopRep.{w} k (G ⧸ N) :=
   .of (.ofMonoidHom (quotientInvariantsActionQuot N X))
 
 /-- Evaluation of the residual quotient action on a representative. -/
-@[simp] theorem quotientInvariants_ρ_mk (X : TopRep.{w} k G) (g : G)
+theorem quotientInvariants_ρ_mk (X : TopRep.{w} k G) (g : G)
     (x : quotientInvariants N X) :
     ((quotientInvariants N X).ρ (QuotientGroup.mk' N g) x).1 = X.ρ g x.1 :=
   rfl

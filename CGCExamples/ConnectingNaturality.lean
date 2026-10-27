@@ -26,7 +26,7 @@ namespace CGCExamples
 def signedTriple : signedIntegers ⟶ signedIntegers :=
   (3 : ℤ) • 𝟙 signedIntegers
 
-@[simp] theorem signedTriple_apply (x : ℤ) : signedTriple x = 3 * x := by
+theorem signedTriple_apply (x : ℤ) : signedTriple x = 3 * x := by
   rfl
 
 /-- Scaling by three is not the identity on the integer coefficients. -/

@@ -112,7 +112,7 @@ lemma finiteNegativeDeflationAdditiveDiagramIso_app (n : ℕ)
       (groupHomologyAddEquivFiniteTateNegative A L S n).toAddCommGrpIso := rfl
 
 /-- Forward component evaluation is the finite-level additive comparison. -/
-@[simp]
+@[simp↓]
 lemma finiteNegativeDeflationAdditiveDiagramIso_hom_app_apply (n : ℕ)
     (S : OpenNormalSubgroup G)
     (x : groupHomology (A.quotientToInvariants S.toSubgroup) (n + 1)) :
@@ -120,7 +120,7 @@ lemma finiteNegativeDeflationAdditiveDiagramIso_hom_app_apply (n : ℕ)
       groupHomologyAddEquivFiniteTateNegative A L S n x := rfl
 
 /-- Inverse component evaluation is the inverse finite-level comparison. -/
-@[simp]
+@[simp↓]
 lemma finiteNegativeDeflationAdditiveDiagramIso_inv_app_apply (n : ℕ)
     (S : OpenNormalSubgroup G) (x : finiteTateNegative A L S n) :
     (finiteNegativeDeflationAdditiveDiagramIso A L n).inv.app S x =

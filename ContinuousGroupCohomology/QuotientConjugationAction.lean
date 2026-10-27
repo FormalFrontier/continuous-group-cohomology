@@ -119,7 +119,6 @@ theorem quotientConjActAbelianization_rightHom (S : GroupExtension N E Q) (e : E
 
 /-- Pointwise lift formula for the quotient action, including its conjugation
 orientation on representatives of the kernel abelianization. -/
-@[simp]
 theorem quotientConjActAbelianization_apply_of (S : GroupExtension N E Q)
     (e : E) (n : N) :
     S.quotientConjActAbelianization (S.rightHom e) (Abelianization.of n) =

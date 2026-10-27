@@ -45,7 +45,13 @@ private theorem trivialGroupSanity (X : TopRep.{w} ℤ PUnit.{1})
 
 section Indiscrete
 
-local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊤
+/-- The indiscrete topology on the two-element group. -/
+local instance twoElementTopology : TopologicalSpace (Multiplicative (ZMod 2)) := ⊤
+
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias instTopologicalSpaceMultiplicativeZModOfNatNat_examples := twoElementTopology
+attribute [nolint defsWithUnderscore] instTopologicalSpaceMultiplicativeZModOfNatNat_examples
 
 private theorem indiscreteTwoElementGroup (X : TopRep.{w} ℤ (Multiplicative (ZMod 2)))
     (a : continuousCohomology 2 X) : Nat.card (Multiplicative (ZMod 2)) • a = 0 := by

@@ -61,15 +61,17 @@ theorem continuousSMul_discreteDirectSum :
   | add x y hx hy =>
       exact (hx.add hy).congr (fun r => (smul_add r x y).symm)
 
-/-- The componentwise representation on an arbitrary algebraic direct sum,
-equipped with the discrete topology. -/
-noncomputable def discreteDirectSum : TopRep.{max z w} k G := by
-  letI : TopologicalSpace (⨁ i, X i) := ⊥
-  letI : DiscreteTopology (⨁ i, X i) := discreteTopology_bot _
-  letI : ContinuousSMul k (⨁ i, X i) := continuousSMul_discreteDirectSum X
+/-- The componentwise action as a monoid homomorphism into continuous linear
+endomorphisms of the algebraic direct sum, for any given discrete topology on
+that sum. Each operator is continuous; joint continuity in `G` is not assumed.
+The action is characterized by `discreteDirectSumHom_apply` and
+`discreteDirectSumHom_of`. -/
+noncomputable def discreteDirectSumHom
+    [TopologicalSpace (⨁ i, X i)] [DiscreteTopology (⨁ i, X i)] :
+    G →* ((⨁ i, X i) →L[k] (⨁ i, X i)) := by
   let ρ : Representation k G (⨁ i, X i) :=
     Representation.directSum (fun i => (X i).ρ.toRepresentation)
-  exact .of <| .ofMonoidHom {
+  exact {
     toFun := fun g => ContinuousLinearMap.mk (ρ g) continuous_of_discreteTopology
     map_one' := by
       apply ContinuousLinearMap.ext
@@ -86,6 +88,36 @@ noncomputable def discreteDirectSum : TopRep.{max z w} k G := by
       rfl
   }
 
+omit [∀ i, DiscreteTopology (X i)] in
+/-- The continuous linear direct-sum action is componentwise at every coordinate. -/
+theorem discreteDirectSumHom_apply
+    [TopologicalSpace (⨁ i, X i)] [DiscreteTopology (⨁ i, X i)]
+    (g : G) (x : ⨁ i, X i) (i : ι) :
+    (discreteDirectSumHom X g x) i = (X i).ρ g (x i) := by
+  rfl
+
+open scoped Classical in
+omit [∀ i, DiscreteTopology (X i)] in
+/-- The continuous linear direct-sum action commutes with each canonical injection. -/
+theorem discreteDirectSumHom_of
+    [TopologicalSpace (⨁ i, X i)] [DiscreteTopology (⨁ i, X i)]
+    (g : G) (i : ι) (a : X i) :
+    discreteDirectSumHom X g (DirectSum.of (fun i => X i) i a) =
+      DirectSum.of (fun i => X i) i ((X i).ρ g a) := by
+  change DirectSum.lmap (fun i => ((X i).ρ.toRepresentation) g)
+      (DirectSum.of (fun i => X i) i a) =
+    DirectSum.of (fun i => X i) i ((X i).ρ g a)
+  simp
+  rfl
+
+/-- The componentwise representation on an arbitrary algebraic direct sum,
+equipped with the discrete topology. -/
+noncomputable def discreteDirectSum : TopRep.{max z w} k G := by
+  letI : TopologicalSpace (⨁ i, X i) := ⊥
+  letI : DiscreteTopology (⨁ i, X i) := discreteTopology_bot _
+  letI : ContinuousSMul k (⨁ i, X i) := continuousSMul_discreteDirectSum X
+  exact .of <| .ofMonoidHom (discreteDirectSumHom X)
+
 /-- The carrier of the discrete direct sum is Mathlib's algebraic direct sum. -/
 @[simp] theorem discreteDirectSum_V : (discreteDirectSum X).V = (⨁ i, X i) := rfl
 
@@ -95,14 +127,14 @@ instance instDiscreteTopologyDiscreteDirectSum : DiscreteTopology (discreteDirec
   rfl
 
 /-- Evaluating the direct-sum action at a coordinate evaluates the input action. -/
-@[simp] theorem discreteDirectSum_ρ_apply (g : G) (x : ⨁ i, X i) (i : ι) :
+@[simp↓] theorem discreteDirectSum_ρ_apply (g : G) (x : ⨁ i, X i) (i : ι) :
     (DirectSum.coeFnAddMonoidHom (fun i => X i) ((discreteDirectSum X).ρ g x)) i =
       (X i).ρ g (x i) := by
   rfl
 
 open scoped Classical in
 /-- Acting on a direct-sum injection commutes with that injection. -/
-@[simp] theorem discreteDirectSum_ρ_of (g : G) (i : ι) (a : X i) :
+@[simp↓] theorem discreteDirectSum_ρ_of (g : G) (i : ι) (a : X i) :
     (discreteDirectSum X).ρ g (DirectSum.of (fun i => X i) i a) =
       DirectSum.of (fun i => X i) i ((X i).ρ g a) := by
   change DirectSum.lmap (fun i => ((X i).ρ.toRepresentation) g)
@@ -186,15 +218,16 @@ theorem continuousSMul_discreteTensor :
   | add x y hx hy =>
       exact (hx.add hy).congr (fun r => (smul_add r x y).symm)
 
-/-- The diagonal tensor representation on the algebraic tensor product,
-equipped with the discrete topology. -/
-noncomputable def discreteTensor : TopRep.{max w z} k G := by
-  letI : TopologicalSpace (X ⊗[k] Y) := ⊥
-  letI : DiscreteTopology (X ⊗[k] Y) := discreteTopology_bot _
-  letI : ContinuousSMul k (X ⊗[k] Y) := continuousSMul_discreteTensor X Y
+/-- The diagonal action as a monoid homomorphism into continuous linear
+endomorphisms of the algebraic tensor product, for any given discrete topology
+on that product. Each operator is continuous; joint continuity in `G` is not
+assumed. Its value on pure tensors is `discreteTensorHom_tmul`. -/
+noncomputable def discreteTensorHom
+    [TopologicalSpace (X ⊗[k] Y)] [DiscreteTopology (X ⊗[k] Y)] :
+    G →* ((X ⊗[k] Y) →L[k] (X ⊗[k] Y)) := by
   let ρ : Representation k G (X ⊗[k] Y) :=
     Representation.tprod X.ρ.toRepresentation Y.ρ.toRepresentation
-  exact .of <| .ofMonoidHom {
+  exact {
     toFun := fun g => ContinuousLinearMap.mk (ρ g) continuous_of_discreteTopology
     map_one' := by
       apply ContinuousLinearMap.ext
@@ -211,6 +244,27 @@ noncomputable def discreteTensor : TopRep.{max w z} k G := by
       rfl
   }
 
+omit [DiscreteTopology X] [DiscreteTopology Y] in
+/-- The continuous linear tensor action sends a pure tensor to the tensor of
+its factor actions. -/
+theorem discreteTensorHom_tmul
+    [TopologicalSpace (X ⊗[k] Y)] [DiscreteTopology (X ⊗[k] Y)]
+    (g : G) (a : X) (b : Y) :
+    discreteTensorHom X Y g (a ⊗ₜ[k] b) =
+      (X.ρ g a) ⊗ₜ[k] (Y.ρ g b) := by
+  change (Representation.tprod X.ρ.toRepresentation Y.ρ.toRepresentation) g (a ⊗ₜ[k] b) =
+    (X.ρ g a) ⊗ₜ[k] (Y.ρ g b)
+  simp only [Representation.tprod_apply, TensorProduct.map_tmul]
+  rfl
+
+/-- The diagonal tensor representation on the algebraic tensor product,
+equipped with the discrete topology. -/
+noncomputable def discreteTensor : TopRep.{max w z} k G := by
+  letI : TopologicalSpace (X ⊗[k] Y) := ⊥
+  letI : DiscreteTopology (X ⊗[k] Y) := discreteTopology_bot _
+  letI : ContinuousSMul k (X ⊗[k] Y) := continuousSMul_discreteTensor X Y
+  exact .of <| .ofMonoidHom (discreteTensorHom X Y)
+
 /-- The carrier of the discrete tensor is Mathlib's algebraic tensor product. -/
 @[simp] theorem discreteTensor_V : (discreteTensor X Y).V = X ⊗[k] Y := rfl
 
@@ -220,7 +274,7 @@ instance instDiscreteTopologyDiscreteTensor : DiscreteTopology (discreteTensor X
   rfl
 
 /-- The diagonal action on a pure tensor is the tensor of the factor actions. -/
-@[simp] theorem discreteTensor_ρ_tmul (g : G) (a : X) (b : Y) :
+@[simp↓] theorem discreteTensor_ρ_tmul (g : G) (a : X) (b : Y) :
     (discreteTensor X Y).ρ g (a ⊗ₜ[k] b) =
       (X.ρ g a) ⊗ₜ[k] (Y.ρ g b) := by
   change (Representation.tprod X.ρ.toRepresentation Y.ρ.toRepresentation) g (a ⊗ₜ[k] b) =

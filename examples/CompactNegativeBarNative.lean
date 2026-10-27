@@ -84,17 +84,24 @@ variable {G : Type u} [Group G] [TopologicalSpace G]
   [IsTopologicalGroup G] [CompactSpace G]
 variable (A : Rep.{u} R G) (L : LevelCompact A)
 
-noncomputable def degree_negative_two (S : OpenNormalSubgroup G)
+/-- The finite-level comparison in Tate degree `-2`. -/
+noncomputable def degreeNegativeTwo (S : OpenNormalSubgroup G)
     [Fintype (G ⧸ S.toSubgroup)] :
     tateCohomology (A.quotientToInvariants S.toSubgroup) (-2 : ℤ) ≃+
       LevelCompact.finiteTateNegative A L S 0 := by
   simpa using
     LevelCompact.tateCohomologyNegativeAddEquivFiniteTate A L S 0
 
+-- Preserve this deprecated public spelling for downstream source compatibility.
+@[deprecated (since := "2026-10-23")]
+alias degree_negative_two := degreeNegativeTwo
+attribute [nolint defsWithUnderscore] degree_negative_two
+
 end FiniteTateStage
 
 local notation "G₂" => Multiplicative (ZMod 2)
 
+/-- The trivial integral representation of the two-element group on `ZMod 3`. -/
 noncomputable abbrev finiteCoefficients : Rep.{0} ℤ G₂ :=
   Rep.trivial ℤ G₂ (ZMod 3)
 
