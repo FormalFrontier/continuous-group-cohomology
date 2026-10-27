@@ -228,12 +228,12 @@ def cochainsZeroEquiv [TopRep.JointlyContinuous X] :
   continuous_toFun := (continuous_eval_const 1).comp continuous_subtype_val
   continuous_invFun := continuous_induced_rng.2 (orbitMap X).continuous
 
-@[simp]
+@[simp↓]
 theorem cochainsZeroEquiv_apply [TopRep.JointlyContinuous X]
     (σ : (TopRep.homogeneousCochains X).X 0) :
     cochainsZeroEquiv X σ = σ.1 1 := rfl
 
-@[simp]
+@[simp↓]
 theorem cochainsZeroEquiv_symm_apply [TopRep.JointlyContinuous X]
     (x : X) (g : G) :
     ((cochainsZeroEquiv X).symm x).1 g = X.ρ g x := rfl
@@ -400,13 +400,13 @@ noncomputable def cochainsZeroIso [TopRep.JointlyContinuous X] :
     (TopRep.homogeneousCochains X).X 0 ≅ TopModuleCat.of k X :=
   TopModuleCat.ofIso (cochainsZeroEquiv X)
 
-@[simp]
+@[simp↓]
 theorem cochainsZeroIso_hom_apply [TopRep.JointlyContinuous X]
     (σ : (TopRep.homogeneousCochains X).X 0) :
     (cochainsZeroIso X).hom.hom σ = σ.1 1 :=
   cochainsZeroEquiv_apply X σ
 
-@[simp]
+@[simp↓]
 theorem cochainsZeroIso_inv_apply [TopRep.JointlyContinuous X]
     (x : X) (g : G) : ((cochainsZeroIso X).inv.hom x).1 g = X.ρ g x :=
   cochainsZeroEquiv_symm_apply X x g

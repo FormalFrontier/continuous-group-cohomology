@@ -90,4 +90,5 @@ roots = [
   "CGCExamples.CoefficientAdditivity",
   "CGCExamples.CompactNegativeDeflation",
   "CGCExamples.Corestriction.CyclicTwo",
+  "CGCExamples.ZeroCochains",
 ]
