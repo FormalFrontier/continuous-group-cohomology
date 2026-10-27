@@ -359,7 +359,7 @@ end ObjectEquations
 
 /-- The displayed boundary applies the existing connector to the degree-zero
 class corresponding to an invariant quotient coefficient. -/
-@[simp] theorem initialInvariantsSequence_boundary_apply [LocallyCompactSpace G]
+@[simp↓] theorem initialInvariantsSequence_boundary_apply [LocallyCompactSpace G]
     [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
     (i : A ⟶ B) (p : B ⟶ C)
     (hi : Function.Injective i.hom) (hexact : Function.Exact i.hom p.hom)
