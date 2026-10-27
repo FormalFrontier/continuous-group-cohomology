@@ -257,7 +257,6 @@ theorem connectingIso_hom [LocallyCompactSpace G]
   rfl
 
 /-- Evaluation of the chosen forward arrow agrees with evaluation of the connector. -/
-@[simp]
 theorem connectingIso_hom_apply [LocallyCompactSpace G]
     [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
     (i : A ⟶ B) (p : B ⟶ C)
