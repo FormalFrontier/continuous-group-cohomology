@@ -143,7 +143,7 @@ def crossedQuotientMap (q : A ⟶ B) [TopRep.JointlyContinuous A]
       exact (Submodule.Quotient.mk_eq_zero (principalCocycles B)).2 ⟨q x, rfl⟩
 
 omit [IsTopologicalGroup G] in
-@[simp]
+@[simp↓]
 lemma crossedQuotientMap_mk (q : A ⟶ B) [TopRep.JointlyContinuous A]
     [TopRep.JointlyContinuous B] (f : continuousCrossedHom A) :
     crossedQuotientMap q ((principalCocycles A).mkQ f) =
