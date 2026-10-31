@@ -16,7 +16,9 @@ public import Mathlib.Topology.Instances.Real.Lemmas
 Doubling the integers with the sign action, followed by reduction modulo two
 with the trivial action, is a nonsplit short exact row. Nonconstant continuous
 functions on the two-element unit group exhibit a quotient lift and a lift from
-the middle kernel without using coinduction exactness.
+the middle kernel without using coinduction exactness. The negative unit's
+coinduced action on signed integer coefficients sends the two evaluation
+coordinates `(a,b)` to `(-b,-a)`.
 
 ## References
 
@@ -24,9 +26,6 @@ the middle kernel without using coinduction exactness.
   edition, Chapter I, §3, Proposition (1.3.6)(i).
 * Mathlib's continuous coinduction and the integer-unit sign action.
 -/
-
--- This private signed-row verification does not add a public coinduction API.
-set_option linter.privateModule false
 
 @[expose] public section
 
@@ -147,12 +146,14 @@ private theorem evenPair_nonconstant : evenPair 1 ≠ evenPair (-1) := by
   rw [evenPair_values.1, evenPair_values.2]
   decide
 
-private theorem signedCoinduction_twisted_action (F : TopRep.coind₁ signedIntegers) :
+/-- The negative unit's coinduced action on continuous functions with signed integer
+coefficients sends the evaluation coordinates at `(1,-1)` from `(a,b)` to `(-b,-a)`. -/
+theorem signedCoinduction_twisted_action (F : TopRep.coind₁ signedIntegers) :
     signedIntegers.ρ.coind₁ (-1 : ℤˣ) F 1 = signedIntegers.ρ (-1) (F (-1)) ∧
       signedIntegers.ρ.coind₁ (-1 : ℤˣ) F (-1) = signedIntegers.ρ (-1) (F 1) := by
   constructor
-  · simpa using (ContRepresentation.coind₁_apply_apply signedIntegers.ρ (-1) F 1)
-  · simpa using (ContRepresentation.coind₁_apply_apply signedIntegers.ρ (-1) F (-1))
+  · exact ContRepresentation.coind₁_apply_apply signedIntegers.ρ (-1) F 1
+  · exact ContRepresentation.coind₁_apply_apply signedIntegers.ρ (-1) F (-1)
 
 private theorem residuePair_twisted_action :
     signedResidues.ρ.coind₁ (-1 : ℤˣ) residuePair 1 = 0 ∧

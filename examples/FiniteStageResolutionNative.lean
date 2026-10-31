@@ -174,7 +174,6 @@ example : signedIntegers.ρ (-1 : Units ℤ) (0 : ℤ) = 0 ∧
     signedIntegers.ρ (-1 : Units ℤ) (1 : ℤ) ≠ (1 : ℤ) := by
   constructor
   · simp only [signedIntegers_ρ_apply, smul_zero]
-    rfl
   · exact signedIntegers_negative_one_not_fixed
 
 end CGCExamples.FiniteStageResolution

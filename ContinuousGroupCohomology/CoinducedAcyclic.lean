@@ -247,8 +247,8 @@ homogeneous argument. -/
     [DiscreteTopology X] :
     ∀ (m : ℕ) (f : TopRep.resolutionX (TopRep.coind₁ X) (m + 2))
       (hs : Fin (m + 1) → G) (t : G),
-      (TopRep.resolutionEval (TopRep.coind₁ X) (m + 1)
-        (insertCoind X m f) hs) t =
+      (TopRep.resolutionEval (TopRep.coind₁ X) m
+        ((insertCoind X m f) (hs 0)) (Fin.tail hs)) t =
       (TopRep.resolutionEval (TopRep.coind₁ X) (m + 2)
         f (Fin.cons t hs)) t
   | 0, _, _, _ => rfl
@@ -275,10 +275,15 @@ theorem insertCoind_natural_apply {X Y : TopRep.{max v w} k G}
   intro hs
   apply ContinuousMap.ext
   intro t
-  rw [insertCoind_eval Y m]
-  rw [TopRep.resolutionEval_map ((coind₁Functor k G).map f)]
-  rw [TopRep.resolutionEval_map ((coind₁Functor k G).map f)]
-  exact congrArg f.hom (insertCoind_eval X m a hs t).symm
+  calc
+    _ = (TopRep.resolutionEval (TopRep.coind₁ Y) (m + 2)
+        ((resolutionMap (X := TopRep.coind₁ X) (ContinuousMonoidHom.id G)
+          ((coind₁Functor k G).map f) (m + 2)).hom a) (Fin.cons t hs)) t :=
+      insertCoind_eval Y m _ hs t
+    _ = _ := by
+      rw [TopRep.resolutionEval_map ((coind₁Functor k G).map f)]
+      rw [TopRep.resolutionEval_map ((coind₁Functor k G).map f)]
+      exact congrArg f.hom (insertCoind_eval X m a hs t).symm
 
 /-- Diagonal insertion on the invariant homogeneous cochain complex. -/
 def coind₁Insert (X : TopRep.{max v w} k G) [DiscreteTopology X] (m : ℕ) :
@@ -334,10 +339,15 @@ private theorem insert_homotopy_raw (X : TopRep.{max v w} k G)
       _ = ∑ j : Fin (m + 2), (-1 : ℤ) ^ j.val •
             (TopRep.resolutionEval F (m + 1) (insertCoind X m f)
               (j.removeNth hs)) t := hfirst
-      _ = _ := Finset.sum_congr rfl (fun j _ => by
-        rw [insertCoind_eval X m f (j.removeNth hs) t])
-  have hsecond := insertCoind_eval X (m + 1)
-    ((TopRep.d F (m + 2)).hom f) hs t
+      _ = _ := Finset.sum_congr rfl (fun j _ =>
+        congrArg (fun x => (-1 : ℤ) ^ j.val • x)
+          (insertCoind_eval X m f (j.removeNth hs) t))
+  have hsecond :
+      (TopRep.resolutionEval F (m + 2)
+        (insertCoind X (m + 1) ((TopRep.d F (m + 2)).hom f)) hs) t =
+      (TopRep.resolutionEval F (m + 3)
+        ((TopRep.d F (m + 2)).hom f) (Fin.cons t hs)) t :=
+    insertCoind_eval X (m + 1) ((TopRep.d F (m + 2)).hom f) hs t
   have hthird := congrArg (ContinuousMap.evalCLM k t)
     (TopRep.resolutionEval_d F (m + 2) f (Fin.cons t hs))
   simp only [map_sum, map_zsmul, ContinuousMap.evalCLM_apply] at hthird

@@ -530,7 +530,7 @@ private theorem zeroIso_inv_iCycles_eq_zeroCochain
 
 set_option backward.isDefEq.respectTransparency false in
 private theorem zeroIso_inv_homologyπ
-    (X : TopRep.{max v w} k G) [TopRep.JointlyContinuous X] :
+    (X : TopRep.{max v w} k G) :
     (zeroIso X).inv ≫ (homogeneousCochains X).isoHomologyπ₀.inv ≫
         (homogeneousCochains X).homologyπ 0 = (zeroIso X).inv := by
   change (zeroIso X).inv ≫ (homogeneousCochains X).isoHomologyπ₀.inv ≫
@@ -538,16 +538,13 @@ private theorem zeroIso_inv_homologyπ
   simp only [Iso.inv_hom_id, Category.comp_id]
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem splitConnecting_cochain_lift [LocallyCompactSpace G]
-    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
-    [TopRep.JointlyContinuous A]
+private theorem splitConnecting_cochain_lift
+    [TopRep.JointlyContinuous B] [TopRep.JointlyContinuous C]
     (S : TopologicallySplitShortExact A B C) :
     (TopModuleCat.ofHom S.sectionOnInvariants ≫ (cochainsZeroIso B).inv) ≫
         (cochainsMap (ContinuousMonoidHom.id G) S.p).f 0 =
       ((zeroIso C).inv ≫ (homogeneousCochains C).isoHomologyπ₀.inv) ≫
         (homogeneousCochains C).iCycles 0 := by
-  let : TopRep.JointlyContinuous C :=
-    jointlyContinuous_of_surjective_discrete S.p S.surjective_p
   simp only [Category.assoc, zeroIso_inv_iCycles_eq_zeroCochain C,
     cochainsZeroIso_inv_naturality S.p]
   simp only [← Category.assoc]
@@ -556,9 +553,8 @@ private theorem splitConnecting_cochain_lift [LocallyCompactSpace G]
   exact S.p_section x
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem splitConnecting_cochain_boundary [LocallyCompactSpace G]
-    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
-    [TopRep.JointlyContinuous A]
+private theorem splitConnecting_cochain_boundary
+    [TopRep.JointlyContinuous B]
     (S : TopologicallySplitShortExact A B C) :
     ((TopModuleCat.ofHom S.connectingCrossed ≫ (cocyclesOneCrossedIso A).inv) ≫
         (homogeneousCochains A).iCycles 1) ≫
@@ -609,9 +605,8 @@ private theorem splitConnecting_cochain_boundary [LocallyCompactSpace G]
     _ = _ := by rw [Category.assoc, HomologicalComplex.toCycles_i]
 
 set_option backward.isDefEq.respectTransparency false in
-private theorem splitConnecting_homology [LocallyCompactSpace G]
-    [DiscreteTopology B] [DiscreteTopology C] [TopRep.JointlyContinuous B]
-    [TopRep.JointlyContinuous A]
+private theorem splitConnecting_homology
+    [TopRep.JointlyContinuous B] [TopRep.JointlyContinuous A]
     (S : TopologicallySplitShortExact A B C) :
     (TopModuleCat.ofHom S.connectingCrossed ≫ (cocyclesOneCrossedIso A).inv) ≫
         (homogeneousCochains A).homologyπ 1 = S.connectingMap := by

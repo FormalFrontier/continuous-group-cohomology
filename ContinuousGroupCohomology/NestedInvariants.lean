@@ -7,17 +7,18 @@ module
 public import Mathlib.RepresentationTheory.Invariants
 
 /-!
-# Nested normal-subgroup invariants
+# Nested subgroup invariants
 
 This file supplies the coefficient bridge needed to compare finite quotient
-cohomology through nested normal subgroups. If `S ≤ T` are normal subgroups of
-`G` and `A` is a `G`-representation, taking `S`-invariants and then
-`T / S`-invariants agrees with taking `T`-invariants directly.
+cohomology through nested subgroups. If `S ≤ T`, `S` is normal in `G`, and `A`
+is a `G`-representation, taking `S`-invariants and then invariants under the
+image of `T` in `G / S` agrees with taking `T`-invariants directly. This
+underlying linear equivalence does not require `T` to be normal.
 
-The representation-level isomorphism records the third-isomorphism-theorem
-identification `(G / S) / (T / S) ≃ G / T`; it is stronger than a bare
-equivalence of the underlying modules and is intended for later deflation and
-inflation constructions.
+When both subgroups are normal, the representation-level isomorphism records
+the third-isomorphism-theorem identification `(G / S) / (T / S) ≃ G / T`;
+it is stronger than a bare equivalence of the underlying modules and is
+intended for later deflation and inflation constructions.
 -/
 
 public section
@@ -31,11 +32,12 @@ universe u v w
 variable {R : Type u} [CommRing R]
 variable {G : Type v} [Group G]
 
-/-- Taking invariants under `T / S` after taking invariants under `S` agrees
-with taking invariants under `T`. -/
+/-- Taking invariants under the image of `T` in `G / S` after taking
+invariants under the normal subgroup `S` agrees with taking invariants under
+`T`. The subgroup `T` need not be normal. -/
 @[expose]
 noncomputable def nestedQuotientInvariantsEquiv (A : Rep.{w} R G)
-    (S T : Subgroup G) [S.Normal] [T.Normal] (hST : S ≤ T) :
+    (S T : Subgroup G) [S.Normal] (hST : S ≤ T) :
     Representation.invariants ((A.quotientToInvariants S).ρ.comp
       (T.map (QuotientGroup.mk' S)).subtype) ≃ₗ[R]
       Representation.invariants (A.ρ.comp T.subtype) where
@@ -63,19 +65,20 @@ noncomputable def nestedQuotientInvariantsEquiv (A : Rep.{w} R G)
 
 @[simp]
 lemma nestedQuotientInvariantsEquiv_apply_val (A : Rep.{w} R G)
-    (S T : Subgroup G) [S.Normal] [T.Normal] (hST : S ≤ T)
+    (S T : Subgroup G) [S.Normal] (hST : S ≤ T)
     (x : Representation.invariants ((A.quotientToInvariants S).ρ.comp
       (T.map (QuotientGroup.mk' S)).subtype)) :
     (nestedQuotientInvariantsEquiv A S T hST x).1 = x.1.1 := rfl
 
 @[simp]
 lemma nestedQuotientInvariantsEquiv_symm_apply_val (A : Rep.{w} R G)
-    (S T : Subgroup G) [S.Normal] [T.Normal] (hST : S ≤ T)
+    (S T : Subgroup G) [S.Normal] (hST : S ≤ T)
     (x : Representation.invariants (A.ρ.comp T.subtype)) :
     ((nestedQuotientInvariantsEquiv A S T hST).symm x).1.1 = x.1 := rfl
 
-/-- The nested-invariants equivalence is equivariant after the third
-isomorphism theorem identifies the two quotient groups. -/
+/-- For normal subgroups `S ≤ T`, the nested-invariants equivalence is
+equivariant after the third isomorphism theorem identifies the two quotient
+groups. -/
 @[expose]
 noncomputable def nestedQuotientInvariantsRepIso (A : Rep.{w} R G)
     (S T : Subgroup G) [S.Normal] [T.Normal] (hST : S ≤ T) :

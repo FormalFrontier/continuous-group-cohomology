@@ -180,7 +180,7 @@ theorem finiteFunctionTensorLinearEquiv_twisted_single
 omit [Finite G] in
 /-- The diagonal left-regular action shifts a group-algebra basis element
 on the left. -/
-@[simp] theorem tprod_leftRegular_single (ρ : Representation R G M)
+theorem tprod_leftRegular_single (ρ : Representation R G M)
     (g s : G) (m : M) :
     (ρ.tprod (Representation.leftRegular R G)) g
         (m ⊗ₜ[R] MonoidAlgebra.single s 1) =

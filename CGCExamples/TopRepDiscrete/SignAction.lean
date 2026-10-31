@@ -28,6 +28,7 @@ continuous-representation interface used by `TopRep`.
 namespace CGCExamples
 
 /-- The integer units act on the discrete integers by their usual sign action. -/
+@[implicit_reducible]
 def signedIntegers : TopRep ℤ ℤˣ := by
   let representation : Representation ℤ ℤˣ ℤ :=
     Representation.ofDistribMulAction ℤ ℤˣ ℤ
@@ -56,16 +57,22 @@ instance signedIntegers_discrete : DiscreteTopology signedIntegers := by
   change DiscreteTopology ℤ
   infer_instance
 
-/-- The action of an integer unit is multiplication by that unit on integers. -/
-@[simp] theorem signedIntegers_ρ_apply (g : ℤˣ) (n : ℤ) :
-    signedIntegers.ρ g n = g • n := by
+/-- The coerced action of an integer unit is multiplication by that unit on integers. -/
+@[simp] theorem signedIntegers_ρ_coe_apply (g : ℤˣ) (n : ℤ) :
+    DFunLike.coe (F := ℤ →L[ℤ] ℤ)
+      (DFunLike.coe (F := ContRepresentation ℤ ℤˣ ℤ)
+        (signedIntegers.ρ : ContRepresentation ℤ ℤˣ ℤ) g : ℤ →L[ℤ] ℤ) n = g • n := by
   rfl
+
+/-- The bundled sign action of an integer unit evaluates by multiplication by that unit. -/
+theorem signedIntegers_ρ_apply (g : ℤˣ) (n : ℤ) :
+    signedIntegers.ρ g n = g • n :=
+  signedIntegers_ρ_coe_apply g n
 
 /-- The negative unit sends `1` to `-1` in the sign representation. -/
 theorem signedIntegers_negative_one :
     signedIntegers.ρ (-1 : ℤˣ) (1 : ℤ) = (-1 : ℤ) := by
   simp
-  rfl
 
 /-- The negative unit acts nontrivially on the sign representation. -/
 theorem signedIntegers_negative_one_not_fixed :

@@ -227,11 +227,20 @@ noncomputable def signedIntegersToTrivial :
   TopRep.discreteLinHomOfLinearMap CGCExamples.signedIntegers
     (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) (LinearMap.id : ℤ →ₗ[ℤ] ℤ)
 
-/-- The underlying map from the integer-unit sign action to the trivial action
-is the identity on integers. -/
-@[simp] theorem signedIntegersToTrivial_apply (n : ℤ) :
+/-- The underlying map from the integer-unit sign action to the trivial action,
+coerced to an integer function, is the identity. -/
+@[simp] theorem signedIntegersToTrivial_coe_apply (n : ℤ) :
+    DFunLike.coe (F := ℤ →ₗ[ℤ] ℤ)
+      (TopRep.discreteLinHomToLinearMap CGCExamples.signedIntegers
+        (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ))
+        signedIntegersToTrivial : ℤ →ₗ[ℤ] ℤ) n = n := rfl
+
+/-- The bundled underlying map from the integer-unit sign action to the trivial
+representation evaluates as the identity on integers. -/
+theorem signedIntegersToTrivial_apply (n : ℤ) :
     (TopRep.discreteLinHomToLinearMap CGCExamples.signedIntegers
-      (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) signedIntegersToTrivial) n = n := rfl
+      (TopRep.of (ContRepresentation.trivial ℤ ℤˣ ℤ)) signedIntegersToTrivial) n = n :=
+  signedIntegersToTrivial_coe_apply n
 
 /-- Conjugation by the negative integer unit sends the underlying identity
 map to a map taking `1` to `-1`; this map is not fixed under conjugation. -/
